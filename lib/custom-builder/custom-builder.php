@@ -98,6 +98,8 @@ function shoestrap_custom_builder_rewrite_variables() {
     $tableBorder            = shoestrap_adjust_brightness( $bodyBackground, 34 );
   }
   
+  $inputBorder = shoestrap_mix_colors( $grayLight, $grayLighter, 50 );
+
   // Grid Columns
   $gridColumnNormal = number_format( ( $gridWidthNormal - ( $gridGutterNormal * ( $gridColumns - 1 ) ) ) / $gridColumns, 2 );
   $gridColumnWide   = number_format( ( $gridWidthWide - ( $gridGutterWide * ( $gridColumns - 1 ) ) ) / $gridColumns, 2 );
@@ -239,7 +241,7 @@ function shoestrap_custom_builder_rewrite_variables() {
 // Forms
 // -------------------------
 @inputBackground:               @white;
-@inputBorder:                   mix(@grayLight, @grayLighter);
+@inputBorder:                   ' . $inputBorder . ';
 @inputBorderRadius:             @baseBorderRadius;
 @inputDisabledBackground:       @grayLighter;
 @formActionsBackground:         @tableBackgroundHover;
@@ -315,7 +317,7 @@ function shoestrap_custom_builder_rewrite_variables() {
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
 @navbarText:                      ' . $navbarText . ';
-@navbarLinkColor:                 @navbatText;
+@navbarLinkColor:                 @navbarText;
 @navbarLinkColorHover:            ' . $navbarLinkColorHover . ';
 @navbarLinkColorActive:           ' . $navbarLinkColorActive . ';
 @navbarLinkBackgroundHover:       transparent;
