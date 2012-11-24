@@ -28,40 +28,56 @@
  * we'll have to find a way to make is a simple and intuitive as possible.
  */
 function shoestrap_custom_builder_rewrite_variables() {
-  $bodyBackground     = '#FFFFFF';
-  $textColor          = '#333333';
-  $blue               = '#049CDB';
-  $blueDark           = '#0064CD';
-  $green              = '#46A546';
-  $red                = '#9D261D';
-  $yellow             = '#FFC40D';
-  $orange             = '#F89406';
-  $pink               = '#C3325F';
-  $purple             = '#7A43B6';
-  $linkColor          = '#0088CC';
-  $sansFontFamily     = '"Helvetica Neue", Helvetica, Arial, sans-serif';
-  $serifFontFamily    = 'Georgia, "Times New Roman", Times, serif';
-  $monoFontFamily     = 'Monaco, Menlo, Consolas, "Courier New", monospace';
-  $baseFontSize       = 14;
-  $baseLineHeight     = 20;
-  $fontSizeLarge      = 1.25;
-  $fontSizeSmall      = 0.85;
-  $fontSizeMini       = 0.75;
-  $baseBorderRadius   = 4;
-  $btnPrimaryBackground   = '@linkColor';
+  // main body & text colors
+  $bodyBackground       = get_theme_mod( 'strp_cb_bodybackground' );
+  $textColor            = get_theme_mod( 'strp_cb_textcolor' );
+  
+  // accent colors
+  $blue                 = get_theme_mod( 'strp_cb_blue' );
+  $blueDark             = get_theme_mod( 'strp_cb_bluedark' );
+  $green                = get_theme_mod( 'strp_cb_green' );
+  $red                  = get_theme_mod( 'strp_cb_red' );
+  $yellow               = get_theme_mod( 'strp_cb_yellow' );
+  $orange               = get_theme_mod( 'strp_cb_orange' );
+  $pink                 = get_theme_mod( 'strp_cb_pink' );
+  $purple               = get_theme_mod( 'strp_cb_purple' );
+  
+  // links
+  $linkColor            = get_theme_mod( 'strp_cb_linkcolor' );
+  
+  // fonts
+  $sansFontFamily       = get_theme_mod( 'strp_cb_sansfont' );
+  $serifFontFamily      = get_theme_mod( 'strp_cb_serifont' );
+  $monoFontFamily       = get_theme_mod( 'strp_cb_monofont' );
+  $baseFontSize         = get_theme_mod( 'strp_cb_basefontsize' );
+  $baseLineHeight       = get_theme_mod( 'strp_cb_baselineheight' );
+  $fontSizeLarge        = get_theme_mod( 'strp_cb_fontsizelarge' );
+  $fontSizeSmall        = get_theme_mod( 'strp_cb_fontsizesmall' );
+  $fontSizeMini         = get_theme_mod( 'strp_cb_fontsizemini' );
+  
+  // border
+  $baseBorderRadius     = get_theme_mod( 'strp_cb_baseborderradius' );
+  
+  // buttons
+  $btnPrimaryBackground = get_theme_mod( 'strp_cb_btn_primary' );
+  $btnInfoBackground    = get_theme_mod( 'strp_cb_btn_info' );
+  $btnSuccessBackground = get_theme_mod( 'strp_cb_btn_success' );
+  $btnWarningBackground = get_theme_mod( 'strp_cb_btn_warning' );
+  $btnDangerBackground  = get_theme_mod( 'strp_cb_btn_danger' );
+  
+  // grids
+  $gridWidthNormal      = get_theme_mod( 'strp_cb_gridwidth_normal' );
+  $gridWidthWide        = get_theme_mod( 'strp_cb_gridwidth_wide' );
+  $gridWidthNarrow      = get_theme_mod( 'strp_cb_gridwidth_narrow' );
+  $gridGutterNormal     = get_theme_mod( 'strp_cb_gridgutter_normal' );
+  $gridGutterWide       = get_theme_mod( 'strp_cb_gridgutter_wide' );
+
+  $gridColumns          = 12;
+  
+  // navbar
+  $navbarBackgroundHighlight = get_theme_mod( 'strp_cb_navbar_background' );
+  
   $btnBackgroundHighlight = 'darken(' . $bodyBackground . ', 10%)';
-  $btnInfoBackground      = '#5BC0DE';
-  $btnSuccessBackground   = '#62C462';
-  $btnWarningBackground   = '#F89406';
-  $btnDangerBackground    = '#EE5F5B';
-  $btnDangerBackground    = '#EE5F5B';
-  $gridColumns            = 12;
-  $gridWidthNormal        = 940;
-  $gridWidthWide          = 1200;
-  $gridWidthNarrow        = 768;
-  $gridGutterNormal       = 20;
-  $gridGutterWide         = 30;
-  $navbarBackgroundHighlight = '#FFFFFF';
   
   // calculate shadows of gray, depending on background and textcolor
   if ( shoestrap_get_brightness( $bodyBackground ) >= 128 ) {
