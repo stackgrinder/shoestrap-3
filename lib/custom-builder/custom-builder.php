@@ -28,17 +28,17 @@
  * we'll have to find a way to make is a simple and intuitive as possible.
  */
 function shoestrap_custom_builder_rewrite_variables() {
-  $bodyBackground     = '#ffffff';
+  $bodyBackground     = '#FFFFFF';
   $textColor          = '#333333';
-  $blue               = '#049cdb';
-  $blueDark           = '#0064cd';
-  $green              = '#46a546';
-  $red                = '#9d261d';
-  $yellow             = '#ffc40d';
-  $orange             = '#f89406';
-  $pink               = '#c3325f';
-  $purple             = '#7a43b6';
-  $linkColor          = '#0088cc';
+  $blue               = '#049CDB';
+  $blueDark           = '#0064CD';
+  $green              = '#46A546';
+  $red                = '#9D261D';
+  $yellow             = '#FFC40D';
+  $orange             = '#F89406';
+  $pink               = '#C3325F';
+  $purple             = '#7A43B6';
+  $linkColor          = '#0088CC';
   $sansFontFamily     = '"Helvetica Neue", Helvetica, Arial, sans-serif';
   $serifFontFamily    = 'Georgia, "Times New Roman", Times, serif';
   $monoFontFamily     = 'Monaco, Menlo, Consolas, "Courier New", monospace';
@@ -50,18 +50,18 @@ function shoestrap_custom_builder_rewrite_variables() {
   $baseBorderRadius   = 4;
   $btnPrimaryBackground   = '@linkColor';
   $btnBackgroundHighlight = 'darken(' . $bodyBackground . ', 10%)';
-  $btnInfoBackground      = '#5bc0de';
-  $btnSuccessBackground   = '#62c462';
-  $btnWarningBackground   = 'lighten(@orange, 15%)';
-  $btnDangerBackground    = '#ee5f5b';
-  $btnDangerBackground    = '#ee5f5b';
+  $btnInfoBackground      = '#5BC0DE';
+  $btnSuccessBackground   = '#62C462';
+  $btnWarningBackground   = '#F89406';
+  $btnDangerBackground    = '#EE5F5B';
+  $btnDangerBackground    = '#EE5F5B';
   $gridColumns            = 12;
   $gridWidthNormal        = 940;
   $gridWidthWide          = 1200;
   $gridWidthNarrow        = 768;
   $gridGutterNormal       = 20;
   $gridGutterWide         = 30;
-  $navbarBackgroundHighlight = '#ffffff';
+  $navbarBackgroundHighlight = '#FFFFFF';
   
   // calculate shadows of gray, depending on background and textcolor
   if ( shoestrap_get_brightness( $bodyBackground ) >= 128 ) {
@@ -101,9 +101,9 @@ function shoestrap_custom_builder_rewrite_variables() {
   $inputBorder = shoestrap_mix_colors( $grayLight, $grayLighter, 50 );
 
   // Grid Columns
-  $gridColumnNormal = number_format( ( $gridWidthNormal - ( $gridGutterNormal * ( $gridColumns - 1 ) ) ) / $gridColumns, 2 );
-  $gridColumnWide   = number_format( ( $gridWidthWide - ( $gridGutterWide * ( $gridColumns - 1 ) ) ) / $gridColumns, 2 );
-  $gridColumnNarrow = number_format( ( $gridWidthNarrow - ( $gridGutterNormal * ( $gridColumns - 1 ) ) ) / $gridColumns, 2 );
+  $gridColumnNormal = number_format( ( $gridWidthNormal - ( $gridGutterNormal * ( $gridColumns - 1 ) ) ) / $gridColumns, 0 );
+  $gridColumnWide   = number_format( ( $gridWidthWide - $gridGutterWide * $gridColumns ) / $gridColumns, 0 );
+  $gridColumnNarrow = number_format( ( $gridWidthNarrow - $gridGutterNormal * ( $gridColumns + 1 ) ) / $gridColumns, 0 );
   
   // width of input elements
   $horizontalComponentOffset = 3 * $gridColumnNormal;
@@ -218,6 +218,7 @@ function shoestrap_custom_builder_rewrite_variables() {
 // -------------------------
 @btnBackground:                     ' . $bodyBackground . ';
 @btnBackgroundHighlight:            darken(@white, 10%);
+@btnBorder:                         rgba(0,0,0,.2);
 
 @btnPrimaryBackground:              ' . $btnPrimaryBackground . ';
 @btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
@@ -403,7 +404,7 @@ function shoestrap_custom_builder_rewrite_variables() {
 // Default 940px grid
 // -------------------------
 @gridColumns:             ' . $gridColumns . ';
-@gridColumnWidth:         ' . $gridWidthNormal . 'px;
+@gridColumnWidth:         ' . $gridColumnNormal . 'px;
 @gridGutterWidth:         ' . $gridGutterNormal . 'px;
 @gridRowWidth:            ' . $gridWidthNormal . 'px;
 

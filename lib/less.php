@@ -11,9 +11,27 @@ function shoestrap_phpless(){
   // $less->setFormatter( "compressed" );
   
   if ( $shoestrap_responsive == '0' ) {
-    $less->checkedCompile( TEMPLATEPATH . '/assets/css/app-fixed.less', TEMPLATEPATH . '/assets/css/app-fixed.css' );
+    $inputFile  = TEMPLATEPATH . '/assets/css/app-fixed.less';
+    $outputFile = TEMPLATEPATH . '/assets/css/app-fixed.css';
   } else {
-    $less->checkedCompile( TEMPLATEPATH . '/assets/css/app-responsive.less', TEMPLATEPATH . '/assets/css/app-responsive.css' );
+    $inputFile  = TEMPLATEPATH . '/assets/css/app-responsive.less';
+    $outputFile = TEMPLATEPATH . '/assets/css/app-responsive.css';
+  }
+
+  $less = new lessc;
+
+  // create a new cache object, and compile
+  $cache = $less -> cachedCompile( $inputFile );
+
+  file_put_contents( $outputFile, $cache["compiled"] );
+
+  // the next time we run, write only if it has updated
+  $last_updated = $cache['updated'];
+  $cache = $less -> cachedCompile( $cache );
+  if ( $cache['updated'] > $last_updated ) {
+    file_put_contents( $outputFile, $cache['compiled'] );
   }
 }
 add_action('wp', 'shoestrap_phpless');
+
+
