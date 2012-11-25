@@ -124,7 +124,7 @@ The [default bootstrap customizer](http://twitter.github.com/bootstrap/customize
 So we tried to minimize the options available by calculating many options based on the ones you make:
 
 * **@black, @grayDarker, @grayDark, @gray, @grayLight, @grayLighter:** Calculated based on the background color and the text-color.
-* **@borderRadiusLarge:** Calculated based on the Base Border Radius.
+* **@borderRadiusLarge, @borderRadiusSmall:** Calculated based on the Base Border Radius.
 * **@linkColorHover:** Calculated based on the link color.
 * **@tableBackgroundAccent, @tableBackgroundHover, @tableBorder:** Calculated based on the background color.
 * **@horizontalComponentOffset, @gridColumnWidth, @gridColumnWidth1200, @gridColumnWidth768, :** Based on layout options
