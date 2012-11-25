@@ -28,8 +28,10 @@ require_once locate_template( '/lib/customizer/custom-builder/components/customi
  * We can derive colors from other settings and based on the bodyBackground,
  * make the colors we need. :)
  * 
- * Responsive and layouts in general will be a little trickier,
- * we'll have to find a way to make is a simple and intuitive as possible.
+ * Responsive and layouts in general are a bit trickier.
+ * We allow the user to choose the width for Wide, Normal and Narrow
+ * as well as gutter widths for narrow/normal and wide.
+ * After that, we calculate all the other values based on these.
  */
 function shoestrap_custom_builder_rewrite_variables() {
   // main body & text colors
@@ -458,4 +460,4 @@ function shoestrap_custom_builder_rewrite_variables() {
   // close the file
   fclose( $fh );
 }
-add_action( 'wp', 'shoestrap_custom_builder_rewrite_variables' );
+add_action( 'customize_preview_init', 'shoestrap_custom_builder_rewrite_variables' );
