@@ -5,6 +5,7 @@ function shoestrap_register_builder_controls( $wp_customize ){
   $advanced_builder = get_theme_mod( 'shoestrap_advanced_builder' );
 
   $color_controls   = array();
+  $text_controls    = array();
   
   // Only add the following settings when advanced builder is ON
   if ( $advanced_builder == 1 ) {
@@ -25,8 +26,6 @@ function shoestrap_register_builder_controls( $wp_customize ){
     $color_controls[] = array( 'setting' => 'strp_cb_btn_danger',         'label' => 'Danger Buttons Color',          'section' => 'colors',      'priority' => 36 );
     $color_controls[] = array( 'setting' => 'strp_cb_navbar_background',  'label' => 'Navbar Background',             'section' => 'colors',      'priority' => 37 );
     
-    $text_controls    = array();
-  
     $text_controls[]  = array( 'setting' => 'strp_cb_sansfont',           'label' => 'Sans Font Family',              'section' => 'shoestrap_typography',  'priority' => 21 );
     $text_controls[]  = array( 'setting' => 'strp_cb_serifont',           'label' => 'Serif Font Family',             'section' => 'shoestrap_typography',  'priority' => 22 );
     $text_controls[]  = array( 'setting' => 'strp_cb_monofont',           'label' => 'Mono Font Family',              'section' => 'shoestrap_typography',  'priority' => 23 );
