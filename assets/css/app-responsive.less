@@ -1,5 +1,4 @@
 @import "bootstrap-less/bootstrap.less";
-
 @import "bootstrap-less/responsive.less";
 
 // Required from wordpress.org
@@ -9,9 +8,9 @@
 .gallery-caption{}
 .bypostauthor{}
 
-#wrap{padding: 20px;}
+#wrap{padding: @gridGutterWidth;}
 
-@media (min-width: 768px){
+@media (min-width: @gridColumnWidth768){
   .row-fluid .span4{width: 31.6%;}
 }
 
@@ -19,7 +18,7 @@
 body{
   &.top-navbar { padding-top: 60px; }
   &.admin-bar{
-    .navbar-fixed-top { top: 28px; }
+    .navbar-fixed-top { top: 28px; } 
   }
 }
 
@@ -31,7 +30,7 @@ body{
 
 figure.alignnone { margin-left: 0; margin-right: 0; }
 
-@media (max-width: 979px) {
+@media (max-width: @navbarCollapseWidth) {
   /* Fix top padding when using the responsive grid with the fixed topbar */
   body.top-navbar {
     padding-top: 0;
@@ -60,7 +59,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
   }
 }
 
-@media (max-width: 767px){
+@media (max-width: @gridColumnWidth768 - 1){
   body{padding: 0; overflow-x: hidden;}
   .navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner{padding-left: 25px; padding-right: 5px; margin-right: 20px;}
   .home-slider{display: none;}
@@ -93,9 +92,7 @@ ul.social-networks{
   }
 }
 
-#main-subnav .container, #main-subnav .navbar-inner{height: 40px;}
-
-@media (min-width: 980px) {
+@media (min-width: @navbarCollapseDesktopWidth) {
   .subnav-fixed {position: fixed; top: 0; left: 0; right: 0; height: 40px; z-index: 1020;
     .nav {margin: 0 auto;
       > li:first-child {
@@ -107,3 +104,5 @@ ul.social-networks{
   
   body.admin-bar .subnav-fixed{top: 28px;}
 }
+
+#main-subnav .container, #main-subnav .navbar-inner{height: 40px;}
