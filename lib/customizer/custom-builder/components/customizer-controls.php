@@ -3,6 +3,7 @@
 function shoestrap_register_builder_controls( $wp_customize ){
   // Determine if the user is using the advanced builder or not
   $advanced_builder = get_theme_mod( 'shoestrap_advanced_builder' );
+  if ( is_multisite() && !is_super_admin() ) { $advanced_builder == ''; }
 
   $color_controls   = array();
   $text_controls    = array();

@@ -25,6 +25,7 @@ function shoestrap_register_controls( $wp_customize ){
   $wp_customize->remove_control( 'background_color' );
   // Determine if the user is using the advanced builder or not
   $advanced_builder = get_theme_mod( 'shoestrap_advanced_builder' );
+  if ( is_multisite() && !is_super_admin() ) { $advanced_builder == ''; }
   
   /*
    * Color Controls
@@ -92,8 +93,11 @@ function shoestrap_register_controls( $wp_customize ){
   $checkbox_controls[] = array( 'setting' => 'shoestrap_linkedin_on_posts',   'label' => 'Share Buttons on Posts: Linkedin',      'section' => 'shoestrap_social',      'priority' => 8 );
   // Share Buttons on posts/pages/custom post types: Pinterest
   $checkbox_controls[] = array( 'setting' => 'shoestrap_pinterest_on_posts',  'label' => 'Share Buttons on Posts: Pinterest',     'section' => 'shoestrap_social',      'priority' => 9 );
-  // Toogle the Advance Bootstrap Builder on/off
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_advanced_builder',    'label' => 'Toggle the advanced Bootstrap Builder', 'section' => 'shoestrap_advanced',    'priority' => 3 );
+  
+  if ( is_multisite() && !is_super_admin() ) {
+    // Toogle the Advance Bootstrap Builder on/off
+    $checkbox_controls[] = array( 'setting' => 'shoestrap_advanced_builder',    'label' => 'Toggle the advanced Bootstrap Builder', 'section' => 'shoestrap_advanced',    'priority' => 3 );
+  }
   
   /*
    * Dropdown (Select) Controls
@@ -181,6 +185,16 @@ function shoestrap_register_controls( $wp_customize ){
       'type'        => 'select',
       'priority'    => $control['priority'],
       'choices'     => $control['choises']
+    ));
+  }
+
+  foreach ( $text_controls as $control) {
+    $wp_customize->add_control( $control['setting'], array(
+      'label'       => __( $control['label'], 'shoestrap' ),
+      'section'     => $control['section'],
+      'settings'    => $control['setting'],
+      'type'        => 'text',
+      'priority'    => $control['priority']
     ));
   }
 
