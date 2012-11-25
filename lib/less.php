@@ -34,4 +34,3 @@ function shoestrap_phpless(){
 }
 add_action('wp', 'shoestrap_phpless');
 
-

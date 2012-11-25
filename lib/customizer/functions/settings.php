@@ -8,6 +8,7 @@ function shoestrap_register_settings( $wp_customize ){
   // Adds compatibility with wordpress's default background color control.
   $background_color = get_theme_mod( 'background_color' );
   $background_color = '#' . str_replace( '#', '', $background_color );
+  set_theme_mod( 'background_color', get_theme_mod( 'shoestrap_background_color' ) );
   
   // Compatibility hack for previous versions of Shoestrap.
   if ( get_theme_mod( 'shoestrap_header_mode' ) == 'header' ) {
@@ -76,6 +77,8 @@ function shoestrap_register_settings( $wp_customize ){
   // Advanced Settings
   $settings[] = array( 'slug' => 'shoestrap_advanced_head',             'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_advanced_footer',           'default' => '' );
+  // Simple or Advanced (variables compiling) mode
+  $settings[] = array( 'slug' => 'shoestrap_advanced_builder',          'default' => '' );
     
   // Typography Settings
   $settings[] = array( 'slug' => 'shoestrap_google_webfonts',           'default' => '' );

@@ -21,25 +21,31 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
  * Create the controls in the customizer.
  */
 function shoestrap_register_controls( $wp_customize ){
-
+  // Remove the default "background" control
   $wp_customize->remove_control( 'background_color' );
+  // Determine if the user is using the advanced builder or not
+  $advanced_builder = get_theme_mod( 'shoestrap_advanced_builder' );
   
   /*
    * Color Controls
    */
   $color_controls   = array();
-  // Navbar background color
-  $color_controls[] = array( 'setting' => 'shoestrap_navbar_color',           'label' => 'Navbar Color',                    'section' => 'shoestrap_navbar',  'priority' => 4 );
+  
+  // Display the following controls only when user is NOT using the advanced controls
+  if ( $advanced_builder != 1 ) {
+    // Navbar background color
+    $color_controls[] = array( 'setting' => 'shoestrap_navbar_color',           'label' => 'Navbar Color',                    'section' => 'shoestrap_navbar',  'priority' => 4 );
+    // Links Color
+    $color_controls[] = array( 'setting' => 'shoestrap_link_color',             'label' => 'Links Color',                     'section' => 'colors',            'priority' => 2 );
+    // Buttons Color
+    $color_controls[] = array( 'setting' => 'shoestrap_buttons_color',          'label' => 'Buttons Color',                   'section' => 'colors',            'priority' => 3 );
+  }
+  // Background Color
+  $color_controls[] = array( 'setting' => 'shoestrap_background_color',       'label' => 'Background Color',                'section' => 'colors',            'priority' => 1 );
   // Header Background
   $color_controls[] = array( 'setting' => 'shoestrap_header_backgroundcolor', 'label' => 'Header Region Background Color',  'section' => 'shoestrap_header',  'priority' => 3 );
   // Header textcolor
   $color_controls[] = array( 'setting' => 'shoestrap_header_textcolor',       'label' => 'Header Region Text Color',        'section' => 'shoestrap_header',  'priority' => 4 );
-  // Background Color
-  $color_controls[] = array( 'setting' => 'shoestrap_background_color',       'label' => 'Background Color',                'section' => 'colors',            'priority' => 1 );
-  // Links Color
-  $color_controls[] = array( 'setting' => 'shoestrap_link_color',             'label' => 'Links Color',                     'section' => 'colors',            'priority' => 2 );
-  // Buttons Color
-  $color_controls[] = array( 'setting' => 'shoestrap_buttons_color',          'label' => 'Buttons Color',                   'section' => 'colors',            'priority' => 3 );
   // Call to Action Button Color (Hero Region)
   $color_controls[] = array( 'setting' => 'shoestrap_hero_cta_color',         'label' => 'Call To Action Button Color',     'section' => 'shoestrap_hero',    'priority' => 5 );
   // Hero Region Background Color
@@ -86,6 +92,8 @@ function shoestrap_register_controls( $wp_customize ){
   $checkbox_controls[] = array( 'setting' => 'shoestrap_linkedin_on_posts',   'label' => 'Share Buttons on Posts: Linkedin',      'section' => 'shoestrap_social',      'priority' => 8 );
   // Share Buttons on posts/pages/custom post types: Pinterest
   $checkbox_controls[] = array( 'setting' => 'shoestrap_pinterest_on_posts',  'label' => 'Share Buttons on Posts: Pinterest',     'section' => 'shoestrap_social',      'priority' => 9 );
+  // Toogle the Advance Bootstrap Builder on/off
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_advanced_builder',    'label' => 'Toggle the advanced Bootstrap Builder', 'section' => 'shoestrap_advanced',    'priority' => 3 );
   
   /*
    * Dropdown (Select) Controls
