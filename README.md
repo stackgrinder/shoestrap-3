@@ -4,24 +4,6 @@ Shoestrap is a WordPress theme that’s based on [HTML5 Boilerplate](http://html
 The logic behind it and a big part of it's code was taken from the amazing [Roots theme](http://rootstheme.com ).
 It is built in a modular way, allowing developers to properly organize their code and templates.
 
-### Caution to themers:
-Before changing your theme's css, we suggest that you first use the customizer to apply any colors etc.
-If you find that you need something more, then DO NOT edit the assets/css/app.css file.
-This theme includes a PHP-Less compiler, so you can use lesscss styles in your theme and take full advantage of its nesting, mixins etc.
-You can even directly use bootstrap's mixins when writing your less styles.
-To learn more about Less-CSS, please take a look at http://lesscss.org/
-Of course if you don't want to use less, you can simply write your own CSS, but again NOT in the assets/css/app.css file.
-Instead, use the assets/css/app.less file.
-When a change in that file is detected, the less compiler minifies it and the output is written in the assets/css/app.css file.
-If you apply your changes and you don't see them applied in your theme, 
-please make sure that it is writable and your server has write permissions for the assets/css/app.css file.
-
-## Automatic Updates
-
-This theme provides automatic updates.
-When you get this theme from http://bootstrap-commerce.com/downloads/downloads/shoestrap/ a licence key will be emailed 
-which when entered and activated will provide you with automatic updates
-
 ## Features
 
 * HTML5 Boilerplate’s markup and `.htaccess`
@@ -38,32 +20,53 @@ which when entered and activated will provide you with automatic updates
 * Uses less for styling and includes a php-less compiler.
 * The compiled css is minified.
 
-## Customizer Options
+This theme makes extended use of WordPress's theme customizer. There are 2 modes in the customizer:
 
-### Header & Logo
+* Standard mode
+* Advanced Builder mode
+
+## Standard mode:
+
+To use the standard mode, visit the "Advanced" section of your customizer, and make sure that the "Toggle the advanced Bootstrap Builder" checkbox ***is not*** checked.
+The following options are available when using the standard mode:
+
+#### Logo
 
 * Upload a logo image
-* Change the header region background color
-* Change the header text color. This setting affects the color of your site-name when you haven’t uploaded a logo, as well as the color of your social links icons.
-* Selection of Navbar color
-* Select if branding should be on a separate Header, or included in the NavBar (caution: the changes are not visible until you save the customizer options and close the customizer)
 
-### Layout
+#### Navbar
 
-* Left Sidebar
-* Right Sidebar (default)
-* No Sidebar
+* Display NavBar on the top of the page
+* Display Branding (Sitename or Logo)
+* Use Logo (if available) for branding
+* Navbar Color
+* Show Login/Logout Link  Display Social Links in the Navbar
 
-### Typography
+#### Header
+
+* Display Extra Header
+* Header Region Background Color
+* Header Region Text Color
+* Display Social Links
+  
+#### Layout
+
+* Responsive / Fixed-width
+* Layout
+* Primary Sidebar Width
+* Secondary Sidebar Width
+* Show sidebars on the Home Page
+
+#### Typography
 
 * Choose from 550+ Google Webfonts for your site
 * Apply the webfont on the Site-Name, Headers or everywhere
 
-### Footer
+#### Footer
 
 * Select the background color for your footer.
 
-### Hero Region
+#### Hero Region
 
 * Title
 * Content (accepts HTML)
@@ -75,25 +78,108 @@ which when entered and activated will provide you with automatic updates
 * Text Color
 * Visibility of the Hero Region (Frontpage only or site-wide)
 
-### Social Links
+#### Social Links
 
-* Facebook link
-* Twitter link
-* Google+ link
-* Pinterest link
+* Facebook Page Link
+* Twitter URL or @username
+* Google+ Profile Link
+* Pinterest Profile Link
+* Share Buttons on Posts: Facebook
+* Share Buttons on Posts: Twitter
+* Share Buttons on Posts: Google Plus
+* Share Buttons on Posts: Linkedin
+* Share Buttons on Posts: Pinterest
+* Location of social shares
 
-### Colors
-* Dark/Light text (defaults to dark)
-* Links color
-* Buttons color
-* Background color
-* Background Image
-* Upload a background image
+#### Colors
 
-### Navigation
+* Background Color
+* Links Color
+* Buttons Color
+
+#### Navigation
 
 * Select a WordPress Menu for your navbar navigation
 
-### Advanced
+#### Advanced
+
 * Header Scripts - Allows users to enter their own css and/or scripts on the Head of the document
 * Footer Scripts - Allows users to enter their own css and/or scripts on the Footer of the document
+* Toggle the advanced Bootstrap Builder
+
+#### Background Image
+
+* Background Image
+
+
+## Advanced Mode:
+
+To use the advanced mode, visit the "Advanced" section of your customizer, and make sure that the "Toggle the advanced Bootstrap Builder" checkbox **is** checked.
+When using this mode, **bootstrap's variables.less file is updated to include the user's options and the stylesheet file will be re-compiled with these options.
+This way users can alter most bootstrap defaults.
+
+Since by using the advanced mode **the changes are permanent and written to the filesystem**, it is not possible to use this mode on multisite installations. **Only super-admins can use the advanced mode in multi-site.**
+
+The [default bootstrap customizer](http://twitter.github.com/bootstrap/customize.html) has an excessive amount of options available and can be a bit scary and confusing.
+So we tried to minimize the options available by calculating many options based on the ones you make:
+
+* **@black, @grayDarker, @grayDark, @gray, @grayLight, @grayLighter:** Calculated based on the background color and the text-color.
+* **@borderRadiusLarge:** Calculated based on the Base Border Radius.
+* **@linkColorHover:** Calculated based on the link color.
+* **@tableBackgroundAccent, @tableBackgroundHover, @tableBorder:** Calculated based on the background color.
+* **@horizontalComponentOffset, @gridColumnWidth, @gridColumnWidth1200, @gridColumnWidth768, :** Based on layout options
+
+The following options are **not available** when using the advanced mode:
+
+#### Navbar
+
+* Navbar Color
+
+In addition to the default customizer options, the following options are available:
+
+#### Layout
+
+* Grid Width - Normal
+* Grid Width - Wide
+* Grid Width - Narrow
+* Grid Gutter - Normal & Narrow
+* Grid Gutter - Wide
+
+#### Typography
+
+* Sans Font Family
+* Serif Font Family
+* Mono Font Family
+* Base Font Size
+* Base Line Height
+* Font Size Large
+* Font Size Small
+* Font Size Mini
+
+#### Advanced
+
+* Base Border Radius
+
+#### Colors
+
+* Background Color
+* Text Color
+* Blue
+* Dark Blue
+* Green
+* Red
+* Yellow
+* Orange
+* Pink
+* Purple
+* Links Color
+* Primary Buttons Color
+* Info Buttons Color
+* Success Buttons Color
+* Warning Buttons Color
+* Danger Buttons Color
+* Navbar Background
+
+## Automatic Updates
+
+When you get this theme from http://bootstrap-commerce.com/downloads/downloads/shoestrap/ a licence key will be emailed which when entered and activated will provide you with automatic updates
