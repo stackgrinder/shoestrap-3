@@ -6,9 +6,6 @@
 function shoestrap_custom_builder_register_settings( $wp_customize ){
   $settings   = array();
   
-  // Body Background
-  $settings[] = array( 'slug' => 'strp_cb_bodybackground',    'default' => '#FFFFFF' );
-  
   // Text Color
   $settings[] = array( 'slug' => 'strp_cb_textcolor',         'default' => '#333333' );
   

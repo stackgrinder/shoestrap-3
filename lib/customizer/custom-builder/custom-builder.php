@@ -1,9 +1,8 @@
 <?php
 
-require_once locate_template( '/lib/customizer/functions/extras.php' );                   // Extra Functions for the customizer
-require_once locate_template( '/lib/custom-builder/components/customizer-sections.php' ); // Create Customizer Sections
-require_once locate_template( '/lib/custom-builder/components/customizer-settings.php' ); // Create Customizer Settings
-require_once locate_template( '/lib/custom-builder/components/customizer-controls.php' ); // Create Customizer Controls
+// require_once locate_template( '/lib/customizer/functions/extras.php' );                   // Extra Functions for the customizer
+require_once locate_template( '/lib/customizer/custom-builder/components/customizer-settings.php' ); // Create Customizer Settings
+require_once locate_template( '/lib/customizer/custom-builder/components/customizer-controls.php' ); // Create Customizer Controls
 
 /*
  * The content below is a copy of bootstrap's variables.less file.
@@ -34,7 +33,7 @@ require_once locate_template( '/lib/custom-builder/components/customizer-control
  */
 function shoestrap_custom_builder_rewrite_variables() {
   // main body & text colors
-  $bodyBackground       = get_theme_mod( 'strp_cb_bodybackground' );
+  $bodyBackground       = get_theme_mod( 'shoestrap_background_color' );
   $textColor            = get_theme_mod( 'strp_cb_textcolor' );
   
   // accent colors
