@@ -29,7 +29,9 @@ function shoestrap_phpless(){
   $last_updated = $cache['updated'];
   $cache = $less -> cachedCompile( $cache );
   if ( $cache['updated'] > $last_updated ) {
+    chmod($outputFile, 0666); // make the file writable
     file_put_contents( $outputFile, $cache['compiled'] );
+    chmod($outputFile, 0644); // make the file read-only
   }
 }
 add_action('wp', 'shoestrap_phpless');
