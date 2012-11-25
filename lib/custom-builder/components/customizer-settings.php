@@ -63,4 +63,4 @@ function shoestrap_custom_builder_register_settings( $wp_customize ){
     ));
   }
 }
-add_action( 'customize_register', 'shoestrap_register_settings' );
+add_action( 'customize_register', 'shoestrap_custom_builder_register_settings' );

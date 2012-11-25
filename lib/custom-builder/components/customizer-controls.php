@@ -42,7 +42,7 @@ function shoestrap_register_builder_controls( $wp_customize ){
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(
       $wp_customize,
-      $controls['setting'],
+      $control['setting'],
       array(
         'label'     => $control['label'],
         'section'   => $control['section'],
@@ -61,3 +61,4 @@ function shoestrap_register_builder_controls( $wp_customize ){
     ));
   }
 }
+add_action( 'customize_register', 'shoestrap_register_builder_controls' );

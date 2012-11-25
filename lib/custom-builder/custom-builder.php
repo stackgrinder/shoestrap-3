@@ -1,11 +1,16 @@
 <?php
 
+require_once locate_template( '/lib/customizer/functions/extras.php' );                   // Extra Functions for the customizer
+require_once locate_template( '/lib/custom-builder/components/customizer-sections.php' ); // Create Customizer Sections
+require_once locate_template( '/lib/custom-builder/components/customizer-settings.php' ); // Create Customizer Settings
+require_once locate_template( '/lib/custom-builder/components/customizer-controls.php' ); // Create Customizer Controls
+
 /*
  * The content below is a copy of bootstrap's variables.less file.
  * 
  * Some options are user-configurable and stored as theme mods.
  * We try to minimize the options and simplify the user environment.
- * In order to do that, we 'll have to provide a minimum amunt of options 
+ * In order to do that, we 'll have to provide a minimum amount of options 
  * and calculate the rest based on the user's selections.
  * 
  * based on the textcolor and bodybackground, we can calculate the following options:
@@ -18,7 +23,7 @@
  * The forms and dropdowns can both be derived from the text and background colors.
  * baseLineHeight can also be calculated from the baseFontSize,
  * but it's preferable to have a separate setting for that,
- * since some fonts have weirdline height (especially if using Google Webfonts.)
+ * since some fonts have weird line height (especially if using Google Webfonts.)
  * 
  * The "form states and alerts" section can also be completely automated.
  * We can derive colors from other settings and based on the bodyBackground,
@@ -87,11 +92,11 @@ function shoestrap_custom_builder_rewrite_variables() {
     $black        = shoestrap_adjust_brightness( $textColor, 64 );
     $grayDarker   = shoestrap_adjust_brightness( $textColor, 17 );
   }
-  $grayDark     = $textColor;
+  $grayDark     = shoestrap_adjust_brightness( $textColor, 0 );
   $gray         = shoestrap_mix_colors( $textColor, $bodyBackground, 83 );
   $grayLight    = shoestrap_mix_colors( $textColor, $bodyBackground, 50 );
   $grayLighter  = shoestrap_mix_colors( $textColor, $bodyBackground, 8 );
-  $white        = $bodyBackground;
+  $white        = shoestrap_adjust_brightness( $bodyBackground, 0 );
   
   $borderRadiusLarge  = round( $baseBorderRadius * 1.5 );
   $borderRadiusSmall  = round( $baseBorderRadius * 3 / 4 );
@@ -142,7 +147,7 @@ function shoestrap_custom_builder_rewrite_variables() {
   }
 
   // locate the variables file
-  $variables_file = locate_template( '/assets/css/bootstrap-less/variables.less' );
+  $variables_file = locate_template( 'assets/css/bootstrap-less/variables.less' );
   // open the variables file
   $fh = fopen($variables_file, 'w');
   // the content of the variables file
