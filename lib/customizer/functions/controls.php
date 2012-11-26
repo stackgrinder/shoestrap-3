@@ -94,8 +94,12 @@ function shoestrap_register_controls( $wp_customize ){
   // Share Buttons on posts/pages/custom post types: Pinterest
   $checkbox_controls[] = array( 'setting' => 'shoestrap_pinterest_on_posts',  'label' => 'Share Buttons on Posts: Pinterest',     'section' => 'shoestrap_social',      'priority' => 9 );
   
-  if ( is_multisite() && !is_super_admin() ) {
-    // Toogle the Advance Bootstrap Builder on/off
+  // Toogle the Advance Bootstrap Builder on/off
+  if ( is_multisite() ) {
+    if ( is_super_admin() ) {
+      $checkbox_controls[] = array( 'setting' => 'shoestrap_advanced_builder',    'label' => 'Toggle the advanced Bootstrap Builder', 'section' => 'shoestrap_advanced',    'priority' => 3 );
+    }
+  } else {
     $checkbox_controls[] = array( 'setting' => 'shoestrap_advanced_builder',    'label' => 'Toggle the advanced Bootstrap Builder', 'section' => 'shoestrap_advanced',    'priority' => 3 );
   }
   

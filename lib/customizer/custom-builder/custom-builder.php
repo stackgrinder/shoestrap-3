@@ -78,6 +78,37 @@ function shoestrap_custom_builder_rewrite_variables() {
   $gridGutterNormal     = get_theme_mod( 'strp_cb_gridgutter_normal' );
   $gridGutterWide       = get_theme_mod( 'strp_cb_gridgutter_wide' );
 
+  if ( strlen( $bodyBackground ) < 6 ) { $bodyBackground == '#FFFFFF'; }
+  if ( strlen( $textColor ) < 6 ) { $textColor == '#333333'; }
+  if ( strlen( $blue ) < 6 ) { $blue == '#049CDB'; }
+  if ( strlen( $blueDark ) < 6 ) { $blueDark == '#0064CD'; }
+  if ( strlen( $green ) < 6 ) { $green == '#46A546'; }
+  if ( strlen( $red ) < 6 ) { $red == '#9D261D'; }
+  if ( strlen( $yellow ) < 6 ) { $yellow == '#FFC40D'; }
+  if ( strlen( $orange ) < 6 ) { $orange == '#F89406'; }
+  if ( strlen( $pink ) < 6 ) { $pink == '#C3325F'; }
+  if ( strlen( $purple ) < 6 ) { $purple == '#7A43B6'; }
+  if ( strlen( $linkColor ) < 6 ) { $linkColor == '#0088CC'; }
+  if ( strlen( $sansFontFamily ) < 3 ) { $sansFontFamily == '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
+  if ( strlen( $serifFontFamily ) < 3 ) { $serifFontFamily == 'Georgia, "Times New Roman", Times, serif'; }
+  if ( strlen( $monoFontFamily ) < 3 ) { $monoFontFamily == 'Monaco, Menlo, Consolas, "Courier New", monospace'; }
+  if ( $baseFontSize == '' ) { $baseFontSize == '14'; }
+  if ( $baseLineHeight == '' ) { $baseLineHeight == '20'; }
+  if ( $fontSizeLarge == '' ) { $fontSizeLarge == '1.25'; }
+  if ( $fontSizeSmall == '' ) { $fontSizeSmall == '0.85'; }
+  if ( $fontSizeMini == '' ) { $fontSizeMini == '0.75'; }
+  if ( $baseBorderRadius == '' ) { $baseBorderRadius == '4'; }
+  if ( strlen( $btnPrimaryBackground ) < 6 ) { $btnPrimaryBackground == '#0088CC'; }
+  if ( strlen( $btnInfoBackground ) < 6 ) { $btnInfoBackground == '#5BC0DE'; }
+  if ( strlen( $btnSuccessBackground ) < 6 ) { $btnSuccessBackground == '#62C462'; }
+  if ( strlen( $btnWarningBackground ) < 6 ) { $btnWarningBackground == '#F89406'; }
+  if ( strlen( $btnDangerBackground ) < 6 ) { $btnDangerBackground == '#EE5F5B'; }
+  if ( $gridWidthNormal == '' ) { $gridWidthNormal == '940'; }
+  if ( $gridWidthWide == '' ) { $gridWidthWide == '1200'; }
+  if ( $gridWidthNarrow == '' ) { $gridWidthNarrow == '768'; }
+  if ( $gridGutterNormal == '' ) { $gridGutterNormal == '20'; }
+  if ( $gridGutterWide == '' ) { $gridGutterWide == '30'; }
+
   $gridColumns          = 12;
   
   // navbar
