@@ -10,6 +10,7 @@ function shoestrap_social_sharrre_script() {
   $twitter      = get_theme_mod( 'shoestrap_twitter_on_posts' );
   $linkedin     = get_theme_mod( 'shoestrap_linkedin_on_posts' );
   $pinterest    = get_theme_mod( 'shoestrap_pinterest_on_posts' );
+  $social_text  = get_theme_mod( 'shoestrap_single_social_text' );
   
   if ( $googleplus  == 1 ) { $googleplus  = 'true'; } else { $googleplus  = 'false'; }
   if ( $facebook    == 1 ) { $facebook    = 'true'; } else { $facebook    = 'false'; }
@@ -18,7 +19,7 @@ function shoestrap_social_sharrre_script() {
   if ( $pinterest   == 1 ) { $pinterest   = 'true'; } else { $pinterest   = 'false'; }
   
   // $templatemode = get_theme_mod( 'shoestrap_social_links_mode' );
-  $template = '<div class="box"><div class="left">' . __('Share', 'shoestrap') . '</div><div class="middle">';
+  $template = '<div class="box"><div class="left">' . __( $social_text, 'shoestrap') . '</div><div class="middle">';
   if ( $facebook == 'true' ) {
     $template .= '<a href="#" class="facebook icon-facebook"></a>';
   }

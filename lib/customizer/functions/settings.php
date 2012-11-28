@@ -72,6 +72,7 @@ function shoestrap_register_settings( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_linkedin_on_posts',         'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_pinterest_on_posts',        'default' => '' );
   
+  $settings[] = array( 'slug' => 'shoestrap_single_social_text',    	'default' => 'Share' );
   $settings[] = array( 'slug' => 'shoestrap_single_social_position',    'default' => 'none' );  
   
   // Advanced Settings

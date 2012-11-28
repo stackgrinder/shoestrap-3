@@ -131,23 +131,25 @@ function shoestrap_register_controls( $wp_customize ){
   // Text Controls
   $text_controls = array();
   // Google Webfonts (text, name of the webfont)
-  $text_controls[]  = array( 'setting' => 'shoestrap_google_webfonts',  'label' => 'Google Webfont Name',         'section' => 'shoestrap_typography',  'priority' => 1 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_google_webfonts',  	'label' => 'Google Webfont Name',         'section' => 'shoestrap_typography',  'priority' => 1 );
   // Title of the Hero Region
-  $text_controls[]  = array( 'setting' => 'shoestrap_hero_title',       'label' => 'Title',                       'section' => 'shoestrap_hero',        'priority' => 1 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_hero_title',       	'label' => 'Title',                       'section' => 'shoestrap_hero',        'priority' => 1 );
   // Content of the Hero Region
-  $text_controls[]  = array( 'setting' => 'shoestrap_hero_content',     'label' => 'Content',                     'section' => 'shoestrap_hero',        'priority' => 2 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_hero_content',     	'label' => 'Content',                     'section' => 'shoestrap_hero',        'priority' => 2 );
   // Text (label) of the Call To Action Button on the Hero Region
-  $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_text',    'label' => 'Call To Action Button Text',  'section' => 'shoestrap_hero',        'priority' => 3 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_text',    	'label' => 'Call To Action Button Text',  'section' => 'shoestrap_hero',        'priority' => 3 );
   // Link of the Call To Action Button on the Hero Region
-  $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_link',    'label' => 'Call To Action Button Link',  'section' => 'shoestrap_hero',        'priority' => 4 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_link',    	'label' => 'Call To Action Button Link',  'section' => 'shoestrap_hero',        'priority' => 4 );
   // Link of the site's facebook page
-  $text_controls[]  = array( 'setting' => 'shoestrap_facebook_link',    'label' => 'Facebook Page Link',          'section' => 'shoestrap_social',      'priority' => 1 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_facebook_link',    	'label' => 'Facebook Page Link',          'section' => 'shoestrap_social',      'priority' => 1 );
   // Link or username of the site's twitter profile
-  $text_controls[]  = array( 'setting' => 'shoestrap_twitter_link',     'label' => 'Twitter URL or @username',    'section' => 'shoestrap_social',      'priority' => 2 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_twitter_link',     	'label' => 'Twitter URL or @username',    'section' => 'shoestrap_social',      'priority' => 2 );
   // Google Plus Link
-  $text_controls[]  = array( 'setting' => 'shoestrap_google_plus_link', 'label' => 'Google+ Profile Link',        'section' => 'shoestrap_social',      'priority' => 3 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_google_plus_link', 	'label' => 'Google+ Profile Link',        'section' => 'shoestrap_social',      'priority' => 3 );
   // Pinterest Link
-  $text_controls[]  = array( 'setting' => 'shoestrap_pinterest_link',   'label' => 'Pinterest Profile Link',      'section' => 'shoestrap_social',      'priority' => 4 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_pinterest_link',   	'label' => 'Pinterest Profile Link',      'section' => 'shoestrap_social',      'priority' => 4 );
+  // Single Social Text
+  $text_controls[]  = array( 'setting' => 'shoestrap_single_social_text',	'label' => 'Single Social Text',   		  'section' => 'shoestrap_social',      'priority' => 10 );
 
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(
