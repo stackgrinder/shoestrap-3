@@ -8854,7 +8854,7 @@ a.badge:hover {
     width: 28px;
   }
 }
-@media (max-width: 41px) {
+@media (max-width: 767px) {
   body {
     padding-left: 20px;
     padding-right: 20px;
