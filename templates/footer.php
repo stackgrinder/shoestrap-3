@@ -5,8 +5,7 @@
       <div class="span4"><?php dynamic_sidebar('sidebar-footer-center'); ?></div>
       <div class="span4"><?php dynamic_sidebar('sidebar-footer-right'); ?></div>
     </div>
-    <p>&copy; <?php if ( get_theme_mod( 'shoestrap_footer_text' ) ) { echo get_theme_mod( 'shoestrap_footer_text' ); } 
-    				else { ?> <?php echo date('Y'); ?> <?php bloginfo('name'); } ?></p>
+    <p><?php if ( get_theme_mod( 'shoestrap_footer_text' ) ) { echo get_theme_mod( 'shoestrap_footer_text' ); } else { echo '&copy; ' . date('Y'); ?> <?php bloginfo('name'); } ?></p>
   </footer>
 </div>
 
