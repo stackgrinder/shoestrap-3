@@ -89,6 +89,7 @@ function shoestrap_register_settings( $wp_customize ){
   
   // Footer Settings
   $settings[] = array( 'slug' => 'shoestrap_footer_background_color',   'default' => '#ffffff' );
+  $settings[] = array( 'slug' => 'shoestrap_footer_text',			    'default' => bloginfo('name') );
   
   // Navigation Settings
   $settings[] = array( 'slug' => 'shoestrap_extra_display_navigation',  'default' => '0' );

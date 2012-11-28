@@ -150,7 +150,9 @@ function shoestrap_register_controls( $wp_customize ){
   $text_controls[]  = array( 'setting' => 'shoestrap_pinterest_link',   	'label' => 'Pinterest Profile Link',      'section' => 'shoestrap_social',      'priority' => 4 );
   // Single Social Text
   $text_controls[]  = array( 'setting' => 'shoestrap_single_social_text',	'label' => 'Single Social Text',   		  'section' => 'shoestrap_social',      'priority' => 10 );
-
+  // Footer Text
+  $text_controls[]  = array( 'setting' => 'shoestrap_footer_text',			'label' => 'Footer Alternative Text',     'section' => 'shoestrap_footer',      'priority' => 2 );
+  
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(
       $wp_customize,
