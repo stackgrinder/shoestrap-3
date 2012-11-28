@@ -12,9 +12,12 @@ function shoestrap_social_share_styles() {
   
   // The number of networks.
   $networks_nr = $googleplus + $facebook + $twitter + $linkedin + $pinterest;
-
+  
+  if ( get_theme_mod( 'shoestrap_advanced_builder' ) ){
+  	$btn_color = get_theme_mod( 'strp_cb_btn_primary' );
+  }else{
   $btn_color = get_theme_mod( 'shoestrap_buttons_color' );
-
+  }
   // Make sure colors are properly formatted
   $btn_color = '#' . str_replace( '#', '', $btn_color );
   
