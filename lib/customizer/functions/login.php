@@ -273,3 +273,10 @@ function shoestrap_login_url( $url ) {
 }
 add_filter( 'login_headerurl', 'shoestrap_login_url' );
 
+/*
+ * Alters the title of the link in the login screen logo
+ */
+function shoestrap_title_attr() {
+	return get_bloginfo('name');
+}
+add_filter('login_headertitle', 'shoestrap_title_attr');
