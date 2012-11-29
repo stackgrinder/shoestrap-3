@@ -70,14 +70,6 @@ function shoestrap_custom_builder_rewrite_variables() {
 
   if ( strlen( $bodyBackground ) < 6 ) { $bodyBackground == '#FFFFFF'; }
   if ( strlen( $textColor ) < 6 ) { $textColor == '#333333'; }
-  if ( strlen( $blue ) < 6 ) { $blue == '#049CDB'; }
-  if ( strlen( $blueDark ) < 6 ) { $blueDark == '#0064CD'; }
-  if ( strlen( $green ) < 6 ) { $green == '#46A546'; }
-  if ( strlen( $red ) < 6 ) { $red == '#9D261D'; }
-  if ( strlen( $yellow ) < 6 ) { $yellow == '#FFC40D'; }
-  if ( strlen( $orange ) < 6 ) { $orange == '#F89406'; }
-  if ( strlen( $pink ) < 6 ) { $pink == '#C3325F'; }
-  if ( strlen( $purple ) < 6 ) { $purple == '#7A43B6'; }
   if ( strlen( $linkColor ) < 6 ) { $linkColor == '#0088CC'; }
   if ( strlen( $sansFontFamily ) < 3 ) { $sansFontFamily == '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
   if ( strlen( $serifFontFamily ) < 3 ) { $serifFontFamily == 'Georgia, "Times New Roman", Times, serif'; }
