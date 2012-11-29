@@ -236,6 +236,7 @@ function shoestrap_theme_activation_action() {
     $shoestrap_theme_activation_options['create_navigation_menus'] = false;
 
     $shoestrap_nav_theme_mod = false;
+    $shoestrap_secondary_nav_theme_mod = false;
 
     $primary_nav = wp_get_nav_menu_object('Primary Navigation');
 
@@ -248,6 +249,19 @@ function shoestrap_theme_activation_action() {
 
     if ($shoestrap_nav_theme_mod) {
       set_theme_mod('nav_menu_locations', $shoestrap_nav_theme_mod);
+    }
+
+    $secondary_nav = wp_get_nav_menu_object('Secondary Navigation');
+
+    if (!$secondary_nav) {
+      $secondary_nav_id = wp_create_nav_menu('Secondary Navigation', array('slug' => 'secondary_navigation'));
+      $shoestrap_secondary_nav_theme_mod['secondary_navigation'] = $secondary_nav_id;
+    } else {
+      $shoestrap_secondary_nav_theme_mod['secondary_navigation'] = $secondary_nav->term_id;
+    }
+
+    if ($shoestrap_secondary_nav_theme_mod) {
+      set_theme_mod('nav_secondary_menu_locations', $shoestrap_secondary_nav_theme_mod);
     }
   }
 
