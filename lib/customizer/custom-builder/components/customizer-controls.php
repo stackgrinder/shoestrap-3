@@ -10,14 +10,6 @@ function shoestrap_register_builder_controls( $wp_customize ){
   
   // Only add the following settings when advanced builder is ON
   $color_controls[] = array( 'setting' => 'strp_cb_textcolor',          'label' => 'Text Color',                    'section' => 'colors',      'priority' => 22 );
-  $color_controls[] = array( 'setting' => 'strp_cb_blue',               'label' => 'Blue',                          'section' => 'colors',      'priority' => 23 );
-  $color_controls[] = array( 'setting' => 'strp_cb_bluedark',           'label' => 'Dark Blue',                     'section' => 'colors',      'priority' => 24 );
-  $color_controls[] = array( 'setting' => 'strp_cb_green',              'label' => 'Green',                         'section' => 'colors',      'priority' => 25 );
-  $color_controls[] = array( 'setting' => 'strp_cb_red',                'label' => 'Red',                           'section' => 'colors',      'priority' => 26 );
-  $color_controls[] = array( 'setting' => 'strp_cb_yellow',             'label' => 'Yellow',                        'section' => 'colors',      'priority' => 27 );
-  $color_controls[] = array( 'setting' => 'strp_cb_orange',             'label' => 'Orange',                        'section' => 'colors',      'priority' => 28 );
-  $color_controls[] = array( 'setting' => 'strp_cb_pink',               'label' => 'Pink',                          'section' => 'colors',      'priority' => 29 );
-  $color_controls[] = array( 'setting' => 'strp_cb_purple',             'label' => 'Purple',                        'section' => 'colors',      'priority' => 30 );
   $color_controls[] = array( 'setting' => 'strp_cb_linkcolor',          'label' => 'Links Color',                   'section' => 'colors',      'priority' => 31 );
   $color_controls[] = array( 'setting' => 'strp_cb_btn_primary',        'label' => 'Primary Buttons Color',         'section' => 'colors',      'priority' => 32 );
   $color_controls[] = array( 'setting' => 'strp_cb_btn_info',           'label' => 'Info Buttons Color',            'section' => 'colors',      'priority' => 33 );

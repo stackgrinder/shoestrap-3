@@ -38,16 +38,6 @@ function shoestrap_custom_builder_rewrite_variables() {
   $bodyBackground       = get_theme_mod( 'shoestrap_background_color' );
   $textColor            = get_theme_mod( 'strp_cb_textcolor' );
   
-  // accent colors
-  $blue                 = get_theme_mod( 'strp_cb_blue' );
-  $blueDark             = get_theme_mod( 'strp_cb_bluedark' );
-  $green                = get_theme_mod( 'strp_cb_green' );
-  $red                  = get_theme_mod( 'strp_cb_red' );
-  $yellow               = get_theme_mod( 'strp_cb_yellow' );
-  $orange               = get_theme_mod( 'strp_cb_orange' );
-  $pink                 = get_theme_mod( 'strp_cb_pink' );
-  $purple               = get_theme_mod( 'strp_cb_purple' );
-  
   // links
   $linkColor            = get_theme_mod( 'strp_cb_linkcolor' );
   
@@ -205,14 +195,14 @@ function shoestrap_custom_builder_rewrite_variables() {
 
 // Accent colors
 // -------------------------
-@blue:                  ' . $blue . ';
-@blueDark:              ' . $blueDark . ';
-@green:                 ' . $green . ';
-@red:                   ' . $red . ';
-@yellow:                ' . $yellow . ';
-@orange:                ' . $orange . ';
-@pink:                  ' . $pink . ';
-@purple:                ' . $purple . ';
+@blue:                  #049cdb;
+@blueDark:              #0064cd;
+@green:                 #46a546;
+@red:                   #9d261d;
+@yellow:                #ffc40d;
+@orange:                #f89406;
+@pink:                  #c3325f;
+@purple:                #7a43b6;
 
 
 // Scaffolding

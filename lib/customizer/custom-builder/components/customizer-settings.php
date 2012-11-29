@@ -9,16 +9,6 @@ function shoestrap_custom_builder_register_settings( $wp_customize ){
   // Text Color
   $settings[] = array( 'slug' => 'strp_cb_textcolor',         'default' => '#333333' );
   
-  // Accent Color
-  $settings[] = array( 'slug' => 'strp_cb_blue',              'default' => '#049CDB' );
-  $settings[] = array( 'slug' => 'strp_cb_bluedark',          'default' => '#0064CD' );
-  $settings[] = array( 'slug' => 'strp_cb_green',             'default' => '#46A546' );
-  $settings[] = array( 'slug' => 'strp_cb_red',               'default' => '#9D261D' );
-  $settings[] = array( 'slug' => 'strp_cb_yellow',            'default' => '#FFC40D' );
-  $settings[] = array( 'slug' => 'strp_cb_orange',            'default' => '#F89406' );
-  $settings[] = array( 'slug' => 'strp_cb_pink',              'default' => '#C3325F' );
-  $settings[] = array( 'slug' => 'strp_cb_purple',            'default' => '#7A43B6' );
-  
   // Link Color
   $settings[] = array( 'slug' => 'strp_cb_linkcolor',         'default' => '#0088CC' );
   
