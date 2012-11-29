@@ -14,7 +14,7 @@
   <?php do_action('shoestrap_branding'); ?>
   <?php do_action('shoestrap_hero'); ?>
   
-  <?php if ( get_theme_mod( 'shoestrap_extra_display_navigation' ) == 1 ) {
+  <?php if ( get_theme_mod( 'shoestrap_navbar_secondary' ) == 1 ) {
       get_template_part('templates/navbar');
   } ?>
 

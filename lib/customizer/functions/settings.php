@@ -29,6 +29,11 @@ function shoestrap_register_settings( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_navbar_color',              'default' => '#ffffff' );
   $settings[] = array( 'slug' => 'shoestrap_navbar_social',             'default' => '1' );
   
+  // Secondary NavBar Settings
+  $settings[] = array( 'slug' => 'shoestrap_navbar_secondary',          'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_navbar2_loginlink',         'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_navbar2_social',            'default' => '' );
+
   // Extra Header Settings
   $settings[] = array( 'slug' => 'shoestrap_extra_branding',            'default' => $shoestrap_extra_branding );
   $settings[] = array( 'slug' => 'shoestrap_header_loginlink',          'default' => '1' );
@@ -90,9 +95,6 @@ function shoestrap_register_settings( $wp_customize ){
   // Footer Settings
   $settings[] = array( 'slug' => 'shoestrap_footer_background_color',   'default' => '#ffffff' );
   $settings[] = array( 'slug' => 'shoestrap_footer_text',               'default' => get_bloginfo( 'name' ) );
-  
-  // Navigation Settings
-  $settings[] = array( 'slug' => 'shoestrap_extra_display_navigation',  'default' => '0' );
   
   foreach( $settings as $setting ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );

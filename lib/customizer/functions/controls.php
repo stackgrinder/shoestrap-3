@@ -35,7 +35,7 @@ function shoestrap_register_controls( $wp_customize ){
   // Display the following controls only when user is NOT using the advanced controls
   if ( $advanced_builder != 1 ) {
     // Navbar background color
-    $color_controls[] = array( 'setting' => 'shoestrap_navbar_color',           'label' => 'Navbar Color',                    'section' => 'shoestrap_navbar',  'priority' => 4 );
+    $color_controls[] = array( 'setting' => 'shoestrap_navbar_color',           'label' => 'Navbar Color',                    'section' => 'shoestrap_primary_navbar',  'priority' => 4 );
     // Links Color
     $color_controls[] = array( 'setting' => 'shoestrap_link_color',             'label' => 'Links Color',                     'section' => 'colors',            'priority' => 2 );
     // Buttons Color
@@ -70,15 +70,23 @@ function shoestrap_register_controls( $wp_customize ){
    */
   $checkbox_controls = array();
   // Display Navbar on top
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_top',          'label' => 'Display NavBar on the top of the page', 'section' => 'shoestrap_navbar',      'priority' => 1 );
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_top',          'label' => 'Display NavBar on the top of the page', 'section' => 'shoestrap_primary_navbar',  'priority' => 1 );
   // Display Navbar Branding
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_branding',     'label' => 'Display Branding (Sitename or Logo)',   'section' => 'shoestrap_navbar',      'priority' => 2 );
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_branding',     'label' => 'Display Branding (Sitename or Logo)',   'section' => 'shoestrap_primary_navbar',  'priority' => 2 );
   // Display NavBar Logo
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_logo',         'label' => 'Use Logo (if available) for branding',  'section' => 'shoestrap_navbar',      'priority' => 3 );
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_logo',         'label' => 'Use Logo (if available) for branding',  'section' => 'shoestrap_primary_navbar',  'priority' => 3 );
   // Show/Hide the login link
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_header_loginlink',    'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_navbar',      'priority' => 5 );
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_header_loginlink',    'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
   // Display NavBar Social links
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_social',       'label' => 'Display Social Links in the Navbar',    'section' => 'shoestrap_navbar',      'priority' => 6 );
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_social',       'label' => 'Display Social Links in the Navbar',    'section' => 'shoestrap_primary_navbar',  'priority' => 6 );
+
+  // Display Secondary Navbar
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_secondary',    'label' => 'Display NavBar on the top of the page', 'section' => 'shoestrap_secondary_navbar','priority' => 1 );
+  // Show/Hide the login link on the secondary navbar
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar2_loginlink',   'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_secondary_navbar','priority' => 5 );
+  // Display NavBar Social links on the secondary navbar
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar2_social',      'label' => 'Display Social Links in the Navbar',    'section' => 'shoestrap_secondary_navbar','priority' => 6 );
+
   // Extra header on/off
   $checkbox_controls[] = array( 'setting' => 'shoestrap_extra_branding',      'label' => 'Display Extra Header',                  'section' => 'shoestrap_header',      'priority' => 1 );
   // Display Social Links on the Header
@@ -243,25 +251,6 @@ function shoestrap_register_controls( $wp_customize ){
     'priority'    => 2,
   )));
 
-/*
- * NAVIGATION
- * 
- * The Navigation section is a WordPress default section.
- * we will simply add any settings that belong here.
- */
- 
-  // Display NavBar Branding
-  $wp_customize->add_control( 'shoestrap_extra_display_navigation', array(
-    'label'       => __( 'Display extra Primary menu. This option is particularly useful in case you have disabled the top navbar
-                          but still want a navigation. This navigation will be added below the extra branding & hero regions 
-                          (just above the content area of your site)', 'shoestrap' ),
-    'section'     => 'nav',
-    'settings'    => 'shoestrap_extra_display_navigation',
-    'type'        => 'checkbox',
-    'priority'    => 1,
-  ));
-
- 
   /*
    * The below lines are simply for better live previewing results.
    */

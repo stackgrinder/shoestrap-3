@@ -15,7 +15,7 @@
             endif;
           ?>
         </nav>
-        <?php do_action('shoestrap_nav_top_right'); ?>
+        <?php do_action('shoestrap_secondary_nav_top_right'); ?>
       </div>
     </div>
   </div>
