@@ -15,7 +15,17 @@ function shoestrap_buttons_css() {
   // if no color has been selected, set to #0066cc. This prevents errors with the php-less compiler.
   if ( strlen( $btn_color ) < 3 ) {
     $btn_color = '#0066cc';
-  } ?>
+  }
+  if ( get_theme_mod( 'shoestrap_flat_buttons' ) == 1 ) {
+    $btnColorHighlight = $btn_color;
+  } else {
+    if ( shoestrap_get_brightness( $btn_color ) <= 160 ) {
+      $btnColorHighlight = 'darken(spin(@btnColor, 5%), 10%)';
+    } else {
+      $btnColorHighlight = 'darken(@btnColor, 15%)';
+    }
+  }
+  ?>
 
   <style>
     <?php
@@ -23,15 +33,14 @@ function shoestrap_buttons_css() {
       $less = new lessc;
       
       $less->setVariables( array(
-          "btnColor"  => $btn_color,
+          "btnColor"          => $btn_color,
+          "btnColorHighlight" => $btnColorHighlight,
       ));
       $less->setFormatter( "compressed" );
       
       if ( shoestrap_get_brightness( $btn_color ) <= 160 ) {
         // The code below is a copied from bootstrap's buttons.less + mixins.less files
         echo $less->compile("
-          @btnColorHighlight: darken(spin(@btnColor, 5%), 10%);
-  
           .gradientBar(@primaryColor, @secondaryColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
             color: @textColor;
             text-shadow: @textShadow;
@@ -68,8 +77,6 @@ function shoestrap_buttons_css() {
         ");
       } else {
         echo $less->compile("
-          @btnColorHighlight: darken(@btnColor, 15%);
-  
           .gradientBar(@primaryColor, @secondaryColor, @textColor: #333, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
             color: @textColor;
             text-shadow: @textShadow;

@@ -102,6 +102,9 @@ function shoestrap_register_controls( $wp_customize ){
   // Share Buttons on posts/pages/custom post types: Pinterest
   $checkbox_controls[] = array( 'setting' => 'shoestrap_pinterest_on_posts',  'label' => 'Share Buttons on Posts: Pinterest',     'section' => 'shoestrap_social',      'priority' => 9 );
   
+  // Flat buttons on/off
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_flat_buttons',        'label' => 'Flat Buttons (no gradients)',           'section' => 'shoestrap_advanced',       'priority' => 9 );
+
   // Toogle the Advance Bootstrap Builder on/off
   if ( is_multisite() ) {
     if ( is_super_admin() ) {

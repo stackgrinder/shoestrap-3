@@ -67,6 +67,8 @@ function shoestrap_custom_builder_rewrite_variables() {
   $gridWidthNarrow      = get_theme_mod( 'strp_cb_gridwidth_narrow' );
   $gridGutterNormal     = get_theme_mod( 'strp_cb_gridgutter_normal' );
   $gridGutterWide       = get_theme_mod( 'strp_cb_gridgutter_wide' );
+  
+  $flatbuttons          = get_theme_mod( 'shoestrap_flat_buttons' );
 
   if ( strlen( $bodyBackground ) < 6 ) { $bodyBackground == '#FFFFFF'; }
   if ( strlen( $textColor ) < 6 ) { $textColor == '#333333'; }
@@ -95,8 +97,6 @@ function shoestrap_custom_builder_rewrite_variables() {
   
   // navbar
   $navbarBackgroundHighlight = get_theme_mod( 'strp_cb_navbar_background' );
-  
-  $btnBackgroundHighlight = 'darken(' . $bodyBackground . ', 10%)';
   
   // calculate shadows of gray, depending on background and textcolor
   if ( shoestrap_get_brightness( $bodyBackground ) >= 128 ) {
@@ -158,6 +158,24 @@ function shoestrap_custom_builder_rewrite_variables() {
     $navbarLinkColorHover   = shoestrap_adjust_brightness( $navbarBackgroundHighlight, 190 );
     $navbarLinkColorActive  = shoestrap_adjust_brightness( $navbarBackgroundHighlight, 120 );
     $navbarLinkBackgroundActive = 'lighten(@navbarBackground, 5%)';
+  }
+  
+  if ( $flatbuttons == 1 ) {
+    $btnBackgroundHighlight         = '@white';
+    $btnPrimaryBackgroundHighlight  = '@btnPrimaryBackground';
+    $btnInfoBackgroundHighlight     = '@btnInfoBackground';
+    $btnSuccessBackgroundHighlight  = '@btnSuccessBackground';
+    $btnWarningBackgroundHighlight  = '@btnWarningBackground';
+    $btnDangerBackgroundHighlight   = '@btnDangerBackground';
+    $btnInverseBackgroundHighlight  = '@grayDark';
+  } else {
+    $btnBackgroundHighlight         = 'darken(@white, 10%)';
+    $btnPrimaryBackgroundHighlight  = 'spin(@btnPrimaryBackground, 20%)';
+    $btnInfoBackgroundHighlight     = 'darken(spin(@btnInfoBackground, 15%), 7%)';
+    $btnSuccessBackgroundHighlight  = 'darken(spin(@btnSuccessBackground, 15%), 7%)';
+    $btnWarningBackgroundHighlight  = 'darken(@btnWarningBackground, 15%)';
+    $btnDangerBackgroundHighlight   = 'darken(spin(@btnDangerBackground, 15%), 7%)';
+    $btnInverseBackgroundHighlight  = 'darken(@grayDark, 10%)';
   }
 
   // locate the variables file
@@ -252,26 +270,26 @@ function shoestrap_custom_builder_rewrite_variables() {
 // Buttons
 // -------------------------
 @btnBackground:                     ' . $bodyBackground . ';
-@btnBackgroundHighlight:            darken(@white, 10%);
+@btnBackgroundHighlight:            ' . $btnBackgroundHighlight . ';
 @btnBorder:                         rgba(0,0,0,.2);
 
 @btnPrimaryBackground:              ' . $btnPrimaryBackground . ';
-@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
+@btnPrimaryBackgroundHighlight:     ' . $btnPrimaryBackgroundHighlight . ';
 
 @btnInfoBackground:                 ' . $btnInfoBackground . ';
-@btnInfoBackgroundHighlight:        darken(spin(@btnInfoBackground, 15%), 7%);
+@btnInfoBackgroundHighlight:        ' . $btnInfoBackgroundHighlight . ';
 
 @btnSuccessBackground:              ' . $btnSuccessBackground . ';
-@btnSuccessBackgroundHighlight:     darken(spin(@btnSuccessBackground, 15%), 7%);
+@btnSuccessBackgroundHighlight:     ' . $btnSuccessBackgroundHighlight . ';
 
 @btnWarningBackground:              ' . $btnWarningBackground . ';
-@btnWarningBackgroundHighlight:     darken(@btnWarningBackground, 15%);
+@btnWarningBackgroundHighlight:     ' . $btnWarningBackgroundHighlight . ';
 
 @btnDangerBackground:               ' . $btnDangerBackground . ';
-@btnDangerBackgroundHighlight:      darken(spin(@btnDangerBackground, 15%), 7%);
+@btnDangerBackgroundHighlight:      ' . $btnDangerBackgroundHighlight . ';
 
 @btnInverseBackground:              @grayDark;
-@btnInverseBackgroundHighlight:     darken(@grayDark, 10%);
+@btnInverseBackgroundHighlight:     ' . $btnInverseBackgroundHighlight . ';
 
 
 // Forms

@@ -83,6 +83,7 @@ function shoestrap_register_settings( $wp_customize ){
   // Advanced Settings
   $settings[] = array( 'slug' => 'shoestrap_advanced_head',             'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_advanced_footer',           'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_flat_buttons',              'default' => '' );
   // Simple or Advanced (variables compiling) mode
   $settings[] = array( 'slug' => 'shoestrap_advanced_builder',          'default' => '' );
     
