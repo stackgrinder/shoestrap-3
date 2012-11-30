@@ -81,7 +81,7 @@ function shoestrap_register_controls( $wp_customize ){
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_social',       'label' => 'Display Social Links in the Navbar',    'section' => 'shoestrap_primary_navbar',  'priority' => 6 );
 
   // Display Secondary Navbar
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_secondary',    'label' => 'Display NavBar on the top of the page', 'section' => 'shoestrap_secondary_navbar','priority' => 1 );
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_secondary',    'label' => 'Display Secondary NavBar',              'section' => 'shoestrap_secondary_navbar','priority' => 1 );
   // Show/Hide the login link on the secondary navbar
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar2_loginlink',   'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_secondary_navbar','priority' => 5 );
   // Display NavBar Social links on the secondary navbar
