@@ -75,13 +75,32 @@ ul.social-networks{
 
 #main-subnav .container, #main-subnav .navbar-inner{height: 40px;}
 
-.subnav-fixed {position: fixed; top: 0; left: 0; right: 0; height: 40px; z-index: 1020;
+.subnav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1020;  
+  height: @navbarHeight;
+  padding-left:  20px;
+  padding-right: 20px;
+  #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
+  border: 1px solid @navbarBorder;
+  .border-radius(0);
+  .box-shadow(0 1px 4px rgba(0,0,0,.065));
+  overflow: hidden;
+
+  // Prevent floats from breaking the navbar
+  .clearfix();
+
   .nav {margin: 0 auto;
     > li:first-child {
       > a, a:hover {.border-radius(0px);}
     }
   }
-  .navbar-inner{border: 0 !important;}
+  .navbar-inner{border: 0px !important; .border-radius(0px); .box-shadow(0 0 0 rgba(0,0,0,0));}
 }
 
 body.admin-bar .subnav-fixed{top: 28px;}
+
+#main-subnav .container, #main-subnav .navbar-inner{min-height: 40px;}
