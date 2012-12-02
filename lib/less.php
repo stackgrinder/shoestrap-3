@@ -5,17 +5,17 @@ function shoestrap_phpless(){
   $shoestrap_responsive = get_theme_mod( 'shoestrap_responsive' );
   
   if ( !class_exists( 'lessc' ) ) {
-    require_once( TEMPLATEPATH . '/lib/less_compiler/lessc.inc.php' );
+    require_once locate_template( '/lib/less_compiler/lessc.inc.php' );
   }
   $less = new lessc;
   // $less->setFormatter( "compressed" );
   
   if ( $shoestrap_responsive == '0' ) {
-    $inputFile  = TEMPLATEPATH . '/assets/css/app-fixed.less';
-    $outputFile = TEMPLATEPATH . '/assets/css/app-fixed.css';
+    $inputFile  = locate_template( '/assets/css/app-fixed.less' );
+    $outputFile = locate_template( '/assets/css/app-fixed.css' );
   } else {
-    $inputFile  = TEMPLATEPATH . '/assets/css/app-responsive.less';
-    $outputFile = TEMPLATEPATH . '/assets/css/app-responsive.css';
+    $inputFile  = locate_template( '/assets/css/app-responsive.less' );
+    $outputFile = locate_template( '/assets/css/app-responsive.css' );
   }
 
   $less = new lessc;
