@@ -23,9 +23,13 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 function shoestrap_register_controls( $wp_customize ){
   // Remove the default "background" control
   $wp_customize->remove_control( 'background_color' );
+  
   // Determine if the user is using the advanced builder or not
   $advanced_builder = get_theme_mod( 'shoestrap_advanced_builder' );
-  if ( is_multisite() && !is_super_admin() ) { $advanced_builder == ''; }
+  // Turn off the advanced builder on multisite
+  if ( is_multisite() ) {
+    $advanced_builder == '';
+  }
   
   /*
    * Color Controls

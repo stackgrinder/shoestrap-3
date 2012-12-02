@@ -4,7 +4,10 @@ add_theme_support( 'custom-background' );
 
 // Determine if the user is using the advanced builder or not
 $advanced_builder = get_theme_mod( 'shoestrap_advanced_builder' );
-if ( is_multisite() && !is_super_admin() ) { $advanced_builder == ''; }
+// Turn off the advanced builder on multisite
+if ( is_multisite() ) {
+  $advanced_builder == '';
+}
 
 require_once locate_template( '/lib/customizer/functions/sections.php' );     // Create Customizer Sections
 require_once locate_template( '/lib/customizer/functions/settings.php' );     // Create Customizer Settings
