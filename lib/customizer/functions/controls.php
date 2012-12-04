@@ -45,6 +45,8 @@ function shoestrap_register_controls( $wp_customize ){
     // Buttons Color
     $color_controls[] = array( 'setting' => 'shoestrap_buttons_color',          'label' => 'Buttons Color',                   'section' => 'colors',            'priority' => 3 );
   }
+  // Navbar text color
+  $color_controls[] = array( 'setting' => 'shoestrap_navbar_textcolor',       'label' => 'Navbar Text Color',               'section' => 'colors',            'priority' => 40 );
   // Background Color
   $color_controls[] = array( 'setting' => 'shoestrap_background_color',       'label' => 'Background Color',                'section' => 'colors',            'priority' => 1 );
   // Header Background

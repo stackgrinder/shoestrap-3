@@ -24,10 +24,6 @@ require_once locate_template( '/lib/customizer/custom-builder/components/customi
  * but it's preferable to have a separate setting for that,
  * since some fonts have weird line height (especially if using Google Webfonts.)
  * 
- * The "form states and alerts" section can also be completely automated.
- * We can derive colors from other settings and based on the bodyBackground,
- * make the colors we need. :)
- * 
  * Responsive and layouts in general are a bit trickier.
  * We allow the user to choose the width for Wide, Normal and Narrow
  * as well as gutter widths for narrow/normal and wide.
@@ -69,6 +65,7 @@ function shoestrap_custom_builder_rewrite_variables() {
   $gridGutterWide       = get_theme_mod( 'strp_cb_gridgutter_wide' );
   
   $flatbuttons          = get_theme_mod( 'shoestrap_flat_buttons' );
+  $navtextcolor         = get_theme_mod( 'shoestrap_navbar_textcolor' );
 
   if ( strlen( $bodyBackground ) < 6 ) { $bodyBackground == '#FFFFFF'; }
   if ( strlen( $textColor ) < 6 ) { $textColor == '#333333'; }
@@ -149,14 +146,26 @@ function shoestrap_custom_builder_rewrite_variables() {
   // Calculate the text color of navbars based on the navbar background color.
   // Dark backgrounds call for light-colored text and vice-versa.
   if ( shoestrap_get_brightness( $navbarBackgroundHighlight ) >= 150 ) {
-    $navbarText                 = shoestrap_adjust_brightness( $navbarBackgroundHighlight, -150 );
-    $navbarLinkColorHover       = shoestrap_adjust_brightness( $navbarBackgroundHighlight, -190 );
-    $navbarLinkColorActive      = shoestrap_adjust_brightness( $navbarBackgroundHighlight, -120 );
+    if ( strlen( $navtextcolor ) < 6 ) {
+      $navbarText                 = shoestrap_adjust_brightness( $navbarBackgroundHighlight, -150 );
+      $navbarLinkColorHover       = shoestrap_adjust_brightness( $navbarBackgroundHighlight, -190 );
+      $navbarLinkColorActive      = shoestrap_adjust_brightness( $navbarBackgroundHighlight, -120 );
+    } else {
+      $navbarText                 = $navtextcolor;
+      $navbarLinkColorHover       = $navtextcolor;
+      $navbarLinkColorActive      = shoestrap_adjust_brightness( $navtextcolor, -10 );
+    }
     $navbarLinkBackgroundActive = 'darken(@navbarBackground, 5%)';
   } else {
-    $navbarText             = shoestrap_adjust_brightness( $navbarBackgroundHighlight, 150 );
-    $navbarLinkColorHover   = shoestrap_adjust_brightness( $navbarBackgroundHighlight, 190 );
-    $navbarLinkColorActive  = shoestrap_adjust_brightness( $navbarBackgroundHighlight, 120 );
+    if ( strlen( $navtextcolor ) < 6 ) {
+      $navbarText                 = shoestrap_adjust_brightness( $navbarBackgroundHighlight, 150 );
+      $navbarLinkColorHover       = shoestrap_adjust_brightness( $navbarBackgroundHighlight, 190 );
+      $navbarLinkColorActive      = shoestrap_adjust_brightness( $navbarBackgroundHighlight, 120 );
+    } else {
+      $navbarText                 = $navtextcolor;
+      $navbarLinkColorHover       = $navtextcolor;
+      $navbarLinkColorActive      = shoestrap_adjust_brightness( $navtextcolor, 10 );
+    }
     $navbarLinkBackgroundActive = 'lighten(@navbarBackground, 5%)';
   }
   
