@@ -11,11 +11,11 @@ function shoestrap_phpless(){
   // $less->setFormatter( "compressed" );
   
   if ( $shoestrap_responsive == '0' ) {
-    $inputFile  = locate_template( '/assets/css/app-fixed.less' );
-    $outputFile = locate_template( '/assets/css/app-fixed.css' );
+    $inputFile  = locate_template( 'assets/css/app-fixed.less' );
+    $outputFile = locate_template( 'assets/css/app-fixed.css' );
   } else {
-    $inputFile  = locate_template( '/assets/css/app-responsive.less' );
-    $outputFile = locate_template( '/assets/css/app-responsive.css' );
+    $inputFile  = locate_template( 'assets/css/app-responsive.less' );
+    $outputFile = locate_template( 'assets/css/app-responsive.css' );
   }
 
   $less = new lessc;
