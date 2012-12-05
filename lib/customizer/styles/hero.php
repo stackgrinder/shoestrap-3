@@ -44,7 +44,7 @@ function shoestrap_css_hero() {
   if ( $shoestrap_header_mode == 'navbar' ) {
     $styles .= 'margin-top: -17px;';
   }
-  $styles .= 'background: ' . $shoestrap_hero_background_color . 'url("' . $shoestrap_hero_background . '");';
+  $styles .= 'background: ' . $shoestrap_hero_background_color . ' url("' . $shoestrap_hero_background . '");';
   $styles .= 'color: ' . $shoestrap_hero_textcolor . ';}';
   
   if ( shoestrap_get_brightness( $shoestrap_hero_cta_color ) <= 160) {
