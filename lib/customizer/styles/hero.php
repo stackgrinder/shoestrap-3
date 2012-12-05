@@ -142,7 +142,7 @@ function shoestrap_css_hero() {
  * Set cache for 24 hours
  */
 function shoestrap_css_hero_cache() {
-  $data = shoestrap_css_hero();
+  $data = get_transient( shoestrap_css_hero );
   if ( $data === false ) {
     $data = shoestrap_css_hero();
     set_transient( 'shoestrap_css_hero', $data, 3600 * 24 );

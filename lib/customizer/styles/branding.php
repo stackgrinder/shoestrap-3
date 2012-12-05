@@ -21,7 +21,7 @@ function shoestrap_branding_css() {
  * Set cache for 24 hours
  */
 function shoestrap_branding_css_cache() {
-  $data = shoestrap_branding_css();
+  $data = get_transient( 'shoestrap_branding_css' );
   if ( $data === false ) {
     $data = shoestrap_branding_css();
     set_transient( 'shoestrap_branding_css', $data, 3600 * 24 );

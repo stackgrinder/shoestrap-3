@@ -24,7 +24,7 @@ function shoestrap_typography_css() {
  * Set cache for 24 hours
  */
 function shoestrap_typography_css_cache() {
-  $data = shoestrap_typography_css();
+  $data = get_transient( 'shoestrap_typography_css' );
   if ( $data === false ) {
     $data = shoestrap_typography_css();
     set_transient( 'shoestrap_typography_css', $data, 3600 * 24 );
@@ -63,7 +63,7 @@ function shoestrap_typography_webfont() {
  * Set cache for 24 hours
  */
 function shoestrap_typography_webfont_cache() {
-  $data = shoestrap_typography_webfont();
+  $data = get_transient( 'shoestrap_typography_webfont' );
   if ( $data === false ) {
     $data = shoestrap_typography_webfont();
     set_transient( 'shoestrap_typography_webfont', $data, 3600 * 24 );

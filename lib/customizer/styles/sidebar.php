@@ -127,23 +127,23 @@ function shoestrap_sidebar_class_calc_pre_cache( $target ) {
 }
 
 function shoestrap_sidebar_class_calc( $target, $offset = '', $echo = false ) {
-  $main      = shoestrap_sidebar_class_calc_pre_cache( 'main' );
-  $primary   = shoestrap_sidebar_class_calc_pre_cache( 'primary' );
-  $secondary = shoestrap_sidebar_class_calc_pre_cache( 'secondary' );
+  $main      = get_transient( 'shoestrap_sidebar_class_main' );
+  $primary   = get_transient( 'shoestrap_sidebar_class_primary' );
+  $secondary = get_transient( 'shoestrap_sidebar_class_secondary' );
 
   if ( $main === false ) {
-    $main = shoestrap_social_share_styles();
-    set_transient( 'shoestrap_sidebar_class_calc_pre_cache', $main, 3600 * 24 );
+    $main = shoestrap_sidebar_class_calc_pre_cache( 'main' );
+    set_transient( 'shoestrap_sidebar_class_main', $main, 3600 * 24 );
   }
 
   if ( $primary === false ) {
-    $primary = shoestrap_social_share_styles();
-    set_transient( 'shoestrap_sidebar_class_calc_pre_cache', $primary, 3600 * 24 );
+    $primary = shoestrap_sidebar_class_calc_pre_cache( 'primary' );
+    set_transient( 'shoestrap_sidebar_class_primary', $main, 3600 * 24 );
   }
 
   if ( $secondary === false ) {
-    $secondary = shoestrap_social_share_styles();
-    set_transient( 'shoestrap_sidebar_class_calc_pre_cache', $secondary, 3600 * 24 );
+    $secondary = shoestrap_sidebar_class_calc_pre_cache( 'secondary' );
+    set_transient( 'shoestrap_sidebar_class_secondary', $main, 3600 * 24 );
   }
 
   if ( $target == 'primary' ) {
@@ -201,7 +201,7 @@ add_action( 'wp_head', 'shoestrap_sidebars_positioning_css' );
  * Set cache for 24 hours
  */
 function shoestrap_sidebars_positioning_css_cache() {
-  $data = shoestrap_sidebars_positioning_css();
+  $data = get_transient( 'shoestrap_sidebars_positioning_css' );
   if ( $data === false ) {
     $data = shoestrap_sidebars_positioning_css();
     set_transient( 'shoestrap_sidebars_positioning_css', $data, 3600 * 24 );

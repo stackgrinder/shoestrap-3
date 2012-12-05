@@ -53,7 +53,7 @@ add_action( 'wp_head', 'shoestrap_social_share_styles' );
  * Set cache for 24 hours
  */
 function shoestrap_social_share_styles_cache() {
-  $data = shoestrap_social_share_styles();
+  $data = get_transient( 'shoestrap_social_share_styles' );
   if ( $data === false ) {
     $data = shoestrap_social_share_styles();
     set_transient( 'shoestrap_social_share_styles', $data, 3600 * 24 );

@@ -30,7 +30,7 @@ function shoestrap_text_css() {
  * Set cache for 24 hours
  */
 function shoestrap_text_css_cache() {
-  $data = shoestrap_text_css();
+  $data = get_transient( 'shoestrap_text_css' );
   if ( $data === false ) {
     $data = shoestrap_text_css();
     set_transient( 'shoestrap_text_css', $data, 3600 * 24 );

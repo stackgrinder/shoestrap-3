@@ -120,7 +120,7 @@ function shoestrap_buttons_css() {
  * Set cache for 24 hours
  */
 function shoestrap_buttons_css_cache() {
-  $data = shoestrap_buttons_css();
+  $data = get_transient( 'shoestrap_buttons_css' );
   if ( $data === false ) {
     $data = shoestrap_buttons_css();
     set_transient( 'shoestrap_buttons_css', $data, 3600 * 24 );
