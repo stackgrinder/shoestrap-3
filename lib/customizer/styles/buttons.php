@@ -19,11 +19,7 @@ function shoestrap_buttons_css() {
   if ( get_theme_mod( 'shoestrap_flat_buttons' ) == 1 ) {
     $btnColorHighlight = $btn_color;
   } else {
-    if ( shoestrap_get_brightness( $btn_color ) <= 160 ) {
-      $btnColorHighlight = 'darken(spin(@btnColor, 5%), 10%)';
-    } else {
-      $btnColorHighlight = 'darken(@btnColor, 15%)';
-    }
+    $btnColorHighlight = shoestrap_adjust_brightness( $btn_color, -63 );
   }
   
   if ( shoestrap_get_brightness( $btn_color ) <= 160) {
@@ -31,94 +27,26 @@ function shoestrap_buttons_css() {
   } else {
     $textColor = '#333333';
   }
-
+  
+  $startColor = $btn_color;
+  $endColor   = $btnColorHighlight;
+  
   $styles = '<style>';
-    if ( class_exists( 'lessc' ) ) {
-      $less = new lessc;
-      
-      $less->setVariables( array(
-          "btnColor"          => $btn_color,
-          "btnColorHighlight" => $btnColorHighlight,
-          "textColor"         => $textColor,
-      ));
-      $less->setFormatter( "compressed" );
-      
-      if ( shoestrap_get_brightness( $btn_color ) <= 160 ) {
-        // The code below is a copied from bootstrap's buttons.less + mixins.less files
-        $styles .= $less->compile("
-          .gradientBar(@primaryColor, @secondaryColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
-            color: @textColor;
-            text-shadow: @textShadow;
-            #gradient > .vertical(@primaryColor, @secondaryColor);
-            border-color: @secondaryColor @secondaryColor darken(@secondaryColor, 15%);
-            border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
-          }
-  
-          #gradient {
-            .vertical(@startColor: #555, @endColor: #333) {
-              background-color: mix(@startColor, @endColor, 60%);
-              background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
-              background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
-              background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
-              background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
-              background-image: linear-gradient(to bottom, @startColor, @endColor); // Standard, IE10
-              background-repeat: repeat-x;
-            }
-          }
-  
-          .buttonBackground(@startColor, @endColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
-            .gradientBar(@startColor, @endColor, @textColor, @textShadow);
-            *background-color: @endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-            .reset-filter();
-            &:hover, &:active, &.active, &.disabled, &[disabled] {
-              color: @textColor;
-              background-color: @endColor;
-              *background-color: darken(@endColor, 5%);
-            }
-          }
-          .btn, .btn-primary{
-            .buttonBackground(@btnColor, @btnColorHighlight);
-          }
-        ");
-      } else {
-        $styles .= $less->compile("
-          .gradientBar(@primaryColor, @secondaryColor, @textColor: #333, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
-            color: @textColor;
-            text-shadow: @textShadow;
-            #gradient > .vertical(@primaryColor, @secondaryColor);
-            border-color: @secondaryColor @secondaryColor darken(@secondaryColor, 15%);
-            border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
-          }
-  
-          #gradient {
-            .vertical(@startColor: #555, @endColor: #333) {
-              background-color: mix(@startColor, @endColor, 60%);
-              background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
-              background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
-              background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
-              background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
-              background-image: linear-gradient(to bottom, @startColor, @endColor); // Standard, IE10
-              background-repeat: repeat-x;
-            }
-          }
-  
-          .buttonBackground(@startColor, @endColor, @textColor: #333, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
-            .gradientBar(@startColor, @endColor, @textColor, @textShadow);
-            *background-color: @endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-            .reset-filter();
-            &:hover, &:active, &.active, &.disabled, &[disabled] {
-              color: @textColor;
-              background-color: @endColor;
-              *background-color: darken(@endColor, 5%);
-            }
-          }
-          .btn, .btn-primary{
-            .buttonBackground(@btnColor, @btnColorHighlight);
-          }
-        ");
-      }
-    }
-    $styles .= '</style>';
+  $styles .= '.btn, .btn-primary{';
+  $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
+  $styles .= 'background-image: -moz-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+  $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $startColor . '), to(' . $endColor . '));';
+  $styles .= 'background-image: -webkit-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+  $styles .= 'background-image: -o-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+  $styles .= 'background-image: linear-gradient(to bottom, ' . $startColor . ', ' . $endColor . ');';
+  $styles .= 'background-repeat: repeat-x;';
+  $styles .= '*background-color: ' . $endColor . ';}';
+  $styles .= '.btn:hover, .btn-primary:hover, .btn-primary:active, .btn::active, .btn-primary.active .btn.active, .btn-primary.disabled, .btn.disabled, .btn-primary[disabled] .btn[disabled] {';
+  $styles .= 'color: ' . $textColor . ';';
+  $styles .= 'background-color: ' . $endColor . ';';
+  $styles .= '*background-color: ' . shoestrap_adjust_brightness( $endColor, -12 ) . ';}';
+  $styles .= '</style>';
+
     
   return $styles;
 }
