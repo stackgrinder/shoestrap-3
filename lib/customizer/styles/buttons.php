@@ -26,6 +26,12 @@ function shoestrap_buttons_css() {
     }
   }
   
+  if ( shoestrap_get_brightness( $btn_color ) <= 160) {
+    $textColor = '#ffffff';
+  } else {
+    $textColor = '#333333';
+  }
+
   $styles = '<style>';
     if ( class_exists( 'lessc' ) ) {
       $less = new lessc;
@@ -33,6 +39,7 @@ function shoestrap_buttons_css() {
       $less->setVariables( array(
           "btnColor"          => $btn_color,
           "btnColorHighlight" => $btnColorHighlight,
+          "textColor"         => $textColor,
       ));
       $less->setFormatter( "compressed" );
       

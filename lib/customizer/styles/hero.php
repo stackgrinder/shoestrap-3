@@ -47,11 +47,18 @@ function shoestrap_css_hero() {
   $styles .= 'background: ' . $shoestrap_hero_background_color . 'url("' . $shoestrap_hero_background . '");';
   $styles .= 'color: ' . $shoestrap_hero_textcolor . ';}';
   
+  if ( shoestrap_get_brightness( $shoestrap_hero_cta_color ) <= 160) {
+    $textColor = '#ffffff';
+  } else {
+    $textColor = '#333333';
+  }
+  
     if ( class_exists( 'lessc' ) ) {
       $less = new lessc;
       
       $less->setVariables( array(
           "btnColor"  => $shoestrap_hero_cta_color,
+          "textColor" => $textColor
       ));
       $less->setFormatter( "compressed" );
       
@@ -142,7 +149,7 @@ function shoestrap_css_hero() {
  * Set cache for 24 hours
  */
 function shoestrap_css_hero_cache() {
-  $data = get_transient( shoestrap_css_hero );
+  $data = get_transient( 'shoestrap_css_hero' );
   if ( $data === false ) {
     $data = shoestrap_css_hero();
     set_transient( 'shoestrap_css_hero', $data, 3600 * 24 );
