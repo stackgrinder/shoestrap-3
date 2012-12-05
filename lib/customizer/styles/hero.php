@@ -56,7 +56,6 @@ function shoestrap_css_hero() {
   $startColor = $shoestrap_hero_cta_color;
   $endColor   = shoestrap_adjust_brightness( $startColor, -63 );
   
-  $styles = '<style>';
   $styles .= '.jumbotron .btn{';
   $styles .= 'color: ' . $textColor . ';';
   $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
