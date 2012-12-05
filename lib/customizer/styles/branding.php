@@ -15,6 +15,8 @@ function shoestrap_branding_css() {
   $styles .= '.logo-wrapper{background: ' . $header_bg_color . ';}';
   $styles .= '.logo-wrapper .logo a{color: ' . $header_sitename_color . ';}';
   $styles .= '</style>';
+  
+  return $styles;
 }
 
 /*
