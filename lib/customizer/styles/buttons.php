@@ -134,7 +134,7 @@ add_action( 'wp_head', 'shoestrap_buttons_css_cache', 199 );
  */
 function shoestrap_buttons_css_cache_reset() {
   delete_transient( 'shoestrap_buttons_css' );
-  shoestrap_buttons_css_cache()();
+  shoestrap_buttons_css_cache();
 }
 add_action( 'customize_preview_init', 'shoestrap_buttons_css_cache_reset' );
 
