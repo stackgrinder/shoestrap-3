@@ -48,3 +48,10 @@ function shoestrap_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'shoestrap_scripts', 100);
+
+function shoestrap_remove_script_version( $src ){
+  $parts = explode( '?', $src );
+  return $parts[0];
+}
+add_filter( 'script_loader_src', 'shoestrap_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', 'shoestrap_remove_script_version', 15, 1 );
