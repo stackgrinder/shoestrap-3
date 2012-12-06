@@ -6,10 +6,12 @@
 function shoestrap_navbar_css(){
   $header_bg_color  = get_theme_mod( 'shoestrap_header_backgroundcolor' );
   $navbar_color     = get_theme_mod( 'shoestrap_navbar_color' );
+  $navbar_textcolor = get_theme_mod( 'shoestrap_navbar_textcolor' );
   
   // Make sure colors are properly formatted
   $header_bg_color  = '#' . str_replace( '#', '', $header_bg_color );
   $navbar_color     = '#' . str_replace( '#', '', $navbar_color );
+  $navbar_textcolor = '#' . str_replace( '#', '', $navbar_textcolor );
   
   $styles = '<style>';
   if ( get_theme_mod( 'shoestrap_logo' ) ) {
@@ -37,6 +39,7 @@ function shoestrap_navbar_css(){
     $styles .= 'background: ' . shoestrap_adjust_brightness( $navbar_color, 40 ) . ';';
   }
   $styles .= '}';
+  
   $styles .= '.btn.btn-navbar:hover, .btn.btn-navbar:active, .btn.btn-navbar:enabled{';
   if ( shoestrap_get_brightness( $navbar_color ) >= 160 ) {
     $styles .= 'background: ' . shoestrap_adjust_brightness( $navbar_color, -30 ) . ';';
@@ -44,27 +47,50 @@ function shoestrap_navbar_css(){
     $styles .= 'background: ' . shoestrap_adjust_brightness( $navbar_color, 30 ) . ';';
   }
   $styles .= '}';
+  
   $styles .= '.navbar-inner a, .navbar-inner .brand, .navbar .nav > li > a, .navbar-inner .dropdown-menu li > a, .navbar-inner .dropdown-menu li > a:hover, .navbar-inner .dropdown-menu li > a:focus, .navbar-inner .dropdown-submenu:hover > a{';
-  if ( shoestrap_get_brightness( $navbar_color ) >= 160 ) {
-    $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, -160 ) . ';';
+  if ( strlen( $navbar_textcolor ) < 6 ) {
+    if ( shoestrap_get_brightness( $navbar_color ) >= 160 ) {
+      $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, -160 ) . ';';
+    } else {
+      $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, 160 ) . ';';
+    }
   } else {
-    $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, 160 ) . ';';
+    $styles .= 'color: ' . $navbar_textcolor . ';';
   }
   $styles .= 'text-shadow: 0 1px 0 ' . shoestrap_adjust_brightness( $navbar_color, -15 ) . ';}';
   $styles .= '.navbar-inner a:hover, .navbar-inner .brand:hover, .navbar .nav > li > a:hover{';
-  if ( shoestrap_get_brightness( $navbar_color ) >= 160 ) {
-    $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, -200 ) . ';';
+  if ( strlen( $navbar_textcolor ) < 6 ) {
+    if ( shoestrap_get_brightness( $navbar_color ) >= 160 ) {
+      $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, -200 ) . ';';
+    } else {
+      $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, 200 ) . ';';
+    }
   } else {
-    $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, 200 ) . ';';
+    if ( shoestrap_get_brightness( $navbar_color ) >= 160 ) {
+      $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_textcolor, -20 ) . ';';
+    } else {
+      $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_textcolor, 20 ) . ';';
+    }
   }
   $styles .= 'text-shadow: 0 1px 0 ' . shoestrap_adjust_brightness( $navbar_color, -15 ) . ';}';
   $styles .= '.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{';
-  if ( shoestrap_get_brightness( $navbar_color ) >= 130) {
-    $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, -180 ) . ';';
-    $styles .= 'background-color: ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
+  if ( strlen( $navbar_textcolor ) < 6 ) {
+    if ( shoestrap_get_brightness( $navbar_color ) >= 130) {
+      $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, -180 ) . ';';
+      $styles .= 'background-color: ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
+    } else {
+      $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, 180 ) . ';';
+      $styles .= 'background-color: ' . shoestrap_adjust_brightness( $navbar_color, 30 ) . ';';
+    }
   } else {
-    $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, 180 ) . ';';
-    $styles .= 'background-color: ' . shoestrap_adjust_brightness( $navbar_color, 30 ) . ';';
+    if ( shoestrap_get_brightness( $navbar_color ) >= 130) {
+      $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_textcolor, -30 ) . ';';
+      $styles .= 'background-color: ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
+    } else {
+      $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_textcolor, 300 ) . ';';
+      $styles .= 'background-color: ' . shoestrap_adjust_brightness( $navbar_color, 30 ) . ';';
+    }
   }
   $styles .= 'text-shadow: 0 1px 0 ' . shoestrap_adjust_brightness( $navbar_color, -15 ) . ';}';
   $styles .= '.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle{';
@@ -92,6 +118,9 @@ function shoestrap_navbar_css(){
   } else {
     $styles .= 'background: ' . shoestrap_adjust_brightness( $navbar_color, 100 ) . ';';
     $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ' !important;';
+  }
+  if ( strlen( $navbar_textcolor ) >= 6 ) {
+    $styles .= 'color: ' . shoestrap_adjust_brightness( $navbar_textcolor, -10 ) . ' !important;';
   }
   $styles .= '}';
   $styles .= '.dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a{';
