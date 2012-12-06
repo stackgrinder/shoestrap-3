@@ -129,7 +129,7 @@ ul.social-networks{
     display:inline-block;
     position:relative;
     padding:0px 55px 0 8px;
-    .border-radius(4px);
+    .border-radius(@baseBorderRadius);
     font-size:12px;
     float:left;
     clear:both;
@@ -152,7 +152,7 @@ ul.social-networks{
     white-space:nowrap;
     text-align:left;
     overflow:hidden;
-    .box-shadow(-1px 0px 1px rgba(255,255,255,0.4), 1px 1px 2px rgba(0,0,0,0.2) inset);
+    .box-shadow(-1px 0px 1px rgba(0,0,0,0.4), 1px 1px 2px rgba(0,0,0,0.2) inset);
     .transition(width 0.3s linear);
       a{
         font-weight:bold;
@@ -160,8 +160,8 @@ ul.social-networks{
         text-align:center;
         float:left;
         line-height:22px;
-        .box-shadow(-1px 0px 1px rgba(255,255,255,0.4), 1px 1px 2px rgba(0,0,0,0.2) inset);
-        border-right: 1px solid rgba(255, 255, 255, 0.3);
+        .box-shadow(-1px 0px 1px rgba(0,0,0,0.4), 1px 1px 2px rgba(0,0,0,0.2) inset);
+        border-right: 1px solid rgba(0, 0, 0, 0.4);
       }
   }
   .right{
@@ -171,6 +171,11 @@ ul.social-networks{
     height:100%;
     width:45px;
     text-align:center;
-    line-height:22px;
+    line-height:20px;
+    border: 1px solid;
+    height: 20px;
+    .border-top-right-radius(@baseBorderRadius);
+    .border-bottom-right-radius(@baseBorderRadius);
+    background: @bodyBackground;
   }
 }
