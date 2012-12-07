@@ -10,91 +10,13 @@ function shoestrap_sidebar_class_calc( $target, $offset = '', $echo = false ) {
   
   // If secondary sidebar is empty, ignore it.
   if ( !is_active_sidebar( 'sidebar-secondary' ) ) {
-    if ( $first == '2' ) {
-      $main    = 'span10';
-      $primary = 'span2';
-    } elseif ( $first == '3' ) {
-      $main    = 'span9';
-      $primary = 'span3';
-    } elseif ( $first == '5' ) {
-      $main    = 'span7';
-      $primary = 'span5';
-    } elseif ( $first == '6' ) {
-      $main    = 'span6';
-      $primary = 'span6';
-    } else { // default value
-      $main    = 'span8';
-      $primary = 'span4';
-    }
+    $main      = 'span' . ( 12 - $first );
+    $primary   = 'span' . $first;
   // If secondary sidebar is not empty, do not ignore it.
   } else {
-    if ( $second == '2' ) {
-      if ( $first == '2' ) {
-        $main      = 'span8';
-        $primary   = 'span2';
-        $secondary = 'span2';
-      } elseif ( $first == '3' ) {
-        $main      = 'span7';
-        $primary   = 'span3';
-        $secondary = 'span2';
-      } elseif ( $first == '5' ) {
-        $main      = 'span5';
-        $primary   = 'span5';
-        $secondary = 'span2';
-      } elseif ( $first == '6' ) {
-        $main      = 'span4';
-        $primary   = 'span6';
-        $secondary = 'span2';
-      } else {
-        $main      = 'span6';
-        $primary   = 'span4';
-        $secondary = 'span2';
-      }
-    } elseif ( $second == '3' ) {
-      if ( $first == '2' ) {
-        $main      = 'span7';
-        $primary   = 'span2';
-        $secondary = 'span3';
-      } elseif ( $first == '3' ) {
-        $main      = 'span6';
-        $primary   = 'span3';
-        $secondary = 'span3';
-      } elseif ( $first == '5' ) {
-        $main      = 'span4';
-        $primary   = 'span5';
-        $secondary = 'span3';
-      } elseif ( $first == '6' ) {
-        $main      = 'span3';
-        $primary   = 'span6';
-        $secondary = 'span3';
-      } else {
-        $main      = 'span5';
-        $primary   = 'span4';
-        $secondary = 'span3';
-      }
-    } elseif ( $second == '4' ) {
-      if ( $first == '2' ) {
-        $main      = 'span6';
-        $primary   = 'span2';
-        $secondary = 'span4';
-      } elseif ( $first == '3' ) {
-        $main      = 'span5';
-        $primary   = 'span3';
-        $secondary = 'span4';
-      } elseif ( $first == '5' ) {
-        $main      = 'span3';
-        $primary   = 'span5';
-        $secondary = 'span4';
-      } elseif ( $first == '6' ) {
-        $main      = 'span2';
-        $primary   = 'span6';
-        $secondary = 'span4';
-      } else {
-        $main      = 'span4';
-        $primary   = 'span4';
-        $secondary = 'span4';
-      }
-    }
+    $main      = 'span' . ( 12 - $first - $second );
+    $primary   = 'span' . $first;
+    $secondary = 'span' . $second;
   }
   
   // If the layout is "Main only", the main area should have a class of span12
