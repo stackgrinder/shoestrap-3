@@ -32,7 +32,7 @@ function shoestrap_buttons_css() {
   $endColor   = $btnColorHighlight;
   
   $styles = '<style>';
-  $styles .= '.btn, .btn-primary{';
+  $styles .= '.btn, .btn-primary, a.btn, a.btn-primary{';
   $styles .= 'color: ' . $textColor . ';';
   $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
   $styles .= 'background-image: -moz-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
