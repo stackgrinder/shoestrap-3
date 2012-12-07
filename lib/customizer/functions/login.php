@@ -49,236 +49,197 @@ function shoestrap_login_scripts() {
     $style .= $image . $repeat . $position . $attachment;
   }
 
-  ?>
-    <style>
-      .login #nav a, .login #backtoblog a, a, a.active, a:hover, a.hover, a.visited, a:visited, a.link, a:link{color: #<?php echo $link_color; ?> !important; color: <?php echo $link_color; ?> !important;}
-      body.login{<?php echo trim( $style ); ?> overflow-x: hidden;}
-        .login #nav, .login #backtoblog{text-shadow: none; text-shadow: 0; color: #fff;}
-        body.login div#login h1 a {
-            background-image: url("<?php shoestrap_login_logo(); ?>");
-            background-size: contain;
-            padding-bottom: 30px;
+  $styles = '<style>';
+  $styles .= '.login #nav a, .login #backtoblog a, a, a.active, a:hover, a.hover, a.visited, a:visited, a.link, a:link{color: ' . $link_color . ' !important;}';
+  $styles .= 'body.login{' . trim( $style ) . 'overflow-x: hidden;}';
+  $styles .= '.login #nav, .login #backtoblog{text-shadow: none; text-shadow: 0; color: #fff;}';
+  $styles .= 'body.login div#login h1 a {';
+  $styles .= 'background-image: url("' . shoestrap_login_logo() . '");';
+  $styles .= 'background-size: contain;';
+  $styles .= 'padding-bottom: 30px;';
+  
+  if ( get_theme_mod( 'shoestrap_logo' ) == "" ) {
+    $styles .= 'overflow:visible;';
+    $styles .= 'text-indent: 0px;';
+    $styles .= 'padding-top: 30px;';
+    $styles .= 'width:auto;';
+    $styles .= 'height:auto;';
+    $styles .= 'text-decoration:none;';
+  }
+  $styles .= '}';
+  
+  $styles .= '#login {';
+  $styles .= 'padding: 20px;';
+  $styles .= '-webkit-border-radius: 0px 0px 4px 4px;';
+  $styles .= 'border-radius: 0px 0px 4px 4px;';
+  $styles .= '}';
+  
+  $styles .= '.login form{';
+  $styles .= 'margin-left: 0;';
+  $styles .= '}';
+  
+  $styles .= '#login h1{';
+  $styles .= 'margin-left: -9999px;';
+  $styles .= 'padding: 20px 9999px;';
+  $styles .= 'background: ' . $header_bg_color . ';';
+  $styles .= 'margin-top: -20px;';
+  $styles .= 'margin-bottom: 50px;';
+  $styles .= '}';
+  
+  $styles .= '#wp-submit {';
+  $styles .= 'font-weight: normal;';
+  $styles .= 'display: inline-block;';
+  $styles .= '*display: inline;';
+  $styles .= 'padding: 4px 14px;';
+  $styles .= 'margin-bottom: 0;';
+  $styles .= '*margin-left: .3em;';
+  $styles .= 'font-size: 14px;';
+  $styles .= 'line-height: 20px;';
+  $styles .= '*line-height: 20px;';
+  $styles .= 'color: #333333;';
+  $styles .= 'text-align: center;';
+  $styles .= 'text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);';
+  $styles .= 'vertical-align: middle;';
+  $styles .= 'cursor: pointer;';
+  $styles .= 'background-color: #f5f5f5;';
+  $styles .= '*background-color: #e6e6e6;';
+  $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));';
+  $styles .= 'background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);';
+  $styles .= 'background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);';
+  $styles .= 'background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);';
+  $styles .= 'background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);';
+  $styles .= 'background-repeat: repeat-x;';
+  $styles .= 'border: 1px solid #bbbbbb;';
+  $styles .= '*border: 0;';
+  $styles .= 'border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);';
+  $styles .= 'border-color: #e6e6e6 #e6e6e6 #bfbfbf;';
+  $styles .= 'border-bottom-color: #a2a2a2;';
+  $styles .= '-webkit-border-radius: 4px;';
+  $styles .= '-moz-border-radius: 4px;';
+  $styles .= 'border-radius: 4px;';
+  $styles .= 'filter: progid:dximagetransform.microsoft.gradient(startColorstr="#ffffffff", endColorstr="#ffe6e6e6", GradientType=0);';
+  $styles .= 'filter: progid:dximagetransform.microsoft.gradient(enabled=false);';
+  $styles .= '*zoom: 1;';
+  $styles .= '-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);';
+  $styles .= '-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);';
+  $styles .= 'box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);';
+  $styles .= '}';
+  
+  $styles .= '#wp-submit:hover, #wp-submit:active, #wp-submit.active, #wp-submit.disabled, #wp-submit[disabled] {';
+  $styles .= 'color: #333333;';
+  $styles .= 'background-color: #e6e6e6;';
+  $styles .= '*background-color: #d9d9d9;';
+  $styles .= '}';
+  
+  $styles .= '#wp-submit:active, #wp-submit.active {';
+  $styles .= 'background-color: #cccccc \9;';
+  $styles .= '}';
+  
+  $styles .= '#wp-submit:first-child {';
+  $styles .= '*margin-left: 0;';
+  $styles .= '}';
+  
+  $styles .= '#wp-submit:hover {';
+  $styles .= 'color: #333333;';
+  $styles .= 'text-decoration: none;';
+  $styles .= 'background-color: #e6e6e6;';
+  $styles .= '*background-color: #d9d9d9;';
+  $styles .= 'background-position: 0 -15px;';
+  $styles .= '-webkit-transition: background-position 0.1s linear;';
+  $styles .= '-moz-transition: background-position 0.1s linear;';
+  $styles .= '-o-transition: background-position 0.1s linear;';
+  $styles .= 'transition: background-position 0.1s linear;';
+  $styles .= '}';
+  
+  $styles .= '#wp-submit:focus {';
+  $styles .= 'outline: thin dotted #333;';
+  $styles .= 'outline: 5px auto -webkit-focus-ring-color;';
+  $styles .= 'outline-offset: -2px;';
+  $styles .= '}';
+  
+  $styles .= '#wp-submit.active, #wp-submit:active {';
+  $styles .= 'background-color: #e6e6e6;';
+  $styles .= 'background-color: #d9d9d9 \9;';
+  $styles .= 'background-image: none;';
+  $styles .= 'outline: 0;';
+  $styles .= '-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);';
+  $styles .= '-moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);';
+  $styles .= 'box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);';
+  $styles .= '}';
+  
+  $styles .= '#wp-submit.disabled, #wp-submit[disabled] {';
+  $styles .= 'cursor: default;';
+  $styles .= 'background-color: #e6e6e6;';
+  $styles .= 'background-image: none;';
+  $styles .= 'opacity: 0.65;';
+  $styles .= 'filter: alpha(opacity=65);';
+  $styles .= '-webkit-box-shadow: none;';
+  $styles .= '-moz-box-shadow: none;';
+  $styles .= 'box-shadow: none;';
+  $styles .= '}';
+  
+  // Make sure colors are properly formatted
+  $btn_color = '#' . str_replace( '#', '', $btn_color );
+    
+  // if no color has been selected, set to #0066cc. This prevents errors with the php-less compiler.
+  if ( strlen( $btn_color ) < 3 ) {
+    $btn_color = '#0066cc';
+  }
+  if ( get_theme_mod( 'shoestrap_flat_buttons' ) == 1 ) {
+    $btnColorHighlight = $btn_color;
+  } else {
+    $btnColorHighlight = shoestrap_adjust_brightness( $btn_color, -63 );
+  }
+
+  if ( shoestrap_get_brightness( $btn_color ) <= 160) {
+    $textColor = '#ffffff';
+  } else {
+    $textColor = '#333333';
+  }
+
+  $startColor = $btn_color;
+  $endColor   = $btnColorHighlight;
+
+  $styles .= '#wp-submit.button-primary{';
+  $styles .= 'color: ' . $textColor . ';';
+  $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
+  $styles .= 'background-image: -moz-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+  $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $startColor . '), to(' . $endColor . '));';
+  $styles .= 'background-image: -webkit-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+  $styles .= 'background-image: -o-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+  $styles .= 'background-image: linear-gradient(to bottom, ' . $startColor . ', ' . $endColor . ');';
+  $styles .= 'background-repeat: repeat-x;';
+  $styles .= '*background-color: ' . $endColor . ';}';
+  $styles .= '.btn:hover, .btn-primary:hover, .btn-primary:active, .btn::active, .btn-primary.active .btn.active, .btn-primary.disabled, .btn.disabled, .btn-primary[disabled] .btn[disabled] {';
+  $styles .= 'color: ' . $textColor . ';';
+  $styles .= 'background-color: ' . $endColor . ';';
+  $styles .= '*background-color: ' . shoestrap_adjust_brightness( $endColor, -12 ) . ';}';
+  $styles .= '</style>';
+
+  return $styles;
+}
+
 /*
- * If no logo is uploaded, use the sitename instead
+ * Set cache for 24 hours
  */
-		<?php 
-		if ( get_theme_mod( 'shoestrap_logo' ) == "" ) { ?>
-			overflow:visible; 
-			text-indent: 0px;
-			padding-top: 30px;
-			width:auto; 
-			height:auto; 
-			text-decoration:none; 
-		<?php
-		}
-		?>
-		
-        }
-    #login {
-      padding: 20px;
-      -webkit-border-radius: 0px 0px 4px 4px;
-      border-radius: 0px 0px 4px 4px;
-    }
-    .login form{
-      margin-left: 0;
-    }
-    #login h1{
-      margin-left: -9999px;
-      padding: 20px 9999px;
-      background: <?php echo $header_bg_color; ?>;
-      margin-top: -20px;
-      margin-bottom: 50px;
-    }
-    #wp-submit {
-      font-weight: normal;
-      display: inline-block;
-      *display: inline;
-      padding: 4px 14px;
-      margin-bottom: 0;
-      *margin-left: .3em;
-      font-size: 14px;
-      line-height: 20px;
-      *line-height: 20px;
-      color: #333333;
-      text-align: center;
-      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #f5f5f5;
-      *background-color: #e6e6e6;
-      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
-      background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
-      background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
-      background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
-      background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
-      background-repeat: repeat-x;
-      border: 1px solid #bbbbbb;
-      *border: 0;
-      border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-      border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-      border-bottom-color: #a2a2a2;
-      -webkit-border-radius: 4px;
-         -moz-border-radius: 4px;
-              border-radius: 4px;
-      filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
-      filter: progid:dximagetransform.microsoft.gradient(enabled=false);
-      *zoom: 1;
-      -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-         -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-              box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-    }
-    
-    #wp-submit:hover,
-    #wp-submit:active,
-    #wp-submit.active,
-    #wp-submit.disabled,
-    #wp-submit[disabled] {
-      color: #333333;
-      background-color: #e6e6e6;
-      *background-color: #d9d9d9;
-    }
-    
-    #wp-submit:active,
-    #wp-submit.active {
-      background-color: #cccccc \9;
-    }
-    
-    #wp-submit:first-child {
-      *margin-left: 0;
-    }
-    
-    #wp-submit:hover {
-      color: #333333;
-      text-decoration: none;
-      background-color: #e6e6e6;
-      *background-color: #d9d9d9;
-      /* Buttons in IE7 don't get borders, so darken on hover */
-    
-      background-position: 0 -15px;
-      -webkit-transition: background-position 0.1s linear;
-         -moz-transition: background-position 0.1s linear;
-           -o-transition: background-position 0.1s linear;
-              transition: background-position 0.1s linear;
-    }
-    
-    #wp-submit:focus {
-      outline: thin dotted #333;
-      outline: 5px auto -webkit-focus-ring-color;
-      outline-offset: -2px;
-    }
-    
-    #wp-submit.active,
-    #wp-submit:active {
-      background-color: #e6e6e6;
-      background-color: #d9d9d9 \9;
-      background-image: none;
-      outline: 0;
-      -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-         -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-              box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-    }
-    
-    #wp-submit.disabled,
-    #wp-submit[disabled] {
-      cursor: default;
-      background-color: #e6e6e6;
-      background-image: none;
-      opacity: 0.65;
-      filter: alpha(opacity=65);
-      -webkit-box-shadow: none;
-         -moz-box-shadow: none;
-              box-shadow: none;
-    }
-    <?php
-    if ( class_exists( 'lessc' ) ) {
-      $less = new lessc;
-      
-      $less->setVariables( array(
-          "btnColor"  => $btn_color,
-      ));
-      $less->setFormatter( "compressed" );
-      
-      if ( shoestrap_get_brightness( $btn_color ) <= 160){
-        echo $less->compile("
-          @btnColorHighlight: darken(spin(@btnColor, 5%), 10%);
-  
-          .gradientBar(@primaryColor, @secondaryColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
-            color: @textColor;
-            text-shadow: @textShadow;
-            #gradient > .vertical(@primaryColor, @secondaryColor);
-            border-color: @secondaryColor @secondaryColor darken(@secondaryColor, 15%);
-            border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
-          }
-  
-          #gradient {
-            .vertical(@startColor: #555, @endColor: #333) {
-              background-color: mix(@startColor, @endColor, 60%);
-              background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
-              background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
-              background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
-              background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
-              background-image: linear-gradient(to bottom, @startColor, @endColor); // Standard, IE10
-              background-repeat: repeat-x;
-            }
-          }
-  
-          .buttonBackground(@startColor, @endColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
-            .gradientBar(@startColor, @endColor, @textColor, @textShadow);
-            *background-color: @endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-            .reset-filter();
-            &:hover, &:active, &.active, &.disabled, &[disabled] {
-              color: @textColor;
-              background-color: @endColor;
-              *background-color: darken(@endColor, 5%);
-            }
-          }
-          #wp-submit.button-primary{
-            .buttonBackground(@btnColor, @btnColorHighlight);
-          }
-        ");
-      } else {
-        echo $less->compile("
-          @btnColorHighlight: darken(@btnColor, 15%);
-  
-          .gradientBar(@primaryColor, @secondaryColor, @textColor: #333, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
-            color: @textColor;
-            text-shadow: @textShadow;
-            #gradient > .vertical(@primaryColor, @secondaryColor);
-            border-color: @secondaryColor @secondaryColor darken(@secondaryColor, 15%);
-            border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
-          }
-  
-          #gradient {
-            .vertical(@startColor: #555, @endColor: #333) {
-              background-color: mix(@startColor, @endColor, 60%);
-              background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
-              background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
-              background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
-              background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
-              background-image: linear-gradient(to bottom, @startColor, @endColor); // Standard, IE10
-              background-repeat: repeat-x;
-            }
-          }
-  
-          .buttonBackground(@startColor, @endColor, @textColor: #333, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
-            .gradientBar(@startColor, @endColor, @textColor, @textShadow);
-            *background-color: @endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-            .reset-filter();
-            &:hover, &:active, &.active, &.disabled, &[disabled] {
-              color: @textColor;
-              background-color: @endColor;
-              *background-color: darken(@endColor, 5%);
-            }
-          }
-          #wp-submit.button-primary{
-            .buttonBackground(@btnColor, @btnColorHighlight);
-          }
-        ");
-      }
-    }?>
-  </style>
-<?php }
+function shoestrap_login_scripts_cache() {
+  $data = get_transient( 'shoestrap_login_scripts' );
+  if ( $data === false ) {
+    $data = shoestrap_login_scripts();
+    set_transient( 'shoestrap_login_scripts', $data, 3600 * 24 );
+  }
+  echo $data;
+}
 add_action( 'login_enqueue_scripts', 'shoestrap_login_scripts' );
+
+/*
+ * Reset cache when in customizer
+ */
+function shoestrap_login_scripts_cache_reset() {
+  delete_transient( 'shoestrap_login_scripts' );
+  shoestrap_login_scripts_cache();
+}
+add_action( 'customize_preview_init', 'shoestrap_buttons_css_cache_reset' );
 
 /*
  * Alters the link of the login screen logo

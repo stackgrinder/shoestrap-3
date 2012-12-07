@@ -5,7 +5,7 @@ add_theme_support( 'custom-background' );
 // Determine if the user is using the advanced builder or not
 $advanced_builder = get_option('shoestrap_advanced_compiler');
 // Turn off the advanced builder on multisite
-if ( is_multisite() ) {
+if ( is_multisite() && !is_super_admin() ) {
   $advanced_builder == '';
 }
 
