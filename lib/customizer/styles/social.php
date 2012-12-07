@@ -14,7 +14,7 @@ function shoestrap_social_share_styles() {
   // The number of networks.
   $networks_nr = $googleplus + $facebook + $twitter + $linkedin + $pinterest;
   
-  if ( get_theme_mod( 'shoestrap_advanced_builder' ) ){
+  if ( get_option('shoestrap_advanced_compiler') ) {
   	$btn_color = get_theme_mod( 'strp_cb_btn_primary' );
   }else{
   $btn_color = get_theme_mod( 'shoestrap_buttons_color' );
@@ -88,4 +88,3 @@ function shoestrap_social_share_styles_cache_reset() {
   shoestrap_social_share_styles_cache();
 }
 add_action( 'customize_preview_init', 'shoestrap_social_share_styles_cache_reset' );
-

@@ -25,9 +25,9 @@ function shoestrap_register_controls( $wp_customize ){
   $wp_customize->remove_control( 'background_color' );
   
   // Determine if the user is using the advanced builder or not
-  $advanced_builder = get_theme_mod( 'shoestrap_advanced_builder' );
+  $advanced_builder = get_option('shoestrap_advanced_compiler');
   // Turn off the advanced builder on multisite
-  if ( is_multisite() ) {
+  if ( is_multisite() && !is_super_admin() ) {
     $advanced_builder == '';
   }
   
@@ -111,15 +111,6 @@ function shoestrap_register_controls( $wp_customize ){
   // Flat buttons on/off
   $checkbox_controls[] = array( 'setting' => 'shoestrap_flat_buttons',        'label' => 'Flat Buttons (no gradients)',           'section' => 'shoestrap_advanced',       'priority' => 9 );
 
-  // Toogle the Advance Bootstrap Builder on/off
-  if ( is_multisite() ) {
-    if ( is_super_admin() ) {
-      $checkbox_controls[] = array( 'setting' => 'shoestrap_advanced_builder',    'label' => 'Toggle the advanced Bootstrap Builder', 'section' => 'shoestrap_advanced',    'priority' => 3 );
-    }
-  } else {
-    $checkbox_controls[] = array( 'setting' => 'shoestrap_advanced_builder',    'label' => 'Toggle the advanced Bootstrap Builder', 'section' => 'shoestrap_advanced',    'priority' => 3 );
-  }
-  
   /*
    * Dropdown (Select) Controls
    */
