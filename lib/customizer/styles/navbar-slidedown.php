@@ -10,7 +10,6 @@ function shoestrap_top_megamenu_css() {
   $styles = '<style>';
   
   $styles .= '.top-megamenu{';
-  $styles .= 'margin-top: -20px; padding: 20px 0;';
   if ( shoestrap_get_brightness( $navbar_color ) >= 160 ) {
     $styles .= 'background: ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
   } else {

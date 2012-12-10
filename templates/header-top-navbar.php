@@ -22,4 +22,5 @@
       <?php do_action('shoestrap_nav_top_right'); ?>
     </div>
   </div>
+  <?php do_action('shoestrap_nav_top_bottom'); ?>
 </header>
