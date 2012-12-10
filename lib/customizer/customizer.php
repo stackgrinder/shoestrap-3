@@ -29,6 +29,7 @@ if ( $advanced_builder != 1 ) {
   require_once locate_template( '/lib/customizer/styles/buttons.php' );         // Buttons
 }
 require_once locate_template( '/lib/customizer/styles/navbar-script.php' );   // NavBar Script
+require_once locate_template( '/lib/customizer/styles/navbar-slidedown.php' );// NavBar Slide-Down Styling
 require_once locate_template( '/lib/customizer/styles/hero.php' );            // Hero
 require_once locate_template( '/lib/customizer/styles/footer.php' );          // Footer
 require_once locate_template( '/lib/customizer/styles/advanced.php' );        // Custom CSS and/or JS on the head and the footer
