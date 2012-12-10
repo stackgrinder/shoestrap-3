@@ -31,6 +31,7 @@ if ( $advanced_builder == 1 ) {
   }
 }
 
+require_once locate_template( '/lib/slide-down.php' );                      // Slide-down widget area functions
 require_once locate_template( '/lib/customizer/customizer.php' );           // Customizer functions
 require_once locate_template( '/lib/custom.php' );                          // Custom functions
 require_once locate_template( '/lib/admin/admin.php' );                     // Admin page
