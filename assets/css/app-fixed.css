@@ -5515,3 +5515,36 @@ body.admin-bar .subnav-fixed {
   border-bottom-right-radius: 4px;
   background: #ffffff;
 }
+a.toggle-nav {
+  background: url("../img/plus-toggle-white.png") no-repeat center center;
+  position: relative;
+  top: 12px;
+  width: 16px;
+  height: 16px;
+  display: block;
+  opacity: 0.4;
+  z-index: 1;
+  float: left;
+  font-size: 20px;
+  text-decoration: none;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+}
+a.toggle-nav.open {
+  -moz-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+  opacity: 0.8;
+  -moz-transform-origin: center center;
+}
+a.toggle-nav.black {
+  background: url("../img/plus-toggle-black.png") no-repeat center center;
+}
+#megaDrop {
+  display: none;
+  padding: 20px 0;
+}
