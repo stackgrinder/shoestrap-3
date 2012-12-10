@@ -3,7 +3,6 @@
 add_action( 'shoestrap_admin_content', 'shoestrap_advanced_toggle', 20 );
 function shoestrap_advanced_toggle() {
   $advanced     = get_option( 'shoestrap_advanced_compiler' );
-  $submit_text  = __( 'Save', 'shoestrap' );
   $current_url  = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
   $customizeurl = add_query_arg( 'url', urlencode( $current_url ), wp_customize_url() );
 
@@ -37,7 +36,7 @@ function shoestrap_advanced_toggle() {
           <a href="<?php  echo $customizeurl ?>"> <?php _e( 'Customizer', 'shoestrap' ); ?> </a>
           <?php _e( 'to change bootstrap\'s default behavior', 'shoestrap' ); ?>
         </p>
-        <?php submit_button( $submit_text ); ?>
+        <?php submit_button(); ?>
     
       </form>
     </div>

@@ -35,5 +35,6 @@ require_once locate_template( '/lib/slide-down.php' );                      // S
 require_once locate_template( '/lib/customizer/customizer.php' );           // Customizer functions
 require_once locate_template( '/lib/custom.php' );                          // Custom functions
 require_once locate_template( '/lib/admin/admin.php' );                     // Admin page
+require_once locate_template( '/lib/admin/theme_supports.php' );            // Theme Supports Toggling
 require_once locate_template( '/lib/admin/licencing.php' );                 // Licencing to allow auto-updates
 require_once locate_template( '/lib/customizer/custom-builder/admin.php' ); // Advanced customizer toggling
