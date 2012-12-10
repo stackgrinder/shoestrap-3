@@ -55,7 +55,7 @@ function shoestrap_navbar_slidedown_content() {
     echo '</div>';
     
   if ( is_active_sidebar( 'navbar-slide-down-4' ) )
-    echo '<div class="' . $widgerareaclass . '">';
+    echo '<div class="' . $widgetareaclass . '">';
     dynamic_sidebar('navbar-slide-down-4');
     echo '</div>';
     
