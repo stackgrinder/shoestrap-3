@@ -17,7 +17,7 @@ require_once locate_template( '/lib/nav.php' );                             // C
 require_once locate_template( '/lib/htaccess.php' );                        // Rewrites for assets, H5BP .htaccess
 require_once locate_template( '/lib/widgets.php' );                         // Sidebars and widgets
 require_once locate_template( '/lib/scripts.php' );                         // Scripts and stylesheets
-
+require_once locate_template( '/lib/less.php' );
 // Less to CSS PHP Compiler under conditions
 if ( $advanced_builder == 1 ) {
   if ( is_multisite() ) {
