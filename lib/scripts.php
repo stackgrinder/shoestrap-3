@@ -11,7 +11,7 @@
  * Enqueue scripts in the following order:
  * 1. /theme/assets/js/vendor/modernizr-2.6.2.min.js  (in head.php)
  * 2. jquery-1.8.2.min.js via Google CDN              (in head.php)
- * 3. /theme/assets/js/plugins.js
+ * 3. /theme/assets/js/vendor/bootstrap.min.js
  * 4. /theme/assets/js/main.js
  */
 
@@ -41,9 +41,9 @@ function shoestrap_scripts() {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_register_script('shoestrap_plugins', get_template_directory_uri() . '/assets/js/plugins.js', false, null, false);
+  wp_register_script('shoestrap_bootstrap', get_template_directory_uri() . '/assets/js/vendor/bootstrap.min.js', false, null, false);
   wp_register_script('shoestrap_main', get_template_directory_uri() . '/assets/js/main.js', false, null, false);
-  wp_enqueue_script('shoestrap_plugins');
+  wp_enqueue_script('shoestrap_bootstrap');
   wp_enqueue_script('shoestrap_main');
 }
 
