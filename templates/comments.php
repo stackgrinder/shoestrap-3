@@ -47,8 +47,18 @@
 
     <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : // are there comments to navigate through ?>
       <nav id="comments-nav" class="pager">
-        <div class="previous"><?php previous_comments_link(__('&larr; Older comments', 'shoestrap')); ?></div>
-        <div class="next"><?php next_comments_link(__('Newer comments &rarr;', 'shoestrap')); ?></div>
+        <ul class="pager">
+          <?php if (get_previous_comments_link()) : ?>
+            <li class="previous"><?php previous_comments_link(__('&larr; Older comments', 'shoestrap')); ?></li>
+          <?php else: ?>
+            <li class="previous disabled"><a><?php _e('&larr; Older comments', 'shoestrap'); ?></a></li>
+          <?php endif; ?>
+          <?php if (get_next_comments_link()) : ?>
+            <li class="next"><?php next_comments_link(__('Newer comments &rarr;', 'shoestrap')); ?></li>
+          <?php else: ?>
+            <li class="next disabled"><a><?php _e('Newer comments &rarr;', 'shoestrap'); ?></a></li>
+          <?php endif; ?>
+        </ul>
       </nav>
 
     <?php endif; // check for comment navigation ?>
