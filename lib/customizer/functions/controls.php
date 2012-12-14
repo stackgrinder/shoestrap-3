@@ -70,7 +70,7 @@ function shoestrap_register_controls( $wp_customize ){
    */
   $image_controls = array();
   // Logo Image
-  $image_controls[] = array( 'setting' => 'shoestrap_logo',           'label' => 'Footer Background Color', 'section' => 'shoestrap_logo',  'priority' => 2 );
+  $image_controls[] = array( 'setting' => 'shoestrap_logo',           'label' => 'Logo Image', 'section' => 'shoestrap_logo',  'priority' => 2 );
   // Hero Region Background Image
   $image_controls[] = array( 'setting' => 'shoestrap_hero_background','label' => 'Hero Background Image',   'section' => 'shoestrap_hero',  'priority' => 6 );
   
