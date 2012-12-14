@@ -39,12 +39,15 @@ function shoestrap_register_controls( $wp_customize ){
   // Display the following controls only when user is NOT using the advanced controls
   if ( $advanced_builder != 1 ) {
     // Navbar background color
-    $color_controls[] = array( 'setting' => 'shoestrap_navbar_color',           'label' => 'Navbar Color',                    'section' => 'shoestrap_primary_navbar',  'priority' => 4 );
+    $color_controls[] = array( 'setting' => 'shoestrap_navbar_color',           'label' => 'Navbar Color',                    'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
     // Links Color
-    $color_controls[] = array( 'setting' => 'shoestrap_link_color',             'label' => 'Links Color',                     'section' => 'colors',            'priority' => 2 );
+    $color_controls[] = array( 'setting' => 'shoestrap_link_color',             'label' => 'Links Color',                     'section' => 'colors',            'priority' => 3 );
     // Buttons Color
-    $color_controls[] = array( 'setting' => 'shoestrap_buttons_color',          'label' => 'Buttons Color',                   'section' => 'colors',            'priority' => 3 );
-  }
+    $color_controls[] = array( 'setting' => 'shoestrap_buttons_color',          'label' => 'Buttons Color',                   'section' => 'colors',            'priority' => 4 );
+  	// Text Color
+  	$color_controls[] = array( 'setting' => 'shoestrap_text_color',							'label' => 'Text Color',       							  'section' => 'colors',  					'priority' => 2 );
+  
+	}
   // Navbar text color
   $color_controls[] = array( 'setting' => 'shoestrap_navbar_textcolor',       'label' => 'Navbar Text Color',               'section' => 'colors',            'priority' => 40 );
   // Background Color
