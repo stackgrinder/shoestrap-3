@@ -52,7 +52,7 @@ function shoestrap_register_settings( $wp_customize ){
     
   // Color Settings
   $settings[] = array( 'slug' => 'shoestrap_background_color',          'default' => $background_color );
-	$settings[] = array( 'slug' => 'shoestrap_text_color',                'default' => '#464646' );
+	$settings[] = array( 'slug' => 'shoestrap_text_color',                'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_link_color',                'default' => '#0088cc' );
   $settings[] = array( 'slug' => 'shoestrap_buttons_color',             'default' => '#0066bb' );
   

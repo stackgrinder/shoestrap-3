@@ -16,8 +16,16 @@ function shoestrap_text_css() {
   $styles = '<style>';
   // General links styling
   $styles .= 'a, a.active, a:hover, a.hover, a.visited, a:visited, a.link, a:link{ color: ' . $link_color . ';}';
-  // Button and Text styling
-  $styles .= 'a.btn, #wrap{ color: ' . $text_color . '; }';
+  // Text styling
+  if ( strlen( $text_color ) < 6 ) {
+    if ( shoestrap_get_brightness( $background_color ) >= 100 ) {
+      $styles .= '#wrap { color: #333; }';
+    } else {
+      '#wrap { color: #f7f7f7; }';
+    }
+  } else {
+    $styles .= '#wrap{ color: ' . $text_color . '; }';
+  }
   $styles .= '</style>';
   
   return $styles;
