@@ -11,11 +11,15 @@ function shoestrap_navbar_dropdown_css(){
   } else {
     $navbar_color   = get_theme_mod( 'strp_cb_navbar_background' );
   }
+  $navbar_textcolor = get_theme_mod( 'shoestrap_navbar_textcolor' );
+  
   
   // Make sure colors are properly formatted
   $header_bg_color  = '#' . str_replace( '#', '', $header_bg_color );
   $navbar_color     = '#' . str_replace( '#', '', $navbar_color );
+  $navbar_textcolor = '#' . str_replace( '#', '', $navbar_textcolor );
   
+  $styles = '<style>';
   $styles .= '.navbar-inner ul.dropdown-menu{';
   $styles .= 'background-color:' . $navbar_color . '!important;';
   $styles .= 'background-image: -moz-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
