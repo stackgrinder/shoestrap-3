@@ -4,8 +4,13 @@
  * Applies the styles to the navbar dropdowns.
  */
 function shoestrap_navbar_dropdown_css(){
+  $advanced_builder = get_option('shoestrap_advanced_compiler');
   $header_bg_color  = get_theme_mod( 'shoestrap_header_backgroundcolor' );
-  $navbar_color     = get_theme_mod( 'shoestrap_navbar_color' );
+  if ( $advanced_builder != 1 ) {
+    $navbar_color   = get_theme_mod( 'shoestrap_navbar_color' );
+  } else {
+    $navbar_color   = get_theme_mod( 'strp_cb_navbar_background' );
+  }
   
   // Make sure colors are properly formatted
   $header_bg_color  = '#' . str_replace( '#', '', $header_bg_color );
