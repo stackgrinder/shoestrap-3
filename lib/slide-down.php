@@ -73,9 +73,9 @@ function shoestrap_navbar_slidedown_toggle() {
   
   if ( is_active_sidebar( 'navbar-slide-down-top' ) || is_active_sidebar( 'navbar-slide-down-1' ) || is_active_sidebar( 'navbar-slide-down-2' ) || is_active_sidebar( 'navbar-slide-down-3' ) || is_active_sidebar( 'navbar-slide-down-4' ) ) {
     if ( shoestrap_get_brightness( $navbar_color ) >= 160 ) {
-      echo '<a class="toggle-nav black" href="#"></a>';
+      echo '<a style="width: 30px;" class="toggle-nav black" href="#"></a>';
     } else {
-      echo '<a class="toggle-nav" href="#"></a>';
+      echo '<a style="width: 30px;" class="toggle-nav" href="#"></a>';
     }
   }
 }
