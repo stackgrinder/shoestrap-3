@@ -201,6 +201,7 @@ function shoestrap_login_scripts() {
   $endColor   = $btnColorHighlight;
 
   $styles .= '#wp-submit.button-primary{';
+  $styles .= 'padding: 4px 15px 10px 15px;';
   $styles .= 'color: ' . $textColor . ';';
   $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
   $styles .= 'background-image: -moz-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
@@ -230,7 +231,7 @@ function shoestrap_login_scripts_cache() {
   }
   echo $data;
 }
-add_action( 'login_enqueue_scripts', 'shoestrap_login_scripts' );
+add_action( 'login_enqueue_scripts', 'shoestrap_login_scripts_cache' );
 
 /*
  * Reset cache when in customizer
