@@ -1,6 +1,6 @@
 <?php
 
-add_action( 'admin_init', 'shoestrap_theme_supports_register_options' );
+add_action( 'admin_init', 'shoestrap_theme_supports_register_options', 11 );
 function shoestrap_theme_supports_register_options() {
   // creates our settings in the options table
   register_setting( 'shoestrap_theme_supports', 'shoestrap_root_relative_urls' );
@@ -29,6 +29,13 @@ function shoestrap_theme_supports_toggle() {
           <?php _e( 'Enable Root Relative URLs', 'shoestrap' ); ?>
         </label>
         <p><?php _e( 'Return URLs such as', 'shoestrap' ); ?> <code>/assets/css/app-responsive.css</code> <?php _e( 'instead of', 'shoestrap' ); ?> <code>http://example.com/assets/css/app-responsive.css</code></p>
+        <p>
+          <strong><?php _e( 'After you enable the above option, you have to visit', 'shoestrap' ); ?> <a href="<?php echo $activationurl; ?>"><?php _e( 'this link', 'shoestrap' ); ?></a></strong>
+          <?php _e( 'to write the appropriate changes to your .htaccess file', 'shoestrap' ); ?>
+        </p>
+        <p>
+          <?php _e( 'Please note that if you decide to de-activate this option you will have to manually revert the changes to your .htaccess file. It is therefore recommended that you keep a backup of this file BEFORE applying your changes.', 'shoestrap' ); ?>
+        </p>
         <hr />
 
         <h4><?php _e( 'Enable URL Rewrites', 'shoestrap' ); ?></h4>
@@ -46,6 +53,9 @@ function shoestrap_theme_supports_toggle() {
           <?php _e( 'When you do so, HTML5 Boilerplate\'s .htaccess and the above rewrite rules are copied to your .htaccess file', 'shoestrap' ); ?>
         </p>
         <p><?php _e( 'Please make sure that your', 'shoestrap' ); ?> <code>.htaccess</code> <?php _e( 'file is writable by the webserver before visiting the above link', 'shoestrap' ); ?>.</p>
+        <p>
+          <?php _e( 'Please note that if you decide to de-activate this option you will have to manually revert the changes to your .htaccess file. It is therefore recommended that you keep a backup of this file BEFORE applying your changes.', 'shoestrap' ); ?>
+        </p>
         <hr />
         
         <?php submit_button(); ?>
