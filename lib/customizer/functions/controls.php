@@ -88,6 +88,8 @@ function shoestrap_register_controls( $wp_customize ){
   $checkbox_controls[] = array( 'setting' => 'shoestrap_header_loginlink',    'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
   // Display NavBar Social links
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_social',       'label' => 'Display Social Links in the Navbar',    'section' => 'shoestrap_primary_navbar',  'priority' => 6 );
+  // Display Primary NavBar Searchbox
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_p_navbar_searchbox',  'label' => 'Display Search',                        'section' => 'shoestrap_primary_navbar',  'priority' => 7 );
 
   // Display Secondary Navbar
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_secondary',    'label' => 'Display Secondary NavBar',              'section' => 'shoestrap_secondary_navbar','priority' => 1 );
