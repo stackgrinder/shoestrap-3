@@ -7,6 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
+        <?php do_action('shoestrap_secondary_nav_top_left'); ?>
         <?php do_action('shoestrap_nav_top_left'); ?>
         <nav id="nav-main" class="nav-collapse" role="navigation">
           <?php

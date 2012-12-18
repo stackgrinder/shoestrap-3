@@ -11,6 +11,7 @@
           <?php shoestrap_navbar_brand(); ?>
         </a>
       <?php } ?>
+      <?php do_action('shoestrap_primary_nav_top_left'); ?>
       <?php do_action('shoestrap_nav_top_left'); ?>
       <nav id="nav-main" class="nav-collapse" role="navigation">
         <?php

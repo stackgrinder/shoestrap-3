@@ -79,4 +79,4 @@ function shoestrap_navbar_slidedown_toggle() {
     }
   }
 }
-add_action( 'shoestrap_nav_top_left', 'shoestrap_navbar_slidedown_toggle' );
+add_action( 'shoestrap_primary_nav_top_left', 'shoestrap_navbar_slidedown_toggle' );
