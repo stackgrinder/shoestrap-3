@@ -24,6 +24,18 @@ require_once locate_template( '/lib/customizer/customizer.php' );           // C
 
 require_once locate_template( '/lib/custom.php' );                          // Custom functions
 require_once locate_template( '/lib/admin/admin.php' );                     // Admin page
-require_once locate_template( '/lib/admin/theme_supports.php' );            // Theme Supports Toggling
 require_once locate_template( '/lib/admin/licencing.php' );                 // Licencing to allow auto-updates
-require_once locate_template( '/lib/admin/dev_mode.php' );                  // Developer Mode Options
+
+// Load the following options only on single-site installations
+// OR on multisite when the user is super-admin.
+if ( is_multisite() ) {
+  if ( is_super_admin() ) {
+    if ( !class_exists( 'lessc' ) ) {
+      require_once locate_template( '/lib/admin/dev_mode.php' );            // Theme Developer mode & Advanced Customizer
+      require_once locate_template( '/lib/admin/theme_supports.php' );      // Theme Supports Toggling
+    }
+  }
+} else {
+  require_once locate_template( '/lib/less.php' );                          // Theme Developer mode & Advanced Customizer
+  require_once locate_template( '/lib/admin/theme_supports.php' );          // Theme Supports Toggling
+}
