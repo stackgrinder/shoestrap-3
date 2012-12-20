@@ -7,8 +7,8 @@ function shoestrap_dev_mode_register_options() {
   register_setting( 'shoestrap_advanced', 'shoestrap_minimize_css' );
   register_setting( 'shoestrap_advanced', 'shoestrap_advanced_compiler' );
 
-  register_setting( 'shoestrap_theme_supports', 'shoestrap_root_relative_urls' );
-  register_setting( 'shoestrap_theme_supports', 'shoestrap_rewrite_urls' );
+  register_setting( 'shoestrap_advanced', 'shoestrap_root_relative_urls' );
+  register_setting( 'shoestrap_advanced', 'shoestrap_rewrite_urls' );
 
 }
 
@@ -33,7 +33,7 @@ function shoestrap_dev_mode_toggle() {
     <div class="inside">
 
       <form method="post" action="options.php">
-        <?php settings_fields( 'shoestrap_dev_mode' ); ?>
+          <?php settings_fields( 'shoestrap_advanced' ); ?>
 
         <h4><?php _e( 'Enable Developer Mode', 'shoestrap' ); ?></h4>
         <input id="shoestrap_dev_mode" name="shoestrap_dev_mode" type="checkbox" value="1" <?php checked('1', get_option('shoestrap_dev_mode')); ?> />
@@ -81,7 +81,6 @@ function shoestrap_dev_mode_toggle() {
             </style>
           <?php } ?>
           <hr />
-          <?php settings_fields( 'shoestrap_advanced' ); ?>
       
           <input id="shoestrap_advanced_compiler" name="shoestrap_advanced_compiler" <?php echo $disabled; ?> type="checkbox" value="1" <?php checked('1', get_option('shoestrap_advanced_compiler')); ?> />
           <label class="description" for="shoestrap_advanced_compiler">
@@ -101,7 +100,6 @@ function shoestrap_dev_mode_toggle() {
         </div>
         
         <hr />
-        <?php settings_fields( 'shoestrap_theme_supports' ); ?>
 
         <h4><?php _e( 'Enable Root Relative URLs', 'shoestrap' ); ?></h4>
         <input id="shoestrap_root_relative_urls" name="shoestrap_root_relative_urls" type="checkbox" value="1" <?php checked('1', get_option('shoestrap_root_relative_urls')); ?> />
