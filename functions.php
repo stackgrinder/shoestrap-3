@@ -32,5 +32,4 @@ require_once locate_template( '/lib/less.php' );                            // L
 // OR on multisite when the user is super-admin.
 if ( ( is_multisite() && is_super_admin() ) || !is_multisite() ) {
   require_once locate_template( '/lib/admin/advanced_options.php' );        // Theme Advanced Options
-  require_once locate_template( '/lib/admin/theme_supports.php' );          // Theme Supports Toggling
 }

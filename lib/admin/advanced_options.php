@@ -6,21 +6,30 @@ function shoestrap_dev_mode_register_options() {
   register_setting( 'shoestrap_advanced', 'shoestrap_dev_mode' );
   register_setting( 'shoestrap_advanced', 'shoestrap_minimize_css' );
   register_setting( 'shoestrap_advanced', 'shoestrap_advanced_compiler' );
+
+  register_setting( 'shoestrap_theme_supports', 'shoestrap_root_relative_urls' );
+  register_setting( 'shoestrap_theme_supports', 'shoestrap_rewrite_urls' );
+
 }
 
 add_action( 'shoestrap_admin_content', 'shoestrap_dev_mode_toggle', 15 );
 function shoestrap_dev_mode_toggle() {
   $shoestrap_dev_mode = get_option( 'shoestrap_dev_mode' );
-  $advanced     = get_option( 'shoestrap_advanced_compiler' );
-  $current_url  = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-  $customizeurl = add_query_arg( 'url', urlencode( $current_url ), wp_customize_url() );
+  $advanced           = get_option( 'shoestrap_advanced_compiler' );
+  $current_url        = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+  $customizeurl       = add_query_arg( 'url', urlencode( $current_url ), wp_customize_url() );
   if ( get_option( 'shoestrap_dev_mode' ) != 1 ) {
-    $disabled = 'disabled';
+    $disabled         = 'disabled';
   }
-
+  $root_relative_urls = get_option( 'shoestrap_root_relative_urls' );
+  $rewrite_urls       = get_option( 'shoestrap_rewrite_urls' );
+  
+  $submit_text        = __( 'Save', 'shoestrap' );
+  $activationurl      = admin_url( 'themes.php?page=theme_activation_options' );
+  
   ?>
   <div class="postbox">
-    <h3 class="hndle" style="padding: 7px 10px;"><span><?php _e( 'Developer Mode', 'shoestrap' ); ?></span></h3>
+    <h3 class="hndle" style="padding: 7px 10px;"><span><?php _e( 'Advanced Theme Options', 'shoestrap' ); ?></span></h3>
     <div class="inside">
 
       <form method="post" action="options.php">
@@ -42,7 +51,9 @@ function shoestrap_dev_mode_toggle() {
         <code>assets/css/app.css</code> <?php _e( 'and', 'shoestrap' ); ?> <code>assets/css/responsive.css</code>
         <?php _e( 'files', 'shoestrap' ); ?>
         <p>
-        <p><?php _e( 'Once you enable the developer mode, you will also be able to enable the', 'shoestrap' ); ?> <strong><?php _e( 'Advanced Customizer', 'shoestrap' ); ?></strong></p>
+        <p><?php _e( 'Once you enable the developer mode, you will also be able to select to minimize your css files, as well as enable the', 'shoestrap' ); ?> <strong><?php _e( 'Advanced Customizer', 'shoestrap' ); ?></strong></p>
+        
+        <hr />
 
         <div class="shoestrap_minimize_toggling">
           <?php if ( get_option( 'shoestrap_dev_mode' ) != 1 ) { ?>
@@ -52,7 +63,7 @@ function shoestrap_dev_mode_toggle() {
               }
             </style>
           <?php } ?>
-          <input id="shoestrap_minimize_css" name="shoestrap_minimize_css" type="checkbox" value="1" <?php checked('1', get_option('shoestrap_minimize_css')); ?> />
+          <input id="shoestrap_minimize_css" name="shoestrap_minimize_css" <?php echo $disabled; ?> type="checkbox" value="1" <?php checked('1', get_option('shoestrap_minimize_css')); ?> />
           <label class="description" for="shoestrap_minimize_css">
             <?php _e( 'Minimize CSS', 'shoestrap' ); ?>
           </label>
@@ -89,6 +100,45 @@ function shoestrap_dev_mode_toggle() {
           </p>
         </div>
         
+        <hr />
+        <?php settings_fields( 'shoestrap_theme_supports' ); ?>
+
+        <h4><?php _e( 'Enable Root Relative URLs', 'shoestrap' ); ?></h4>
+        <input id="shoestrap_root_relative_urls" name="shoestrap_root_relative_urls" type="checkbox" value="1" <?php checked('1', get_option('shoestrap_root_relative_urls')); ?> />
+        <label class="description" for="shoestrap_root_relative_urls">
+          <?php _e( 'Enable Root Relative URLs', 'shoestrap' ); ?>
+        </label>
+        <p><?php _e( 'Return URLs such as', 'shoestrap' ); ?> <code>/assets/css/app-responsive.css</code> <?php _e( 'instead of', 'shoestrap' ); ?> <code>http://example.com/assets/css/app-responsive.css</code></p>
+        <p>
+          <strong><?php _e( 'After you enable the above option, you have to visit', 'shoestrap' ); ?> <a href="<?php echo $activationurl; ?>"><?php _e( 'this link', 'shoestrap' ); ?></a></strong>
+          <?php _e( 'to write the appropriate changes to your .htaccess file', 'shoestrap' ); ?>
+        </p>
+        <p>
+          <?php _e( 'Please note that if you decide to de-activate this option you will have to manually revert the changes to your .htaccess file. It is therefore recommended that you keep a backup of this file BEFORE applying your changes.', 'shoestrap' ); ?>
+        </p>
+        <hr />
+
+        <h4><?php _e( 'Enable URL Rewrites', 'shoestrap' ); ?></h4>
+        <input id="shoestrap_rewrite_urls" name="shoestrap_rewrite_urls" type="checkbox" value="1" <?php checked('1', get_option('shoestrap_rewrite_urls')); ?> />
+        <label class="description" for="shoestrap_rewrite_urls">
+          <?php _e( 'Enable URL Rewrites', 'shoestrap' ); ?>
+        </label>
+        <p><?php _e( 'Using this feature, URLs are rewritten like the following examples:', 'shoestrap' ); ?> </p>
+        <p><code>/wp-content/themes/themename/assets/css/</code> <?php _e( 'to', 'shoestrap' ); ?> <code>/assets/css/</code></p>
+        <p><code>/wp-content/themes/themename/assets/js/</code> <?php _e( 'to', 'shoestrap' ); ?> <code>/assets/js/</code></p>
+        <p><code>/wp-content/themes/themename/assets/img/</code> <?php _e( 'to', 'shoestrap' ); ?> <code>/assets/img/</code></p>
+        <p><code>/wp-content/plugins/</code> <?php _e( 'to', 'shoestrap' ); ?> <code>/plugins/</code></p>
+        <p>
+          <strong><?php _e( 'After you enable the above option, you have to visit', 'shoestrap' ); ?> <a href="<?php echo $activationurl; ?>"><?php _e( 'this link', 'shoestrap' ); ?></a></strong>.
+          <?php _e( 'When you do so, HTML5 Boilerplate\'s .htaccess and the above rewrite rules are copied to your .htaccess file', 'shoestrap' ); ?>
+        </p>
+        <p><?php _e( 'Please make sure that your', 'shoestrap' ); ?> <code>.htaccess</code> <?php _e( 'file is writable by the webserver before visiting the above link', 'shoestrap' ); ?>.</p>
+        <p>
+          <?php _e( 'Please note that if you decide to de-activate this option you will have to manually revert the changes to your .htaccess file. It is therefore recommended that you keep a backup of this file BEFORE applying your changes.', 'shoestrap' ); ?>
+        </p>
+        <hr />
+
+
         <?php submit_button(); ?>
         
       </form>
