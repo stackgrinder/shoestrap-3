@@ -4,6 +4,7 @@ add_action( 'admin_init', 'shoestrap_dev_mode_register_options', 11 );
 function shoestrap_dev_mode_register_options() {
   // creates our settings in the options table
   register_setting( 'shoestrap_advanced', 'shoestrap_dev_mode' );
+  register_setting( 'shoestrap_advanced', 'shoestrap_minimize_css' );
   register_setting( 'shoestrap_advanced', 'shoestrap_advanced_compiler' );
 }
 
@@ -30,16 +31,35 @@ function shoestrap_dev_mode_toggle() {
         <label class="description" for="shoestrap_dev_mode">
           <?php _e( 'Enable Developer Mode', 'shoestrap' ); ?>
         </label>
-        <p><?php _e( 'When you enable the developer mode, the LESS compiler will detect any changes to your less files and re-compile the css files accordingly.', 'shoestrap' ); ?></p>
         <p>
-        <?php _e( 'The actual compiling is done using leafo\'s ', 'shoestrap' ); ?>
-        <a href="leafo.net/lessphp/"><?php _e( 'PHP-LESS compiler', 'shoestrap' ); ?></a>
+          <?php _e( 'When you enable the developer mode, the LESS compiler will detect any changes to your less files and re-compile the css files accordingly.', 'shoestrap' ); ?>
+          <?php _e( 'When the developer mode is enabled, the stylesheets are NOT minimized.', 'shoestrap' ); ?>
+          <?php _e( 'In Production sites this option should be turned OFF. Stylesheets will then be minimized.', 'shoestrap' ); ?>
         </p>
+        
+        <p><?php _e( 'The actual compiling is done using leafo\'s ', 'shoestrap' ); ?><a href="leafo.net/lessphp/"><?php _e( 'PHP-LESS compiler', 'shoestrap' ); ?></a></p>
         <?php _e( 'Before enabling this option, please make sure that you webserver can write to the', 'shoestrap' ); ?>
         <code>assets/css/app.css</code> <?php _e( 'and', 'shoestrap' ); ?> <code>assets/css/responsive.css</code>
         <?php _e( 'files', 'shoestrap' ); ?>
         <p>
         <p><?php _e( 'Once you enable the developer mode, you will also be able to enable the', 'shoestrap' ); ?> <strong><?php _e( 'Advanced Customizer', 'shoestrap' ); ?></strong></p>
+
+        <div class="shoestrap_minimize_toggling">
+          <?php if ( get_option( 'shoestrap_dev_mode' ) != 1 ) { ?>
+            <style>
+              div.shoestrap_minimize_toggling{
+                opacity: 0.5;
+              }
+            </style>
+          <?php } ?>
+          <input id="shoestrap_minimize_css" name="shoestrap_minimize_css" type="checkbox" value="1" <?php checked('1', get_option('shoestrap_minimize_css')); ?> />
+          <label class="description" for="shoestrap_minimize_css">
+            <?php _e( 'Minimize CSS', 'shoestrap' ); ?>
+          </label>
+          <p>
+            <?php _e( 'In Production sites this option should be turned ON. Stylesheets will then be minimized. Keep in mind that stylesheets will only be re-compiled when there has been a change in their corresponding less files. So in order for the minification to take effect, you\'ll have to open and then save the less files again.', 'shoestrap' ); ?>
+          </p>
+        </div>
 
         <div class="shoestrap_advanced_compiler">
           <?php if ( get_option( 'shoestrap_dev_mode' ) != 1 ) { ?>
