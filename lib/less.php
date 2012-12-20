@@ -2,15 +2,18 @@
 
 function shoestrap_phpless( $inputFile, $outputFile ) {
   
-  $shoestrap_responsive = get_theme_mod( 'shoestrap_responsive' );
-  $advanced_builder = get_option('shoestrap_advanced_compiler');
+  $dev_mode         = get_option( 'shoestrap_dev_mode' );
+  $advanced_builder = get_option( 'shoestrap_advanced_compiler' );
   
-  // if ( $advanced_builder == 1 ) {
+  if ( $advanced_builder == 1 || $dev_mode == 1 ) {
     if ( !class_exists( 'lessc' ) ) {
       require_once locate_template( '/lib/less_compiler/lessc.inc.php' );
     }
     $less = new lessc;
-    // $less->setFormatter( "compressed" );
+    
+    if ( $dev_mode != 1 ) {
+      $less->setFormatter( "compressed" ); 
+    }
     
     $less = new lessc;
   
@@ -25,7 +28,7 @@ function shoestrap_phpless( $inputFile, $outputFile ) {
     if ( $cache['updated'] > $last_updated ) {
       file_put_contents( $outputFile, $cache['compiled'] );
     }
-  // }
+  }
 }
 
 function shoestrap_phpless_bulk() {

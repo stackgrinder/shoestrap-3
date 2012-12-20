@@ -17,24 +17,14 @@ require_once locate_template( '/lib/nav.php' );                             // C
 require_once locate_template( '/lib/htaccess.php' );                        // Rewrites for assets, H5BP .htaccess
 require_once locate_template( '/lib/widgets.php' );                         // Sidebars and widgets
 require_once locate_template( '/lib/scripts.php' );                         // Scripts and stylesheets
-require_once locate_template( '/lib/less.php' );
-// Less to CSS PHP Compiler under conditions
-if ( $advanced_builder == 1 ) {
-  if ( is_multisite() ) {
-    if ( is_super_admin() ) {
-      if ( !class_exists( 'lessc' ) ) {
-        require_once locate_template( '/lib/less.php' );
-      }
-    }
-  } else {
-    require_once locate_template( '/lib/less.php' );
-  }
-}
 
 require_once locate_template( '/lib/slide-down.php' );                      // Slide-down widget area functions
+
 require_once locate_template( '/lib/customizer/customizer.php' );           // Customizer functions
+
 require_once locate_template( '/lib/custom.php' );                          // Custom functions
 require_once locate_template( '/lib/admin/admin.php' );                     // Admin page
 require_once locate_template( '/lib/admin/theme_supports.php' );            // Theme Supports Toggling
 require_once locate_template( '/lib/admin/licencing.php' );                 // Licencing to allow auto-updates
 require_once locate_template( '/lib/customizer/custom-builder/admin.php' ); // Advanced customizer toggling
+require_once locate_template( '/lib/admin/dev_mode.php' );                  // Developer Mode toggling
