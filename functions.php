@@ -31,6 +31,6 @@ require_once locate_template( '/lib/less.php' );                            // L
 // Load the following options only on single-site installations
 // OR on multisite when the user is super-admin.
 if ( ( is_multisite() && is_super_admin() ) || !is_multisite() ) {
-  require_once locate_template( '/lib/admin/dev_mode.php' );                // Theme Developer mode & Advanced Customizer
+  require_once locate_template( '/lib/admin/advanced_options.php' );        // Theme Advanced Options
   require_once locate_template( '/lib/admin/theme_supports.php' );          // Theme Supports Toggling
 }
