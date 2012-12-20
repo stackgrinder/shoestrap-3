@@ -26,5 +26,4 @@ require_once locate_template( '/lib/custom.php' );                          // C
 require_once locate_template( '/lib/admin/admin.php' );                     // Admin page
 require_once locate_template( '/lib/admin/theme_supports.php' );            // Theme Supports Toggling
 require_once locate_template( '/lib/admin/licencing.php' );                 // Licencing to allow auto-updates
-require_once locate_template( '/lib/customizer/custom-builder/admin.php' ); // Advanced customizer toggling
-require_once locate_template( '/lib/admin/dev_mode.php' );                  // Developer Mode toggling
+require_once locate_template( '/lib/admin/dev_mode.php' );                  // Developer Mode Options
