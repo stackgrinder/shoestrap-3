@@ -17,11 +17,10 @@
 
 function shoestrap_scripts() {
   $shoestrap_responsive = get_theme_mod( 'shoestrap_responsive' );
-  
-  if ( $shoestrap_responsive == '0' ) {
-    wp_enqueue_style('shoestrap_app', get_template_directory_uri() . '/assets/css/app-fixed.css', false, null);
-  } else {
-    wp_enqueue_style('shoestrap_app', get_template_directory_uri() . '/assets/css/app-responsive.css', false, null);
+
+  wp_enqueue_style('shoestrap_app', get_template_directory_uri() . '/assets/css/app.css', false, null);
+  if ( $shoestrap_responsive != '0' ) {
+    wp_enqueue_style('shoestrap_app_responsive', get_template_directory_uri() . '/assets/css/responsive.css', false, null);
   }
 
   // Load style.css from child theme
