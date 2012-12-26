@@ -240,7 +240,7 @@ function shoestrap_login_scripts_cache_reset() {
   delete_transient( 'shoestrap_login_scripts' );
   shoestrap_login_scripts_cache();
 }
-add_action( 'customize_preview_init', 'shoestrap_buttons_css_cache_reset' );
+add_action( 'customize_preview_init', 'shoestrap_login_scripts_cache_reset' );
 
 /*
  * Alters the link of the login screen logo
