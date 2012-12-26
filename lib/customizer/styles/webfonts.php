@@ -40,7 +40,7 @@ function shoestrap_typography_css_cache_reset() {
   delete_transient( 'shoestrap_typography_css' );
   shoestrap_typography_webfont_cache();
 }
-add_action( 'customize_preview_init', 'shoestrap_typography_webfont_cache_reset' );
+add_action( 'customize_preview_init', 'shoestrap_typography_css_cache_reset' );
 
 /*
  * Extract the name of the webfont and enqueue its style.
