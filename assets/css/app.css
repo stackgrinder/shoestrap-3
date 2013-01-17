@@ -5388,6 +5388,9 @@ ul.social-networks li.social-networks a:hover {
 .navbar .nav a.login-link {
   padding: 10px 10px 0 10px;
 }
+.navbar .brand {
+  padding: 9px 20px 9px;
+}
 #shoestrap_icon {
   position: fixed;
   bottom: 0;
