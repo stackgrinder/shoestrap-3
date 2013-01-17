@@ -50,7 +50,7 @@ function shoestrap_login_scripts() {
   }
 
   $styles = '<style>';
-  $styles .= '.login #nav a, .login #backtoblog a, a, a.active, a:hover, a.hover, a.visited, a:visited, a.link, a:link{color: ' . $link_color . ' !important;}';
+  $styles .= '.login #nav a, .login #backtoblog a, a, a.active, a:hover, a.hover, a.visited, a:visited, a.link, a:link{color: ' . $link_color;
   $styles .= 'body.login{' . trim( $style ) . 'overflow-x: hidden;}';
   $styles .= '.login #nav, .login #backtoblog{text-shadow: none; text-shadow: 0; color: #fff;}';
   $styles .= 'body.login div#login h1 a {';
