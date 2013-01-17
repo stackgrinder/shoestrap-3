@@ -12,7 +12,7 @@ function shoestrap_primary_navbar_login_link() {
     $link  = wp_login_url( get_permalink() );
     $label = __( 'Login/Register', 'shoestrap' );
   }
-  $content = '<ul class="pull-right nav nav-collapse"><li><a class="pull-right login-link" style="padding: 10px;" href="' . $link . '">';
+  $content = '<ul class="pull-right nav nav-collapse"><li><a class="pull-right login-link" href="' . $link . '">';
   $content .= '<i class="icon-user"></i> ' . $label;
   $content .= '</a></li></ul>';
   
@@ -34,7 +34,7 @@ function shoestrap_secondary_navbar_login_link() {
     $link  = wp_login_url( get_permalink() );
     $label = __( 'Login/Register', 'shoestrap' );
   }
-  $content = '<ul class="pull-right nav nav-collapse"><li><a class="pull-right login-link" style="padding: 10px;" href="' . $link . '">';
+  $content = '<ul class="pull-right nav nav-collapse"><li><a class="pull-right login-link" href="' . $link . '">';
   $content .= '<i class="icon-user"></i> ' . $label;
   $content .= '</a></li></ul>';
   
