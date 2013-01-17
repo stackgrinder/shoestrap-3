@@ -6,7 +6,7 @@
  */
 function shoestrap_login_logo() {
   if ( get_theme_mod( 'shoestrap_logo' ) ) {
-    echo( get_theme_mod( 'shoestrap_logo' ) );
+    return get_theme_mod( 'shoestrap_logo' ) ;
   }
 }
 
