@@ -1,8 +1,8 @@
 <?php
 
-define( 'SHOESTRAP_STORE_URL',  'http://bootstrap-commerce.com/downloads' );
+define( 'SHOESTRAP_STORE_URL',  'http://shoestrap.org' );
 define( 'SHOESTRAP_THEME_NAME', 'Shoestrap' );
-define( 'SHOESTRAP_URL', 'http://bootstrap-commerce.com/downloads/downloads/shoestrap/' );
+define( 'SHOESTRAP_URL', 'http://shoestrap.org/downloads/shoestrap/' );
 // retrieve our license key from the DB
 $license_key = trim( get_option( 'shoestrap_license_key' ) );
  
@@ -14,7 +14,7 @@ if( !class_exists( 'EDD_SL_Theme_Updater' ) ) {
 // setup the updater
 $edd_updater = new EDD_SL_Theme_Updater( array(
   'remote_api_url'  => SHOESTRAP_STORE_URL,       // our store URL that is running EDD
-  'version'         => '1.33',                    // current version number
+  'version'         => '1.34',                    // current version number
   'license'         => $license_key,              // license key (used get_option above to retrieve from DB)
   'item_name'       => SHOESTRAP_THEME_NAME,      // name of this theme
   'author'          => 'Aristeides Stathopoulos'  // author of this theme
@@ -34,7 +34,7 @@ function shoestrap_license_page() {
     <div class="inside">
 
       <strong>This theme is an OpenSource project and is provided free of charge.</strong><br />
-      If you wish to enable automatic updates, you can visit <a href="http://bootstrap-commerce.com/downloads/downloads/shoestrap/" target="_blank">this page</a>
+      If you wish to enable automatic updates, you can visit <a href="http://shoestrap.org/downloads/shoestrap/" target="_blank">this page</a>
       and get a free licence. By entering and <strong>activating</strong> it, whenever a new version is available you will be notified in your dashboard.
       If you wish to help this project, you can do so by helping out on the <a href="https://github.com/aristath/shoestrap" target="_blank">github project page</a> 
       <br>
