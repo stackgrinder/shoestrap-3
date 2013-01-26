@@ -9,3 +9,12 @@ taxonomy-download_category.php
 taxonomy-download_tag.php
 template-store.php
 front-page.php
+blogs/*
+footer-buddypress.php
+header-buddypress.php
+registration/*
+members/*
+groups/*
+forums/*
+bbpress/*
+activity/*
