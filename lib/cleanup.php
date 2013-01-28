@@ -114,6 +114,7 @@ function shoestrap_body_class($classes) {
   $home_id_class = 'page-id-' . get_option('page_on_front');
   $remove_classes = array(
     'page-template-default',
+    'admin-bar', // remove the admin-bar class (hack needed for buddypress compatibility)
     $home_id_class
   );
   $classes = array_diff($classes, $remove_classes);
@@ -122,6 +123,19 @@ function shoestrap_body_class($classes) {
 }
 
 add_filter('body_class', 'shoestrap_body_class');
+
+/*
+ * Add the admin-bar class again (hack needed for buddypress compatibility)
+ */
+function shoestrap_bp_admin_bar_body_class( $classes ) {
+  if ( is_admin_bar_showing() ) {
+    // add 'class-name' to the $classes array
+    $classes[] = 'admin-bar';
+    // return the $classes array
+    return $classes;
+  }
+}
+add_filter( 'body_class','shoestrap_bp_admin_bar_body_class', 20 );
 
 /**
  * Root relative URLs
