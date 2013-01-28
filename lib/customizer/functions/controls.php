@@ -92,6 +92,8 @@ function shoestrap_register_controls( $wp_customize ){
   $checkbox_controls[] = array( 'setting' => 'shoestrap_p_navbar_searchbox',  'label' => 'Display Search',                        'section' => 'shoestrap_primary_navbar',  'priority' => 7 );
   // Fluid Layout
   $checkbox_controls[] = array( 'setting' => 'shoestrap_fluid',               'label' => 'Fluid Layout',                          'section' => 'shoestrap_layout',          'priority' => 7 );
+  // NavBar Menu on the left/right selection
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_nav_pull',            'label' => 'Menu on the Right',                     'section' => 'shoestrap_primary_navbar',  'priority' => 15 );
 
   // Display Secondary Navbar
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_secondary',    'label' => 'Display Secondary NavBar',              'section' => 'shoestrap_secondary_navbar','priority' => 1 );
