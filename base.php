@@ -21,9 +21,9 @@
   <?php dynamic_sidebar('hero-area'); ?>
   
   <?php do_action('shoestrap_pre_wrap'); ?>
-  <div id="wrap" class="container" role="document">
+  <div id="wrap" class="<?php shoestrap_fluid_body_classes( 'container' ); ?>" role="document">
     <?php do_action('shoestrap_pre_content'); ?>
-    <div id="content" class="row">
+    <div id="content" class="<?php shoestrap_fluid_body_classes( 'row' ); ?>">
       <?php if ( in_array ( $layout, array ( 'mps', 'pms', 'smp', 'spm' ) ) && shoestrap_display_sidebar() && shoestrap_display_primary_sidebar() ) { ?>
         <div class="m_p_wrap">
       <?php } ?>

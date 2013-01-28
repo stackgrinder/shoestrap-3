@@ -17,6 +17,7 @@ require_once locate_template( '/lib/customizer/functions/logo.php' );         //
 require_once locate_template( '/lib/customizer/functions/social.php' );       // Customizer Social functions
 require_once locate_template( '/lib/customizer/functions/social-script.php' );// Social Script
 require_once locate_template( '/lib/customizer/functions/login.php' );        // Login screen customizations
+require_once locate_template( '/lib/customizer/functions/fluid-classes.php' );// Functions to make fluid layouts work
 
 // Apply the selected styles:
 require_once locate_template( '/lib/customizer/styles/branding.php' );        // Branding (header) region, containing the logo etc.
