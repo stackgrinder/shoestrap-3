@@ -20,6 +20,3 @@ function shoestrap_fluid_body_classes( $context ) {
   
   echo $class;
 }
-echo shoestrap_fluid_body_classes( 'row' );
-echo '<br />';
-echo shoestrap_fluid_body_classes( 'container' );
