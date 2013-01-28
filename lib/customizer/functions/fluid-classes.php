@@ -1,15 +1,8 @@
 <?php
 
 function shoestrap_fluid_body_classes( $context ) {
-  $fluidity = get_theme_mod( 'shoestrap_responsive' );
   
-  if ( $fluidity == 2 ) {
-    $fluid = 1;
-  } else {
-    $fluid = 0;
-  }
-  
-  if ( $fluid = 1 ) {
+  if ( get_theme_mod( 'shoestrap_fluid' ) == 1 ) {
     if ( $context == 'row' ) {
       $class = 'row-fluid';
     }
@@ -18,10 +11,15 @@ function shoestrap_fluid_body_classes( $context ) {
     }
   } else {
     if ( $context == 'row' ) {
-      $class = 'fluid';
+      $class = 'row';
     }
     if ( $context == 'container' ) {
       $class = 'container';
     }
   }
+  
+  echo $class;
 }
+echo shoestrap_fluid_body_classes( 'row' );
+echo '<br />';
+echo shoestrap_fluid_body_classes( 'container' );

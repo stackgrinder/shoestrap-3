@@ -50,6 +50,7 @@ function shoestrap_register_settings( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_secondary_width',           'default' => '3' );
   $settings[] = array( 'slug' => 'shoestrap_sidebar_on_front',          'default' => 'hide' );
   $settings[] = array( 'slug' => 'shoestrap_responsive',                'default' => '1' );
+  $settings[] = array( 'slug' => 'shoestrap_fluid',                     'default' => '0' );
     
   // Color Settings
   $settings[] = array( 'slug' => 'shoestrap_background_color',          'default' => $background_color );
