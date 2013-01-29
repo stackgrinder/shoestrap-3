@@ -259,7 +259,7 @@ function shoestrap_register_controls( $wp_customize ){
   )));
 
   // Content of the Hero Region
-  $wp_customize->add_control( new Shoestrap_Customize_Textarea_Control( $wp_customize, 'shoestrap_advanced_footer', array(
+  $wp_customize->add_control( new Shoestrap_Customize_Textarea_Control( $wp_customize, 'shoestrap_hero_content', array(
     'label'       => 'Content',
     'section'     => 'shoestrap_hero',
     'settings'    => 'shoestrap_hero_content',
