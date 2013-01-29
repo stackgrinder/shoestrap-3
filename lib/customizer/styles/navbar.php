@@ -36,7 +36,9 @@ function shoestrap_navbar_css(){
   $styles .= 'padding:' . $navbar_logo_padding . 'px;}';
   
   if ( $navbar_fixed != 1 ) {
-    $styles .= '.navbar.navbar-fixed-top{position: relative;}';
+    $styles .= '.navbar.navbar-fixed-top{position:relative;}';
+    $styles .= 'body.admin-bar .navbar-fixed-top{top:0;}';
+    $styles .= 'body.top-navbar{padding-top:0;}';
   }
   
   $styles .= '.btn.btn-navbar{';
