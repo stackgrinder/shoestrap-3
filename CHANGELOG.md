@@ -1,5 +1,14 @@
 # Shoestrap Theme Changelog
 
+### 1.36
+* Added fluid layout option
+* Added option for menu on the right (navbar)
+* Re-organized some settings in the customizer
+* The hero-content setting is now a textarea
+* Fixed Button text colors
+* Better login & logout links
+* Fixed sharre rewrite rules on .htaccess
+
 ### 1.35
 * Updating jQuery to 1.9.0
 
