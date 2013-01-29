@@ -151,8 +151,6 @@ function shoestrap_register_controls( $wp_customize ){
   $text_controls[]  = array( 'setting' => 'shoestrap_google_webfonts',  	'label' => 'Google Webfont Name',         'section' => 'shoestrap_typography',  'priority' => 1 );
   // Title of the Hero Region
   $text_controls[]  = array( 'setting' => 'shoestrap_hero_title',       	'label' => 'Title',                       'section' => 'shoestrap_hero',        'priority' => 1 );
-  // Content of the Hero Region
-  $text_controls[]  = array( 'setting' => 'shoestrap_hero_content',     	'label' => 'Content',                     'section' => 'shoestrap_hero',        'priority' => 2 );
   // Text (label) of the Call To Action Button on the Hero Region
   $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_text',    	'label' => 'Call To Action Button Text',  'section' => 'shoestrap_hero',        'priority' => 3 );
   // Link of the Call To Action Button on the Hero Region
@@ -257,6 +255,14 @@ function shoestrap_register_controls( $wp_customize ){
     'label'       => 'Footer Scripts (CSS/JS)',
     'section'     => 'shoestrap_advanced',
     'settings'    => 'shoestrap_advanced_footer',
+    'priority'    => 2,
+  )));
+
+  // Content of the Hero Region
+  $wp_customize->add_control( new Shoestrap_Customize_Textarea_Control( $wp_customize, 'shoestrap_advanced_footer', array(
+    'label'       => 'Content',
+    'section'     => 'shoestrap_hero',
+    'settings'    => 'shoestrap_hero_content',
     'priority'    => 2,
   )));
 
