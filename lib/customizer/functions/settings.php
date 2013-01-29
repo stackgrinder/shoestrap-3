@@ -35,6 +35,7 @@ function shoestrap_register_settings( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_navbar_logo_padding',       'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_navbar_original_logo',      'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_navbar_no_gradient',        'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_navbar_fixed',              'default' => '' );
   
   // Secondary NavBar Settings
   $settings[] = array( 'slug' => 'shoestrap_navbar_secondary',          'default' => '' );

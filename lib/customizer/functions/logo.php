@@ -27,7 +27,11 @@ function shoestrap_logo() {
 function shoestrap_navbar_brand() {
   if ( get_theme_mod( 'shoestrap_navbar_logo' ) != 0 ) {
     if ( get_theme_mod( 'shoestrap_logo' ) ) {
-      $image = '<img id="site-logo" src="%s" alt="%s" style="max-height:20px; width:auto;">';
+      if ( get_theme_mod( 'shoestrap_navbar_original_logo' ) != 1 )
+        $image = '<img id="site-logo" src="%s" alt="%s" style="max-height:20px; width:auto;">';
+      else
+        $image = '<img id="site-logo" src="%s" alt="%s">';
+      
       printf(
         $image,
         get_theme_mod( 'shoestrap_logo' ),
