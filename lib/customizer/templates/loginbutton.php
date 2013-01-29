@@ -12,9 +12,17 @@ function shoestrap_primary_navbar_login_link() {
     $link  = wp_login_url( get_permalink() );
     $label = __( 'Login/Register', 'shoestrap' );
   }
-  $content = '<ul class="pull-right nav nav-collapse"><li><a class="pull-right login-link" href="' . $link . '">';
-  $content .= '<i class="icon-user"></i> ' . $label;
-  $content .= '</a></li></ul>';
+  $content = '<ul class="pull-right nav nav-collapse">';
+  $content .= '<li class="dropdown">';
+  $content .= '<a href="#" class="pull-right dropdown-toggle" data-toggle="dropdown">';
+  $content .= '<i class="icon-user"></i><b class="caret"></b>';
+  $content .= '<ul class="dropdown-menu">';
+  $content .= '<li>';
+  $content .= '<a href="' . $link . '">' . $label . '</a>';
+  $content .= '</li>';
+  $content .= do_action( 'shoestrap_login_link_additions' );
+  $content .= '</ul>';
+  $content .= '</li></ul>';
   
   if ( $primary_login_link == 1 ) {
     echo $content;
