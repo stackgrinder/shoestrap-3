@@ -49,7 +49,7 @@ function shoestrap_register_controls( $wp_customize ){
   
 	}
   // Navbar text color
-  $color_controls[] = array( 'setting' => 'shoestrap_navbar_textcolor',       'label' => 'Navbar Text Color',               'section' => 'colors',            'priority' => 40 );
+  $color_controls[] = array( 'setting' => 'shoestrap_navbar_textcolor',       'label' => 'Navbar Text Color',               'section' => 'shoestrap_primary_navbar',            'priority' => 40 );
   // Background Color
   $color_controls[] = array( 'setting' => 'shoestrap_background_color',       'label' => 'Background Color',                'section' => 'colors',            'priority' => 1 );
   // Header Background
