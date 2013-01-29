@@ -33,11 +33,12 @@ if (stristr($_SERVER['SERVER_SOFTWARE'], 'apache') || stristr($_SERVER['SERVER_S
   function shoestrap_add_rewrites($content) {
     global $wp_rewrite;
     $shoestrap_new_non_wp_rules = array(
-      'assets/css/(.*)'      => THEME_PATH . '/assets/css/$1',
-      'assets/js/(.*)'       => THEME_PATH . '/assets/js/$1',
-      'assets/img/(.*)'      => THEME_PATH . '/assets/img/$1',
-      'assets/fonts/(.*)'    => THEME_PATH . '/assets/fonts/$1',
-      'plugins/(.*)'  => RELATIVE_PLUGIN_PATH . '/$1'
+      'assets/css/(.*)'             => THEME_PATH . '/assets/css/$1',
+      'assets/js/(.*)'              => THEME_PATH . '/assets/js/$1',
+      'assets/img/(.*)'             => THEME_PATH . '/assets/img/$1',
+      'assets/fonts/(.*)'           => THEME_PATH . '/assets/fonts/$1',
+      'lib/customizer/sharrre/(.*)' => THEME_PATH . '/lib/customizer/sharrre/$1',
+      'plugins/(.*)'                => RELATIVE_PLUGIN_PATH . '/$1'
     );
     $wp_rewrite->non_wp_rules = array_merge($wp_rewrite->non_wp_rules, $shoestrap_new_non_wp_rules);
     return $content;
