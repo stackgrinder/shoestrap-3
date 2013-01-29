@@ -24,7 +24,7 @@ function shoestrap_navbar_css(){
   }
   $styles .= '.navbar-inner, #main-subnav.subnav-fixed{';
   $styles .= 'background-color:' . $navbar_color . '!important;';
-  if ( $navbar_no_gradient == 1 ) {
+  if ( $navbar_no_gradient != 1 ) {
     $styles .= 'background-image: -moz-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
     $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $navbar_color . '), to(' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ')) !important;';
     $styles .= 'background-image: -webkit-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
