@@ -94,6 +94,10 @@ function shoestrap_register_controls( $wp_customize ){
   $checkbox_controls[] = array( 'setting' => 'shoestrap_fluid',               'label' => 'Fluid Layout',                          'section' => 'shoestrap_layout',          'priority' => 7 );
   // NavBar Menu on the left/right selection
   $checkbox_controls[] = array( 'setting' => 'shoestrap_nav_pull',            'label' => 'Menu on the Right',                     'section' => 'shoestrap_primary_navbar',  'priority' => 15 );
+  // NavBar Menu on the left/right selection
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_original_logo','label' => 'Original Logo Size',                    'section' => 'shoestrap_primary_navbar',  'priority' => 20 );
+  // NavBar Menu on the left/right selection
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_no_gradient',  'label' => 'Disable gradients',                     'section' => 'shoestrap_primary_navbar',  'priority' => 30 );
 
   // Display Secondary Navbar
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_secondary',    'label' => 'Display Secondary NavBar',              'section' => 'shoestrap_secondary_navbar','priority' => 1 );
@@ -164,9 +168,11 @@ function shoestrap_register_controls( $wp_customize ){
   // Pinterest Link
   $text_controls[]  = array( 'setting' => 'shoestrap_pinterest_link',   	'label' => 'Pinterest Profile Link',      'section' => 'shoestrap_social',      'priority' => 4 );
   // Single Social Text
-  $text_controls[]  = array( 'setting' => 'shoestrap_single_social_text',	'label' => 'Single Social Text',   		  'section' => 'shoestrap_social',      'priority' => 10 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_single_social_text',	'label' => 'Single Social Text',   		    'section' => 'shoestrap_social',      'priority' => 10 );
   // Footer Text
-  $text_controls[]  = array( 'setting' => 'shoestrap_footer_text',			'label' => 'Footer Alternative Text',     'section' => 'shoestrap_footer',      'priority' => 2 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_footer_text',        'label' => 'Footer Alternative Text',     'section' => 'shoestrap_footer',      'priority' => 2 );
+  // Footer Text
+  $text_controls[]  = array( 'setting' => 'shoestrap_navbar_logo_padding','label' => 'Navbar Padding (px)',              'section' => 'shoestrap_primary_navbar',      'priority' => 40 );
   
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(
