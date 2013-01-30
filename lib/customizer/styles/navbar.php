@@ -32,6 +32,15 @@ function shoestrap_navbar_css(){
     $styles .= 'background-image: linear-gradient(to bottom, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
     $styles .= 'filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr="%d", endColorstr="%d", GradientType=0)",argb(' . $navbar_color . '),argb(' . shoestrap_adjust_brightness( $navbar_color, -10 ) . '))) !important;';
     $styles .= 'border: 1px solid ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
+  } else {
+    $styles .= 'background-image: -moz-linear-gradient(top, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
+    $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $navbar_color . '), to(' . $navbar_color . ')) !important;';
+    $styles .= 'background-image: -webkit-linear-gradient(top, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
+    $styles .= 'background-image: -o-linear-gradient(top, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
+    $styles .= 'background-image: linear-gradient(to bottom, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
+    $styles .= 'filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr="%d", endColorstr="%d", GradientType=0)",argb(' . $navbar_color . '),argb(' . $navbar_color . '))) !important;';
+    $styles .= 'border: 1px solid ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
+
   }
   $styles .= 'padding:' . $navbar_logo_padding . 'px;}';
   
