@@ -16,6 +16,8 @@ function shoestrap_navbar_css(){
   $navbar_color     = '#' . str_replace( '#', '', $navbar_color );
   $navbar_textcolor = '#' . str_replace( '#', '', $navbar_textcolor );
   
+  if ( $navbar_logo_padding >= 1 ) {} else { $navbar_logo_padding = 0; }
+  
   $styles = '<style>';
   if ( get_theme_mod( 'shoestrap_logo' ) ) {
     if ( get_theme_mod( 'shoestrap_header_mode' ) == 'navbar' ) {
