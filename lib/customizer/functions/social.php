@@ -75,6 +75,6 @@ add_action( 'the_content', 'shoestrap_social_share_singlular' );
  */
 function shoestrap_theme_enqueue_scripts() {
   //sharrre, social share 
-  wp_enqueue_script( 'shoestrap-sharrre', get_stylesheet_directory_uri() . '/lib/customizer/sharrre/jquery.sharrre.min.js', false, false, true );
+  wp_enqueue_script( 'shoestrap-sharrre', get_stylesheet_directory_uri() . '/assets/js/vendor/sharrre/jquery.sharrre.min.js', false, false, true );
 }
 add_action('wp_enqueue_scripts', 'shoestrap_theme_enqueue_scripts');
