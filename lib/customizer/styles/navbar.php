@@ -24,7 +24,7 @@ function shoestrap_navbar_css(){
       '.navbar a.brand{padding: 5px 20px 5px;}';
     }
   }
-  $styles .= '.navbar-inner, #main-subnav.subnav-fixed{';
+  $styles .= '.navbar-inner, #main-subnav.subnav-fixed, .navbar-inner .dropdown-menu{';
   $styles .= 'background-color:' . $navbar_color . '!important;';
   if ( $navbar_no_gradient != 1 ) {
     $styles .= 'background-image: -moz-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
@@ -42,10 +42,11 @@ function shoestrap_navbar_css(){
     $styles .= 'background-image: linear-gradient(to bottom, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
     $styles .= 'filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr="%d", endColorstr="%d", GradientType=0)",argb(' . $navbar_color . '),argb(' . $navbar_color . '))) !important;';
     $styles .= 'border: 1px solid ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
-
   }
   $styles .= 'padding:' . $navbar_logo_padding . 'px;}';
   
+  $styles .= '.navbar-inner .dropdown-menu{padding: 0;}';
+
   if ( $navbar_fixed != 1 ) {
     $styles .= '.navbar.navbar-fixed-top{position:relative;}';
     $styles .= 'body.admin-bar .navbar-fixed-top{top:0;}';
