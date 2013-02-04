@@ -114,7 +114,6 @@ function shoestrap_body_class($classes) {
   $home_id_class = 'page-id-' . get_option('page_on_front');
   $remove_classes = array(
     'page-template-default',
-    'admin-bar', // remove the admin-bar class (hack needed for buddypress compatibility)
     $home_id_class
   );
   $classes = array_diff($classes, $remove_classes);
