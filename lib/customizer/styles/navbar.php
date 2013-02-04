@@ -10,7 +10,6 @@ function shoestrap_navbar_css(){
   $navbar_textcolor     = get_theme_mod( 'shoestrap_navbar_textcolor' );
   $navbar_logo_padding  = get_theme_mod( 'shoestrap_navbar_logo_padding' );
   $navbar_no_gradient   = get_theme_mod( 'shoestrap_navbar_no_gradient' );
-  $navbar_fixed         = get_theme_mod( 'shoestrap_navbar_fixed' );
   
   // Make sure colors are properly formatted
   $header_bg_color  = '#' . str_replace( '#', '', $header_bg_color );
@@ -54,13 +53,6 @@ function shoestrap_navbar_css(){
   
   // Navbar Dropdown colors
   $styles .= '.navbar-inner .dropdown-menu{padding: 0;}';
-  
-  // Extra css for non-fixed navbar
-  if ( $navbar_fixed != 1 ) {
-    $styles .= '.navbar.navbar-fixed-top{position:relative;}';
-    $styles .= 'body.admin-bar .navbar-fixed-top{top:0;}';
-    $styles .= 'body.top-navbar{padding-top:0;}';
-  }
   
   // Navbar Button colors
   $styles .= '.btn.btn-navbar{';

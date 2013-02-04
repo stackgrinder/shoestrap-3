@@ -1,4 +1,12 @@
-<header id="banner" class="navbar navbar-fixed-top" role="banner">
+<?php
+if ( get_theme_mod( 'shoestrap_navbar_fixed' ) == '1' ) {
+  $navbar_class = 'navbar navbar-fixed-top';
+} else {
+  $navbar_class = 'navbar navbar-static-top';
+}
+?>
+
+<header id="banner" class="topnavbar <?php echo $navbar_class; ?>" role="banner">
   <div class="navbar-inner">
     <div class="<?php shoestrap_fluid_body_classes( 'container' ); ?>">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">

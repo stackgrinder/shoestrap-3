@@ -101,22 +101,22 @@ add_filter('style_loader_tag', 'shoestrap_clean_style_tag');
 function shoestrap_body_class($classes) {
   // Add 'top-navbar' class if using Bootstrap's Navbar
   // Used to add styling to account for the WordPress admin bar
-  if (current_theme_supports('bootstrap-top-navbar')) {
+  if ( current_theme_supports( 'bootstrap-top-navbar' ) && get_theme_mod( 'shoestrap_navbar_fixed' ) == 1 ) {
     $classes[] = 'top-navbar';
   }
 
   // Add post/page slug
-  if (is_single() || is_page() && !is_front_page()) {
+  if ( is_single() || is_page() && !is_front_page() ) {
     $classes[] = basename(get_permalink());
   }
 
   // Remove unnecessary classes
-  $home_id_class = 'page-id-' . get_option('page_on_front');
+  $home_id_class = 'page-id-' . get_option( 'page_on_front' );
   $remove_classes = array(
     'page-template-default',
     $home_id_class
   );
-  $classes = array_diff($classes, $remove_classes);
+  $classes = array_diff( $classes, $remove_classes );
 
   return $classes;
 }
