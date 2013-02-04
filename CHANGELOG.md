@@ -1,5 +1,10 @@
 # Shoestrap Theme Changelog
 
+## 1.38
+* Replaced [font-awesome](http://fortawesome.github.com/Font-Awesome/) with [Elusive Icons](http://aristeides.com/elusive-iconfont/)
+* Better implementation for the top navbar classes (fixed/static)
+* .htaccess fixes for sharre path
+
 ## 1.37
 * Added option for fixed navbar (defaults to non-fixed
 * Added option for "original-size logo" (defaults to false)
