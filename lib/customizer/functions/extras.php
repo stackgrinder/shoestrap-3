@@ -8,19 +8,6 @@ function shoestrap_remove_controls( $wp_customize ){
 }
 add_action( 'customize_register', 'shoestrap_remove_controls' );
 
-/*
- * If the user has selected to not display the top navbar,then hide it.
- * To do that, we 'll remove the bootstrap-top-navbar theme support
- * (it is on by default).
- */
-add_action( 'wp', 'shoestrap_hide_navbar' );
-function shoestrap_hide_navbar() {
-  $navbar = get_theme_mod( 'shoestrap_navbar_top' );
-  if ( $navbar == 0 ) {
-    remove_theme_support( 'bootstrap-top-navbar' );
-  }
-}
-
 /**
  * Bind JS handlers to make Theme Customizer preview reload changes asynchronously.
  *
