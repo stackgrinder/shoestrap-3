@@ -9,6 +9,8 @@ if ( is_multisite() && !is_super_admin() ) {
   $advanced_builder == '';
 }
 
+require_once locate_template( '/lib/customizer/functions/textarea-control.php' );     // Textarea Control
+
 require_once locate_template( '/lib/customizer/navbar/functions.php' );               // NavBar Customizer
 require_once locate_template( '/lib/customizer/hero/functions.php' );                 // NavBar Customizer
 
