@@ -188,7 +188,7 @@ function shoestrap_custom_builder_rewrite_variables() {
   }
 
   // locate the variables file
-  $variables_file = locate_template( 'assets/less/variables.less' );
+  $variables_file = locate_template( 'assets/less/bootstrap/variables.less' );
   // open the variables file
   $fh = fopen($variables_file, 'w');
   // the content of the variables file
