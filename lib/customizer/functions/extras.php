@@ -1,7 +1,5 @@
 <?php
 
-function shoestrap_enabled() {}
-
 /*
  * Removes core controls
  */
