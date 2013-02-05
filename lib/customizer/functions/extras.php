@@ -17,11 +17,3 @@ function shoestrap_customize_preview( $wp_customize ) {
 }
 add_action( 'customize_preview_init', 'shoestrap_customize_preview' );
 
-function shoestrap_nav_class_pull() {
-  if ( get_theme_mod( 'shoestrap_nav_pull' ) == '1' ) {
-    $ul = 'nav pull-right';
-  } else {
-    $ul = 'nav';
-  }
-  return $ul;
-}

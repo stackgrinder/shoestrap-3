@@ -134,3 +134,12 @@ function shoestrap_navbar_register_settings( $wp_customize ){
   }
 }
 add_action( 'customize_register', 'shoestrap_navbar_register_settings' );
+
+function shoestrap_nav_class_pull() {
+  if ( get_theme_mod( 'shoestrap_nav_pull' ) == '1' ) {
+    $ul = 'nav pull-right';
+  } else {
+    $ul = 'nav';
+  }
+  return $ul;
+}
