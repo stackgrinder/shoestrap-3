@@ -35,12 +35,6 @@ function shoestrap_register_controls( $wp_customize ){
   $color_controls[] = array( 'setting' => 'shoestrap_header_backgroundcolor', 'label' => 'Header Region Background Color',  'section' => 'shoestrap_extra_header',  'priority' => 3 );
   // Header textcolor
   $color_controls[] = array( 'setting' => 'shoestrap_header_textcolor',       'label' => 'Header Region Text Color',        'section' => 'shoestrap_extra_header',  'priority' => 4 );
-  // Call to Action Button Color (Hero Region)
-  $color_controls[] = array( 'setting' => 'shoestrap_hero_cta_color',         'label' => 'Call To Action Button Color',     'section' => 'shoestrap_hero',    'priority' => 5 );
-  // Hero Region Background Color
-  $color_controls[] = array( 'setting' => 'shoestrap_hero_background_color',  'label' => 'Hero Region Background Color',    'section' => 'shoestrap_hero',    'priority' => 7 );
-  // Hero Region Text Color
-  $color_controls[] = array( 'setting' => 'shoestrap_hero_textcolor',         'label' => 'Hero Region Text Color',          'section' => 'shoestrap_hero',    'priority' => 8 );
   // Footer Background Color
   $color_controls[] = array( 'setting' => 'shoestrap_footer_background_color','label' => 'Footer Background Color',         'section' => 'shoestrap_footer',  'priority' => 1 );
   
@@ -50,8 +44,6 @@ function shoestrap_register_controls( $wp_customize ){
   $image_controls = array();
   // Logo Image
   $image_controls[] = array( 'setting' => 'shoestrap_logo',           'label' => 'Logo Image', 'section' => 'shoestrap_logo',  'priority' => 2 );
-  // Hero Region Background Image
-  $image_controls[] = array( 'setting' => 'shoestrap_hero_background','label' => 'Hero Background Image',   'section' => 'shoestrap_hero',  'priority' => 6 );
   
   /*
    * Checkbox Controls
@@ -100,8 +92,6 @@ function shoestrap_register_controls( $wp_customize ){
   $select_controls[] = array( 'setting' => 'shoestrap_webfonts_character_set',  'label' => 'Webfont character set:',       	  'section' => 'shoestrap_typography',  'priority' => 3, 'choises' => array( 'cyrillic' => __( 'Cyrillic', 'shoestrap' ), 'cyrillic-ext' => __( 'Cyrillic Extended', 'shoestrap' ), 'greek' => __( 'Greek', 'shoestrap' ), 'greek-ext' => __( 'Greek Extended', 'shoestrap' ), 'latin' => __( 'Latin', 'shoestrap' ), 'latin-ext' => __( 'Latin Extended', 'shoestrap' ), 'vietnamese' => __( 'Vietnamese', 'shoestrap' ) ) ); 
   // Assign Webfonts to specific page elements
   $select_controls[] = array( 'setting' => 'shoestrap_webfonts_assign',         'label' => 'Apply Webfont to:',               'section' => 'shoestrap_typography',  'priority' => 4, 'choises' => array( 'sitename' => __( 'Site Name', 'shoestrap' ), 'headers' => __( 'Headers', 'shoestrap' ), 'all' => __( 'Everywhere', 'shoestrap' ) ) );
-  // Visibility of the hero region (frontpage only or site-wide)
-  $select_controls[] = array( 'setting' => 'shoestrap_hero_visibility',         'label' => 'Hero Region Visibility',          'section' => 'shoestrap_hero',        'priority' => 9, 'choises' => array( 'front' => __( 'Frontpage', 'shoestrap' ), 'site' => __( 'Site-Wide', 'shoestrap' ) ) );
   // Location of share element on single posts/pages/custom-post-types
   $select_controls[] = array( 'setting' => 'shoestrap_single_social_position',  'label' => 'Location of social shares',       'section' => 'shoestrap_social',      'priority' => 10,'choises' => array( 'top' => __( 'Top', 'shoestrap' ), 'bottom' => __( 'Bottom', 'shoestrap' ), 'both' => __( 'Both', 'shoestrap' ), 'none' => __( 'None', 'shoestrap' ) ) );
   // Location of share element on single posts/pages/custom-post-types
@@ -111,12 +101,6 @@ function shoestrap_register_controls( $wp_customize ){
   $text_controls = array();
   // Google Webfonts (text, name of the webfont)
   $text_controls[]  = array( 'setting' => 'shoestrap_google_webfonts',  	'label' => 'Google Webfont Name',         'section' => 'shoestrap_typography',  'priority' => 1 );
-  // Title of the Hero Region
-  $text_controls[]  = array( 'setting' => 'shoestrap_hero_title',       	'label' => 'Title',                       'section' => 'shoestrap_hero',        'priority' => 1 );
-  // Text (label) of the Call To Action Button on the Hero Region
-  $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_text',    	'label' => 'Call To Action Button Text',  'section' => 'shoestrap_hero',        'priority' => 3 );
-  // Link of the Call To Action Button on the Hero Region
-  $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_link',    	'label' => 'Call To Action Button Link',  'section' => 'shoestrap_hero',        'priority' => 4 );
   // Link of the site's facebook page
   $text_controls[]  = array( 'setting' => 'shoestrap_facebook_link',    	'label' => 'Facebook Page Link',          'section' => 'shoestrap_social',      'priority' => 1 );
   // Link or username of the site's twitter profile
@@ -217,14 +201,6 @@ function shoestrap_register_controls( $wp_customize ){
     'label'       => 'Footer Scripts (CSS/JS)',
     'section'     => 'shoestrap_advanced',
     'settings'    => 'shoestrap_advanced_footer',
-    'priority'    => 2,
-  )));
-
-  // Content of the Hero Region
-  $wp_customize->add_control( new Shoestrap_Customize_Textarea_Control( $wp_customize, 'shoestrap_hero_content', array(
-    'label'       => 'Content',
-    'section'     => 'shoestrap_hero',
-    'settings'    => 'shoestrap_hero_content',
     'priority'    => 2,
   )));
 
