@@ -33,10 +33,10 @@ function shoestrap_phpless( $inputFile, $outputFile ) {
  */
 function shoestrap_phpless_compile() {
 
-  $app_less         = locate_template( 'assets/css/less/app.less' );
+  $app_less         = locate_template( 'assets/less/app.less' );
   $app_css          = locate_template( 'assets/css/app.css' );
 
-  $responsive_less  = locate_template( 'assets/css/less/responsive.less' );
+  $responsive_less  = locate_template( 'assets/less/responsive.less' );
   $responsive_css   = locate_template( 'assets/css/responsive.css' );
 
   if ( get_option( 'shoestrap_dev_mode' ) == 1 ) {
