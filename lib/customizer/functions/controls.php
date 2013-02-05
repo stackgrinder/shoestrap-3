@@ -38,8 +38,6 @@ function shoestrap_register_controls( $wp_customize ){
   
   // Display the following controls only when user is NOT using the advanced controls
   if ( $advanced_builder != 1 ) {
-    // Navbar background color
-    $color_controls[] = array( 'setting' => 'shoestrap_navbar_color',           'label' => 'Navbar Color',                    'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
     // Links Color
     $color_controls[] = array( 'setting' => 'shoestrap_link_color',             'label' => 'Links Color',                     'section' => 'colors',            'priority' => 3 );
     // Buttons Color
@@ -48,8 +46,6 @@ function shoestrap_register_controls( $wp_customize ){
   	$color_controls[] = array( 'setting' => 'shoestrap_text_color',							'label' => 'Text Color',       							  'section' => 'colors',  					'priority' => 2 );
   
 	}
-  // Navbar text color
-  $color_controls[] = array( 'setting' => 'shoestrap_navbar_textcolor',       'label' => 'Navbar Text Color',               'section' => 'shoestrap_primary_navbar',            'priority' => 40 );
   // Background Color
   $color_controls[] = array( 'setting' => 'shoestrap_background_color',       'label' => 'Background Color',                'section' => 'colors',            'priority' => 1 );
   // Header Background
@@ -78,35 +74,10 @@ function shoestrap_register_controls( $wp_customize ){
    * Checkbox Controls
    */
   $checkbox_controls = array();
-  // Display Navbar on top
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_top',          'label' => 'Display NavBar on the top of the page', 'section' => 'shoestrap_primary_navbar',  'priority' => 1 );
-  // Display Navbar Branding
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_branding',     'label' => 'Display Branding (Sitename or Logo)',   'section' => 'shoestrap_primary_navbar',  'priority' => 2 );
-  // Display NavBar Logo
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_logo',         'label' => 'Use Logo (if available) for branding',  'section' => 'shoestrap_primary_navbar',  'priority' => 3 );
   // Show/Hide the login link
   $checkbox_controls[] = array( 'setting' => 'shoestrap_header_loginlink',    'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
-  // Display NavBar Social links
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_social',       'label' => 'Display Social Links in the Navbar',    'section' => 'shoestrap_primary_navbar',  'priority' => 6 );
-  // Display Primary NavBar Searchbox
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_p_navbar_searchbox',  'label' => 'Display Search',                        'section' => 'shoestrap_primary_navbar',  'priority' => 7 );
   // Fluid Layout
   $checkbox_controls[] = array( 'setting' => 'shoestrap_fluid',               'label' => 'Fluid Layout',                          'section' => 'shoestrap_layout',          'priority' => 7 );
-  // NavBar Menu on the left/right selection
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_nav_pull',            'label' => 'Menu on the Right',                     'section' => 'shoestrap_primary_navbar',  'priority' => 15 );
-  // NavBar Logo original size
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_original_logo','label' => 'Original Logo Size',                    'section' => 'shoestrap_primary_navbar',  'priority' => 20 );
-  // No gradients on the NavBar
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_no_gradient',  'label' => 'Disable gradients',                     'section' => 'shoestrap_primary_navbar',  'priority' => 30 );
-  // No gradients on the NavBar
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_fixed',        'label' => 'Fixed Positioning',                     'section' => 'shoestrap_primary_navbar',  'priority' => 32 );
-
-  // Display Secondary Navbar
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_secondary',    'label' => 'Display Secondary NavBar',              'section' => 'shoestrap_secondary_navbar','priority' => 1 );
-  // Show/Hide the login link on the secondary navbar
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar2_loginlink',   'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_secondary_navbar','priority' => 5 );
-  // Display NavBar Social links on the secondary navbar
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar2_social',      'label' => 'Display Social Links in the Navbar',    'section' => 'shoestrap_secondary_navbar','priority' => 6 );
 
   // Extra header on/off
   $checkbox_controls[] = array( 'setting' => 'shoestrap_extra_branding',      'label' => 'Display Extra Header',                  'section' => 'shoestrap_extra_header',      'priority' => 1 );
@@ -151,7 +122,7 @@ function shoestrap_register_controls( $wp_customize ){
   // Location of share element on single posts/pages/custom-post-types
   $select_controls[] = array( 'setting' => 'shoestrap_single_social_position',  'label' => 'Location of social shares',       'section' => 'shoestrap_social',      'priority' => 10,'choises' => array( 'top' => __( 'Top', 'shoestrap' ), 'bottom' => __( 'Bottom', 'shoestrap' ), 'both' => __( 'Both', 'shoestrap' ), 'none' => __( 'None', 'shoestrap' ) ) );
   // Location of share element on single posts/pages/custom-post-types
-//  $select_controls[] = array( 'setting' => 'shoestrap_general_presets',         'label' => 'Styling Presets',                 'section' => 'shoestrap_general',     'priority' => 1,'choises' => array( 'bootstrap' => __( 'Bootstrap', 'shoestrap' ), 'google' => __( 'Google', 'shoestrap' ) ) );
+  $select_controls[] = array( 'setting' => 'shoestrap_general_presets',         'label' => 'Styling Presets',                 'section' => 'shoestrap_general',     'priority' => 1,'choises' => array( 'bootstrap' => __( 'Bootstrap', 'shoestrap' ), 'google' => __( 'Google', 'shoestrap' ) ) );
   
   // Text Controls
   $text_controls = array();
@@ -175,8 +146,6 @@ function shoestrap_register_controls( $wp_customize ){
   $text_controls[]  = array( 'setting' => 'shoestrap_single_social_text',	'label' => 'Single Social Text',   		    'section' => 'shoestrap_social',      'priority' => 10 );
   // Footer Text
   $text_controls[]  = array( 'setting' => 'shoestrap_footer_text',        'label' => 'Footer Alternative Text',     'section' => 'shoestrap_footer',      'priority' => 2 );
-  // Footer Text
-  $text_controls[]  = array( 'setting' => 'shoestrap_navbar_logo_padding','label' => 'Navbar Padding (px)',              'section' => 'shoestrap_primary_navbar',      'priority' => 40 );
   
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(

@@ -9,6 +9,8 @@ if ( is_multisite() && !is_super_admin() ) {
   $advanced_builder == '';
 }
 
+require_once locate_template( '/lib/customizer/navbar/navbar.php' );                  // NavBar Customizer
+
 require_once locate_template( '/lib/customizer/functions/sections.php' );             // Create Customizer Sections
 require_once locate_template( '/lib/customizer/functions/settings.php' );             // Create Customizer Settings
 require_once locate_template( '/lib/customizer/functions/controls.php' );             // Create Customizer Controls
@@ -18,7 +20,7 @@ require_once locate_template( '/lib/customizer/functions/social.php' );         
 require_once locate_template( '/lib/customizer/functions/social-script.php' );        // Social Script
 require_once locate_template( '/lib/customizer/functions/login.php' );                // Login screen customizations
 require_once locate_template( '/lib/customizer/functions/fluid-classes.php' );        // Functions to make fluid layouts work
-require_once locate_template( '/lib/customizer/functions/color-classes.php' );        // Color functions
+require_once locate_template( '/lib/customizer/functions/color-functions.php' );      // Color functions
 
 // Apply the selected styles:
 require_once locate_template( '/lib/customizer/styles/branding.php' );                // Branding (header) region, containing the logo etc.

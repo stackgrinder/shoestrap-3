@@ -22,26 +22,6 @@ function shoestrap_register_settings( $wp_customize ){
   // Logo Settings
   $settings[] = array( 'slug' => 'shoestrap_logo',                      'default' => '' );
     
-  // NavBar Settings
-  $settings[] = array( 'slug' => 'shoestrap_navbar_top',                'default' => '1' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar_branding',           'default' => '1' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar_logo',               'default' => '1' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar_color',              'default' => '#ffffff' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar_textcolor',          'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar_social',             'default' => '1' );
-  $settings[] = array( 'slug' => 'shoestrap_p_navbar_searchbox',        'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_nav_pull',                  'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar_social',             'default' => '1' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar_logo_padding',       'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar_original_logo',      'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar_no_gradient',        'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar_fixed',              'default' => '' );
-  
-  // Secondary NavBar Settings
-  $settings[] = array( 'slug' => 'shoestrap_navbar_secondary',          'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar2_loginlink',         'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_navbar2_social',            'default' => '' );
-
   // Extra Header Settings
   $settings[] = array( 'slug' => 'shoestrap_extra_branding',            'default' => $shoestrap_extra_branding );
   $settings[] = array( 'slug' => 'shoestrap_header_loginlink',          'default' => '1' );

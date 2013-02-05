@@ -8,8 +8,6 @@ function shoestrap_register_sections( $wp_customize ){
   $sections   = array();
   $sections[] = array( 'slug' => 'shoestrap_logo',              'title' => __( 'Logo', 'shoestrap' ),             'priority' => 1 );
   $sections[] = array( 'slug' => 'shoestrap_layout',            'title' => __( 'Layout', 'shoestrap' ),           'priority' => 2 );
-  $sections[] = array( 'slug' => 'shoestrap_primary_navbar',    'title' => __( 'Primary Navbar', 'shoestrap' ),   'priority' => 3 );
-  $sections[] = array( 'slug' => 'shoestrap_secondary_navbar',  'title' => __( 'Secondary Navbar', 'shoestrap' ), 'priority' => 4 );
   $sections[] = array( 'slug' => 'shoestrap_extra_header',      'title' => __( 'Extra Header', 'shoestrap' ),     'priority' => 5 );
   $sections[] = array( 'slug' => 'shoestrap_hero',              'title' => __( 'Hero', 'shoestrap' ),             'priority' => 6 );
   $sections[] = array( 'slug' => 'shoestrap_typography',        'title' => __( 'Typography', 'shoestrap' ),       'priority' => 7 );
