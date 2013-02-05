@@ -123,19 +123,6 @@ function shoestrap_body_class($classes) {
 
 add_filter('body_class', 'shoestrap_body_class');
 
-/*
- * Add the admin-bar class again (hack needed for buddypress compatibility)
- */
-function shoestrap_bp_admin_bar_body_class( $classes ) {
-  if ( is_admin_bar_showing() ) {
-    // add 'class-name' to the $classes array
-    $classes[] = 'admin-bar';
-    // return the $classes array
-    return $classes;
-  }
-}
-add_filter( 'body_class','shoestrap_bp_admin_bar_body_class', 20 );
-
 /**
  * Root relative URLs
  *
