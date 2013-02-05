@@ -152,8 +152,6 @@ function shoestrap_navbar_css_cache_reset() {
 }
 add_action( 'customize_preview_init', 'shoestrap_navbar_css_cache_reset' );
 
-<?php
-
 /*
  * Applies the styles to the navbar dropdowns.
  */
