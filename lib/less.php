@@ -32,8 +32,13 @@ function shoestrap_phpless( $inputFile, $outputFile ) {
  * for all files that need compiling
  */
 function shoestrap_phpless_compile() {
-
-  $app_less         = locate_template( 'assets/less/app.less' );
+  $preset           = get_theme_mod( 'shoestrap_general_presets' );
+  
+  if ( $preset == 'google' ) {
+    $app_less       = locate_template( 'assets/less/app-google.less' );
+  } else {
+    $app_less         = locate_template( 'assets/less/app.less' );
+  }
   $app_css          = locate_template( 'assets/css/app.css' );
 
   $responsive_less  = locate_template( 'assets/less/responsive.less' );
