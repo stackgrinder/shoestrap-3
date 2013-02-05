@@ -4,10 +4,15 @@
  * Adds settings to the customizer
  */
 function shoestrap_hero_register_settings( $wp_customize ){
+
+  $sections   = array();
+  $sections[] = array( 'slug' => 'shoestrap_hero',              'title' => __( 'Hero', 'shoestrap' ),             'priority' => 6 );
+
+  foreach( $sections as $section ){
+    $wp_customize->add_section( $section['slug'], array( 'title' => $section['title'], 'priority' => $section['priority'] ) );
+  }
   
   $settings   = array();
-  
-  // Hero Section Settings
   $settings[] = array( 'slug' => 'shoestrap_hero_title',                'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_hero_content',              'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_hero_cta_text',             'default' => '' );
