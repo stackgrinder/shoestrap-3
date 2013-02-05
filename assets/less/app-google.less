@@ -1,5 +1,59 @@
-@import "bootstrap/bootstrap.less";
-@import "google/todc-bootstrap.less";
+// CSS Reset
+@import "bootstrap/reset.less";
+
+// Core variables and mixins
+@import "google/variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "bootstrap/mixins.less";
+@import "google/mixins.less";
+
+// Grid system and page structure
+@import "google/scaffolding.less";
+@import "bootstrap/grid.less";
+@import "bootstrap/layouts.less";
+
+// Base CSS
+@import "bootstrap/type.less";
+@import "bootstrap/code.less";
+@import "google/forms.less";
+@import "google/tables.less";
+
+// Components: common
+// @import "sprites.less";
+@import "../../fonts/elusive-webfont.less";
+@import "google/dropdowns.less";
+@import "google/wells.less";
+@import "google/scrollbars.less"
+@import "bootstrap/component-animations.less";
+@import "bootstrap/close.less";
+
+// Components: Buttons & Alerts
+@import "google/buttons.less";
+@import "google/button-groups.less";
+@import "google/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Nav
+@import "google/navs.less";
+@import "google/navbar.less";
+@import "google/breadcrumbs.less";
+@import "google/pagination.less";
+@import "google/pager.less";
+
+// Components: Popovers
+@import "google/modals.less";
+@import "google/tooltip.less";
+@import "google/popovers.less";
+
+// Components: Misc
+@import "google/thumbnails.less";
+@import "bootstrap/media.less";
+@import "google/labels-badges.less";
+@import "google/progress-bars.less";
+@import "bootstrap/accordion.less";
+@import "bootstrap/carousel.less";
+@import "bootstrap/hero-unit.less";
+
+// Utility classes
+@import "bootstrap/utilities.less"; // Has to be last to override when necessary
 
 // Required from wordpress.org
 .wp-caption {}

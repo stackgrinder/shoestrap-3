@@ -37,9 +37,13 @@ function shoestrap_phpless_compile() {
   if ( $preset == 'google' ) {
     $app_less       = locate_template( 'assets/less/app-google.less' );
   } else {
-    $app_less         = locate_template( 'assets/less/app.less' );
+    $app_less       = locate_template( 'assets/less/app.less' );
   }
-  $app_css          = locate_template( 'assets/css/app.css' );
+  if ( $preset == 'google' ) {
+    $app_css        = locate_template( 'assets/css/app-google.css' );
+  } else {
+    $app_css        = locate_template( 'assets/css/app.css' );
+  }
 
   $responsive_less  = locate_template( 'assets/less/responsive.less' );
   $responsive_css   = locate_template( 'assets/css/responsive.css' );
