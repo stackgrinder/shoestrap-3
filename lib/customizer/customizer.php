@@ -17,7 +17,7 @@ require_once locate_template( '/lib/customizer/hero/functions.php' );           
 require_once locate_template( '/lib/customizer/functions/sections.php' );             // Create Customizer Sections
 require_once locate_template( '/lib/customizer/functions/settings.php' );             // Create Customizer Settings
 require_once locate_template( '/lib/customizer/functions/controls.php' );             // Create Customizer Controls
-require_once locate_template( '/lib/customizer/functions/extras.php' );               // Extra Functions for the customizer
+require_once locate_template( '/lib/customizer/functions/remove-controls.php' );               // Extra Functions for the customizer
 require_once locate_template( '/lib/customizer/functions/logo.php' );                 // Customizer Logo functions
 require_once locate_template( '/lib/customizer/functions/social.php' );               // Customizer Social functions
 require_once locate_template( '/lib/customizer/functions/social-script.php' );        // Social Script
