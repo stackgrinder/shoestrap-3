@@ -28,7 +28,7 @@ require_once locate_template( '/lib/customizer/styles/webfonts.php' );          
 require_once locate_template( '/lib/customizer/styles/background.php' );              // Page and wrap background
 
 if ( $advanced_builder != 1 ) {
-  require_once locate_template( '/lib/customizer/styles/navbar.php' );                // NavBar
+  require_once locate_template( '/lib/customizer/navbar/styles.php' );                // NavBar styles
   require_once locate_template( '/lib/customizer/styles/text.php' );                  // General text and links styles
   require_once locate_template( '/lib/customizer/styles/buttons.php' );               // Buttons
 }
