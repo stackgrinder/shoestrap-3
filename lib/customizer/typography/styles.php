@@ -6,12 +6,12 @@
 function shoestrap_text_css() {
   $background_color = get_theme_mod( 'shoestrap_background_color' );
   $link_color       = get_theme_mod( 'shoestrap_link_color' );
-	$text_color				= get_theme_mod( 'shoestrap_text_color' );
+  $text_color       = get_theme_mod( 'shoestrap_text_color' );
   
   // Make sure colors are properly formatted
   $background_color = '#' . str_replace( '#', '', $background_color );
   $link_color       = '#' . str_replace( '#', '', $link_color );
-	$text_color       = '#' . str_replace( '#', '', $text_color );
+  $text_color       = '#' . str_replace( '#', '', $text_color );
   
   $styles = '<style>';
   // General links styling
@@ -52,4 +52,3 @@ function shoestrap_text_css_cache_reset() {
   shoestrap_text_css_cache();
 }
 add_action( 'customize_preview_init', 'shoestrap_text_css_cache_reset' );
-
