@@ -40,8 +40,6 @@ function shoestrap_register_settings( $wp_customize ){
     
   // Color Settings
   $settings[] = array( 'slug' => 'shoestrap_background_color',          'default' => $background_color );
-	$settings[] = array( 'slug' => 'shoestrap_text_color',                'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_link_color',                'default' => '#0088cc' );
   $settings[] = array( 'slug' => 'shoestrap_buttons_color',             'default' => '#0066bb' );
   
   // Social Settings
@@ -64,12 +62,6 @@ function shoestrap_register_settings( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_advanced_footer',           'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_flat_buttons',              'default' => '' );
     
-  // Typography Settings
-  $settings[] = array( 'slug' => 'shoestrap_google_webfonts',           'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_webfonts_weight',           'default' => '400' );
-  $settings[] = array( 'slug' => 'shoestrap_webfonts_character_set',    'default' => 'latin' );
-  $settings[] = array( 'slug' => 'shoestrap_webfonts_assign',           'default' => 'all' );
-  
   // Footer Settings
   $settings[] = array( 'slug' => 'shoestrap_footer_background_color',   'default' => '#ffffff' );
   $settings[] = array( 'slug' => 'shoestrap_footer_text',               'default' => get_bloginfo( 'name' ) );
