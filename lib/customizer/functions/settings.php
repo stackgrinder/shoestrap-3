@@ -44,17 +44,6 @@ function shoestrap_register_settings( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_link_color',                'default' => '#0088cc' );
   $settings[] = array( 'slug' => 'shoestrap_buttons_color',             'default' => '#0066bb' );
   
-  // Hero Section Settings
-  $settings[] = array( 'slug' => 'shoestrap_hero_title',                'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_hero_content',              'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_hero_cta_text',             'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_hero_cta_link',             'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_hero_cta_color',            'default' => '#0066bb' );
-  $settings[] = array( 'slug' => 'shoestrap_hero_background',           'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_hero_background_color',     'default' => '#333333' );
-  $settings[] = array( 'slug' => 'shoestrap_hero_textcolor',            'default' => '#ffffff' );
-  $settings[] = array( 'slug' => 'shoestrap_hero_visibility',           'default' => 'front' );
-  
   // Social Settings
   $settings[] = array( 'slug' => 'shoestrap_facebook_link',             'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_twitter_link',              'default' => '' );
