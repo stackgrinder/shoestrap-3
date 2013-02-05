@@ -1,5 +1,9 @@
 # Shoestrap Theme Changelog
 
+## 1.39
+* Fixes the "Warning: join() [function.join]: Invalid arguments passed in wp-includes/post-template.php on line 389" error.
+* Changed theme licence from MIT to GPL v.3
+
 ## 1.38
 * Replaced [font-awesome](http://fortawesome.github.com/Font-Awesome/) with [Elusive Icons](http://aristeides.com/elusive-iconfont/)
 * Better implementation for the top navbar classes (fixed/static)
