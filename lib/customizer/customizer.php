@@ -9,7 +9,7 @@ if ( is_multisite() && !is_super_admin() ) {
   $advanced_builder == '';
 }
 
-require_once locate_template( '/lib/customizer/navbar/navbar.php' );                  // NavBar Customizer
+require_once locate_template( '/lib/customizer/navbar/functions.php' );                  // NavBar Customizer
 
 require_once locate_template( '/lib/customizer/functions/sections.php' );             // Create Customizer Sections
 require_once locate_template( '/lib/customizer/functions/settings.php' );             // Create Customizer Settings
@@ -32,7 +32,6 @@ if ( $advanced_builder != 1 ) {
   require_once locate_template( '/lib/customizer/styles/text.php' );                  // General text and links styles
   require_once locate_template( '/lib/customizer/styles/buttons.php' );               // Buttons
 }
-require_once locate_template( '/lib/customizer/styles/navbar-slidedown.php' );        // NavBar Slide-Down Styling
 require_once locate_template( '/lib/customizer/styles/hero.php' );                    // Hero
 require_once locate_template( '/lib/customizer/styles/footer.php' );                  // Footer
 require_once locate_template( '/lib/customizer/styles/advanced.php' );                // Custom CSS and/or JS on the head and the footer
