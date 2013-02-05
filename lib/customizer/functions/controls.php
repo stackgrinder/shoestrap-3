@@ -19,11 +19,6 @@ function shoestrap_register_controls( $wp_customize ){
    */
   $color_controls   = array();
   
-  // Display the following controls only when user is NOT using the advanced controls
-  if ( $advanced_builder != 1 ) {
-    // Buttons Color
-    $color_controls[] = array( 'setting' => 'shoestrap_buttons_color',          'label' => 'Buttons Color',                   'section' => 'colors',            'priority' => 4 );
-	}
   // Background Color
   $color_controls[] = array( 'setting' => 'shoestrap_background_color',       'label' => 'Background Color',                'section' => 'colors',            'priority' => 1 );
   // Header Background
@@ -64,9 +59,6 @@ function shoestrap_register_controls( $wp_customize ){
   // Share Buttons on posts/pages/custom post types: Pinterest
   $checkbox_controls[] = array( 'setting' => 'shoestrap_pinterest_on_posts',  'label' => 'Share Buttons on Posts: Pinterest',     'section' => 'shoestrap_social',      'priority' => 9 );
   
-  // Flat buttons on/off
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_flat_buttons',        'label' => 'Flat Buttons (no gradients)',           'section' => 'shoestrap_advanced',       'priority' => 9 );
-
   /*
    * Dropdown (Select) Controls
    */
