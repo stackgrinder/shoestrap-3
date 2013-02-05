@@ -32,7 +32,7 @@ require_once locate_template( '/lib/customizer/styles/background.php' );        
 
 if ( $advanced_builder != 1 ) {
   require_once locate_template( '/lib/customizer/navbar/styles.php' );                // NavBar styles
-  require_once locate_template( '/lib/customizer/typography/styles/php' );            // Typography styling
+  require_once locate_template( '/lib/customizer/typography/styles.php' );            // Typography styling
   require_once locate_template( '/lib/customizer/styles/buttons.php' );               // Buttons
 }
 require_once locate_template( '/lib/customizer/hero/styles.php' );                    // Hero
