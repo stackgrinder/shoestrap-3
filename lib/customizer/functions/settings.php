@@ -40,7 +40,6 @@ function shoestrap_register_settings( $wp_customize ){
     
   // Color Settings
   $settings[] = array( 'slug' => 'shoestrap_background_color',          'default' => $background_color );
-  $settings[] = array( 'slug' => 'shoestrap_buttons_color',             'default' => '#0066bb' );
   
   // Social Settings
   $settings[] = array( 'slug' => 'shoestrap_facebook_link',             'default' => '' );
@@ -60,7 +59,6 @@ function shoestrap_register_settings( $wp_customize ){
   // Advanced Settings
   $settings[] = array( 'slug' => 'shoestrap_advanced_head',             'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_advanced_footer',           'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_flat_buttons',              'default' => '' );
     
   // Footer Settings
   $settings[] = array( 'slug' => 'shoestrap_footer_background_color',   'default' => '#ffffff' );
