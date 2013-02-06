@@ -26,7 +26,6 @@ require_once locate_template( '/lib/customizer/functions/remove-controls.php' );
 require_once locate_template( '/lib/customizer/functions/social.php' );               // Customizer Social functions
 require_once locate_template( '/lib/customizer/functions/social-script.php' );        // Social Script
 require_once locate_template( '/lib/customizer/functions/login.php' );                // Login screen customizations
-require_once locate_template( '/lib/customizer/functions/fluid-classes.php' );        // Functions to make fluid layouts work
 require_once locate_template( '/lib/customizer/functions/color-functions.php' );      // Color functions
 
 // Apply the selected styles:
