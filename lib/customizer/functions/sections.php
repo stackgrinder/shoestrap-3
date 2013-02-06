@@ -7,7 +7,6 @@ function shoestrap_register_sections( $wp_customize ){
   
   $sections   = array();
   $sections[] = array( 'slug' => 'shoestrap_advanced',          'title' => __( 'Advanced', 'shoestrap' ),         'priority' => 9 );
-  $sections[] = array( 'slug' => 'shoestrap_footer',            'title' => __( 'Footer', 'shoestrap' ),           'priority' => 10 );
   $sections[] = array( 'slug' => 'shoestrap_general',           'title' => __( 'Presets', 'shoestrap' ),          'priority' => 15 );
 
   foreach( $sections as $section ){
