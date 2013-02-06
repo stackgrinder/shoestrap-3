@@ -91,8 +91,6 @@ function shoestrap_fluid_body_classes( $context ) {
   echo $class;
 }
 
-<?php
-
 /*
  * Calculates the classes of the main area, main sidebar and secondary sidebar
  */
