@@ -5,41 +5,7 @@
  */
 function shoestrap_register_settings( $wp_customize ){
   
-  // Adds compatibility with wordpress's default background color control.
-  $background_color = get_theme_mod( 'background_color' );
-  $background_color = '#' . str_replace( '#', '', $background_color );
-  set_theme_mod( 'background_color', get_theme_mod( 'shoestrap_background_color' ) );
-  
-  // Compatibility hack for previous versions of Shoestrap.
-  if ( get_theme_mod( 'shoestrap_header_mode' ) == 'header' ) {
-    $shoestrap_extra_branding = 1;
-  } else {
-    $shoestrap_extra_branding = 0;
-  }
-
   $settings   = array();
-  
-  // Logo Settings
-  $settings[] = array( 'slug' => 'shoestrap_logo',                      'default' => '' );
-    
-  // Extra Header Settings
-  $settings[] = array( 'slug' => 'shoestrap_extra_branding',            'default' => $shoestrap_extra_branding );
-  $settings[] = array( 'slug' => 'shoestrap_header_loginlink',          'default' => '1' );
-  $settings[] = array( 'slug' => 'shoestrap_header_backgroundcolor',    'default' => '#0066bb' );
-  $settings[] = array( 'slug' => 'shoestrap_header_textcolor',          'default' => '#ffffff' );
-  $settings[] = array( 'slug' => 'shoestrap_header_social',             'default' => '0' );
-    
-  // Layout Settings
-  $settings[] = array( 'slug' => 'shoestrap_layout',                    'default' => 'mp' );
-  $settings[] = array( 'slug' => 'shoestrap_aside_affix',               'default' => 'normal' );
-  $settings[] = array( 'slug' => 'shoestrap_aside_width',               'default' => '4' );
-  $settings[] = array( 'slug' => 'shoestrap_secondary_width',           'default' => '3' );
-  $settings[] = array( 'slug' => 'shoestrap_sidebar_on_front',          'default' => 'hide' );
-  $settings[] = array( 'slug' => 'shoestrap_responsive',                'default' => '1' );
-  $settings[] = array( 'slug' => 'shoestrap_fluid',                     'default' => '0' );
-    
-  // Color Settings
-  $settings[] = array( 'slug' => 'shoestrap_background_color',          'default' => $background_color );
   
   // Social Settings
   $settings[] = array( 'slug' => 'shoestrap_facebook_link',             'default' => '' );
