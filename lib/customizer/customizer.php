@@ -18,6 +18,7 @@ require_once locate_template( '/lib/customizer/background/functions.php' );     
 require_once locate_template( '/lib/customizer/logo/functions.php' );                 // Logo Customizer
 require_once locate_template( '/lib/customizer/header/functions.php' );               // Header Customizer
 require_once locate_template( '/lib/customizer/layout/functions.php' );               // Layout Customizer
+require_once locate_template( '/lib/customizer/social/functions.php' );               // Social Customizer
 
 require_once locate_template( '/lib/customizer/functions/sections.php' );             // Create Customizer Sections
 require_once locate_template( '/lib/customizer/functions/settings.php' );             // Create Customizer Settings
