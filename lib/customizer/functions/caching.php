@@ -28,7 +28,6 @@ function shoestrap_customizer_cache() {
     $data = shoestrap_customizer_combined_data();
   }
   echo $data;
-  echo '  $caching_disabled = ' . $caching_disabled . ' ';
 }
 add_action( 'wp_head', 'shoestrap_customizer_cache', 199 );
 
