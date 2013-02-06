@@ -1,5 +1,9 @@
 # Shoestrap Theme Changelog
 
+## 1.43
+* Typography caching
+* Minor bugfixes
+
 ## 1.42
 * Fixes the top navbar dropdown
 * Fixes the sharrre script
