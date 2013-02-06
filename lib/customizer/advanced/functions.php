@@ -17,7 +17,7 @@
  * 
  */
 
-function shoestrap_register_sections( $wp_customize ){
+function shoestrap_advanced_customizer( $wp_customize ){
   
   $sections   = array();
   $sections[] = array( 'slug' => 'shoestrap_advanced',          'title' => __( 'Advanced', 'shoestrap' ),         'priority' => 9 );
@@ -50,4 +50,4 @@ function shoestrap_register_sections( $wp_customize ){
     'priority'    => 2,
   )));
 }
-add_action( 'customize_register', 'shoestrap_register_sections' );
+add_action( 'customize_register', 'shoestrap_advanced_customizer' );
