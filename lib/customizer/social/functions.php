@@ -305,4 +305,4 @@ function shoestrap_social_sharrre_script() {
   </script>
   <?php
 }
-add_action( 'wp_head', 'shoestrap_social_sharrre_script' );
+add_action( 'wp_footer', 'shoestrap_social_sharrre_script' );
