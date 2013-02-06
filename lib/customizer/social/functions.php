@@ -146,3 +146,167 @@ function shoestrap_add_social_links_header() {
   }
 }
 add_action( 'shoestrap_branding_branding_right', 'shoestrap_add_social_links_header' );
+
+<?php
+
+/*
+ * Echoes the social network links
+ */
+function shoestrap_social_links( $network = '' ) {
+  
+  $facebook_link  = get_theme_mod( 'shoestrap_facebook_link' );
+  $twitter_link   = get_theme_mod( 'shoestrap_twitter_link' );
+  $gplus_link     = get_theme_mod( 'shoestrap_google_plus_link' );
+  $pinterest_link = get_theme_mod( 'shoestrap_pinterest_link' );
+  
+  
+  // Sanitizing twitter links and making them compatible with @username
+  
+  if( strpos ( $twitter_link, 'twitter.'  ) !== false ) {
+    $newvalue = esc_url( $twitter_link );
+  } else {
+    $twitter_link = ltrim( $twitter_link, '@');
+    $twitter_link = 'http://twitter.com/' . $twitter_link;
+  }
+  
+  // Sanitizing Facebook links
+  $facebook_link = esc_url( $facebook_link );
+
+  // Sanitizing Google+ links
+  $gplus_link = esc_url( $gplus_link );
+
+  // Sanitizing Pinterest links
+  $pinterest_link = esc_url( $pinterest_link );
+
+  // Echoing the links
+  if ( $network == 'fb' ){ ?>
+    <li class="social-networks"><a href="<?php echo $facebook_link; ?>" target="_blank"><i class="icon-facebook-sign"></i></a></li>
+  <?php }
+  elseif ( $network == 'tw' ) { ?>
+    <li class="social-networks"><a href="<?php echo $twitter_link; ?>" target="_blank"><i class="icon-twitter-sign"></i></a></li>
+  <?php }
+  elseif ( $network == 'gp' ) { ?>
+    <li class="social-networks"><a href="<?php echo $gplus_link; ?>" target="_blank"><i class="icon-google-plus-sign"></i></a></li>
+  <?php }
+  elseif ( $network == 'pi' ) { ?>
+    <li class="social-networks"><a href="<?php echo $pinterest_link; ?>" target="_blank"><i class="icon-pinterest-sign"></i></a></li>
+  <?php }
+}
+
+/*
+ * Alters the content to add social share buttons.
+ * The buttons will be on the top, bottom or both of single entries.
+ */
+function shoestrap_social_share_singlular( $content ) { 
+  global $post;
+  $social_location = get_theme_mod( 'shoestrap_single_social_position' );
+  $social = '';
+  
+  if( is_singular() && is_main_query() ) {
+    $social = '<div class="shareme clearfix" data-url="' . get_permalink( $post->ID ) . '" data-text="' . get_the_title( $post->ID ) . '"></div>';
+  }
+  if ( $social_location == 'top' ) {
+    return $social . $content;
+  } elseif ( $social_location == 'bottom' ) {
+    return $content . $social;
+  } elseif ( $social_location == 'both' ) {
+    return $social . $content . $social;
+  } else {
+    return $content;
+  }
+}
+add_action( 'the_content', 'shoestrap_social_share_singlular' );
+
+/*
+ * Enqueues the sharre script.
+ * 
+ * For more info on sharre check out http://sharrre.com/
+ */
+function shoestrap_theme_enqueue_scripts() {
+  //sharrre, social share 
+  wp_enqueue_script( 'shoestrap-sharrre', get_stylesheet_directory_uri() . '/assets/js/vendor/sharrre/jquery.sharrre.min.js', false, false, true );
+}
+add_action('wp_enqueue_scripts', 'shoestrap_theme_enqueue_scripts');
+
+<?php
+
+/*
+ * The script for sharrre buttons.
+ * For more info on configuration and other options check out http://sharrre.com/
+ */
+function shoestrap_social_sharrre_script() {
+  $googleplus   = get_theme_mod( 'shoestrap_gplus_on_posts' );
+  $facebook     = get_theme_mod( 'shoestrap_facebook_on_posts' );
+  $twitter      = get_theme_mod( 'shoestrap_twitter_on_posts' );
+  $linkedin     = get_theme_mod( 'shoestrap_linkedin_on_posts' );
+  $pinterest    = get_theme_mod( 'shoestrap_pinterest_on_posts' );
+  $social_text  = get_theme_mod( 'shoestrap_single_social_text' );
+  
+  if ( $googleplus  == 1 ) { $googleplus  = 'true'; } else { $googleplus  = 'false'; }
+  if ( $facebook    == 1 ) { $facebook    = 'true'; } else { $facebook    = 'false'; }
+  if ( $twitter     == 1 ) { $twitter     = 'true'; } else { $twitter     = 'false'; }
+  if ( $linkedin    == 1 ) { $linkedin    = 'true'; } else { $linkedin    = 'false'; }
+  if ( $pinterest   == 1 ) { $pinterest   = 'true'; } else { $pinterest   = 'false'; }
+  
+  // $templatemode = get_theme_mod( 'shoestrap_social_links_mode' );
+  $template = '<div class="box"><div class="left">' . __( $social_text, 'shoestrap') . '</div><div class="middle">';
+  if ( $facebook == 'true' ) {
+    $template .= '<a href="#" class="facebook icon-facebook"></a>';
+  }
+  if ( $twitter == 'true' ) {
+    $template .= '<a href="#" class="twitter icon-twitter"></a>';
+  }
+  if ( $googleplus == 'true' ) {
+    $template .= '<a href="#" class="googleplus icon-google-plus"></a>';
+  }
+  if ( $linkedin == 'true' ) {
+    $template .= '<a href="#" class="linkedin icon-linkedin"></a>';
+  }
+  if ( $pinterest == 'true' ) {
+    $template .= '<a href="#" class="pinterest icon-pinterest"></a>';
+  }
+  $template .= '</div><div class="right">{total}</div></div>';
+  
+  ?>
+  <script>
+    $(window).load(function() {
+      $('.shareme').sharrre({
+        share: {
+          googlePlus:   <?php echo $googleplus ?>,
+          facebook:     <?php echo $facebook ?>,
+          twitter:      <?php echo $twitter ?>,
+          linkedin:     <?php echo $linkedin ?>,
+          pinterest:    <?php echo $pinterest ?>
+        },
+        template: '<?php echo $template; ?>',
+        enableHover: false,
+        enableTracking: true,
+        render: function(api, options){
+          <?php if ( $facebook == 'true' ) { ?>
+            $(api.element).on('click', '.facebook', function() {
+              api.openPopup('facebook');
+            });
+          <?php } if ( $googleplus == 'true' ) { ?>
+            $(api.element).on('click', '.googleplus', function() {
+              api.openPopup('googlePlus');
+            });
+          <?php } if ( $twitter == 'true' ) { ?>
+            $(api.element).on('click', '.twitter', function() {
+              api.openPopup('twitter');
+            });
+          <?php } if ( $pinterest == 'true' ) { ?>
+            $(api.element).on('click', '.pinterest', function() {
+              api.openPopup('pinterest');
+            });
+          <?php } if ( $linkedin == 'true' ) { ?>
+            $(api.element).on('click', '.linkedin', function() {
+              api.openPopup('linkedin');
+            });
+          <?php } ?>
+        }
+      });
+    });
+  </script>
+  <?php
+}
+add_action( 'wp_head', 'shoestrap_social_sharrre_script' );
