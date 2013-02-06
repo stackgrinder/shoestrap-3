@@ -38,7 +38,6 @@ if ( $advanced_builder != 1 ) {
   require_once locate_template( '/lib/customizer/buttons/styles.php' );               // Buttons styles
 }
 require_once locate_template( '/lib/customizer/hero/styles.php' );                    // Hero
-require_once locate_template( '/lib/customizer/styles/footer.php' );                  // Footer
 require_once locate_template( '/lib/customizer/styles/advanced.php' );                // Custom CSS and/or JS on the head and the footer
 require_once locate_template( '/lib/customizer/styles/sidebar.php' );                 // Sidebar Class
 require_once locate_template( '/lib/customizer/styles/social.php' );                  // Social Sharing Styles
