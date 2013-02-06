@@ -45,7 +45,6 @@ require_once locate_template( '/lib/customizer/styles/sidebar.php' );           
 require_once locate_template( '/lib/customizer/styles/social.php' );                  // Social Sharing Styles
 
 //Templating changes
-require_once locate_template( '/lib/customizer/templates/social-links.php' );         // Social Links
 require_once locate_template( '/lib/customizer/templates/branding.php' );             // Customizer Branding functions
 require_once locate_template( '/lib/customizer/templates/footer-icon.php' );          // Customizer footer icon
 require_once locate_template( '/lib/customizer/templates/hero.php' );                 // Hero Region
