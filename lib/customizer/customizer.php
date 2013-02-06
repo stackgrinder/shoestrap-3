@@ -14,12 +14,15 @@ require_once locate_template( '/lib/customizer/functions/textarea-control.php' )
 require_once locate_template( '/lib/customizer/navbar/functions.php' );               // NavBar Customizer
 require_once locate_template( '/lib/customizer/hero/functions.php' );                 // Hero Customizer
 require_once locate_template( '/lib/customizer/typography/functions.php' );           // Typography Customizer
+require_once locate_template( '/lib/customizer/background/functions.php' );           // Background Customizer
+require_once locate_template( '/lib/customizer/logo/functions.php' );                 // Logo Customizer
+require_once locate_template( '/lib/customizer/header/functions.php' );               // Header Customizer
+require_once locate_template( '/lib/customizer/layout/functions.php' );               // Layout Customizer
 
 require_once locate_template( '/lib/customizer/functions/sections.php' );             // Create Customizer Sections
 require_once locate_template( '/lib/customizer/functions/settings.php' );             // Create Customizer Settings
 require_once locate_template( '/lib/customizer/functions/controls.php' );             // Create Customizer Controls
-require_once locate_template( '/lib/customizer/functions/remove-controls.php' );               // Extra Functions for the customizer
-require_once locate_template( '/lib/customizer/functions/logo.php' );                 // Customizer Logo functions
+require_once locate_template( '/lib/customizer/functions/remove-controls.php' );      // Extra Functions for the customizer
 require_once locate_template( '/lib/customizer/functions/social.php' );               // Customizer Social functions
 require_once locate_template( '/lib/customizer/functions/social-script.php' );        // Social Script
 require_once locate_template( '/lib/customizer/functions/login.php' );                // Login screen customizations
@@ -27,8 +30,8 @@ require_once locate_template( '/lib/customizer/functions/fluid-classes.php' );  
 require_once locate_template( '/lib/customizer/functions/color-functions.php' );      // Color functions
 
 // Apply the selected styles:
-require_once locate_template( '/lib/customizer/styles/branding.php' );                // Branding (header) region, containing the logo etc.
-require_once locate_template( '/lib/customizer/styles/background.php' );              // Page and wrap background
+require_once locate_template( '/lib/customizer/header/styles.php' );                  // Branding (header) region, containing the logo etc.
+require_once locate_template( '/lib/customizer/background/styles.php' );              // Page and wrap background
 
 if ( $advanced_builder != 1 ) {
   require_once locate_template( '/lib/customizer/navbar/styles.php' );                // NavBar styles
