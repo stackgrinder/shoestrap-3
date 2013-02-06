@@ -43,8 +43,8 @@ function shoestrap_buttons_css() {
   $styles .= 'color: ' . $textColor . ';';
   $styles .= 'background-color: ' . $endColor . ';';
   $styles .= '*background-color: ' . shoestrap_adjust_brightness( $endColor, -12 ) . ';}';
+  $styles .= 'a.btn-success, a.btn-info, a.btn-warning, a.btn-error, a.btn-inverse{color: #fff;}';
   $styles .= '</style>';
-  $styles .= '<style>a.btn-success, a.btn-info, a.btn-warning, a.btn-error, a.btn-inverse{color: #fff;}';
 
     
   return $styles;
