@@ -1,5 +1,11 @@
 # Shoestrap Theme Changelog
 
+## 1.42
+* Fixes the top navbar dropdown
+* Fixes the sharrre script
+* Added an option in the admin page to disable the customizer caching
+* Re-organized files and functions in the customizer
+
 ## 1.39
 * Fixes the "Warning: join() [function.join]: Invalid arguments passed in wp-includes/post-template.php on line 389" error.
 * Changed theme licence from MIT to GPL v.3
