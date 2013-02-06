@@ -39,9 +39,6 @@ require_once locate_template( '/lib/customizer/hero/styles.php' );              
 require_once locate_template( '/lib/customizer/advanced/styles.php' );                // Custom CSS and/or JS on the head and the footer
 require_once locate_template( '/lib/customizer/social/styles.php' );                  // Social Sharing Styles
 
-//Templating changes
-require_once locate_template( '/lib/customizer/templates/loginbutton.php' );          // Login button
-
 if ( $advanced_builder == 1 ) {
   require_once locate_template( '/lib/customizer/custom-builder/custom-builder.php'); // Custom Bootstrap Builder
 }
