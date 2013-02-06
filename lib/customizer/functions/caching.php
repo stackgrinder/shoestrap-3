@@ -18,16 +18,17 @@ function shoestrap_customizer_combined_data() {
 function shoestrap_customizer_cache() {
   $caching_disabled = get_option( 'shoestrap_customizer_caching' );
   
-  if ( $caching_disabled == 1 ) {
+  if ( $caching_disabled != 1 ) {
     $data = get_transient( 'shoestrap_customizer_css' );
     if ( $data === false ) {
       $data = shoestrap_customizer_combined_data();
-      set_transient( 'shoestrap_customizer_css', $data, 3600 * 24 );
+      set_transient( 'shoestrap_customizer_combined_data', $data, 3600 * 24 );
     }
   } else {
     $data = shoestrap_customizer_combined_data();
   }
   echo $data;
+  echo '  $caching_disabled = ' . $caching_disabled . ' ';
 }
 add_action( 'wp_head', 'shoestrap_customizer_cache', 199 );
 
