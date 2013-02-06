@@ -3,7 +3,7 @@
 /*
  * Adds settings to the customizer
  */
-function shoestrap_buttons_register_settings( $wp_customize ){
+function shoestrap_buttons_customizer( $wp_customize ){
 
   $settings   = array();
   
@@ -65,4 +65,4 @@ function shoestrap_buttons_register_settings( $wp_customize ){
     ));
   }
 }
-add_action( 'customize_register', 'shoestrap_register_settings' );
+add_action( 'customize_register', 'shoestrap_buttons_customizer' );
