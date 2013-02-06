@@ -9,8 +9,8 @@
  * 4. /child-theme/style.css (if a child theme is activated)
  *
  * Enqueue scripts in the following order:
- * 1. /theme/assets/js/vendor/modernizr-2.6.2.min.js
- * 2. jquery-1.9.0.min.js via Google CDN
+ * 1. jquery-1.9.0.min.js via Google CDN
+ * 2. /theme/assets/js/vendor/modernizr-2.6.2.min.js
  * 3. /theme/assets/js/vendor/bootstrap.min.js
  * 4. /theme/assets/js/main.js
  */
@@ -35,7 +35,7 @@ function shoestrap_scripts() {
   // It's kept in the header instead of footer to avoid conflicts with plugins.
   if (!is_admin()) {
     wp_deregister_script('jquery');
-    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js', array('modernizr'), null, false);
+    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js', false, null, false);
   }
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
@@ -45,11 +45,11 @@ function shoestrap_scripts() {
   wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, null, false);
   wp_register_script('shoestrap_bootstrap', get_template_directory_uri() . '/assets/js/vendor/bootstrap.min.js', false, null, false);
   wp_register_script('shoestrap_main', get_template_directory_uri() . '/assets/js/main.js', false, null, false);
+  wp_enqueue_script('jquery');
+  wp_enqueue_script('modernizr');
   wp_enqueue_script('shoestrap_bootstrap');
   wp_enqueue_script('shoestrap_main');
-  wp_enqueue_script('modernizr');
-  wp_enqueue_script('jquery');}
-
+}
 add_action('wp_enqueue_scripts', 'shoestrap_scripts', 100);
 
 // http://wordpress.stackexchange.com/a/12450
