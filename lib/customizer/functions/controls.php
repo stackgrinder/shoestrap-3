@@ -28,22 +28,6 @@ function shoestrap_register_controls( $wp_customize ){
     ));
   }
 
-/*
- * ADVANCED
- * 
- * The advanced section allow users to enter their own css and/or scripts
- * and place them either in the head or the footer of the page.
- * These are textarea controls that we created in the beginning of this file.
- * 
- * CAUTION:
- * Using this can be potentially dangerous for your site.
- * Any content you enter here will be echoed with minimal checks 
- * so you should be careful of your code.
- * 
- * To add css rules you must write <style>....your styles here...</style>
- * To add a script you should write <script>....your styles here...</script>
- * 
- */
  
   // Header scripts (css/js)
   $wp_customize->add_control( new Shoestrap_Customize_Textarea_Control( $wp_customize, 'shoestrap_advanced_head', array(
