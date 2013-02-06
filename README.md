@@ -20,3 +20,5 @@ It is a fork of the amazing [Roots theme](http://rootstheme.com ) so in case you
 * The compiled css can be minified.
 
 When you get this theme from http://shoestrap.org/downloads/shoestrap/ a licence key will be emailed to you, which when entered on your dashboard (Themes -> Shoestrap) will provide you with automatic updates.
+
+### For more info and installation instructions please visit the [shoestrap.org](http://shoestrap.org) page
