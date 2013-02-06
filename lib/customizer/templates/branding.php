@@ -5,7 +5,11 @@ function shoestrap_branding() {
     <div class="container-fluid logo-wrapper">
       <div class="logo container">
         <div class="row-fluid">
-          <?php require_once dirname( __FILE__ ) . '/logo.php'; ?>
+          <div class="span8">
+            <a class="brand-logo" href="<?php echo home_url(); ?>/">
+              <h1><?php if ( function_exists( 'shoestrap_logo' ) ) { shoestrap_logo(); } ?></h1>
+            </a>
+          </div>
           <?php if ( has_action( 'shoestrap_branding_branding_right' ) ) { do_action( 'shoestrap_branding_branding_right' ); } ?>
         </div>
       </div>
