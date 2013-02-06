@@ -1,6 +1,6 @@
 <?php
 
-function shoestrap_typography_register_sections( $wp_customize ){
+function shoestrap_typography_customizer( $wp_customize ){
   
   $sections   = array();
   $sections[] = array( 'slug' => 'shoestrap_typography',        'title' => __( 'Typography', 'shoestrap' ),       'priority' => 7 );
@@ -93,4 +93,4 @@ function shoestrap_typography_register_sections( $wp_customize ){
     ));
   }
 }
-add_action( 'customize_register', 'shoestrap_typography_register_sections' );
+add_action( 'customize_register', 'shoestrap_typography_customizer' );
