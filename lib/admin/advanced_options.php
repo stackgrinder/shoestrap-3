@@ -85,8 +85,8 @@ function shoestrap_dev_mode_toggle() {
               }
             </style>
           <?php } ?>
-          <input id="shoestrap_cache_toggling" name="shoestrap_cache_toggling" <?php echo $disabled; ?> type="checkbox" value="1" <?php checked('1', get_option('shoestrap_cache_toggling')); ?> />
-          <label class="description" for="shoestrap_cache_toggling">
+          <input id="shoestrap_customizer_caching" name="shoestrap_customizer_caching" <?php echo $disabled; ?> type="checkbox" value="1" <?php checked('1', get_option('shoestrap_customizer_caching')); ?> />
+          <label class="description" for="shoestrap_customizer_caching">
             <?php _e( 'Disable the customizer caching', 'shoestrap' ); ?>
           </label>
           <p>
