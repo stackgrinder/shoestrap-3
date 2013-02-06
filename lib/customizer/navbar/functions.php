@@ -4,10 +4,6 @@
  * Adds settings to the customizer
  */
 function shoestrap_navbar_customizer( $wp_customize ){
-  
-  /*
-   * Customizer Section
-   */
 
   $sections   = array();
   $sections[] = array( 'slug' => 'shoestrap_primary_navbar',    'title' => __( 'Primary Navbar', 'shoestrap' ),   'priority' => 3 );
