@@ -90,8 +90,6 @@ function shoestrap_social_customizer( $wp_customize ){
 }
 add_action( 'customize_register', 'shoestrap_social_customizer' );
 
-<?php
-
 function shoestrap_add_social_links_primary_navbar() {
   
   $mavbar_social  = get_theme_mod( 'shoestrap_navbar_social' );
