@@ -3,7 +3,7 @@
 /*
  * Adds settings to the customizer
  */
-function shoestrap_hero_register_settings( $wp_customize ){
+function shoestrap_hero_customizer( $wp_customize ){
 
   $sections   = array();
   $sections[] = array( 'slug' => 'shoestrap_hero',              'title' => __( 'Hero', 'shoestrap' ),             'priority' => 6 );
@@ -117,4 +117,4 @@ function shoestrap_hero_register_settings( $wp_customize ){
     'priority'    => 2,
   )));
 }
-add_action( 'customize_register', 'shoestrap_hero_register_settings' );
+add_action( 'customize_register', 'shoestrap_hero_customizer' );
