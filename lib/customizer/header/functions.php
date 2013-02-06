@@ -77,7 +77,7 @@ function shoestrap_header_customizer( $wp_customize ){
   }
   
 }
-add_action( 'customize_register', 'shoestrap_header_customize' );
+add_action( 'customize_register', 'shoestrap_header_customizer' );
 
 function shoestrap_branding() {
   if ( get_theme_mod( 'shoestrap_extra_branding' ) == 1 ) { ?>
