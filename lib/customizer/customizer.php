@@ -20,10 +20,8 @@ require_once locate_template( '/lib/customizer/header/functions.php' );         
 require_once locate_template( '/lib/customizer/layout/functions.php' );               // Layout Customizer
 require_once locate_template( '/lib/customizer/social/functions.php' );               // Social Customizer
 require_once locate_template( '/lib/customizer/footer/functions.php' );               // Footer Customizer
+require_once locate_template( '/lib/customizer/advanced/functions.php' );             // Advanced Customizer
 
-require_once locate_template( '/lib/customizer/functions/sections.php' );             // Create Customizer Sections
-require_once locate_template( '/lib/customizer/functions/settings.php' );             // Create Customizer Settings
-require_once locate_template( '/lib/customizer/functions/controls.php' );             // Create Customizer Controls
 require_once locate_template( '/lib/customizer/functions/remove-controls.php' );      // Extra Functions for the customizer
 require_once locate_template( '/lib/customizer/functions/login.php' );                // Login screen customizations
 require_once locate_template( '/lib/customizer/functions/color-functions.php' );      // Color functions
@@ -38,9 +36,8 @@ if ( $advanced_builder != 1 ) {
   require_once locate_template( '/lib/customizer/buttons/styles.php' );               // Buttons styles
 }
 require_once locate_template( '/lib/customizer/hero/styles.php' );                    // Hero
-require_once locate_template( '/lib/customizer/styles/advanced.php' );                // Custom CSS and/or JS on the head and the footer
-require_once locate_template( '/lib/customizer/styles/sidebar.php' );                 // Sidebar Class
-require_once locate_template( '/lib/customizer/styles/social.php' );                  // Social Sharing Styles
+require_once locate_template( '/lib/customizer/advanced/styles.php' );                // Custom CSS and/or JS on the head and the footer
+require_once locate_template( '/lib/customizer/social/styles.php' );                  // Social Sharing Styles
 
 //Templating changes
 require_once locate_template( '/lib/customizer/templates/branding.php' );             // Customizer Branding functions
