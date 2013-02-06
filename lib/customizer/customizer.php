@@ -24,8 +24,6 @@ require_once locate_template( '/lib/customizer/functions/sections.php' );       
 require_once locate_template( '/lib/customizer/functions/settings.php' );             // Create Customizer Settings
 require_once locate_template( '/lib/customizer/functions/controls.php' );             // Create Customizer Controls
 require_once locate_template( '/lib/customizer/functions/remove-controls.php' );      // Extra Functions for the customizer
-require_once locate_template( '/lib/customizer/functions/social.php' );               // Customizer Social functions
-require_once locate_template( '/lib/customizer/functions/social-script.php' );        // Social Script
 require_once locate_template( '/lib/customizer/functions/login.php' );                // Login screen customizations
 require_once locate_template( '/lib/customizer/functions/color-functions.php' );      // Color functions
 
