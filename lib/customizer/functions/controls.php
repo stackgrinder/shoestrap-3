@@ -22,34 +22,11 @@ function shoestrap_register_controls( $wp_customize ){
   // Footer Background Color
   $color_controls[] = array( 'setting' => 'shoestrap_footer_background_color','label' => 'Footer Background Color',         'section' => 'shoestrap_footer',  'priority' => 1 );
   
-  // Share Buttons on posts/pages/custom post types: Facebook
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_facebook_on_posts',   'label' => 'Share Buttons on Posts: Facebook',      'section' => 'shoestrap_social',      'priority' => 5 );
-  // Share Buttons on posts/pages/custom post types: Twitter
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_twitter_on_posts',    'label' => 'Share Buttons on Posts: Twitter',       'section' => 'shoestrap_social',      'priority' => 6 );
-  // Share Buttons on posts/pages/custom post types: Google+
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_gplus_on_posts',      'label' => 'Share Buttons on Posts: Google Plus',   'section' => 'shoestrap_social',      'priority' => 7 );
-  // Share Buttons on posts/pages/custom post types: LinkedIn
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_linkedin_on_posts',   'label' => 'Share Buttons on Posts: Linkedin',      'section' => 'shoestrap_social',      'priority' => 8 );
-  // Share Buttons on posts/pages/custom post types: Pinterest
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_pinterest_on_posts',  'label' => 'Share Buttons on Posts: Pinterest',     'section' => 'shoestrap_social',      'priority' => 9 );
-  
-  // Location of share element on single posts/pages/custom-post-types
-  $select_controls[] = array( 'setting' => 'shoestrap_single_social_position',  'label' => 'Location of social shares',       'section' => 'shoestrap_social',      'priority' => 10,'choises' => array( 'top' => __( 'Top', 'shoestrap' ), 'bottom' => __( 'Bottom', 'shoestrap' ), 'both' => __( 'Both', 'shoestrap' ), 'none' => __( 'None', 'shoestrap' ) ) );
   // Location of share element on single posts/pages/custom-post-types
   $select_controls[] = array( 'setting' => 'shoestrap_general_presets',         'label' => 'Styling Presets',                 'section' => 'shoestrap_general',     'priority' => 1,'choises' => array( 'bootstrap' => __( 'Bootstrap', 'shoestrap' ), 'google' => __( 'Google', 'shoestrap' ) ) );
   
   // Text Controls
   $text_controls = array();
-  // Link of the site's facebook page
-  $text_controls[]  = array( 'setting' => 'shoestrap_facebook_link',    	'label' => 'Facebook Page Link',          'section' => 'shoestrap_social',      'priority' => 1 );
-  // Link or username of the site's twitter profile
-  $text_controls[]  = array( 'setting' => 'shoestrap_twitter_link',     	'label' => 'Twitter URL or @username',    'section' => 'shoestrap_social',      'priority' => 2 );
-  // Google Plus Link
-  $text_controls[]  = array( 'setting' => 'shoestrap_google_plus_link', 	'label' => 'Google+ Profile Link',        'section' => 'shoestrap_social',      'priority' => 3 );
-  // Pinterest Link
-  $text_controls[]  = array( 'setting' => 'shoestrap_pinterest_link',   	'label' => 'Pinterest Profile Link',      'section' => 'shoestrap_social',      'priority' => 4 );
-  // Single Social Text
-  $text_controls[]  = array( 'setting' => 'shoestrap_single_social_text',	'label' => 'Single Social Text',   		    'section' => 'shoestrap_social',      'priority' => 10 );
   // Footer Text
   $text_controls[]  = array( 'setting' => 'shoestrap_footer_text',        'label' => 'Footer Alternative Text',     'section' => 'shoestrap_footer',      'priority' => 2 );
   
