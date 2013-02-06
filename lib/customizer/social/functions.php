@@ -147,8 +147,6 @@ function shoestrap_add_social_links_header() {
 }
 add_action( 'shoestrap_branding_branding_right', 'shoestrap_add_social_links_header' );
 
-<?php
-
 /*
  * Echoes the social network links
  */
@@ -227,8 +225,6 @@ function shoestrap_theme_enqueue_scripts() {
   wp_enqueue_script( 'shoestrap-sharrre', get_stylesheet_directory_uri() . '/assets/js/vendor/sharrre/jquery.sharrre.min.js', false, false, true );
 }
 add_action('wp_enqueue_scripts', 'shoestrap_theme_enqueue_scripts');
-
-<?php
 
 /*
  * The script for sharrre buttons.
