@@ -33,5 +33,21 @@ function shoestrap_register_sections( $wp_customize ){
   foreach( $settings as $setting ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
   }
+
+  // Header scripts (css/js)
+  $wp_customize->add_control( new Shoestrap_Customize_Textarea_Control( $wp_customize, 'shoestrap_advanced_head', array(
+    'label'       => 'Header Scripts (CSS/JS)',
+    'section'     => 'shoestrap_advanced',
+    'settings'    => 'shoestrap_advanced_head',
+    'priority'    => 1,
+  )));
+
+  // Footer scripts (css/js)
+  $wp_customize->add_control( new Shoestrap_Customize_Textarea_Control( $wp_customize, 'shoestrap_advanced_footer', array(
+    'label'       => 'Footer Scripts (CSS/JS)',
+    'section'     => 'shoestrap_advanced',
+    'settings'    => 'shoestrap_advanced_footer',
+    'priority'    => 2,
+  )));
 }
 add_action( 'customize_register', 'shoestrap_register_sections' );
