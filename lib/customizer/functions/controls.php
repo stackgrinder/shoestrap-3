@@ -14,44 +14,8 @@ function shoestrap_register_controls( $wp_customize ){
     $advanced_builder == '';
   }
   
-  /*
-   * Color Controls
-   */
-  $color_controls   = array();
-  
-  // Footer Background Color
-  $color_controls[] = array( 'setting' => 'shoestrap_footer_background_color','label' => 'Footer Background Color',         'section' => 'shoestrap_footer',  'priority' => 1 );
-  
   // Location of share element on single posts/pages/custom-post-types
   $select_controls[] = array( 'setting' => 'shoestrap_general_presets',         'label' => 'Styling Presets',                 'section' => 'shoestrap_general',     'priority' => 1,'choises' => array( 'bootstrap' => __( 'Bootstrap', 'shoestrap' ), 'google' => __( 'Google', 'shoestrap' ) ) );
-  
-  // Text Controls
-  $text_controls = array();
-  // Footer Text
-  $text_controls[]  = array( 'setting' => 'shoestrap_footer_text',        'label' => 'Footer Alternative Text',     'section' => 'shoestrap_footer',      'priority' => 2 );
-  
-  foreach( $color_controls as $control ){
-    $wp_customize->add_control( new WP_Customize_Color_Control(
-      $wp_customize,
-      $control['setting'],
-      array(
-        'label'     => __( $control['label'], 'shoestrap' ),
-        'section'   => $control['section'],
-        'settings'  => $control['setting'],
-        'priority'  => $control['priority'],
-      )
-    ));
-  }
-
-  foreach ( $checkbox_controls as $control ) {
-    $wp_customize->add_control( $control['setting'], array(
-      'label'       => __( $control['label'], 'shoestrap' ),
-      'section'     => $control['section'],
-      'settings'    => $control['setting'],
-      'type'        => 'checkbox',
-      'priority'    => $control['priority'],
-    ));
-  }
   
   foreach ( $select_controls as $control ) {
     $wp_customize->add_control( $control['setting'], array(
@@ -61,16 +25,6 @@ function shoestrap_register_controls( $wp_customize ){
       'type'        => 'select',
       'priority'    => $control['priority'],
       'choices'     => $control['choises']
-    ));
-  }
-
-  foreach ( $text_controls as $control) {
-    $wp_customize->add_control( $control['setting'], array(
-      'label'       => __( $control['label'], 'shoestrap' ),
-      'section'     => $control['section'],
-      'settings'    => $control['setting'],
-      'type'        => 'text',
-      'priority'    => $control['priority']
     ));
   }
 

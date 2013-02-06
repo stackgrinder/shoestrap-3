@@ -19,5 +19,42 @@ function shoestrap_footer_customizer( $wp_customize ){
   foreach( $settings as $setting ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
   }
+
+  /*
+   * Color Controls
+   */
+  $color_controls   = array();
+  
+  // Footer Background Color
+  $color_controls[] = array( 'setting' => 'shoestrap_footer_background_color','label' => 'Footer Background Color',         'section' => 'shoestrap_footer',  'priority' => 1 );
+  
+  // Text Controls
+  $text_controls = array();
+  // Footer Text
+  $text_controls[]  = array( 'setting' => 'shoestrap_footer_text',        'label' => 'Footer Alternative Text',     'section' => 'shoestrap_footer',      'priority' => 2 );
+  
+  foreach( $color_controls as $control ){
+    $wp_customize->add_control( new WP_Customize_Color_Control(
+      $wp_customize,
+      $control['setting'],
+      array(
+        'label'     => __( $control['label'], 'shoestrap' ),
+        'section'   => $control['section'],
+        'settings'  => $control['setting'],
+        'priority'  => $control['priority'],
+      )
+    ));
+  }
+
+  foreach ( $text_controls as $control) {
+    $wp_customize->add_control( $control['setting'], array(
+      'label'       => __( $control['label'], 'shoestrap' ),
+      'section'     => $control['section'],
+      'settings'    => $control['setting'],
+      'type'        => 'text',
+      'priority'    => $control['priority']
+    ));
+  }
 }
 add_action( 'customize_register', 'shoestrap_footer_customizer' );
+  
