@@ -3,7 +3,7 @@
 /*
  * Adds settings to the customizer
  */
-function shoestrap_navbar_register_settings( $wp_customize ){
+function shoestrap_navbar_customizer( $wp_customize ){
   
   /*
    * Customizer Section
@@ -133,7 +133,7 @@ function shoestrap_navbar_register_settings( $wp_customize ){
     ));
   }
 }
-add_action( 'customize_register', 'shoestrap_navbar_register_settings' );
+add_action( 'customize_register', 'shoestrap_navbar_customizer' );
 
 function shoestrap_nav_class_pull() {
   if ( get_theme_mod( 'shoestrap_nav_pull' ) == '1' ) {
