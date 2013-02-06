@@ -18,25 +18,3 @@ function shoestrap_branding_css() {
   
   return $styles;
 }
-
-/*
- * Set cache for 24 hours
- */
-function shoestrap_branding_css_cache() {
-  $data = get_transient( 'shoestrap_branding_css' );
-  if ( $data === false ) {
-    $data = shoestrap_branding_css();
-    set_transient( 'shoestrap_branding_css', $data, 3600 * 24 );
-  }
-  echo $data;
-}
-add_action( 'wp_head', 'shoestrap_branding_css_cache', 199 );
-
-/*
- * Reset cache when in customizer
- */
-function shoestrap_branding_css_cache_reset() {
-  delete_transient( 'shoestrap_branding_css' );
-  shoestrap_branding_css_cache();
-}
-add_action( 'customize_preview_init', 'shoestrap_branding_css_cache_reset' );

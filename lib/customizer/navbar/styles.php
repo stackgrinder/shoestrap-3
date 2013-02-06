@@ -131,28 +131,6 @@ function shoestrap_navbar_css(){
 }
 
 /*
- * Set cache for 24 hours
- */
-function shoestrap_navbar_css_cache() {
-  $data = get_transient( 'shoestrap_navbar_css' );
-  if ( $data === false ) {
-    $data = shoestrap_navbar_css();
-    set_transient( 'shoestrap_navbar_css', $data, 3600 * 24 );
-  }
-  echo $data;
-}
-add_action( 'wp_head', 'shoestrap_navbar_css_cache', 199 );
-
-/*
- * Reset cache when in customizer
- */
-function shoestrap_navbar_css_cache_reset() {
-  delete_transient( 'shoestrap_navbar_css' );
-  shoestrap_navbar_css_cache();
-}
-add_action( 'customize_preview_init', 'shoestrap_navbar_css_cache_reset' );
-
-/*
  * Applies the styles to the navbar dropdowns.
  */
 function shoestrap_navbar_dropdown_css(){
@@ -242,29 +220,6 @@ function shoestrap_navbar_dropdown_css(){
   return $styles;
 }
 
-
-/*
- * Set cache for 24 hours
- */
-function shoestrap_navbar_dropdown_css_cache() {
-  $data = get_transient( 'shoestrap_navbar_dropdown_css' );
-  if ( $data === false ) {
-    $data = shoestrap_navbar_dropdown_css();
-    set_transient( 'shoestrap_navbar_dropdown_css', $data, 3600 * 24 );
-  }
-  echo $data;
-}
-add_action( 'wp_head', 'shoestrap_navbar_dropdown_css_cache', 199 );
-
-/*
- * Reset cache when in customizer
- */
-function shoestrap_navbar_dropdown_css_cache_reset() {
-  delete_transient( 'shoestrap_navbar_dropdown_css' );
-  shoestrap_navbar_dropdown_css_cache();
-}
-add_action( 'customize_preview_init', 'shoestrap_navbar_dropdown_css_cache_reset' );
-
 function shoestrap_top_megamenu_css() {
   $navbar_color     = get_theme_mod( 'shoestrap_navbar_color' );
   $navbar_textcolor = get_theme_mod( 'shoestrap_navbar_textcolor' );
@@ -298,25 +253,3 @@ function shoestrap_top_megamenu_css() {
   
   return $styles;
 }
-
-/*
- * Set cache for 24 hours
- */
-function shoestrap_top_megamenu_css_cache() {
-  $data = get_transient( 'shoestrap_top_megamenu_css' );
-  if ( $data === false ) {
-    $data = shoestrap_top_megamenu_css();
-    set_transient( 'shoestrap_top_megamenu_css', $data, 3600 * 24 );
-  }
-  echo $data;
-}
-add_action( 'wp_head', 'shoestrap_top_megamenu_css_cache', 199 );
-
-/*
- * Reset cache when in customizer
- */
-function shoestrap_top_megamenu_css_cache_reset() {
-  delete_transient( 'shoestrap_top_megamenu_css' );
-  shoestrap_top_megamenu_css_cache();
-}
-add_action( 'customize_preview_init', 'shoestrap_top_megamenu_css_cache_reset' );

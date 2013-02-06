@@ -111,26 +111,3 @@ function shoestrap_typography_webfont() {
   
   }
 }
-
-/*
- * Set cache for 24 hours
- */
-function shoestrap_typography_webfont_cache() {
-  $data = get_transient( 'shoestrap_typography_webfont' );
-  if ( $data === false ) {
-    $data = shoestrap_typography_webfont();
-    set_transient( 'shoestrap_typography_webfont', $data, 3600 * 24 );
-  }
-  echo $data;
-}
-add_action( 'wp_head', 'shoestrap_typography_webfont_cache', 201 );
-
-/*
- * Reset cache when in customizer
- */
-function shoestrap_typography_webfont_cache_reset() {
-  delete_transient( 'shoestrap_typography_webfont' );
-  shoestrap_typography_webfont_cache();
-}
-add_action( 'customize_preview_init', 'shoestrap_typography_webfont_cache_reset' );
-

@@ -74,25 +74,3 @@ function shoestrap_css_hero() {
 
   return $styles;
 }
-
-/*
- * Set cache for 24 hours
- */
-function shoestrap_css_hero_cache() {
-  $data = get_transient( 'shoestrap_css_hero' );
-  if ( $data === false ) {
-    $data = shoestrap_css_hero();
-    set_transient( 'shoestrap_css_hero', $data, 3600 * 24 );
-  }
-  echo $data;
-}
-add_action( 'wp_head', 'shoestrap_css_hero_cache', 199 );
-
-/*
- * Reset cache when in customizer
- */
-function shoestrap_css_hero_cache_reset() {
-  delete_transient( 'shoestrap_css_hero' );
-  shoestrap_css_hero_cache();
-}
-add_action( 'customize_preview_init', 'shoestrap_css_hero_cache_reset' );

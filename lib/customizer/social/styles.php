@@ -66,25 +66,3 @@ function shoestrap_social_share_styles() {
   return $styles;
 }
 add_action( 'wp_head', 'shoestrap_social_share_styles' );
-
-/*
- * Set cache for 24 hours
- */
-function shoestrap_social_share_styles_cache() {
-  $data = get_transient( 'shoestrap_social_share_styles' );
-  if ( $data === false ) {
-    $data = shoestrap_social_share_styles();
-    set_transient( 'shoestrap_social_share_styles', $data, 3600 * 24 );
-  }
-  echo $data;
-}
-add_action( 'wp_head', 'shoestrap_social_share_styles_cache', 199 );
-
-/*
- * Reset cache when in customizer
- */
-function shoestrap_social_share_styles_cache_reset() {
-  delete_transient( 'shoestrap_social_share_styles' );
-  shoestrap_social_share_styles_cache();
-}
-add_action( 'customize_preview_init', 'shoestrap_social_share_styles_cache_reset' );
