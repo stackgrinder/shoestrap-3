@@ -40,7 +40,6 @@ require_once locate_template( '/lib/customizer/advanced/styles.php' );          
 require_once locate_template( '/lib/customizer/social/styles.php' );                  // Social Sharing Styles
 
 //Templating changes
-require_once locate_template( '/lib/customizer/templates/footer-icon.php' );          // Customizer footer icon
 require_once locate_template( '/lib/customizer/templates/hero.php' );                 // Hero Region
 require_once locate_template( '/lib/customizer/templates/loginbutton.php' );          // Login button
 require_once locate_template( '/lib/customizer/templates/nav_searchbox.php' );        // Searchbox on navbars
