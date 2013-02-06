@@ -509,10 +509,7 @@ add_filter('request', 'shoestrap_request_filter');
 /**
  * Tell WordPress to use searchform.php from the templates/ directory
  */
-function roots_get_search_form($argument) {
-  if ($argument === '') {
-    locate_template('/templates/searchform.php', true, false);
-  }
+function roots_get_search_form() {
+  locate_template('/templates/searchform.php', true, true);
 }
-
 add_filter('get_search_form', 'shoestrap_get_search_form');
