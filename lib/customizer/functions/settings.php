@@ -10,11 +10,7 @@ function shoestrap_register_settings( $wp_customize ){
   // Advanced Settings
   $settings[] = array( 'slug' => 'shoestrap_advanced_head',             'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_advanced_footer',           'default' => '' );
-    
-  // Footer Settings
-  $settings[] = array( 'slug' => 'shoestrap_footer_background_color',   'default' => '#ffffff' );
-  $settings[] = array( 'slug' => 'shoestrap_footer_text',               'default' => get_bloginfo( 'name' ) );
-  
+
   // General / Preset Settings
   $settings[] = array( 'slug' => 'shoestrap_general_presets',           'default' => 'bootstrap' );
   
