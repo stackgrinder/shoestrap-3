@@ -19,35 +19,9 @@ function shoestrap_register_controls( $wp_customize ){
    */
   $color_controls   = array();
   
-  // Background Color
-  $color_controls[] = array( 'setting' => 'shoestrap_background_color',       'label' => 'Background Color',                'section' => 'colors',            'priority' => 1 );
-  // Header Background
-  $color_controls[] = array( 'setting' => 'shoestrap_header_backgroundcolor', 'label' => 'Header Region Background Color',  'section' => 'shoestrap_extra_header',  'priority' => 3 );
-  // Header textcolor
-  $color_controls[] = array( 'setting' => 'shoestrap_header_textcolor',       'label' => 'Header Region Text Color',        'section' => 'shoestrap_extra_header',  'priority' => 4 );
   // Footer Background Color
   $color_controls[] = array( 'setting' => 'shoestrap_footer_background_color','label' => 'Footer Background Color',         'section' => 'shoestrap_footer',  'priority' => 1 );
   
-  /*
-   * Image Controls
-   */
-  $image_controls = array();
-  // Logo Image
-  $image_controls[] = array( 'setting' => 'shoestrap_logo',           'label' => 'Logo Image', 'section' => 'shoestrap_logo',  'priority' => 2 );
-  
-  /*
-   * Checkbox Controls
-   */
-  $checkbox_controls = array();
-  // Show/Hide the login link
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_header_loginlink',    'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
-  // Fluid Layout
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_fluid',               'label' => 'Fluid Layout',                          'section' => 'shoestrap_layout',          'priority' => 7 );
-
-  // Extra header on/off
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_extra_branding',      'label' => 'Display Extra Header',                  'section' => 'shoestrap_extra_header',      'priority' => 1 );
-  // Display Social Links on the Header
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_header_social',       'label' => 'Display Social Links',                  'section' => 'shoestrap_extra_header',      'priority' => 5 );
   // Share Buttons on posts/pages/custom post types: Facebook
   $checkbox_controls[] = array( 'setting' => 'shoestrap_facebook_on_posts',   'label' => 'Share Buttons on Posts: Facebook',      'section' => 'shoestrap_social',      'priority' => 5 );
   // Share Buttons on posts/pages/custom post types: Twitter
@@ -59,20 +33,6 @@ function shoestrap_register_controls( $wp_customize ){
   // Share Buttons on posts/pages/custom post types: Pinterest
   $checkbox_controls[] = array( 'setting' => 'shoestrap_pinterest_on_posts',  'label' => 'Share Buttons on Posts: Pinterest',     'section' => 'shoestrap_social',      'priority' => 9 );
   
-  /*
-   * Dropdown (Select) Controls
-   */
-  $select_controls = array();
-  // Responsive or fixed-width layout
-  $select_controls[] = array( 'setting' => 'shoestrap_responsive',              'label' => 'Responsive / Fixed-width',        'section' => 'shoestrap_layout',      'priority' => 1, 'choises' => array( '1' => __( 'Responsive', 'shoestrap' ), '0' => __( 'Fixed-Width', 'shoestrap' ) ) );
-  // Layout (sidebars and main area arrangement)
-  $select_controls[] = array( 'setting' => 'shoestrap_layout',                  'label' => 'Layout',                          'section' => 'shoestrap_layout',      'priority' => 2, 'choises' => array( 'm' => __( 'Main only', 'shoestrap' ), 'mp' => __( 'Main-Primary', 'shoestrap' ), 'pm' => __( 'Primary-Main', 'shoestrap' ), 'ms' => __( 'Main-Secondary', 'shoestrap' ), 'sm' => __( 'Secondary-Main', 'shoestrap' ), 'mps' => __( 'Main-Primary-Secondary', 'shoestrap' ), 'msp' => __( 'Main-Secondary-Primary', 'shoestrap' ), 'pms' => __( 'Primary-Main-Secondary', 'shoestrap' ), 'psm' => __( 'Primary-Secondary-Main', 'shoestrap' ), 'smp' => __( 'Secondary-Main-Primary', 'shoestrap' ), 'spm' => __( 'Secondary-Primary-Main', 'shoestrap' ) ) );
-  // Main sidebar width (based on a 12-column bootstrap layout)
-  $select_controls[] = array( 'setting' => 'shoestrap_aside_width',             'label' => 'Primary Sidebar Width',           'section' => 'shoestrap_layout',      'priority' => 3, 'choises' => array( '2' => '2/12', '3' => '3/12', '4' => '4/12', '5' => '5/12', '6' => '6/12' ) );
-  // Secondary sidebar width (based on a 12-column bootstrap layout)
-  $select_controls[] = array( 'setting' => 'shoestrap_secondary_width',         'label' => 'Secondary Sidebar Width',         'section' => 'shoestrap_layout',      'priority' => 5, 'choises' => array( '2' => '2/12', '3' => '3/12', '4' => '4/12' ) );
-  // Show/Hide sidebars on the homepage
-  $select_controls[] = array( 'setting' => 'shoestrap_sidebar_on_front',        'label' => 'Show sidebars on the Home Page',  'section' => 'shoestrap_layout',      'priority' => 6, 'choises' => array( 'show' => __( 'Show', 'shoestrap' ), 'hide' => __( 'Hide', 'shoestrap' ) ) );
   // Location of share element on single posts/pages/custom-post-types
   $select_controls[] = array( 'setting' => 'shoestrap_single_social_position',  'label' => 'Location of social shares',       'section' => 'shoestrap_social',      'priority' => 10,'choises' => array( 'top' => __( 'Top', 'shoestrap' ), 'bottom' => __( 'Bottom', 'shoestrap' ), 'both' => __( 'Both', 'shoestrap' ), 'none' => __( 'None', 'shoestrap' ) ) );
   // Location of share element on single posts/pages/custom-post-types
@@ -106,19 +66,6 @@ function shoestrap_register_controls( $wp_customize ){
     ));
   }
 
-  foreach ( $image_controls as $control ) {
-    $wp_customize->add_control( new WP_Customize_Image_Control(
-      $wp_customize,
-      $control['setting'],
-      array(
-        'label'     => __( $control['label'], 'shoestrap' ),
-        'section'   => $control['section'],
-        'settings'  => $control['setting'],
-        'priority'  => $control['priority']
-      )
-    ));
-  }
-  
   foreach ( $checkbox_controls as $control ) {
     $wp_customize->add_control( $control['setting'], array(
       'label'       => __( $control['label'], 'shoestrap' ),
