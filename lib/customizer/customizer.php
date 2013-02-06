@@ -38,6 +38,7 @@ if ( $advanced_builder != 1 ) {
 }
 require_once locate_template( '/lib/customizer/hero/styles.php' );                    // Hero styles
 require_once locate_template( '/lib/customizer/social/styles.php' );                  // Social Sharing Styles
+require_once locate_template( '/lib/customizer/footer/styles.php' );                  // Footer Styles
 
 if ( $advanced_builder == 1 ) {
   require_once locate_template( '/lib/customizer/custom-builder/custom-builder.php'); // Custom Bootstrap Builder
