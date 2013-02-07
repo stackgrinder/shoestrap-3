@@ -5677,24 +5677,8 @@ body.admin-bar .subnav-fixed {
 .shareme .social_icon {
   display: none;
   text-decoration: none;
-  color: #333;
   margin-left: 5px;
   padding: 0 3px;
-}
-.shareme .social_icon.facebook {
-  color: #3b5998;
-}
-.shareme .social_icon.twitter {
-  color: #4099FF;
-}
-.shareme .social_icon.googleplus {
-  color: #c0361a;
-}
-.shareme .social_icon.linkedin {
-  color: #005a87;
-}
-.shareme .social_icon.pinterest {
-  color: #cb2027;
 }
 .shareme:hover .social_icon {
   display: inline-block;

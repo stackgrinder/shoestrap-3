@@ -157,7 +157,6 @@ function shoestrap_social_links( $network = '' ) {
   $gplus_link     = get_theme_mod( 'shoestrap_google_plus_link' );
   $pinterest_link = get_theme_mod( 'shoestrap_pinterest_link' );
   
-  
   // Sanitizing twitter links and making them compatible with @username
   
   if( strpos ( $twitter_link, 'twitter.'  ) !== false ) {
