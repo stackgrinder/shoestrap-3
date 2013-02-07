@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Adds sections to the customizer
+ * Creates the section, settings and the controls for the customizer
  */
 function shoestrap_layout_customizer( $wp_customize ){
   
@@ -70,6 +70,9 @@ function shoestrap_layout_customizer( $wp_customize ){
 }
 add_action( 'customize_register', 'shoestrap_layout_customizer' );
 
+/*
+ * This function is necessary for fluid layouts to work properly.
+ */
 function shoestrap_fluid_body_classes( $context ) {
   
   if ( get_theme_mod( 'shoestrap_fluid' ) == 1 ) {

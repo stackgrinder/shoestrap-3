@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Adds settings to the customizer
+ * Creates the section, settings and the controls for the customizer
  */
 function shoestrap_navbar_customizer( $wp_customize ){
 
@@ -140,6 +140,9 @@ function shoestrap_nav_class_pull() {
   return $ul;
 }
 
+/*
+ * The template for the primary navbar searchbox
+ */
 function shoestrap_primary_navbar_searchbox() {
  
   $show_searchbox = get_theme_mod( 'shoestrap_p_navbar_searchbox' );
@@ -157,6 +160,9 @@ function shoestrap_primary_navbar_searchbox() {
 }
 add_action( 'shoestrap_nav_top_right', 'shoestrap_primary_navbar_searchbox', 11 );
 
+/*
+ * The template for the navbar login link
+ */
 function shoestrap_primary_navbar_login_link() {
     
   $primary_login_link   = get_theme_mod( 'shoestrap_header_loginlink' );
@@ -187,6 +193,9 @@ function shoestrap_primary_navbar_login_link() {
 }
 add_action( 'shoestrap_nav_top_right', 'shoestrap_primary_navbar_login_link', 11 );
 
+/*
+ * The template for the secondary navbar login link
+ */
 function shoestrap_secondary_navbar_login_link() {
     
   $secondary_login_link = get_theme_mod( 'shoestrap_navbar2_loginlink' );

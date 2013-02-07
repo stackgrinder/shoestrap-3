@@ -1,7 +1,7 @@
 <?php
 
 /*
- * CSS needed to apply the selecte styles to text elements.
+ * CSS needed to apply the selected styles to text elements.
  */
 function shoestrap_text_css() {
   $background_color = get_theme_mod( 'shoestrap_background_color' );

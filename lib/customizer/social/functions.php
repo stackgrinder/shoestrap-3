@@ -1,5 +1,8 @@
 <?php
 
+/*
+ * Creates the section, settings and the controls for the customizer
+ */
 function shoestrap_social_customizer( $wp_customize ){
   
   $sections   = array();
@@ -93,6 +96,9 @@ function shoestrap_social_customizer( $wp_customize ){
 }
 add_action( 'customize_register', 'shoestrap_social_customizer' );
 
+/*
+ * Prints the social links on the primary navbar
+ */
 function shoestrap_add_social_links_primary_navbar() {
   
   $mavbar_social  = get_theme_mod( 'shoestrap_navbar_social' );
@@ -112,6 +118,9 @@ function shoestrap_add_social_links_primary_navbar() {
 }
 add_action( 'shoestrap_nav_top_right', 'shoestrap_add_social_links_primary_navbar' );
 
+/*
+ * Prints the social links on the secondary navbar
+ */
 function shoestrap_add_social_links_secondary_navbar() {
   
   $navbar_social  = get_theme_mod( 'shoestrap_navbar2_social' );
@@ -131,6 +140,9 @@ function shoestrap_add_social_links_secondary_navbar() {
 }
 add_action( 'shoestrap_secondary_nav_top_right', 'shoestrap_add_social_links_secondary_navbar' );
 
+/*
+ * Prints the social links on the extra header
+ */
 function shoestrap_add_social_links_header() {
   
   $header_social  = get_theme_mod( 'shoestrap_header_social' );

@@ -1,5 +1,8 @@
 <?php
 
+/*
+ * Creates the section, settings and the controls for the customizer
+ */
 function shoestrap_logo_customizer( $wp_customize ){
 
   $settings   = array();
