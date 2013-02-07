@@ -20,6 +20,7 @@ function shoestrap_social_customizer( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_gplus_on_posts',            'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_linkedin_on_posts',         'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_pinterest_on_posts',        'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_digg_on_posts',        'default' => '' );
   
   $settings[] = array( 'slug' => 'shoestrap_single_social_text',        'default' => 'Share' );
   $settings[] = array( 'slug' => 'shoestrap_single_social_position',    'default' => 'none' );  
@@ -39,6 +40,8 @@ function shoestrap_social_customizer( $wp_customize ){
   $checkbox_controls[] = array( 'setting' => 'shoestrap_linkedin_on_posts',   'label' => 'Share Buttons on Posts: Linkedin',      'section' => 'shoestrap_social',      'priority' => 8 );
   // Share Buttons on posts/pages/custom post types: Pinterest
   $checkbox_controls[] = array( 'setting' => 'shoestrap_pinterest_on_posts',  'label' => 'Share Buttons on Posts: Pinterest',     'section' => 'shoestrap_social',      'priority' => 9 );
+  // Share Buttons on posts/pages/custom post types: Pinterest
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_digg_on_posts',       'label' => 'Share Buttons on Posts: Digg',          'section' => 'shoestrap_social',      'priority' => 9 );
 
   $select_controls = array();
   // Location of share element on single posts/pages/custom-post-types
@@ -201,6 +204,7 @@ function shoestrap_social_share_singular( $content ) {
   $twitter      = get_theme_mod( 'shoestrap_twitter_on_posts' );
   $linkedin     = get_theme_mod( 'shoestrap_linkedin_on_posts' );
   $pinterest    = get_theme_mod( 'shoestrap_pinterest_on_posts' );
+  $digg         = get_theme_mod( 'shoestrap_digg_on_posts' );
   
   $social_text  = get_theme_mod( 'shoestrap_single_social_text' );
   $location     = get_theme_mod( 'shoestrap_single_social_position' );
@@ -241,6 +245,11 @@ function shoestrap_social_share_singular( $content ) {
         $social .= '&description=';
         $social .= get_the_title( $post->ID ) . '" ';
         $social .= 'class="social_icon pinterest" rel="nofollow"><i class="icon-pinterest"></i></a>';
+      }
+      if ( $linkedin == 1 ) {
+        $social .= '<a href="http://digg.com/submit?url=';
+        $social .= get_permalink( $post->ID ) . '" ';
+        $social .= 'class="social_icon digg" rel="nofollow"><i class="icon-digg"></i></a>';
       }
       $social .= '</span></button>';
     }
