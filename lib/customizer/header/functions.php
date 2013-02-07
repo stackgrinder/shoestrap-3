@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Create the controls in the customizer.
+ * Creates the section, settings and the controls for the customizer
  */
 function shoestrap_header_customizer( $wp_customize ){
 
@@ -79,6 +79,9 @@ function shoestrap_header_customizer( $wp_customize ){
 }
 add_action( 'customize_register', 'shoestrap_header_customizer' );
 
+/*
+ * The extra header template
+ */
 function shoestrap_branding() {
   if ( get_theme_mod( 'shoestrap_extra_branding' ) == 1 ) { ?>
     <div class="container-fluid logo-wrapper">

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Adds settings to the customizer
+ * Creates the section, settings and the controls for the customizer
  */
 function shoestrap_hero_customizer( $wp_customize ){
 
@@ -119,6 +119,10 @@ function shoestrap_hero_customizer( $wp_customize ){
 }
 add_action( 'customize_register', 'shoestrap_hero_customizer' );
 
+/*
+ * The content of the hero region
+ * according to what we've entered in the customizer
+ */
 function shoestrap_hero_content() {
   $herotitle        = get_theme_mod( 'shoestrap_hero_title' );
   $herocontent      = get_theme_mod( 'shoestrap_hero_content' );

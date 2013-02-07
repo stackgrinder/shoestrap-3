@@ -17,6 +17,9 @@
  * 
  */
 
+/*
+ * Creates the Advanced section, the settings and the controls for the customizer
+ */
 function shoestrap_advanced_customizer( $wp_customize ){
   
   $sections   = array();

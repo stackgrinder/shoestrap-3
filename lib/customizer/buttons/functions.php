@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Adds settings to the customizer
+ * Creates the section, settings and the controls for the customizer
  */
 function shoestrap_buttons_customizer( $wp_customize ){
 

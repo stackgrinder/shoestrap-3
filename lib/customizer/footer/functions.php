@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Adds sections to the customizer
+ * Creates the section, settings and the controls for the customizer
  */
 function shoestrap_footer_customizer( $wp_customize ){
   
@@ -58,6 +58,10 @@ function shoestrap_footer_customizer( $wp_customize ){
 }
 add_action( 'customize_register', 'shoestrap_footer_customizer' );
 
+/*
+ * Creates the customizer icon on the bottom-left corner of our site
+ * (visible only by admins)
+ */
 function shoestrap_footer_icon() { ?>
   <?php if (current_user_can( 'edit_theme_options' )){ ?>
     <style>
