@@ -5674,72 +5674,30 @@ body.admin-bar .subnav-fixed {
 #main-subnav .navbar-inner {
   min-height: 40px;
 }
-.sharrre .box {
-  height: 22px;
+.shareme .social_icon {
+  display: none;
+  text-decoration: none;
+  color: #333;
+  margin-left: 5px;
+  padding: 0 3px;
+}
+.shareme .social_icon.facebook {
+  color: #3b5998;
+}
+.shareme .social_icon.twitter {
+  color: #4099FF;
+}
+.shareme .social_icon.googleplus {
+  color: #c0361a;
+}
+.shareme .social_icon.linkedin {
+  color: #005a87;
+}
+.shareme .social_icon.pinterest {
+  color: #cb2027;
+}
+.shareme:hover .social_icon {
   display: inline-block;
-  position: relative;
-  padding: 0px 55px 0 8px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  font-size: 12px;
-  float: left;
-  clear: both;
-  overflow: hidden;
-  -webkit-transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-}
-.sharrre .left {
-  line-height: 22px;
-  display: block;
-  white-space: nowrap;
-  text-shadow: 0px 1px 1px rgba(255,255,255,0.3);
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-.sharrre .middle {
-  position: absolute;
-  height: 22px;
-  top: 0px;
-  right: 30px;
-  width: 0px;
-  white-space: nowrap;
-  text-align: left;
-  overflow: hidden;
-  -webkit-transition: width 0.3s linear;
-  -moz-transition: width 0.3s linear;
-  -o-transition: width 0.3s linear;
-  transition: width 0.3s linear;
-}
-.sharrre .middle a {
-  font-weight: bold;
-  padding: 0 9px 0 9px;
-  text-align: center;
-  float: left;
-  line-height: 22px;
-  border-right: 1px solid rgba(0,0,0,0.4);
-}
-.sharrre .right {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  height: 100%;
-  width: 45px;
-  text-align: center;
-  line-height: 20px;
-  border: 1px solid;
-  height: 20px;
-  -webkit-border-top-right-radius: 4px;
-  -moz-border-radius-topright: 4px;
-  border-top-right-radius: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  border-bottom-right-radius: 4px;
-  background: #fff;
 }
 a.toggle-nav {
   background: url("../img/plus-toggle-white.png") no-repeat center center;
