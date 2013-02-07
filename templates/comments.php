@@ -1,8 +1,14 @@
+<?php
+  if (post_password_required()) {
+    return;
+  }
+?>
+
 <?php function shoestrap_comment($comment, $args, $depth) {
   $GLOBALS['comment'] = $comment; ?>
   <?php do_action('shoestrap_pre_comment'); ?>
   <li <?php comment_class(); ?>>
-    <article id="comment-<?php comment_ID(); ?>">
+    <article class="comment-<?php comment_ID(); ?>">
       <header class="comment-author vcard">
         <?php echo get_avatar($comment, $size = '32'); ?>
         <?php printf(__('<cite class="fn">%s</cite>', 'shoestrap'), get_comment_author_link()); ?>
@@ -27,15 +33,6 @@
     <?php do_action('shoestrap_after_comment'); ?>
 <?php } ?>
 
-<?php if (post_password_required()) : ?>
-  <section id="comments">
-    <div class="alert alert-block fade in">
-      <a class="close" data-dismiss="alert">&times;</a>
-      <p><?php _e('This post is password protected. Enter the password to view comments.', 'shoestrap'); ?></p>
-    </div>
-  </section><!-- /#comments -->
-<?php endif; ?>
-
 <?php if (have_comments()) : ?>
   <?php do_action('shoestrap_pre_comments'); ?>
   <section id="comments">
@@ -46,7 +43,7 @@
     </ol>
 
     <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : // are there comments to navigate through ?>
-      <nav id="comments-nav" class="pager">
+      <nav>
         <ul class="pager">
           <?php if (get_previous_comments_link()) : ?>
             <li class="previous"><?php previous_comments_link(__('&larr; Older comments', 'shoestrap')); ?></li>
