@@ -25,7 +25,6 @@ require_once locate_template( '/lib/customizer/advanced/functions.php' );       
 require_once locate_template( '/lib/customizer/functions/remove-controls.php' );      // Extra Functions for the customizer
 require_once locate_template( '/lib/customizer/functions/login.php' );                // Login screen customizations
 require_once locate_template( '/lib/customizer/functions/color-functions.php' );      // Color functions
-require_once locate_template( '/lib/customizer/functions/caching.php' );              // Caching functions
 
 // Apply the selected styles:
 require_once locate_template( '/lib/customizer/header/styles.php' );                  // Branding (header) region, containing the logo etc.
@@ -43,3 +42,5 @@ require_once locate_template( '/lib/customizer/footer/styles.php' );            
 if ( $advanced_builder == 1 ) {
   require_once locate_template( '/lib/customizer/custom-builder/custom-builder.php'); // Custom Bootstrap Builder
 }
+
+require_once locate_template( '/lib/customizer/functions/caching.php' );              // Caching functions
