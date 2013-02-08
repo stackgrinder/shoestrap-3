@@ -1,5 +1,9 @@
 # Shoestrap Theme Changelog
 
+## 1.45
+* Fixed button colors
+* Bugfixes
+
 ## 1.44
 * Compatibility fix for the [WooSidebars](http://www.woothemes.com/woosidebars/) plugin
 * Now using javascript-less social sharing (faster, less load)
