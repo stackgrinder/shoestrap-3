@@ -26,9 +26,7 @@ function shoestrap_title() {
     } elseif (is_year()) {
       printf(__('Yearly Archives: %s', 'shoestrap'), get_the_date('Y'));
     } elseif (is_author()) {
-      global $post;
-      $author_id = $post->post_author;
-      printf(__('Author Archives: %s', 'shoestrap'), get_the_author_meta('display_name', $author_id));
+      printf(__('Author Archives: %s', 'roots'), get_the_author());
     } else {
       single_cat_title();
     }
