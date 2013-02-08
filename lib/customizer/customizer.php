@@ -21,6 +21,7 @@ require_once locate_template( '/lib/customizer/layout/functions.php' );         
 require_once locate_template( '/lib/customizer/social/functions.php' );               // Social Customizer
 require_once locate_template( '/lib/customizer/footer/functions.php' );               // Footer Customizer
 require_once locate_template( '/lib/customizer/advanced/functions.php' );             // Advanced Customizer
+require_once locate_template( '/lib/customizer/buttons/functions.php' );              // Buttons Customizer
 
 require_once locate_template( '/lib/customizer/functions/remove-controls.php' );      // Extra Functions for the customizer
 require_once locate_template( '/lib/customizer/functions/login.php' );                // Login screen customizations
