@@ -11,6 +11,7 @@ function shoestrap_dev_mode_register_options() {
   register_setting( 'shoestrap_advanced', 'shoestrap_rewrite_urls' );
 
   register_setting( 'shoestrap_advanced', 'shoestrap_customizer_caching' );
+  register_setting( 'shoestrap_advanced', 'shoestrap_load_scripts_on_header' );
 }
 
 add_action( 'shoestrap_admin_content', 'shoestrap_dev_mode_toggle', 15 );
@@ -18,6 +19,7 @@ function shoestrap_dev_mode_toggle() {
   $shoestrap_dev_mode = get_option( 'shoestrap_dev_mode' );
   $advanced           = get_option( 'shoestrap_advanced_compiler' );
   $customizer_caching = get_option( 'shoestrap_customizer_caching' );
+  $header_scripts     = get_option( 'shoestrap_load_scripts_on_header' );
   
   $current_url        = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
   $customizeurl       = add_query_arg( 'url', urlencode( $current_url ), wp_customize_url() );
@@ -91,6 +93,25 @@ function shoestrap_dev_mode_toggle() {
           </label>
           <p>
             <?php _e( 'In Production sites this option should be turned OFF.', 'shoestrap' ); ?>
+          </p>
+        </div>
+
+        <div class="shoestrap_cache_toggling">
+          <?php if ( get_option( 'shoestrap_dev_mode' ) != 1 ) { ?>
+            <style>
+              div.shoestrap_cache_toggling{
+                opacity: 0.5;
+              }
+            </style>
+          <?php } ?>
+          <input id="shoestrap_load_scripts_on_header" name="shoestrap_load_scripts_on_header" <?php echo $disabled; ?> type="checkbox" value="1" <?php checked('1', get_option('shoestrap_load_scripts_on_header')); ?> />
+          <label class="description" for="shoestrap_load_scripts_on_header">
+            <?php _e( 'Load scripts on the <strong>head</strong> instead of the <strong>footer</strong> of the document', 'shoestrap' ); ?>
+          </label>
+          <p>
+            <?php _e( 'In Production sites this option should be turned OFF.', 'shoestrap' ); ?>
+            <?php _e( 'However, in some cases you might want to enable this.', 'shoestrap' ); ?>
+            <?php _e( 'For example if you write inline jquery scripts in your posts, this must be turned ON.', 'shoestrap' ); ?>)
           </p>
         </div>
 

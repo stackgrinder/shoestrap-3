@@ -18,6 +18,12 @@
 function shoestrap_scripts() {
   $shoestrap_responsive = get_theme_mod( 'shoestrap_responsive' );
   $preset               = get_theme_mod( 'shoestrap_general_presets' );
+  $header_scripts       = get_option( 'shoestrap_load_scripts_on_header' );
+  
+  if ( $header_scripts == 1 )
+    $h_f = false;
+  else
+    $h_f = true;
 
   wp_enqueue_style('shoestrap_app', get_template_directory_uri() . '/assets/css/app.css', false, null);
   
@@ -35,12 +41,18 @@ function shoestrap_scripts() {
   // It's kept in the header instead of footer to avoid conflicts with plugins.
   if (!is_admin()) {
     wp_deregister_script('jquery');
-    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js', false, null, true);
+    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js', false, null, $h_f);
+  }
+  
+  if ( $h_f == false ) {
+    if (is_single() && comments_open() && get_option('thread_comments')) {
+      wp_enqueue_script('comment-reply');
+    }
   }
 
-  wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, null, true);
-  wp_register_script('shoestrap_bootstrap', get_template_directory_uri() . '/assets/js/vendor/bootstrap.min.js', false, null, true);
-  wp_register_script('shoestrap_main', get_template_directory_uri() . '/assets/js/main.js', false, null, true);
+  wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, null, $h_f);
+  wp_register_script('shoestrap_bootstrap', get_template_directory_uri() . '/assets/js/vendor/bootstrap.min.js', false, null, $h_f);
+  wp_register_script('shoestrap_main', get_template_directory_uri() . '/assets/js/main.js', false, null, $h_f);
   wp_enqueue_script('jquery');
   wp_enqueue_script('modernizr');
   wp_enqueue_script('shoestrap_bootstrap');
