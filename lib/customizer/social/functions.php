@@ -263,7 +263,7 @@ function shoestrap_social_share_singular( $content ) {
         $social .= get_permalink( $post->ID ) . '" ';
         $social .= 'class="social_icon digg" rel="nofollow"><i class="icon-digg"></i></a>';
       }
-      $social .= '</span></button>';
+      $social .= '</span></span>';
     }
   
   
