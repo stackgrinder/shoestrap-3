@@ -13,7 +13,7 @@ function shoestrap_footer_customizer( $wp_customize ){
   }
 
   $settings   = array();
-  $settings[] = array( 'slug' => 'shoestrap_footer_background_color',   'default' => '#ffffff' );
+  $settings[] = array( 'slug' => 'shoestrap_footer_background_color',   'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_footer_text',               'default' => get_bloginfo( 'name' ) );
   
   foreach( $settings as $setting ){
