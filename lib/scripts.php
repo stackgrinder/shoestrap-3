@@ -9,7 +9,7 @@
  * 4. /child-theme/style.css (if a child theme is activated)
  *
  * Enqueue scripts in the following order:
- * 1. jquery-1.9.0.min.js via Google CDN
+ * 1. jquery-1.9.1.min.js via Google CDN
  * 2. /theme/assets/js/vendor/modernizr-2.6.2.min.js
  * 3. /theme/assets/js/vendor/bootstrap.min.js
  * 4. /theme/assets/js/main.js
@@ -41,7 +41,7 @@ function shoestrap_scripts() {
   // It's kept in the header instead of footer to avoid conflicts with plugins.
   if (!is_admin()) {
     wp_deregister_script('jquery');
-    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js', false, null, $h_f);
+    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', false, null, $h_f);
   }
   
   if ( $h_f == false ) {
