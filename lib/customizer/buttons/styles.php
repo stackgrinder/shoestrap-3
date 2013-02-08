@@ -39,7 +39,7 @@ function shoestrap_buttons_css() {
   $styles .= 'background-image: linear-gradient(to bottom, ' . $startColor . ', ' . $endColor . ');';
   $styles .= 'background-repeat: repeat-x;';
   $styles .= '*background-color: ' . $endColor . ';}';
-  $styles .= '.btn:hover, .btn-primary:hover, .btn-primary:active, .btn::active, .btn-primary.active .btn.active, .btn-primary.disabled, .btn.disabled, .btn-primary[disabled] .btn[disabled] {';
+  $styles .= '.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {';
   $styles .= 'color: ' . $textColor . ';';
   $styles .= 'background-color: ' . $endColor . ';';
   $styles .= '*background-color: ' . shoestrap_adjust_brightness( $endColor, -12 ) . ';}';
