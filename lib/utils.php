@@ -35,7 +35,7 @@ function shoestrap_title() {
   } elseif (is_search()) {
     printf(__('Search Results for %s', 'shoestrap'), get_search_query());
   } elseif (is_404()) {
-    _e('File Not Found', 'shoestrap');
+    _e('Not Found', 'shoestrap');
   } else {
     the_title();
   }

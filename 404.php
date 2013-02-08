@@ -2,14 +2,13 @@
 
 <div class="alert alert-block fade in">
   <a class="close" data-dismiss="alert">&times;</a>
-  <p><?php _e('The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.', 'shoestrap'); ?></p>
+  <p><?php _e('Sorry, but the page you were trying to view does not exist.', 'shoestrap'); ?></p>
 </div>
 
-<p><?php _e('Please try the following:', 'shoestrap'); ?></p>
+<p><?php _e('It looks like this was the result of either:', 'shoestrap'); ?></p>
 <ul>
-  <li><?php _e('Check your spelling', 'shoestrap'); ?></li>
-  <li><?php printf(__('Return to the <a href="%s">home page</a>', 'shoestrap'), home_url()); ?></li>
-  <li><?php _e('Click the <a href="javascript:history.back()">Back</a> button', 'shoestrap'); ?></li>
+  <li><?php _e('a mistyped address', 'shoestrap'); ?></li>
+  <li><?php _e('an out-of-date link', 'shoestrap'); ?></li>
 </ul>
 
 <?php get_search_form(); ?>
