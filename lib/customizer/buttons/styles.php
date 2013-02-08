@@ -29,7 +29,7 @@ function shoestrap_buttons_css() {
   $endColor   = $btnColorHighlight;
   
   $styles = '<style>';
-  $styles .= '.btn, .btn-primary, a.btn, a.btn-primary{';
+  $styles .= '.btn-primary, a.btn-primary{';
   $styles .= 'color: ' . $textColor . ';';
   $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
   $styles .= 'background-image: -moz-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
@@ -46,6 +46,5 @@ function shoestrap_buttons_css() {
   $styles .= 'a.btn-success, a.btn-info, a.btn-warning, a.btn-error, a.btn-inverse{color: #fff;}';
   $styles .= '</style>';
 
-    
   return $styles;
 }
