@@ -51,11 +51,9 @@ function shoestrap_scripts() {
   }
 
   wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, null, $h_f);
-  wp_register_script('shoestrap_bootstrap', get_template_directory_uri() . '/assets/js/vendor/bootstrap.min.js', false, null, $h_f);
   wp_register_script('shoestrap_main', get_template_directory_uri() . '/assets/js/main.js', false, null, $h_f);
   wp_enqueue_script('jquery');
   wp_enqueue_script('modernizr');
-  wp_enqueue_script('shoestrap_bootstrap');
   wp_enqueue_script('shoestrap_main');
 }
 add_action('wp_enqueue_scripts', 'shoestrap_scripts', 100);

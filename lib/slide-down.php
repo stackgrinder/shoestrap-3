@@ -60,11 +60,6 @@ function shoestrap_navbar_slidedown_content() {
     echo '</div>';
     
   echo '</div></div></div>';
-  
-  if ( is_active_sidebar( 'navbar-slide-down-top' ) || is_active_sidebar( 'navbar-slide-down-1' ) || is_active_sidebar( 'navbar-slide-down-2' ) || is_active_sidebar( 'navbar-slide-down-3' ) || is_active_sidebar( 'navbar-slide-down-4' ) ) {
-    wp_register_script('shoestrap_megadrop', get_template_directory_uri() . '/assets/js/megadrop.js', false, null, false);
-    wp_enqueue_script('shoestrap_megadrop');
-  }
 }
 add_action( 'shoestrap_nav_top_bottom', 'shoestrap_navbar_slidedown_content', 1 );
 
