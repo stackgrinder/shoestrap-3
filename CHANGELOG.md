@@ -1,5 +1,14 @@
 # Shoestrap Theme Changelog
 
+## 1.44
+* Compatibility fix for the [WooSidebars](http://www.woothemes.com/woosidebars/) plugin
+* Now using javascript-less social sharing (faster, less load)
+* Moved scripts to the footer
+* Added option to allow users to load scripts in the <head> of their document
+* Added Digg to the social sharing networks list
+* Combined some scripts in 1 single file (less requests, thus faster page loading)
+* Footer background now defaults to transparent
+
 ## 1.43
 * Typography caching
 * Minor bugfixes
