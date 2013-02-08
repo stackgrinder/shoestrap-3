@@ -1,14 +1,23 @@
 <?php
 
 function shoestrap_customizer_combined_data() {
+  // Determine if the user is using the advanced builder or not
+  $advanced_builder = get_option('shoestrap_advanced_compiler');
+  // Turn off the advanced builder on multisite
+  if ( is_multisite() && !is_super_admin() ) {
+    $advanced_builder == '';
+  }
+
   $data = '';
-  $data .= shoestrap_typography_webfont();
-  $data .= shoestrap_text_css();
-  $data .= shoestrap_typography_css();
-  $data .= shoestrap_buttons_css();
-  $data .= shoestrap_navbar_css();
-  $data .= shoestrap_navbar_dropdown_css();
-  $data .= shoestrap_top_megamenu_css();
+  if ( $advanced_builder != 1 ) {
+    $data .= shoestrap_typography_webfont();
+    $data .= shoestrap_text_css();
+    $data .= shoestrap_typography_css();
+    $data .= shoestrap_buttons_css();
+    $data .= shoestrap_navbar_css();
+    $data .= shoestrap_navbar_dropdown_css();
+    $data .= shoestrap_top_megamenu_css();
+  }
   $data .= shoestrap_branding_css();
   $data .= shoestrap_css_hero();
   $data .= shoestrap_footer_css();
