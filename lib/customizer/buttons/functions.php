@@ -54,14 +54,13 @@ function shoestrap_buttons_customizer( $wp_customize ){
     ));
   }
 
-  foreach ( $select_controls as $control ) {
+  foreach ( $checkbox_controls as $control ) {
     $wp_customize->add_control( $control['setting'], array(
       'label'       => __( $control['label'], 'shoestrap' ),
       'section'     => $control['section'],
       'settings'    => $control['setting'],
-      'type'        => 'select',
+      'type'        => 'checkbox',
       'priority'    => $control['priority'],
-      'choices'     => $control['choises']
     ));
   }
 }
