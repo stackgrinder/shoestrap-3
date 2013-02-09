@@ -1,5 +1,15 @@
 # Shoestrap Theme Changelog
 
+## 1.46
+* Updated included H5BP .htaccess
+* Updated 404 template based on H5BP
+* Added EditorConfig
+* Output author title with get_the_author
+* Updated to jQuery 1.9.1
+* updated less-php compiler
+* Updated Bootstrap to 2.3.0 and customized it for less-php
+* fixed buttons functions.php error
+
 ## 1.45
 * Fixed button colors
 * Bugfixes
