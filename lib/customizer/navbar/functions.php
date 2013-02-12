@@ -30,6 +30,7 @@ function shoestrap_navbar_customizer( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_navbar_original_logo',      'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_navbar_no_gradient',        'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_navbar_fixed',              'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_navbar_loginlink',          'default' => '' );
 
   // Secondary NavBar Settings
   $settings[] = array( 'slug' => 'shoestrap_navbar_secondary',          'default' => '' );
@@ -55,10 +56,10 @@ function shoestrap_navbar_customizer( $wp_customize ){
   // Display the following controls only when user is NOT using the advanced controls
   if ( $advanced_builder != 1 ) {
     // Navbar background color
-    $color_controls[] = array( 'setting' => 'shoestrap_navbar_color',           'label' => 'Navbar Color',                    'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
+    $color_controls[] = array( 'setting' => 'shoestrap_navbar_color',         'label' => 'Navbar Color',                          'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
   }
   // Navbar text color
-  $color_controls[] = array( 'setting' => 'shoestrap_navbar_textcolor',       'label' => 'Navbar Text Color',               'section' => 'shoestrap_primary_navbar',            'priority' => 40 );
+  $color_controls[] = array( 'setting' => 'shoestrap_navbar_textcolor',       'label' => 'Navbar Text Color',                     'section' => 'shoestrap_primary_navbar',  'priority' => 40 );
   
   // Checkbox Controls
   $checkbox_controls = array();
@@ -71,7 +72,7 @@ function shoestrap_navbar_customizer( $wp_customize ){
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_original_logo','label' => 'Original Logo Size',                    'section' => 'shoestrap_primary_navbar',  'priority' => 20 );
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_no_gradient',  'label' => 'Disable gradients',                     'section' => 'shoestrap_primary_navbar',  'priority' => 30 );
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_fixed',        'label' => 'Fixed Positioning',                     'section' => 'shoestrap_primary_navbar',  'priority' => 32 );
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_header_loginlink',    'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_loginlink',    'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_secondary',    'label' => 'Display Secondary NavBar',              'section' => 'shoestrap_secondary_navbar','priority' => 1 );
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar2_loginlink',   'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_secondary_navbar','priority' => 5 );
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar2_social',      'label' => 'Display Social Links in the Navbar',    'section' => 'shoestrap_secondary_navbar','priority' => 6 );
@@ -150,7 +151,7 @@ add_action( 'shoestrap_nav_top_right', 'shoestrap_primary_navbar_searchbox', 11 
  */
 function shoestrap_primary_navbar_login_link() {
     
-  $primary_login_link   = get_theme_mod( 'shoestrap_header_loginlink' );
+  $primary_login_link   = get_theme_mod( 'shoestrap_navbar_loginlink' );
   
   if ( is_user_logged_in() ) {
     $link  = wp_logout_url( get_permalink() );
