@@ -5634,6 +5634,9 @@ figure.alignnone {
 .admin-customize:hover {
   opacity: 1;
 }
+ul.social-networks {
+  min-width: 120px;
+}
 li.social-networks {
   font-size: 16px;
   float: left;
