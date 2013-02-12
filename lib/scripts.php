@@ -17,16 +17,29 @@
 
 function shoestrap_scripts() {
   $shoestrap_responsive = get_theme_mod( 'shoestrap_responsive' );
-  $preset               = get_theme_mod( 'shoestrap_general_presets' );
   $header_scripts       = get_option( 'shoestrap_load_scripts_on_header' );
+  $no_radius            = get_theme_mod( 'shoestrap_general_no_radius' );
+  $no_gradients         = get_theme_mod( 'shoestrap_general_no_gradients' );
   
   if ( $header_scripts == 1 )
     $h_f = false;
   else
     $h_f = true;
-
-  wp_enqueue_style('shoestrap_app', get_template_directory_uri() . '/assets/css/app.css', false, null);
   
+  if ( $no_gradients == 1 ) {
+    if ( $no_radius == 1 ) {
+      wp_enqueue_style('shoestrap_app', get_template_directory_uri() . '/assets/css/app-no-gradients-no-radius.css', false, null);
+    } else {
+      wp_enqueue_style('shoestrap_app', get_template_directory_uri() . '/assets/css/app-no-gradients.css', false, null);
+    }
+  } else {
+    if ( $no_radius == 1 ) {
+      wp_enqueue_style('shoestrap_app', get_template_directory_uri() . '/assets/css/app-no-radius.css', false, null);
+    } else {
+      wp_enqueue_style('shoestrap_app', get_template_directory_uri() . '/assets/css/app.css', false, null);
+    }
+  }
+
   if ( $shoestrap_responsive != '0' ) {
     wp_enqueue_style('shoestrap_app_responsive', get_template_directory_uri() . '/assets/css/responsive.css', false, null);
   }
