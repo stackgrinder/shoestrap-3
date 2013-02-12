@@ -48,8 +48,6 @@ function shoestrap_header_customizer( $wp_customize ){
   $checkbox_controls = array();
   // Extra header on/off
   $checkbox_controls[] = array( 'setting' => 'shoestrap_extra_branding',      'label' => 'Display Extra Header',                  'section' => 'shoestrap_extra_header',      'priority' => 1 );
-  // Show/Hide the login link
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_header_loginlink',    'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
   // Display Social Links on the Header
   $checkbox_controls[] = array( 'setting' => 'shoestrap_header_social',       'label' => 'Display Social Links',                  'section' => 'shoestrap_extra_header',      'priority' => 5 );
   

@@ -82,6 +82,8 @@ function shoestrap_navbar_customizer( $wp_customize ){
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_no_gradient',  'label' => 'Disable gradients',                     'section' => 'shoestrap_primary_navbar',  'priority' => 30 );
   // No gradients on the NavBar
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_fixed',        'label' => 'Fixed Positioning',                     'section' => 'shoestrap_primary_navbar',  'priority' => 32 );
+  // Show/Hide the login link
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_header_loginlink',    'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
 
   // Display Secondary Navbar
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_secondary',    'label' => 'Display Secondary NavBar',              'section' => 'shoestrap_secondary_navbar','priority' => 1 );
