@@ -13,7 +13,8 @@ function shoestrap_general_customizer( $wp_customize ){
   }
   
   $settings   = array();
-  $settings[] = array( 'slug' => 'shoestrap_general_no_gradients', 'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_general_no_gradients',  'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_general_no_radius',     'default' => '' );
   
   foreach( $settings as $setting ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
