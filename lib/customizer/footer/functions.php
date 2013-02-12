@@ -15,6 +15,7 @@ function shoestrap_footer_customizer( $wp_customize ){
   $settings   = array();
   $settings[] = array( 'slug' => 'shoestrap_footer_background_color',   'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_footer_text',               'default' => get_bloginfo( 'name' ) );
+  $settings[] = array( 'slug' => 'shoestrap_footer_text_color',         'default' => '' );
   
   foreach( $settings as $setting ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
@@ -24,14 +25,12 @@ function shoestrap_footer_customizer( $wp_customize ){
    * Color Controls
    */
   $color_controls   = array();
-  
-  // Footer Background Color
-  $color_controls[] = array( 'setting' => 'shoestrap_footer_background_color','label' => 'Footer Background Color',         'section' => 'shoestrap_footer',  'priority' => 1 );
+  $color_controls[] = array( 'setting' => 'shoestrap_footer_background_color','label' => 'Footer Background Color', 'section' => 'shoestrap_footer',  'priority' => 1 );
+  $color_controls[] = array( 'setting' => 'shoestrap_footer_text_color',      'label' => 'Footer Text Color',       'section' => 'shoestrap_footer',  'priority' => 2 );
   
   // Text Controls
   $text_controls = array();
-  // Footer Text
-  $text_controls[]  = array( 'setting' => 'shoestrap_footer_text',        'label' => 'Footer Alternative Text',     'section' => 'shoestrap_footer',      'priority' => 2 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_footer_text',  'label' => 'Footer Alternative Text', 'section' => 'shoestrap_footer',  'priority' => 3 );
   
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(
