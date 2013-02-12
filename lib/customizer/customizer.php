@@ -14,6 +14,7 @@ require_once locate_template( '/lib/customizer/functions/remove-controls.php' );
 require_once locate_template( '/lib/customizer/functions/login.php' );                // Login screen customizations
 require_once locate_template( '/lib/customizer/functions/color-functions.php' );      // Color functions
 
+require_once locate_template( '/lib/customizer/general/functions.php' );              // General Customizer
 require_once locate_template( '/lib/customizer/navbar/functions.php' );               // NavBar Customizer
 require_once locate_template( '/lib/customizer/hero/functions.php' );                 // Hero Customizer
 require_once locate_template( '/lib/customizer/typography/functions.php' );           // Typography Customizer
