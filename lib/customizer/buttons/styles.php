@@ -5,6 +5,8 @@
  */
 function shoestrap_buttons_css() {
   $btn_color = get_theme_mod( 'shoestrap_buttons_color' );
+  $no_radius            = get_theme_mod( 'shoestrap_general_no_radius' );
+  $no_gradients         = get_theme_mod( 'shoestrap_general_no_gradients' );
 
   // Make sure colors are properly formatted
   $btn_color = '#' . str_replace( '#', '', $btn_color );
@@ -31,14 +33,19 @@ function shoestrap_buttons_css() {
   $styles = '<style>';
   $styles .= '.btn-primary, a.btn-primary{';
   $styles .= 'color: ' . $textColor . ';';
-  $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
-  $styles .= 'background-image: -moz-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
-  $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $startColor . '), to(' . $endColor . '));';
-  $styles .= 'background-image: -webkit-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
-  $styles .= 'background-image: -o-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
-  $styles .= 'background-image: linear-gradient(to bottom, ' . $startColor . ', ' . $endColor . ');';
-  $styles .= 'background-repeat: repeat-x;';
-  $styles .= '*background-color: ' . $endColor . ';}';
+  if ( $no_gradients == 1 ) {
+    $styles .= 'background-color: ' . $btn_color . ';';
+  } else {
+    $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
+    $styles .= 'background-image: -moz-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+    $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $startColor . '), to(' . $endColor . '));';
+    $styles .= 'background-image: -webkit-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+    $styles .= 'background-image: -o-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+    $styles .= 'background-image: linear-gradient(to bottom, ' . $startColor . ', ' . $endColor . ');';
+    $styles .= 'background-repeat: repeat-x;';
+    $styles .= '*background-color: ' . $endColor . ';';
+  }
+  $styles .= '}';
   $styles .= '.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {';
   $styles .= 'color: ' . $textColor . ';';
   $styles .= 'background-color: ' . $endColor . ';';
