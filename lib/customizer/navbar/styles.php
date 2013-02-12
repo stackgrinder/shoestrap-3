@@ -10,6 +10,7 @@ function shoestrap_navbar_css(){
   $navbar_textcolor     = get_theme_mod( 'shoestrap_navbar_textcolor' );
   $navbar_logo_padding  = get_theme_mod( 'shoestrap_navbar_logo_padding' );
   $navbar_no_gradient   = get_theme_mod( 'shoestrap_navbar_no_gradient' );
+  $no_gradients         = get_theme_mod( 'shoestrap_general_no_gradients' );
   
   // Make sure colors are properly formatted
   $header_bg_color  = '#' . str_replace( '#', '', $header_bg_color );
@@ -29,23 +30,25 @@ function shoestrap_navbar_css(){
   
   // Navbar colors
   $styles .= '.navbar-inner, #main-subnav.subnav-fixed, .navbar-inner .dropdown-menu{';
-  $styles .= 'background-color:' . $navbar_color . '!important;';
-  if ( $navbar_no_gradient != 1 ) {
-    $styles .= 'background-image: -moz-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
-    $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $navbar_color . '), to(' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ')) !important;';
-    $styles .= 'background-image: -webkit-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
-    $styles .= 'background-image: -o-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
-    $styles .= 'background-image: linear-gradient(to bottom, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
-    $styles .= 'filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr="%d", endColorstr="%d", GradientType=0)",argb(' . $navbar_color . '),argb(' . shoestrap_adjust_brightness( $navbar_color, -10 ) . '))) !important;';
-    $styles .= 'border: 1px solid ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
-  } else {
-    $styles .= 'background-image: -moz-linear-gradient(top, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
-    $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $navbar_color . '), to(' . $navbar_color . ')) !important;';
-    $styles .= 'background-image: -webkit-linear-gradient(top, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
-    $styles .= 'background-image: -o-linear-gradient(top, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
-    $styles .= 'background-image: linear-gradient(to bottom, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
-    $styles .= 'filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr="%d", endColorstr="%d", GradientType=0)",argb(' . $navbar_color . '),argb(' . $navbar_color . '))) !important;';
-    $styles .= 'border: 1px solid ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
+  $styles .= 'background-color:' . $navbar_color . ';';
+  if ( $no_gradients != 1 ) {
+    if ( $navbar_no_gradient != 1 ) {
+      $styles .= 'background-image: -moz-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
+      $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $navbar_color . '), to(' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ')) !important;';
+      $styles .= 'background-image: -webkit-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
+      $styles .= 'background-image: -o-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
+      $styles .= 'background-image: linear-gradient(to bottom, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
+      $styles .= 'filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr="%d", endColorstr="%d", GradientType=0)",argb(' . $navbar_color . '),argb(' . shoestrap_adjust_brightness( $navbar_color, -10 ) . '))) !important;';
+      $styles .= 'border: 1px solid ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
+    } else {
+      $styles .= 'background-image: -moz-linear-gradient(top, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
+      $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $navbar_color . '), to(' . $navbar_color . ')) !important;';
+      $styles .= 'background-image: -webkit-linear-gradient(top, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
+      $styles .= 'background-image: -o-linear-gradient(top, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
+      $styles .= 'background-image: linear-gradient(to bottom, ' . $navbar_color . ', ' . $navbar_color . ') !important;';
+      $styles .= 'filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr="%d", endColorstr="%d", GradientType=0)",argb(' . $navbar_color . '),argb(' . $navbar_color . '))) !important;';
+      $styles .= 'border: 1px solid ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
+    }
   }
 
   // Navbar Padding
@@ -134,6 +137,7 @@ function shoestrap_navbar_css(){
  * Applies the styles to the navbar dropdowns.
  */
 function shoestrap_navbar_dropdown_css(){
+  $no_gradients     = get_theme_mod( 'shoestrap_general_no_gradients' );
   $advanced_builder = get_option('shoestrap_advanced_compiler');
   $header_bg_color  = get_theme_mod( 'shoestrap_header_backgroundcolor' );
   if ( $advanced_builder != 1 ) {
@@ -151,13 +155,15 @@ function shoestrap_navbar_dropdown_css(){
   
   $styles = '<style>';
   $styles .= '.navbar-inner ul.dropdown-menu{';
-  $styles .= 'background-color:' . $navbar_color . '!important;';
-  $styles .= 'background-image: -moz-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
-  $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $navbar_color . '), to(' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ')) !important;';
-  $styles .= 'background-image: -webkit-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
-  $styles .= 'background-image: -o-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
-  $styles .= 'background-image: linear-gradient(to bottom, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
-  $styles .= 'filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr="%d", endColorstr="%d", GradientType=0)",argb(' . $navbar_color . '),argb(' . shoestrap_adjust_brightness( $navbar_color, -10 ) . '))) !important;';
+  $styles .= 'background-color:' . $navbar_color . ';';
+  if ( $no_gradients != 1 ) {
+    $styles .= 'background-image: -moz-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
+    $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $navbar_color . '), to(' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ')) !important;';
+    $styles .= 'background-image: -webkit-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
+    $styles .= 'background-image: -o-linear-gradient(top, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
+    $styles .= 'background-image: linear-gradient(to bottom, ' . $navbar_color . ', ' . shoestrap_adjust_brightness( $navbar_color, -10 ) . ') !important;';
+    $styles .= 'filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr="%d", endColorstr="%d", GradientType=0)",argb(' . $navbar_color . '),argb(' . shoestrap_adjust_brightness( $navbar_color, -10 ) . '))) !important;';
+  }
   $styles .= 'border: 1px solid ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';}';
   
   $styles .= '.navbar .nav > li > .dropdown-menu::before{border-bottom: 7px solid ' . $navbar_color . ';}';
