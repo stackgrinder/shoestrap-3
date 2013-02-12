@@ -33,34 +33,23 @@ function shoestrap_typography_customizer( $wp_customize ){
     $advanced_builder == '';
   }
   
-  /*
-   * Color Controls
-   */
+  // Color Controls
   $color_controls   = array();
-  
   // Display the following controls only when user is NOT using the advanced controls
   if ( $advanced_builder != 1 ) {
-    // Links Color
-    $color_controls[] = array( 'setting' => 'shoestrap_link_color',             'label' => 'Links Color',                     'section' => 'colors',            'priority' => 3 );
-    // Text Color
-    $color_controls[] = array( 'setting' => 'shoestrap_text_color',             'label' => 'Text Color',                      'section' => 'colors',            'priority' => 2 );
+    $color_controls[] = array( 'setting' => 'shoestrap_text_color',             'label' => 'Text Color',              'section' => 'shoestrap_typography',  'priority' => 1 );
+    $color_controls[] = array( 'setting' => 'shoestrap_link_color',             'label' => 'Links Color',             'section' => 'shoestrap_typography',  'priority' => 2 );
   }
   
-  /*
-   * Dropdown (Select) Controls
-   */
+  // Dropdown (Select) Controls
   $select_controls = array();
-  // Assign Webfonts weight
-  $select_controls[] = array( 'setting' => 'shoestrap_webfonts_weight',         'label' => 'Webfont weight:',                 'section' => 'shoestrap_typography',  'priority' => 2, 'choises' => array( '200' => __( '200', 'shoestrap' ), '300' => __( '300', 'shoestrap' ), '400' => __( '400', 'shoestrap' ), '600' => __( '600', 'shoestrap' ), '700' => __( '700', 'shoestrap' ), '800' => __( '800', 'shoestrap' ), '900' => __( '900', 'shoestrap' ) ) );
-  // Assign Webfonts character set
-  $select_controls[] = array( 'setting' => 'shoestrap_webfonts_character_set',  'label' => 'Webfont character set:',          'section' => 'shoestrap_typography',  'priority' => 3, 'choises' => array( 'cyrillic' => __( 'Cyrillic', 'shoestrap' ), 'cyrillic-ext' => __( 'Cyrillic Extended', 'shoestrap' ), 'greek' => __( 'Greek', 'shoestrap' ), 'greek-ext' => __( 'Greek Extended', 'shoestrap' ), 'latin' => __( 'Latin', 'shoestrap' ), 'latin-ext' => __( 'Latin Extended', 'shoestrap' ), 'vietnamese' => __( 'Vietnamese', 'shoestrap' ) ) ); 
-  // Assign Webfonts to specific page elements
-  $select_controls[] = array( 'setting' => 'shoestrap_webfonts_assign',         'label' => 'Apply Webfont to:',               'section' => 'shoestrap_typography',  'priority' => 4, 'choises' => array( 'sitename' => __( 'Site Name', 'shoestrap' ), 'headers' => __( 'Headers', 'shoestrap' ), 'all' => __( 'Everywhere', 'shoestrap' ) ) );
+  $select_controls[] = array( 'setting' => 'shoestrap_webfonts_weight',         'label' => 'Webfont weight:',         'section' => 'shoestrap_typography',  'priority' => 4, 'choises' => array( '200' => __( '200', 'shoestrap' ), '300' => __( '300', 'shoestrap' ), '400' => __( '400', 'shoestrap' ), '600' => __( '600', 'shoestrap' ), '700' => __( '700', 'shoestrap' ), '800' => __( '800', 'shoestrap' ), '900' => __( '900', 'shoestrap' ) ) );
+  $select_controls[] = array( 'setting' => 'shoestrap_webfonts_character_set',  'label' => 'Webfont character set:',  'section' => 'shoestrap_typography',  'priority' => 5, 'choises' => array( 'cyrillic' => __( 'Cyrillic', 'shoestrap' ), 'cyrillic-ext' => __( 'Cyrillic Extended', 'shoestrap' ), 'greek' => __( 'Greek', 'shoestrap' ), 'greek-ext' => __( 'Greek Extended', 'shoestrap' ), 'latin' => __( 'Latin', 'shoestrap' ), 'latin-ext' => __( 'Latin Extended', 'shoestrap' ), 'vietnamese' => __( 'Vietnamese', 'shoestrap' ) ) ); 
+  $select_controls[] = array( 'setting' => 'shoestrap_webfonts_assign',         'label' => 'Apply Webfont to:',       'section' => 'shoestrap_typography',  'priority' => 6, 'choises' => array( 'sitename' => __( 'Site Name', 'shoestrap' ), 'headers' => __( 'Headers', 'shoestrap' ), 'all' => __( 'Everywhere', 'shoestrap' ) ) );
   
   // Text Controls
   $text_controls = array();
-  // Google Webfonts (text, name of the webfont)
-  $text_controls[]  = array( 'setting' => 'shoestrap_google_webfonts',    'label' => 'Google Webfont Name',         'section' => 'shoestrap_typography',  'priority' => 1 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_google_webfonts',          'label' => 'Google Webfont Name',     'section' => 'shoestrap_typography',  'priority' => 3 );
 
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(
