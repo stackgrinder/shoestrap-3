@@ -12,6 +12,7 @@ function shoestrap_css_hero() {
   $shoestrap_hero_textcolor         = get_theme_mod( 'shoestrap_hero_textcolor' );
   $shoestrap_hero_background        = get_theme_mod( 'shoestrap_hero_background' );
   $shoestrap_hero_cta_color         = get_theme_mod( 'shoestrap_hero_cta_color' );
+  $no_gradients                     = get_theme_mod( 'shoestrap_general_no_gradients' );
   
   if ( $shoestrap_hero_cta_color == 'default' ) {
     $shoestrap_hero_cta_color = '#ffffff';
@@ -59,14 +60,21 @@ function shoestrap_css_hero() {
   $styles .= '.jumbotron .btn{';
   $styles .= 'border: none;';
   $styles .= 'color: ' . $textColor . ';';
-  $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
-  $styles .= 'background-image: -moz-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
-  $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $startColor . '), to(' . $endColor . '));';
-  $styles .= 'background-image: -webkit-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
-  $styles .= 'background-image: -o-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
-  $styles .= 'background-image: linear-gradient(to bottom, ' . $startColor . ', ' . $endColor . ');';
-  $styles .= 'background-repeat: repeat-x;';
-  $styles .= '*background-color: ' . $endColor . ';}';
+  
+  if ( $no_gradients == 1 ) {
+    $styles .= 'background-color: ' . $startColor . ';';
+    $styles .= 'border: 0px;';
+  } else {
+    $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
+    $styles .= 'background-image: -moz-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+    $styles .= 'background-image: -webkit-gradient(linear, 0 0, 0 100%, from(' . $startColor . '), to(' . $endColor . '));';
+    $styles .= 'background-image: -webkit-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+    $styles .= 'background-image: -o-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
+    $styles .= 'background-image: linear-gradient(to bottom, ' . $startColor . ', ' . $endColor . ');';
+    $styles .= 'background-repeat: repeat-x;';
+    $styles .= '*background-color: ' . $endColor . ';';
+  }
+  $styles .= '}';
   $styles .= '.jumbotron .btn:hover, .jumbotron .btn:active, .jumbotron .btn.active, .jumbotron .btn.disabled, .jumbotron .btn[disabled] {';
   $styles .= 'color: ' . $textColor . ';';
   $styles .= 'border: none;';
