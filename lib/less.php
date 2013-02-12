@@ -33,7 +33,7 @@ function shoestrap_phpless( $inputFile, $outputFile ) {
  */
 function shoestrap_phpless_compile() {
 
-  $app_less                         = locate_template( 'assets/less/app.less' );
+  $app_less                         = locate_template( 'assets/less/app-gradients-radius.less' );
   $app_css                          = locate_template( 'assets/css/app.css' );
 
   $app_no_radius_less               = locate_template( 'assets/less/app-no-radius.less' );
