@@ -23,7 +23,7 @@
 function shoestrap_advanced_customizer( $wp_customize ){
   
   $sections   = array();
-  $sections[] = array( 'slug' => 'shoestrap_advanced',          'title' => __( 'Advanced', 'shoestrap' ),         'priority' => 9 );
+  $sections[] = array( 'slug' => 'shoestrap_advanced', 'title' => __( 'Advanced', 'shoestrap' ), 'priority' => 9 );
 
   foreach( $sections as $section ){
     $wp_customize->add_section( $section['slug'], array( 'title' => $section['title'], 'priority' => $section['priority'] ) );
