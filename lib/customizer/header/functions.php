@@ -32,24 +32,15 @@ function shoestrap_header_customizer( $wp_customize ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
   }
 
-  /*
-   * Color Controls
-   */
+  // Color Controls
   $color_controls   = array();
-  
-  // Header Background
   $color_controls[] = array( 'setting' => 'shoestrap_header_backgroundcolor', 'label' => 'Header Region Background Color',  'section' => 'shoestrap_extra_header',  'priority' => 3 );
-  // Header textcolor
   $color_controls[] = array( 'setting' => 'shoestrap_header_textcolor',       'label' => 'Header Region Text Color',        'section' => 'shoestrap_extra_header',  'priority' => 4 );
   
-  /*
-   * Checkbox Controls
-   */
+  //Checkbox Controls
   $checkbox_controls = array();
-  // Extra header on/off
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_extra_branding',      'label' => 'Display Extra Header',                  'section' => 'shoestrap_extra_header',      'priority' => 1 );
-  // Display Social Links on the Header
-  $checkbox_controls[] = array( 'setting' => 'shoestrap_header_social',       'label' => 'Display Social Links',                  'section' => 'shoestrap_extra_header',      'priority' => 5 );
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_extra_branding',      'label' => 'Display Extra Header',            'section' => 'shoestrap_extra_header',  'priority' => 1 );
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_header_social',       'label' => 'Display Social Links',            'section' => 'shoestrap_extra_header',  'priority' => 5 );
   
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(
