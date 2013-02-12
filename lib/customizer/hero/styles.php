@@ -57,6 +57,7 @@ function shoestrap_css_hero() {
   $endColor   = shoestrap_adjust_brightness( $startColor, -63 );
   
   $styles .= '.jumbotron .btn{';
+  $styles .= 'border: none;';
   $styles .= 'color: ' . $textColor . ';';
   $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
   $styles .= 'background-image: -moz-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
@@ -68,6 +69,7 @@ function shoestrap_css_hero() {
   $styles .= '*background-color: ' . $endColor . ';}';
   $styles .= '.jumbotron .btn:hover, .jumbotron .btn:active, .jumbotron .btn.active, .jumbotron .btn.disabled, .jumbotron .btn[disabled] {';
   $styles .= 'color: ' . $textColor . ';';
+  $styles .= 'border: none;';
   $styles .= 'background-color: ' . $endColor . ';';
   $styles .= '*background-color: ' . shoestrap_adjust_brightness( $endColor, -12 ) . ';}';
   $styles .= '</style>';
