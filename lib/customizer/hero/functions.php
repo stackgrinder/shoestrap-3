@@ -27,40 +27,25 @@ function shoestrap_hero_customizer( $wp_customize ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
   }
 
-  /*
-   * Color Controls
-   */
+  // Color Controls
   $color_controls   = array();
+  $color_controls[] = array( 'setting' => 'shoestrap_hero_cta_color',         'label' => 'Call To Action Button Color',   'section' => 'shoestrap_hero',  'priority' => 5 );
+  $color_controls[] = array( 'setting' => 'shoestrap_hero_background_color',  'label' => 'Hero Region Background Color',  'section' => 'shoestrap_hero',  'priority' => 7 );
+  $color_controls[] = array( 'setting' => 'shoestrap_hero_textcolor',         'label' => 'Hero Region Text Color',        'section' => 'shoestrap_hero',  'priority' => 8 );
   
-  // Call to Action Button Color (Hero Region)
-  $color_controls[] = array( 'setting' => 'shoestrap_hero_cta_color',         'label' => 'Call To Action Button Color',     'section' => 'shoestrap_hero',    'priority' => 5 );
-  // Hero Region Background Color
-  $color_controls[] = array( 'setting' => 'shoestrap_hero_background_color',  'label' => 'Hero Region Background Color',    'section' => 'shoestrap_hero',    'priority' => 7 );
-  // Hero Region Text Color
-  $color_controls[] = array( 'setting' => 'shoestrap_hero_textcolor',         'label' => 'Hero Region Text Color',          'section' => 'shoestrap_hero',    'priority' => 8 );
-  
-  /*
-   * Image Controls
-   */
+  // Image Controls
   $image_controls = array();
-  // Hero Region Background Image
-  $image_controls[] = array( 'setting' => 'shoestrap_hero_background','label' => 'Hero Background Image',   'section' => 'shoestrap_hero',  'priority' => 6 );
+  $image_controls[] = array( 'setting' => 'shoestrap_hero_background',        'label' => 'Hero Background Image',         'section' => 'shoestrap_hero',  'priority' => 6 );
   
-  /*
-   * Dropdown (Select) Controls
-   */
+  // Dropdown (Select) Controls
   $select_controls = array();
-  // Visibility of the hero region (frontpage only or site-wide)
-  $select_controls[] = array( 'setting' => 'shoestrap_hero_visibility',         'label' => 'Hero Region Visibility',          'section' => 'shoestrap_hero',        'priority' => 9, 'choises' => array( 'front' => __( 'Frontpage', 'shoestrap' ), 'site' => __( 'Site-Wide', 'shoestrap' ) ) );
+  $select_controls[] = array( 'setting' => 'shoestrap_hero_visibility',       'label' => 'Hero Region Visibility',        'section' => 'shoestrap_hero',  'priority' => 9, 'choises' => array( 'front' => __( 'Frontpage', 'shoestrap' ), 'site' => __( 'Site-Wide', 'shoestrap' ) ) );
   
   // Text Controls
   $text_controls = array();
-  // Title of the Hero Region
-  $text_controls[]  = array( 'setting' => 'shoestrap_hero_title',         'label' => 'Title',                       'section' => 'shoestrap_hero',        'priority' => 1 );
-  // Text (label) of the Call To Action Button on the Hero Region
-  $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_text',      'label' => 'Call To Action Button Text',  'section' => 'shoestrap_hero',        'priority' => 3 );
-  // Link of the Call To Action Button on the Hero Region
-  $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_link',      'label' => 'Call To Action Button Link',  'section' => 'shoestrap_hero',        'priority' => 4 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_hero_title',             'label' => 'Title',                         'section' => 'shoestrap_hero',  'priority' => 1 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_text',          'label' => 'Call To Action Button Text',    'section' => 'shoestrap_hero',  'priority' => 3 );
+  $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_link',          'label' => 'Call To Action Button Link',    'section' => 'shoestrap_hero',  'priority' => 4 );
   
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(
