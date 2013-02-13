@@ -1,146 +1,159 @@
 # Shoestrap Theme Changelog
 
+## 1.47
+* New: Added a "general" section to the customizer
+* New: Added a "No Gradients" setting to the general section
+* New: Added a "No Border Radius" setting to the general section
+* New: Use Bootstrap media object for listing comments
+* Fix: Fixed social networks font-size and less identation
+* Fix: Fixed min-width on the extra header social links
+* New: Added footer text color setting
+* Fix: Removed the call to action button border
+* Fix: Moved typography colors settings to the typography section
+* Fix: Bugfix for the navbar login link setting
+* Fix: Code improvements
+
 ## 1.46
-* Updated included H5BP .htaccess
-* Updated 404 template based on H5BP
-* Added EditorConfig
-* Output author title with get_the_author
-* Updated to jQuery 1.9.1
-* updated less-php compiler
-* Updated Bootstrap to 2.3.0 and customized it for less-php
-* fixed buttons functions.php error
+* Fix: Updated included H5BP .htaccess
+* Fix: Updated 404 template based on H5BP
+* New: Added EditorConfig
+* New: Output author title with get_the_author
+* New: Updated to jQuery 1.9.1
+* Fix: updated less-php compiler
+* New: Updated Bootstrap to 2.3.0 and customized it for less-php
+* Fix: fixed buttons functions.php error
 
 ## 1.45
-* Fixed button colors
-* Bugfixes
+* Fix: Fixed button colors
+* Fix: Bugfixes
 
 ## 1.44
-* Compatibility fix for the [WooSidebars](http://www.woothemes.com/woosidebars/) plugin
-* Now using javascript-less social sharing (faster, less load)
-* Moved scripts to the footer
-* Added option to allow users to load scripts in the <head> of their document
-* Added Digg to the social sharing networks list
-* Combined some scripts in 1 single file (less requests, thus faster page loading)
-* Footer background now defaults to transparent
+* Fix: Compatibility fix for the [WooSidebars](http://www.woothemes.com/woosidebars/) plugin
+* New: Now using javascript-less social sharing (faster, less load)
+* New: Moved scripts to the footer
+* New: Added option to allow users to load scripts in the <head> of their document
+* New: Added Digg to the social sharing networks list
+* New: Combined some scripts in 1 single file (less requests, thus faster page loading)
+* Fix: Footer background now defaults to transparent
 
 ## 1.43
-* Typography caching
-* Minor bugfixes
+* Fix: Typography caching
+* Fix: Minor bugfixes
 
 ## 1.42
-* Fixes the top navbar dropdown
-* Fixes the sharrre script
-* Added an option in the admin page to disable the customizer caching
-* Re-organized files and functions in the customizer
+* Fix: Fixes the top navbar dropdown
+* Fix: Fixes the sharrre script
+* New: Added an option in the admin page to disable the customizer caching
+* Fix: Re-organized files and functions in the customizer
 
 ## 1.39
-* Fixes the "Warning: join() [function.join]: Invalid arguments passed in wp-includes/post-template.php on line 389" error.
-* Changed theme licence from MIT to GPL v.3
+* Fix: Fixes the "Warning: join() [function.join]: Invalid arguments passed in wp-includes/post-template.php on line 389" error.
+* New: Changed theme licence from MIT to GPL v.3
 
 ## 1.38
-* Replaced [font-awesome](http://fortawesome.github.com/Font-Awesome/) with [Elusive Icons](http://aristeides.com/elusive-iconfont/)
-* Better implementation for the top navbar classes (fixed/static)
-* .htaccess fixes for sharre path
+* New: Replaced [font-awesome](http://fortawesome.github.com/Font-Awesome/) with [Elusive Icons](http://aristeides.com/elusive-iconfont/)
+* Fix: Better implementation for the top navbar classes (fixed/static)
+* Fix: .htaccess fixes for sharre path
 
 ## 1.37
-* Added option for fixed navbar (defaults to non-fixed
-* Added option for "original-size logo" (defaults to false)
-* Added option for Navbar Padding (top & bottom)
-* Added option for flat (no-gradients) on the navbar. Useful if the user has enter a padding in the option above
-* Moved the sharre script to assets/js/vendor
+* New: Added option for fixed navbar (defaults to non-fixed
+* New: Added option for "original-size logo" (defaults to false)
+* New: Added option for Navbar Padding (top & bottom)
+* New: Added option for flat (no-gradients) on the navbar. Useful if the user has enter a padding in the option above
+* Fix: Moved the sharre script to assets/js/vendor
 
 ## 1.36
-* Added fluid layout option
-* Added option for menu on the right (navbar)
-* Re-organized some settings in the customizer
-* The hero-content setting is now a textarea
-* Fixed Button text colors
-* Better login & logout links
-* Fixed sharre rewrite rules on .htaccess
+* New: Added fluid layout option
+* New: Added option for menu on the right (navbar)
+* Fix: Re-organized some settings in the customizer
+* New: The hero-content setting is now a textarea
+* Fix: Fixed Button text colors
+* Fix: Better login & logout links
+* Fix: Fixed sharre rewrite rules on .htaccess
 
 ## 1.35
-* Updating jQuery to 1.9.0
+* New: Updating jQuery to 1.9.0
 
 ## 1.34
-* Minor bugfixes
+* Fix: Minor bugfixes
 
 ## 1.33
-* moving template title to function
-* Updating the [gallery] shortcode
-* Better nice search
+* New: moving template title to function
+* Fix: Updating the [gallery] shortcode
+* New: Better nice search
 
 ## 1.32
-* Bugfixes and typos
+* Fix: Bugfixes and typos
 
 ## 1.31
 
-* Better separation of normal and responsive stylesheets
-* Better administration page
-* Added option to minimize the CSS
-* Added page templates for full-width and single-sidebar layouts
+* New: Better separation of normal and responsive stylesheets
+* New: Better administration page
+* New: Added option to minimize the CSS
+* New: Added page templates for full-width and single-sidebar layouts
 
 ##1.30
-* Improves sidebar classes generation
-* Added slide-down widget areas on the primary navbar
-* Updating to jQuery 1.8.3
-* Updating to Bootstrap 2.2.2
-* Added textcolor setting
-* Added theme supports options to the admin page
-* Added optional searchbox in the primary navbar
+* Fix: Improves sidebar classes generation
+* New: Added slide-down widget areas on the primary navbar
+* New: Updating to jQuery 1.8.3
+* New: Updating to Bootstrap 2.2.2
+* New: Added textcolor setting
+* New: Added theme supports options to the admin page
+* New: Added optional searchbox in the primary navbar
 
 ## 1.20
-* Added the advanced custom builder
-* Added webont weight and locale
-* Improved the secondary navbar
-* Re-organized the customizer sections
-* Social shares using the sharrre script ( http://sharrre.com/ )
-* Caching the customizer using transients
+* New: Added the advanced custom builder
+* New: Added webfont weight and locale
+* Fix: Improved the secondary navbar
+* Fix: Re-organized the customizer sections
+* New: Social shares using the sharrre script ( http://sharrre.com/ )
+* New: Caching the customizer using transients
 
 ## 1.15
 * CAUTION: When updating from previous versions, you will have to re-visit the customizer and tweak some settings to make it the way you had it set-up before. This is due to the addition of some new settings.
-* Added Social sharing links on individual entries (pages, posts & custom post types). Users can choose the location of the share buttons (top, bottom, both, none) and the networks that they want to use (facebook, twitter, googleplus, linkedin, pinterest).
-* New administration page for the theme: allows users to enter their licence key for automatic updates and also allows addon plugin to hook into the same page. So any addons will not create additional administration pages in the future, resulting in a cleaner admin menu.
-* Added option to completely hide the top navbar
-* Added an option to allow adding a separate navbar below the hero section (useful if the top navbar is hidden)
-* Transformed many options to checkboxes instead of dropdowns (cleaner customizer
-* Added new customizer sections
-* Re-arranged customizer controls to include the newly-added sections
-* Bugfixes
+* New: Added Social sharing links on individual entries (pages, posts & custom post types). Users can choose the location of the share buttons (top, bottom, both, none) and the networks that they want to use (facebook, twitter, googleplus, linkedin, pinterest).
+* New: New administration page for the theme: allows users to enter their licence key for automatic updates and also allows addon plugin to hook into the same page. So any addons will not create additional administration pages in the future, resulting in a cleaner admin menu.
+* New: Added option to completely hide the top navbar
+* New: Added an option to allow adding a separate navbar below the hero section (useful if the top navbar is hidden)
+* Fix: Transformed many options to checkboxes instead of dropdowns (cleaner customizer
+* Fix: Added new customizer sections
+* Fix: Re-arranged customizer controls to include the newly-added sections
+* Fix: Bugfixes
 
 ## 1.14
-* Bugfixes
-* Better theming for login buttons (positioning)
-* Added the ability to display Sidebars on the frontpage (new customizer setting, defaults to “hide”)
+* Fix: Bugfixes
+* Fix: Better theming for login buttons (positioning)
+* New: Added the ability to display Sidebars on the frontpage (new customizer setting, defaults to “hide”)
 
 ## 1.1.3
-* Added second (secondary) sidebar
-* Better layout selection
-* Bugfixes
+* New: Added second (secondary) sidebar
+* Fix: Better layout selection
+* Fix: Bugfixes
 
 ## 1.1.2
-* Important Customizer bugfixes
+* Fix: Important Customizer bugfixes
  
 ## 1.1.1
-* Added ability to choose between responsive and fixed-width layouts
-* Compatibility with ubermenu
-* Added sidebar width selection (ranging from span2 to span6)
-* Various bugfixes & code cleanups
+* New: Added ability to choose between responsive and fixed-width layouts
+* Fix: Compatibility with ubermenu
+* New: Added sidebar width selection (ranging from span2 to span6)
+* Fix: Various bugfixes & code cleanups
 
 ## 1.1.0
-* Updating Bootstrap to 2.2.1
-* Compatibility fixes when upgrading from previous versions
-* Added basic styling on sidebar lists
-* Added social links on “NavBar” branding mode
-* Better loading of Google Webfonts
-* Optional “Affix” sidebar (see http://twitter.github.com/bootstrap/javascript.html#affix )
-* Added login/logout link in the NavBar
+* New: Updating Bootstrap to 2.2.1
+* Fix: Compatibility fixes when upgrading from previous versions
+* New: Added basic styling on sidebar lists
+* New: Added social links on “NavBar” branding mode
+* Fix: Better loading of Google Webfonts
+* New: Optional “Affix” sidebar (see http://twitter.github.com/bootstrap/javascript.html#affix )
+* New: Added login/logout link in the NavBar
 
 ## 1.0.2
-* Added “Advanced” section on the customizer, allowing users to enter their own scripts/css on the head and on the footer of the document
-* Social links now get sanitized
-* Twitter linksnow accept @username
-* Added “Branding mode” on the header & logo section. CAUTION: This setting does NOT auto-refresh the live preview. You have to save and close the customizer in order to see the changes. You can then re-open the customizer and continue your customizations. We also recoment that you have a logo uploaded otherwise it has no purpose
-* Added Login/Logout links to the Navbar (optional)
+* New: Added “Advanced” section on the customizer, allowing users to enter their own scripts/css on the head and on the footer of the document
+* Fix: Social links now get sanitized
+* New: Twitter links now accept @username
+* New: Added “Branding mode” on the header & logo section. CAUTION: This setting does NOT auto-refresh the live preview. You have to save and close the customizer in order to see the changes. You can then re-open the customizer and continue your customizations. We also recoment that you have a logo uploaded otherwise it has no purpose
+* New: Added Login/Logout links to the Navbar (optional)
 
 ## 1.0.0
 * Initial version
