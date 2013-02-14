@@ -11,6 +11,7 @@
 * Fix: Removed the call to action button border
 * Fix: Moved typography colors settings to the typography section
 * Fix: Bugfix for the navbar login link setting
+* Fix: Excerpts were not displayed in post listings
 * Fix: Code improvements
 
 ## 1.46

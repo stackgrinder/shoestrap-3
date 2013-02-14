@@ -252,17 +252,20 @@ function shoestrap_social_share_singular( $content ) {
       }
       $social .= '</span></span>';
     }
-  
-  
-    if ( $location == 'top' ) {
-      return $social . $content;
-    } elseif ( $location == 'bottom' ) {
-      return $content . $social;
-    } elseif ( $location == 'both' ) {
-      return $social . $content . $social;
-    } else {
-      return $content;
-    }
+  }
+  echo $social;
+}
+
+function shoestrap_social_share_add_actions() { 
+  $location     = get_theme_mod( 'shoestrap_single_social_position' );
+
+  if ( $location == 'top' ) {
+    add_action( 'shoestrap_before_the_content', 'shoestrap_social_share_singular');
+  } elseif ( $location == 'bottom' ) {
+    add_action( 'shoestrap_after_the_content', 'shoestrap_social_share_singular');
+  } elseif ( $location == 'both' ) {
+    add_action( 'shoestrap_before_the_content', 'shoestrap_social_share_singular');
+    add_action( 'shoestrap_after_the_content', 'shoestrap_social_share_singular');
   }
 }
-add_action( 'the_content', 'shoestrap_social_share_singular' );
+add_action( 'wp', 'shoestrap_social_share_add_actions' );
