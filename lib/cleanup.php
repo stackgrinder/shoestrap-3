@@ -136,7 +136,7 @@ add_filter('body_class', 'shoestrap_body_class');
  */
 function shoestrap_root_relative_url($input) {
   // fix for site_url != home_url()
-  if(!is_admin()) {
+  if(!is_admin() && site_url() != home_url()) {
     $input = str_replace(site_url(), "", $input);
   }
   
