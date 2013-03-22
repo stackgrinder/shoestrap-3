@@ -67,6 +67,7 @@ function shoestrap_custom_builder_rewrite_variables() {
   $flatbuttons          = get_theme_mod( 'shoestrap_flat_buttons' );
   $navtextcolor         = get_theme_mod( 'shoestrap_navbar_textcolor' );
 
+  if ( !isset( $bodyBackground ) ) { $bodyBackground == '#FFFFFF'; }
   if ( strlen( $bodyBackground ) < 6 ) { $bodyBackground == '#FFFFFF'; }
   if ( strlen( $textColor ) < 6 ) { $textColor == '#333333'; }
   if ( strlen( $linkColor ) < 6 ) { $linkColor == '#0088CC'; }
