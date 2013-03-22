@@ -20,6 +20,7 @@ function shoestrap_scripts() {
   $header_scripts       = get_option( 'shoestrap_load_scripts_on_header' );
   $no_radius            = get_theme_mod( 'shoestrap_general_no_radius' );
   $no_gradients         = get_theme_mod( 'shoestrap_general_no_gradients' );
+  $override_js_version  = get_option( 'shoestrap_override_js_version' );
   
   if ( $header_scripts == 1 )
     $h_f = false;
@@ -52,7 +53,7 @@ function shoestrap_scripts() {
   // jQuery is loaded using the same method from HTML5 Boilerplate:
   // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
   // It's kept in the header instead of footer to avoid conflicts with plugins.
-  if (!is_admin() && current_theme_supports('jquery-cdn')) {
+  if ( !is_admin() && current_theme_supports( 'jquery-cdn' ) && $override_js_version == 1 ) {
     wp_deregister_script('jquery');
     wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', false, null, $h_f);
     add_filter('script_loader_src', 'shoestrap_jquery_local_fallback', 10, 2);

@@ -12,6 +12,8 @@ function shoestrap_dev_mode_register_options() {
 
   register_setting( 'shoestrap_advanced', 'shoestrap_customizer_caching' );
   register_setting( 'shoestrap_advanced', 'shoestrap_load_scripts_on_header' );
+
+  register_setting( 'shoestrap_advanced', 'shoestrap_override_js_version' );
 }
 
 add_action( 'shoestrap_admin_content', 'shoestrap_dev_mode_toggle', 15 );
@@ -21,6 +23,8 @@ function shoestrap_dev_mode_toggle() {
   $customizer_caching = get_option( 'shoestrap_customizer_caching' );
   $header_scripts     = get_option( 'shoestrap_load_scripts_on_header' );
   
+  $override_js        = get_option( 'shoestrap_override_js_version' );
+
   $current_url        = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
   $customizeurl       = add_query_arg( 'url', urlencode( $current_url ), wp_customize_url() );
   if ( get_option( 'shoestrap_dev_mode' ) != 1 ) {
@@ -112,6 +116,24 @@ function shoestrap_dev_mode_toggle() {
             <?php _e( 'In Production sites this option should be turned OFF.', 'shoestrap' ); ?>
             <?php _e( 'However, in some cases you might want to enable this.', 'shoestrap' ); ?>
             <?php _e( 'For example if you write inline jquery scripts in your posts, this must be turned ON.', 'shoestrap' ); ?>)
+          </p>
+        </div>
+
+        <div class="shoestrap_override_js_version">
+          <?php if ( get_option( 'shoestrap_dev_mode' ) != 1 ) { ?>
+            <style>
+              div.shoestrap_override_js_version{
+                opacity: 0.5;
+              }
+            </style>
+          <?php } ?>
+          <input id="shoestrap_override_js_version" name="shoestrap_override_js_version" <?php echo $disabled; ?> type="checkbox" value="1" <?php checked('1', get_option('shoestrap_override_js_version')); ?> />
+          <label class="description" for="shoestrap_override_js_version">
+            <?php _e( 'Use latest version of jQuery', 'shoestrap' ); ?>
+          </label>
+          <p>
+            <?php _e( 'This is by default turned OFF because of conflicts with BuddyPress and some other plugins', 'shoestrap' ); ?>
+            <?php _e( 'If you enable this please make sure that all your front-end plugins are compatible with the latest jQuery.', 'shoestrap' ); ?>
           </p>
         </div>
 
