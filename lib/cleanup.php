@@ -83,9 +83,9 @@ function shoestrap_language_attributes() {
 
 add_filter('language_attributes', 'shoestrap_language_attributes');
 
- /**
-+ * Manage output of wp_title()
-+ */
+/**
+ * Manage output of wp_title()
+ */
 function shoestrap_wp_title($title) {
   if (is_feed()) {
     return $title;
