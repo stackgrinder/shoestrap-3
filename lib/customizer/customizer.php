@@ -36,7 +36,7 @@ if ( $advanced_builder != 1 ) {
   require_once locate_template( '/lib/customizer/typography/styles.php' );            // Typography styles
   require_once locate_template( '/lib/customizer/buttons/styles.php' );               // Buttons styles
 }
-require_once locate_template( '/lib/customizer/typographu/webfonts-functions.php' );  // Webfont functions
+require_once locate_template( '/lib/customizer/typography/webfonts-functions.php' );  // Webfont functions
 require_once locate_template( '/lib/customizer/hero/styles.php' );                    // Hero styles
 require_once locate_template( '/lib/customizer/social/styles.php' );                  // Social Sharing Styles
 require_once locate_template( '/lib/customizer/footer/styles.php' );                  // Footer Styles
