@@ -1,8 +1,6 @@
 <?php
 /**
- * Required by WordPress.
- *
- * Keep this file clean and only use it for requires.
+ * Shoestrap includes.
  */
 
 $advanced_builder = get_option('shoestrap_advanced_compiler');
