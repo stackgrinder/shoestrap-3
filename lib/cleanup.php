@@ -350,7 +350,7 @@ function shoestrap_gallery($attr) {
     return $output;
   }
 
-  $output = '<ul class="thumbnails gallery">';
+  $output = '<div class="gallery"><ul class="thumbnails gallery">';
 
   $i = 0;
   foreach ($attachments as $id => $attachment) {
@@ -363,7 +363,7 @@ function shoestrap_gallery($attr) {
     $output .= '</li>';
   }
 
-  $output .= '</ul>';
+  $output .= '</ul></div>';
 
   return $output;
 }
