@@ -165,7 +165,7 @@ function shoestrap_root_relative_url($input) {
 }
 
 function shoestrap_enable_root_relative_urls() {
-  return !(is_admin() && in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))) && current_theme_supports('root-relative-urls');
+  return !(is_admin() || in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))) && current_theme_supports('root-relative-urls');
 }
 
 if (shoestrap_enable_root_relative_urls()) {
