@@ -135,9 +135,11 @@ add_filter('body_class', 'shoestrap_body_class');
  * @author Scott Walkinshaw <scott.walkinshaw@gmail.com>
  */
 function shoestrap_root_relative_url($input) {
+  // fix for site_url != home_url()
   if(!is_admin()) {
     $input = str_replace(site_url(), "", $input);
   }
+  
   $output = preg_replace_callback(
     '!(https?://[^/|"]+)([^"]+)?!',
     create_function(
