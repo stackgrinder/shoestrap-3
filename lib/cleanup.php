@@ -135,6 +135,9 @@ add_filter('body_class', 'shoestrap_body_class');
  * @author Scott Walkinshaw <scott.walkinshaw@gmail.com>
  */
 function shoestrap_root_relative_url($input) {
+  if(!is_admin()) {
+    $input = str_replace(site_url(), "", $input);
+  }
   $output = preg_replace_callback(
     '!(https?://[^/|"]+)([^"]+)?!',
     create_function(
@@ -148,23 +151,6 @@ function shoestrap_root_relative_url($input) {
     ),
     $input
   );
-
-  return $output;
-}
-
-/**
- * Terrible workaround to remove the duplicate subfolder in the src of <script> and <link> tags
- * Example: /subfolder/subfolder/css/style.css
- */
-function shoestrap_fix_duplicate_subfolder_urls($input) {
-  $output = shoestrap_root_relative_url($input);
-  preg_match_all('!([^/]+)/([^/]+)!', $output, $matches);
-
-  if (isset($matches[1][0]) && isset($matches[2][0])) {
-    if ($matches[1][0] === $matches[2][0]) {
-      $output = substr($output, strlen($matches[1][0]) + 1);
-    }
-  }
 
   return $output;
 }
@@ -192,13 +178,12 @@ if (shoestrap_enable_root_relative_urls()) {
     'day_link',
     'year_link',
     'tag_link',
-    'the_author_posts_link'
+    'the_author_posts_link',
+    'script_loader_src',
+    'style_loader_src'
   );
 
   add_filters($root_rel_filters, 'shoestrap_root_relative_url');
-
-  add_filter('script_loader_src', 'shoestrap_fix_duplicate_subfolder_urls');
-  add_filter('style_loader_src', 'shoestrap_fix_duplicate_subfolder_urls');
 }
 
 /**
