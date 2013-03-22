@@ -55,7 +55,7 @@ function shoestrap_scripts() {
   if (!is_admin() && current_theme_supports('jquery-cdn')) {
     wp_deregister_script('jquery');
     wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', false, null, $h_f);
-    add_filter('script_loader_src', 'roots_jquery_local_fallback', 10, 2);
+    add_filter('script_loader_src', 'shoestrap_jquery_local_fallback', 10, 2);
   }
   
   if ( $h_f == false ) {
