@@ -22,6 +22,7 @@ function shoestrap_hero_customizer( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_hero_background_color',     'default' => '#333333' );
   $settings[] = array( 'slug' => 'shoestrap_hero_textcolor',            'default' => '#ffffff' );
   $settings[] = array( 'slug' => 'shoestrap_hero_visibility',           'default' => 'front' );
+  $settings[] = array( 'slug' => 'shoestrap_hero_title_fittext',        'default' => '' );
   
   foreach( $settings as $setting ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
@@ -47,6 +48,10 @@ function shoestrap_hero_customizer( $wp_customize ){
   $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_text',          'label' => 'Call To Action Button Text',    'section' => 'shoestrap_hero',  'priority' => 3 );
   $text_controls[]  = array( 'setting' => 'shoestrap_hero_cta_link',          'label' => 'Call To Action Button Link',    'section' => 'shoestrap_hero',  'priority' => 4 );
   
+  //Checkbox Controls
+  $checkbox_controls = array();
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_hero_title_fittext',  'label' => 'Use FitText for the Title',     'section' => 'shoestrap_hero',  'priority' => 2 );
+
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(
       $wp_customize,
@@ -91,6 +96,16 @@ function shoestrap_hero_customizer( $wp_customize ){
       'settings'    => $control['setting'],
       'type'        => 'text',
       'priority'    => $control['priority']
+    ));
+  }
+
+  foreach ( $checkbox_controls as $control ) {
+    $wp_customize->add_control( $control['setting'], array(
+      'label'       => __( $control['label'], 'shoestrap' ),
+      'section'     => $control['section'],
+      'settings'    => $control['setting'],
+      'type'        => 'checkbox',
+      'priority'    => $control['priority'],
     ));
   }
 
@@ -150,3 +165,11 @@ function shoestrap_hero_content() {
   <?php }
 }
 add_action( 'shoestrap_hero', 'shoestrap_hero_content' );
+
+function shoestrap_hero_title_fittext_script() {
+  if ( get_theme_mod( 'shoestrap_hero_title_fittext' ) == 1 ) {
+    echo '<style>.hero-title { width: 100%; } </style>';
+    echo '<script>$(".hero-title").fitText();</script>';
+  }
+}
+add_action('wp_footer', 'shoestrap_hero_title_fittext_script', 100);
