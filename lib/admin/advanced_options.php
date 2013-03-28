@@ -51,17 +51,15 @@ function shoestrap_dev_mode_toggle() {
         <label class="description" for="shoestrap_dev_mode">
           <?php _e( 'Enable Developer Mode', 'shoestrap' ); ?>
         </label>
-        <p>
-          <?php _e( 'When you enable the developer mode, the LESS compiler will detect any changes to your less files and re-compile the css files accordingly.', 'shoestrap' ); ?>
-          <?php _e( 'When the developer mode is enabled, the stylesheets are NOT minimized.', 'shoestrap' ); ?>
-          <?php _e( 'In Production sites this option should be turned OFF.', 'shoestrap' ); ?>
-        </p>
+        <p><?php _e( 'When you enable the developer mode, the LESS compiler will detect any changes to your less files and re-compile the css files accordingly.', 'shoestrap' ); ?></p>
+        <p><strong><span style="color: #cc0000"><?php _e( 'CAUTION:', 'shoestrap' ); ?></span> <?php _e( 'The options below should NOT be used unless you understand what they are doing and are willing to experiment!', 'shoestrap' ); ?></strong></p>
+        <p><?php _e( 'In Production sites this option should be turned OFF or else your site may become slow.', 'shoestrap' ); ?></p>
         
         <p><?php _e( 'The actual compiling is done using leafo\'s ', 'shoestrap' ); ?><a href="leafo.net/lessphp/"><?php _e( 'PHP-LESS compiler', 'shoestrap' ); ?></a></p>
-        <?php _e( 'Before enabling this option, please make sure that you webserver can write to the', 'shoestrap' ); ?>
-        <code>assets/css/app.css</code> <?php _e( 'and', 'shoestrap' ); ?> <code>assets/css/responsive.css</code>
-        <?php _e( 'files', 'shoestrap' ); ?>
-        <p>
+        <p><?php _e( 'Before enabling this option, please make sure that you webserver can write to the', 'shoestrap' ); ?>
+        <code>assets/css/app.css</code> <?php _e( 'and', 'shoestrap' ); ?> <code>assets/css/responsive.css</code> <?php _e( 'files', 'shoestrap' ); ?></p>
+        <p><strong><span style="color: #cc0000"><?php _e( 'CAUTION:', 'shoestrap' ); ?></span> <?php _e( 'If the above files are not writable by your webserver, you will might receive a fatal PHP error', 'shoestrap' ); ?></strong></p>
+        <p><?php _e( 'If that happens don\'t panic, just FTP to your site and MAKE SURE they are writable.', 'shoestrap' ); ?></p>
         <p><?php _e( 'Once you enable the developer mode, you will also be able to select to minimize your css files, as well as enable the', 'shoestrap' ); ?> <strong><?php _e( 'Advanced Customizer', 'shoestrap' ); ?></strong></p>
         
         <hr />
