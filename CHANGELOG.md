@@ -1,5 +1,22 @@
 # Shoestrap Theme Changelog
 
+## 1.48
+* Fix: Removed disabled post nav links
+* Fix: Simplified 404
+* Fix: Updated editor-style.css
+* Fix: Root Relative URLs
+* Fix: Hack for subdir installations
+* Fix: Fix for admin bar
+* New: Updated Bootstrap to 2.3.1
+* New: added 'jquery-cdn' theme support
+* Fix: Fix for navbar dropdowns
+* New: Added wp_title() filter
+* Fix: hNews consistency
+* Fix: Fix for the jetpack carousel
+* New: added option to override the default wordpress jquery with the latest version available
+* Fix: Make sure webfonts work in advanced customizer as well
+* New: Added fittext script for the hero region title.  
+
 ## 1.47
 * New: Added a "general" section to the customizer
 * New: Added a "No Gradients" setting to the general section
