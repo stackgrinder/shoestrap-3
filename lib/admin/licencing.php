@@ -88,7 +88,7 @@ function shoestrap_activate_license() {
   if ( strlen( $license_key ) < 7 )
     return;
 
-  if( get_option( 'shoestrap_license_key_status' ) == 'active' )
+  if( get_option( 'shoestrap_license_key_status' ) == 'valid' )
     return;
 
   $license = trim( get_option( 'shoestrap_license_key' ) );
