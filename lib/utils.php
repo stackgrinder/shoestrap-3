@@ -26,7 +26,7 @@ function shoestrap_title() {
     } elseif (is_year()) {
       printf(__('Yearly Archives: %s', 'shoestrap'), get_the_date('Y'));
     } elseif (is_author()) {
-      printf(__('Author Archives: %s', 'roots'), get_the_author());
+      printf(__('Author Archives: %s', 'shoestrap'), get_the_author());
     } else {
       single_cat_title();
     }
