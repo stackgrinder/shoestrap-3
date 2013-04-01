@@ -2,7 +2,6 @@
 /*
 Template Name: Full-Width
 */
-?>
 
-<?php get_template_part('templates/page', 'header'); ?>
-<?php get_template_part('templates/content', 'page'); ?>
+get_template_part('templates/page', 'header');
+get_template_part('templates/content', 'page');
