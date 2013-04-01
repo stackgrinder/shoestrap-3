@@ -1,9 +1,8 @@
 <?php
-if ( get_theme_mod( 'shoestrap_navbar_fixed' ) == '1' ) {
+if ( get_theme_mod( 'shoestrap_navbar_fixed' ) == '1' )
   $navbar_class = 'navbar navbar-fixed-top';
-} else {
+else
   $navbar_class = 'navbar navbar-static-top';
-}
 ?>
 
 <header id="banner" class="topnavbar <?php echo $navbar_class; ?>" role="banner">
@@ -19,17 +18,17 @@ if ( get_theme_mod( 'shoestrap_navbar_fixed' ) == '1' ) {
           <?php shoestrap_navbar_brand(); ?>
         </a>
       <?php } ?>
-      <?php do_action('shoestrap_primary_nav_top_left'); ?>
-      <?php do_action('shoestrap_nav_top_left'); ?>
+      <?php do_action( 'shoestrap_primary_nav_top_left' ); ?>
+      <?php do_action( 'shoestrap_nav_top_left' ); ?>
       <nav id="nav-main" class="nav-collapse" role="navigation">
         <?php
-          if (has_nav_menu('primary_navigation')) :
+          if ( has_nav_menu( 'primary_navigation' ) ) :
             wp_nav_menu( array( 'theme_location' => 'primary_navigation', 'menu_class' => shoestrap_nav_class_pull() ) );
           endif;
         ?>
       </nav>
-      <?php do_action('shoestrap_nav_top_right'); ?>
+      <?php do_action( 'shoestrap_nav_top_right' ); ?>
     </div>
   </div>
-  <?php do_action('shoestrap_nav_top_bottom'); ?>
+  <?php do_action( 'shoestrap_nav_top_bottom' ); ?>
 </header>
