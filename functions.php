@@ -5,27 +5,51 @@
 
 $advanced_builder = get_option('shoestrap_advanced_compiler');
 
-require_once locate_template( '/lib/utils.php' );                           // Utility functions
-require_once locate_template( '/lib/init.php' );                            // Initial theme setup and constants
-require_once locate_template( '/lib/sidebar.php' );                         // Sidebar class
-require_once locate_template( '/lib/config.php' );                          // Configuration
-require_once locate_template( '/lib/activation.php' );                      // Theme activation
-require_once locate_template( '/lib/cleanup.php' );                         // Cleanup
-require_once locate_template( '/lib/nav.php' );                             // Custom nav modifications
-require_once locate_template( '/lib/comments.php' );                        // Custom comments modifications
-require_once locate_template( '/lib/htaccess.php' );                        // Rewrites for assets, H5BP .htaccess
-require_once locate_template( '/lib/widgets.php' );                         // Sidebars and widgets
-require_once locate_template( '/lib/scripts.php' );                         // Scripts and stylesheets
+$files    = array();
+// Utility functions
+$files[]  = array( 'filename' => '/lib/utils.php' );
+// Initial theme setup and constants
+$files[]  = array( 'filename' => '/lib/init.php' );
+// Sidebar class
+$files[]  = array( 'filename' => '/lib/sidebar.php' );
+// Configuration
+$files[]  = array( 'filename' => '/lib/config.php' );
+// Theme activation
+$files[]  = array( 'filename' => '/lib/activation.php' );
+// Cleanup
+$files[]  = array( 'filename' => '/lib/cleanup.php' );
+// Custom nav modifications
+$files[]  = array( 'filename' => '/lib/nav.php' );
+// Custom comments modifications
+$files[]  = array( 'filename' => '/lib/comments.php' );
+// Rewrites for assets, H5BP .htaccess
+$files[]  = array( 'filename' => '/lib/htaccess.php' );
+// Sidebars and widgets
+$files[]  = array( 'filename' => '/lib/widgets.php' );
+// Scripts and stylesheets
+$files[]  = array( 'filename' => '/lib/scripts.php' );
+// Slide-down widget area functions
+$files[]  = array( 'filename' => '/lib/slide-down.php' );
+// Customizer functions
+$files[]  = array( 'filename' => '/lib/customizer/customizer.php' );
 
-require_once locate_template( '/lib/slide-down.php' );                      // Slide-down widget area functions
+// Custom functions
+$files[]  = array( 'filename' => '/lib/custom.php' );
 
-require_once locate_template( '/lib/customizer/customizer.php' );           // Customizer functions
+// Admin page
+$files[]  = array( 'filename' => '/lib/admin/admin.php' );
+// Licencing to allow auto-updates
+$files[]  = array( 'filename' => '/lib/admin/licencing.php' );
 
-require_once locate_template( '/lib/custom.php' );                          // Custom functions
-require_once locate_template( '/lib/admin/admin.php' );                     // Admin page
-require_once locate_template( '/lib/admin/licencing.php' );                 // Licencing to allow auto-updates
+// Less Compiling functions
+$files[]  = array( 'filename' => '/lib/less.php' );
 
-require_once locate_template( '/lib/less.php' );                            // Less Compiling functions
+
+foreach( $files as $file ) {
+  if ( file_exists( locate_template( $file ) ) ) {
+    require_once locate_template( $file );
+  }
+}
 
 // Load the following options only on single-site installations
 // OR on multisite when the user is super-admin.
