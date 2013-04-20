@@ -39,7 +39,7 @@ class Shoestrap_Nav_Walker extends Walker_Nav_Menu {
   }
 
   function display_element($element, &$children_elements, $max_depth, $depth = 0, $args, &$output) {
-    $element->is_dropdown =  ((!empty($children_elements[$element->ID]) && (($depth + 1) < $max_depth)));
+    $element->is_dropdown = ((!empty($children_elements[$element->ID] ) && (($depth + 1 ) < $max_depth || ( $max_depth === 0 ))));
 
     if ($element->is_dropdown) {
       if ($depth === 0) {
