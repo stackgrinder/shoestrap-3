@@ -30,6 +30,13 @@ $files[]  = array( 'filename' => '/lib/widgets.php' );
 $files[]  = array( 'filename' => '/lib/scripts.php' );
 // Slide-down widget area functions
 $files[]  = array( 'filename' => '/lib/slide-down.php' );
+
+// Load the following options only on single-site installations
+// OR on multisite when the user is super-admin.
+if ( ( is_multisite() && is_super_admin() ) || !is_multisite() ) {
+  require_once locate_template( '/lib/admin/advanced_options.php' );        // Theme Advanced Options
+}
+
 // Customizer functions
 $files[]  = array( 'filename' => '/lib/customizer/customizer.php' );
 
@@ -42,17 +49,12 @@ $files[]  = array( 'filename' => '/lib/admin/admin.php' );
 $files[]  = array( 'filename' => '/lib/admin/licencing.php' );
 
 // Less Compiling functions
-$files[]  = array( 'filename' => '/lib/less.php' );
+if ( shoestrap_check_files_permissions( true ) != true )
+  $files[]  = array( 'filename' => '/lib/less.php' );
 
 
 foreach( $files as $file ) {
   if ( file_exists( locate_template( $file ) ) ) {
     require_once locate_template( $file );
   }
-}
-
-// Load the following options only on single-site installations
-// OR on multisite when the user is super-admin.
-if ( ( is_multisite() && is_super_admin() ) || !is_multisite() ) {
-  require_once locate_template( '/lib/admin/advanced_options.php' );        // Theme Advanced Options
 }

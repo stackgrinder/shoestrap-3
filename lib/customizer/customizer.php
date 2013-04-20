@@ -30,7 +30,7 @@ require_once locate_template( '/lib/customizer/advanced/functions.php' );       
 require_once locate_template( '/lib/customizer/header/styles.php' );                  // Branding (header) region, containing the logo etc.
 require_once locate_template( '/lib/customizer/background/styles.php' );              // Page and wrap background
 
-if ( $advanced_builder != 1 ) {
+if ( $advanced_builder != 1 || ( $advanced_builder == 1 && ( shoestrap_check_files_permissions( true ) == true ) ) ) {
   require_once locate_template( '/lib/customizer/buttons/functions.php' );            // Buttons Customizer
   require_once locate_template( '/lib/customizer/navbar/styles.php' );                // NavBar styles
   require_once locate_template( '/lib/customizer/typography/styles.php' );            // Typography styles
@@ -41,7 +41,7 @@ require_once locate_template( '/lib/customizer/hero/styles.php' );              
 require_once locate_template( '/lib/customizer/social/styles.php' );                  // Social Sharing Styles
 require_once locate_template( '/lib/customizer/footer/styles.php' );                  // Footer Styles
 
-if ( $advanced_builder == 1 ) {
+if ( $advanced_builder == 1 && ( shoestrap_check_files_permissions( true ) != true ) ) {
   require_once locate_template( '/lib/customizer/custom-builder/custom-builder.php'); // Custom Bootstrap Builder
 }
 

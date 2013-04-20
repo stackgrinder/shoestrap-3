@@ -212,7 +212,7 @@ function shoestrap_dev_mode_toggle() {
  * Check the files permissions and echo a message for admins
  * if files are not writable.
  */
-function shoestrap_check_files_permissions() {
+function shoestrap_check_files_permissions( $check = false ) {
 
   $files  = array(
     'variables'   =>  locate_template( 'assets/less/bootstrap/variables.less' ),
@@ -223,38 +223,53 @@ function shoestrap_check_files_permissions() {
     'responsive'  =>  locate_template( 'assets/css/responsive.css' ),
   );
   
+  // Set $error to false by default
+  $error = false;
+  // If one of the files is NOT writable, set $error to true
   foreach ( $files as $file ) {
-    if ( !defined( 'SHOESTRAP_COMPILER_WRITABLE_ERROR' ) ) {
-      if ( !is_writable( $file ) )
-        define( 'SHOESTRAP_COMPILER_WRITABLE_ERROR', true );
-    }
+    if ( !is_writable( $file ) )
+      $error = true;
   }
 
-  if ( 'SHOESTRAP_COMPILER_WRITABLE_ERROR' == true ) {
-    echo '<div class="error">';
-      echo '<h2>' . __( 'Important notice:', 'shoestrap' ) . '</h2>';
-      echo '<p>' . __( 'The advanced mode of the Shoestrap theme requires some files in your theme folder to be writable by your webserver.', 'shoestrap' ) . '</p>';
-      echo '<p>' . __( 'Please make sure that all files listed below are marked as Writable.', 'shoestrap' ) . '</p>';
-      echo '<p>' . __( 'In case you see a file marked as "Not Writable", you will have to change its permissions and make it writable.', 'shoestrap' ) . '</p>';
-      echo '<table class="table table-bordered" style="width: 100%;">';
+  if ( $error == true ) {
+    $message = '';
+    $message .= '<div class="error">';
+    $message .= '<h2>' . __( 'Important notice:', 'shoestrap' ) . '</h2>';
+    $message .= '<p>' . __( 'The advanced mode of the Shoestrap theme requires some files in your theme folder to be writable by your webserver.', 'shoestrap' ) . '</p>';
+    $message .= '<p>' . __( 'Please make sure that all files listed below are marked as Writable.', 'shoestrap' ) . '</p>';
+    $message .= '<p>' . __( 'In case you see a file marked as "Not Writable", you will have to change its permissions and make it writable.', 'shoestrap' ) . '</p>';
+    $message .= '<table class="table table-bordered" style="width: 100%;">';
 
-      foreach ( $files as $file ) {
-        echo '<tr><td style="border-bottom: 1px solid;">' . $file . ' : </td>';
-        if ( is_writable( $file ) )
-          echo '<td style="border-bottom: 1px solid;"><strong>' .  __( 'Writable', 'shoestrap' ) . '</strong></td>';
-        else
-          echo '<td style="border-bottom: 1px solid;"><strong>' .  __( 'Not Writable', 'shoestrap' ) . '</strong></td>';
-        
-        echo '</tr>';
-      }
-    echo '</table>';
-    echo '<p>' . __( 'Once you make your changes please refresh this page. Once you see no more error messages you\'ll be able to use the developer tools.', 'shoestrap' ) . '</p>';
-    echo '</div>';
+    foreach ( $files as $file ) {
+      $message .= '<tr><td style="border-bottom: 1px solid;">' . $file . ' : </td>';
+      if ( is_writable( $file ) )
+        $message .= '<td style="border-bottom: 1px solid;"><strong>' .  __( 'Writable', 'shoestrap' ) . '</strong></td>';
+      else
+        $message .= '<td style="border-bottom: 1px solid;"><strong>' .  __( 'Not Writable', 'shoestrap' ) . '</strong></td>';
+
+      $message .= '</tr>';
+    }
+    $message .= '</table>';
+    $message .= '<p>' . __( 'Once you make your changes please refresh this page. Once you see no more error messages you\'ll be able to use the developer tools.', 'shoestrap' ) . '</p>';
+    $message .= '</div>';
+
+    // If $check is set to true when the function is being called, then simply return the $error value
+    // If $check is set to false (or not set) then the error message is being echoed.
+    if ( $check == true )
+      return $error;
+    else
+      echo $message;
   }
 }
+
+function shoestrap_files_permissions_error_message() {
+  if ( shoestrap_check_files_permissions( true ) == true )
+    shoestrap_check_files_permissions();
+}
+
 /*
  * If developer mode is enabled, add the admin notice
  */
 $shoestrap_dev_mode = get_option( 'shoestrap_dev_mode' );
 if ( $shoestrap_dev_mode == 1 )
-  add_action( 'admin_notices', 'shoestrap_check_files_permissions' );
+  add_action( 'admin_notices', 'shoestrap_files_permissions_error_message' );
