@@ -3,7 +3,6 @@
 // require_once locate_template( '/lib/customizer/functions/extras.php' );                   // Extra Functions for the customizer
 require_once locate_template( '/lib/customizer/custom-builder/components/customizer-settings.php' ); // Create Customizer Settings
 require_once locate_template( '/lib/customizer/custom-builder/components/customizer-controls.php' ); // Create Customizer Controls
-require_once locate_template( '/lib/admin/notices.php' );
 
 /*
  * The content below is a copy of bootstrap's variables.less file.
