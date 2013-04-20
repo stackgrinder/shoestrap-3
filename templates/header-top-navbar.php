@@ -20,7 +20,7 @@ else
       <?php } ?>
       <?php do_action( 'shoestrap_primary_nav_top_left' ); ?>
       <?php do_action( 'shoestrap_nav_top_left' ); ?>
-      <nav id="nav-main" class="nav-collapse" role="navigation">
+      <nav id="nav-main" class="nav-main nav-collapse collapse" role="navigation">
         <?php
           if ( has_nav_menu( 'primary_navigation' ) ) :
             wp_nav_menu( array( 'theme_location' => 'primary_navigation', 'menu_class' => shoestrap_nav_class_pull() ) );
