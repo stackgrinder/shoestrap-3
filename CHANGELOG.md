@@ -1,5 +1,13 @@
 # Shoestrap Theme Changelog
 
+## 1.49
+* Fix:  template & syntax improvements
+* Fix: better functions.php
+* Fix: simplifying some template files and omitting the closing ?> php tag
+* New: Admin notices for developer mode
+* Fix: Better comment template
+* Fix: adding missing classes to the top nav
+
 ## 1.48
 * Fix: Removed disabled post nav links
 * Fix: Simplified 404
