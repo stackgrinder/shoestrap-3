@@ -17,16 +17,16 @@
 
 function shoestrap_scripts() {
   $shoestrap_responsive = get_theme_mod( 'shoestrap_responsive' );
-  $header_scripts       = get_option( 'shoestrap_load_scripts_on_header' );
+  $footer_scripts       = get_option( 'shoestrap_load_scripts_on_footer' );
   $no_radius            = get_theme_mod( 'shoestrap_general_no_radius' );
   $no_gradients         = get_theme_mod( 'shoestrap_general_no_gradients' );
   $override_js_version  = get_option( 'shoestrap_override_js_version' );
   $hero_title_fittext   = get_theme_mod( 'shoestrap_hero_title_fittext' );
   
-  if ( $header_scripts == 1 )
-    $h_f = false;
-  else
+  if ( $footer_scripts == 1 )
     $h_f = true;
+  else
+    $h_f = false;
   
   if ( $no_gradients == 1 ) {
     if ( $no_radius == 1 ) {

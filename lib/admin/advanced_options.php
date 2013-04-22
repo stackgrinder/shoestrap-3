@@ -11,7 +11,7 @@ function shoestrap_dev_mode_register_options() {
   register_setting( 'shoestrap_advanced', 'shoestrap_rewrite_urls' );
 
   register_setting( 'shoestrap_advanced', 'shoestrap_customizer_caching' );
-  register_setting( 'shoestrap_advanced', 'shoestrap_load_scripts_on_header' );
+  register_setting( 'shoestrap_advanced', 'shoestrap_load_scripts_on_footer' );
 
   register_setting( 'shoestrap_advanced', 'shoestrap_override_js_version' );
 }
@@ -21,7 +21,7 @@ function shoestrap_dev_mode_toggle() {
   $shoestrap_dev_mode = get_option( 'shoestrap_dev_mode' );
   $advanced           = get_option( 'shoestrap_advanced_compiler' );
   $customizer_caching = get_option( 'shoestrap_customizer_caching' );
-  $header_scripts     = get_option( 'shoestrap_load_scripts_on_header' );
+  $footer_scripts     = get_option( 'shoestrap_load_scripts_on_footer' );
   
   $override_js        = get_option( 'shoestrap_override_js_version' );
 
@@ -106,9 +106,9 @@ function shoestrap_dev_mode_toggle() {
               }
             </style>
           <?php } ?>
-          <input id="shoestrap_load_scripts_on_header" name="shoestrap_load_scripts_on_header" <?php echo $disabled; ?> type="checkbox" value="1" <?php checked('1', get_option('shoestrap_load_scripts_on_header')); ?> />
-          <label class="description" for="shoestrap_load_scripts_on_header">
-            <?php _e( 'Load scripts on the <strong>head</strong> instead of the <strong>footer</strong> of the document', 'shoestrap' ); ?>
+          <input id="shoestrap_load_scripts_on_footer" name="shoestrap_load_scripts_on_footer" <?php echo $disabled; ?> type="checkbox" value="1" <?php checked('1', get_option('shoestrap_load_scripts_on_footer')); ?> />
+          <label class="description" for="shoestrap_load_scripts_on_footer">
+            <?php _e( 'Load scripts on the <strong>footer</strong> instead of the <strong>head</strong> of the document', 'shoestrap' ); ?>
           </label>
           <p>
             <?php _e( 'In Production sites this option should be turned OFF.', 'shoestrap' ); ?>
