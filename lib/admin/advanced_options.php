@@ -13,7 +13,7 @@ function shoestrap_dev_mode_register_options() {
   register_setting( 'shoestrap_advanced', 'shoestrap_customizer_caching' );
   register_setting( 'shoestrap_advanced', 'shoestrap_load_scripts_on_footer' );
 
-  register_setting( 'shoestrap_advanced', 'shoestrap_override_js_version' );
+  register_setting( 'shoestrap_advanced', 'shoestrap_use_default_js_version' );
 }
 
 add_action( 'shoestrap_admin_content', 'shoestrap_dev_mode_toggle', 15 );
@@ -23,7 +23,7 @@ function shoestrap_dev_mode_toggle() {
   $customizer_caching = get_option( 'shoestrap_customizer_caching' );
   $footer_scripts     = get_option( 'shoestrap_load_scripts_on_footer' );
   
-  $override_js        = get_option( 'shoestrap_override_js_version' );
+  $override_js        = get_option( 'shoestrap_use_default_js_version' );
 
   $current_url        = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
   $customizeurl       = add_query_arg( 'url', urlencode( $current_url ), wp_customize_url() );
@@ -117,21 +117,21 @@ function shoestrap_dev_mode_toggle() {
           </p>
         </div>
 
-        <div class="shoestrap_override_js_version">
+        <div class="shoestrap_use_default_js_version">
           <?php if ( get_option( 'shoestrap_dev_mode' ) != 1 ) { ?>
             <style>
-              div.shoestrap_override_js_version{
+              div.shoestrap_use_default_js_version{
                 opacity: 0.5;
               }
             </style>
           <?php } ?>
-          <input id="shoestrap_override_js_version" name="shoestrap_override_js_version" <?php echo $disabled; ?> type="checkbox" value="1" <?php checked('1', get_option('shoestrap_override_js_version')); ?> />
-          <label class="description" for="shoestrap_override_js_version">
+          <input id="shoestrap_use_default_js_version" name="shoestrap_use_default_js_version" <?php echo $disabled; ?> type="checkbox" value="1" <?php checked('1', get_option('shoestrap_use_default_js_version')); ?> />
+          <label class="description" for="shoestrap_use_default_js_version">
             <?php _e( 'Use latest version of jQuery', 'shoestrap' ); ?>
           </label>
           <p>
-            <?php _e( 'This is by default turned OFF because of conflicts with BuddyPress and some other plugins', 'shoestrap' ); ?>
-            <?php _e( 'If you enable this please make sure that all your front-end plugins are compatible with the latest jQuery.', 'shoestrap' ); ?>
+            <?php _e( 'Use the WordPress default version of jQuery instead of the latest version.', 'shoestrap' ); ?>
+            <?php _e( 'Enable this option if you have encountered any incompatibilities.', 'shoestrap' ); ?>
           </p>
         </div>
 
