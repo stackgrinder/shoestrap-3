@@ -11,6 +11,7 @@ function shoestrap_navbar_css(){
   $navbar_logo_padding  = get_theme_mod( 'shoestrap_navbar_logo_padding' );
   $navbar_no_gradient   = get_theme_mod( 'shoestrap_navbar_no_gradient' );
   $no_gradients         = get_theme_mod( 'shoestrap_general_no_gradients' );
+  $no_borders           = get_theme_mod( 'shoestrap_navbar_no_border' );
   
   // Make sure colors are properly formatted
   $header_bg_color  = '#' . str_replace( '#', '', $header_bg_color );
@@ -52,6 +53,10 @@ function shoestrap_navbar_css(){
   }
   $styles .= '}';
   
+  // Disable NavBar border & shadow
+  if ( $no_borders == 1 ) {
+    $styles .= '.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {-webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; border-bottom: 0;}';
+  }
   // Navbar Dropdown colors
   $styles .= '.navbar-inner .dropdown-menu{padding: 0;}';
   

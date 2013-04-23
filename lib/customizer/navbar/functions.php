@@ -31,6 +31,7 @@ function shoestrap_navbar_customizer( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_navbar_no_gradient',        'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_navbar_fixed',              'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_navbar_loginlink',          'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_navbar_no_border',          'default' => '' );
 
   // Secondary NavBar Settings
   $settings[] = array( 'slug' => 'shoestrap_navbar_secondary',          'default' => '' );
@@ -76,6 +77,7 @@ function shoestrap_navbar_customizer( $wp_customize ){
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_secondary',    'label' => 'Display Secondary NavBar',              'section' => 'shoestrap_secondary_navbar','priority' => 1 );
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar2_loginlink',   'label' => 'Show Login/Logout Link',                'section' => 'shoestrap_secondary_navbar','priority' => 5 );
   $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar2_social',      'label' => 'Display Social Links in the Navbar',    'section' => 'shoestrap_secondary_navbar','priority' => 6 );
+  $checkbox_controls[] = array( 'setting' => 'shoestrap_navbar_no_border',    'label' => 'Disable NavBar border and Shadow',      'section' => 'shoestrap_primary_navbar',  'priority' => 35 );
 
   // Text Controls
   $text_controls = array();
