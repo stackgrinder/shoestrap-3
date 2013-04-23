@@ -104,7 +104,7 @@ function shoestrap_sidebar_class_calc( $target, $offset = '', $echo = false ) {
     $secondary = 'span' . $second;
   }
 
-  if ( ( $layout == 'pms' && $fluid == 1 ) || ( $layout == 'mps' && $fluid == 1 ) ) {
+  if ( ( $layout == 'pms' && $fluid == 1 ) || ( $layout == 'mps' && $fluid == 1 ) || ( $layout == 'smp' && $fluid == 1 ) ) {
     $main = 'span' . ( 12 - $first );
   }
 
