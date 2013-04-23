@@ -91,6 +91,7 @@ function shoestrap_sidebar_class_calc( $target, $offset = '', $echo = false ) {
   $first  = get_theme_mod( 'shoestrap_aside_width' );
   $second = get_theme_mod( 'shoestrap_secondary_width' );
   $layout = get_theme_mod( 'shoestrap_layout' );
+  $fluid  = get_theme_mod( 'shoestrap_fluid' );
   
   // If secondary sidebar is empty, ignore it.
   if ( !is_active_sidebar( 'sidebar-secondary' ) ) {
@@ -102,6 +103,12 @@ function shoestrap_sidebar_class_calc( $target, $offset = '', $echo = false ) {
     $primary   = 'span' . $first;
     $secondary = 'span' . $second;
   }
+
+  if ( ( $layout == 'pms' && $fluid == 1 ) || ( $layout == 'mps' && $fluid == 1 ) ) {
+    $main = 'span' . ( 12 - $first );
+  }
+
+  $main_primary = 'span' . ( 12 - $second );
   
   // If the layout is "Main only", the main area should have a class of span12
   if ( $layout == 'm' ) {
@@ -135,6 +142,8 @@ function shoestrap_sidebar_class_calc( $target, $offset = '', $echo = false ) {
   } elseif ( $target == 'secondary' ) {
     // return the secondary class
     $class = $secondary;
+  } elseif ( $target == 'main-primary' ) {
+    $class = $main_primary;
   } else {
     // return the main class
     $class = $main;
@@ -159,23 +168,33 @@ function shoestrap_sidebar_class_calc( $target, $offset = '', $echo = false ) {
 function shoestrap_sidebars_positioning_css() {
   
   $shoestrap_layout = get_theme_mod( 'shoestrap_layout' );
-  
+  $fluid  = get_theme_mod( 'shoestrap_fluid' );
+
   if ( $shoestrap_layout == 'pm' ) {
     $css = '#main{float: right;}';
+    if ( $fluid == 1 ) {
+      $css .= '#sidebar {margin-left: 0;}';
+    }
   } elseif ( $shoestrap_layout == 'sm' ) {
     $css = '#main{float: right;}';
+    if ( $fluid == 1 ) {
+      $css .= '#secondary {margin-left: 0;}';
+    }
   } elseif ( $shoestrap_layout == 'mps' ) {
-    $css = '#secondary{float: right;}';
+    $css = '#secondary{float: right;} #main {margin-left: 0;}';
   } elseif ( $shoestrap_layout == 'msp' ) {
     $css = '#sidebar{float: right;}';
   } elseif ( $shoestrap_layout == 'pms' ) {
-    $css = '#main, #secondary{float: right;} .m_p_wrap{float: left;}';
+    $css = '#main, #secondary{float: right;} .m_p_wrap{float: left;} #sidebar {margin-left: 0}';
   } elseif ( $shoestrap_layout == 'psm' ) {
     $css = '#main{float: right;}';
+    if ( $fluid == 1 ) {
+      $css .= '#sidebar {margin-left: 0;}';
+    }
   } elseif ( $shoestrap_layout == 'smp' ) {
-    $css = '.m_p_wrap{float: right;}';
+    $css = '#wrap .m_p_wrap{float: right;} #main {margin-left: 0;}';
   } elseif ( $shoestrap_layout == 'spm' ) {
-    $css = '.m_p_wrap, #main{float: right;}';
+    $css = '#wrap .m_p_wrap, #wrap #main{float: right;} #sidebar {margin-left: 0}';
   } else {
     $css = '';
   } ?>

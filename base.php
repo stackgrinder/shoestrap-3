@@ -31,8 +31,9 @@
   <div id="wrap" class="<?php shoestrap_fluid_body_classes( 'container' ); ?>" role="document">
     <?php do_action('shoestrap_pre_content'); ?>
     <div id="content" class="<?php shoestrap_fluid_body_classes( 'row' ); ?>">
-      <?php if ( in_array ( $layout, array ( 'mps', 'pms', 'smp', 'spm' ) ) && shoestrap_display_sidebar() && shoestrap_display_primary_sidebar() ) ?>
-        <div class="m_p_wrap">
+      <?php if ( in_array ( $layout, array ( 'mps', 'pms', 'smp', 'spm' ) ) && shoestrap_display_sidebar() && shoestrap_display_primary_sidebar() ) { ?>
+        <div class="m_p_wrap <?php shoestrap_sidebar_class_calc( 'main-primary', '', true ); ?>">
+      <?php } ?>
 
       <?php do_action('shoestrap_pre_main'); ?>
       <div id="main" class="<?php echo shoestrap_main_class(); ?>" role="main">
@@ -47,8 +48,9 @@
             <?php do_action('shoestrap_after_sidebar'); ?>
           </aside>
         <?php } ?>
-        <?php if ( in_array ( $layout, array ( 'mps', 'pms', 'smp', 'spm' ) ) && shoestrap_display_sidebar() && shoestrap_display_primary_sidebar() ) ?>
+        <?php if ( in_array ( $layout, array ( 'mps', 'pms', 'smp', 'spm' ) ) && shoestrap_display_sidebar() && shoestrap_display_primary_sidebar() ) { ?>
           </div>
+        <?php } ?>
 
         <?php if ( !in_array ( $layout, array ( 'm', 'mp', 'pm' ) ) && shoestrap_display_sidebar() && shoestrap_display_secondary_sidebar() ) { ?>
           <aside id="secondary" class="<?php echo shoestrap_sidebar_class( 'secondary' ); ?>" role="complementary">
