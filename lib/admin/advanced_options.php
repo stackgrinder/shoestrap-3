@@ -29,6 +29,10 @@ function shoestrap_dev_mode_toggle() {
   $customizeurl       = add_query_arg( 'url', urlencode( $current_url ), wp_customize_url() );
   if ( get_option( 'shoestrap_dev_mode' ) != 1 ) {
     $disabled         = 'disabled';
+    // Disable the advanced customizer if developer mode is disabled
+    if ( $advanced == 1 ) {
+      update_option( 'shoestrap_advanced_compiler', '' );
+    }
   } else {
     $disabled         = '';
   }
