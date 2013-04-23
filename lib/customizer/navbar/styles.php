@@ -79,8 +79,9 @@ function shoestrap_navbar_css(){
   
   // Navbar Padding
   if ( $navbar_logo_padding != '' && $navbar_logo_padding >= 1 ) {
-    $styles .= '.navbar .nav > li {padding:' . $navbar_logo_padding . 'px 0;}';
+    $styles .= '.navbar .nav > li > a {padding:' . ( $navbar_logo_padding + 15 ) . 'px 15px;}';
     $styles .= '.navbar a.brand, .navbar .toggle-nav {padding-top:' . ( $navbar_logo_padding + 10 ) . 'px;}';
+    $styles .= '.navbar li.social-networks, .navbar .navbar-search{padding-top:' . $navbar_logo_padding . 'px;}';
   }
 
   // Navbar menu items text-color and active menu styling
@@ -131,11 +132,11 @@ function shoestrap_navbar_css(){
   $styles .= 'text-shadow: 0 1px 0 ' . shoestrap_adjust_brightness( $navbar_color, -15 ) . ';}';
   
   // Destroy active menu item background when user has added padding
-  if ( $navbar_logo_padding >= 1 ) {
-    $styles .= '.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{';
-    $styles .= 'background-color:none; background-color:transparent;';
-    $styles .= '-webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;}';
-  }
+  // if ( $navbar_logo_padding >= 1 ) {
+  //   $styles .= '.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{';
+  //   $styles .= 'background-color:none; background-color:transparent;';
+  //   $styles .= '-webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;}';
+  // }
 
   $styles .= '</style>';
   
