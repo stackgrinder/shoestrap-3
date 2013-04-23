@@ -25,6 +25,9 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+@-ms-viewport {
+  width: device-width;
+}
 .hidden {
   display: none;
   visibility: hidden;
@@ -259,7 +262,7 @@
     margin-left: 105.12820512821%;
     *margin-left: 105.02182214948%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset12:first-child {
     margin-left: 102.5641025641%;
     *margin-left: 102.45771958538%;
   }
@@ -267,7 +270,7 @@
     margin-left: 96.581196581197%;
     *margin-left: 96.474813602473%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset11:first-child {
     margin-left: 94.017094017094%;
     *margin-left: 93.910711038371%;
   }
@@ -275,7 +278,7 @@
     margin-left: 88.034188034188%;
     *margin-left: 87.927805055465%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset10:first-child {
     margin-left: 85.470085470085%;
     *margin-left: 85.363702491362%;
   }
@@ -283,7 +286,7 @@
     margin-left: 79.487179487179%;
     *margin-left: 79.380796508456%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset9:first-child {
     margin-left: 76.923076923077%;
     *margin-left: 76.816693944354%;
   }
@@ -291,7 +294,7 @@
     margin-left: 70.940170940171%;
     *margin-left: 70.833787961448%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset8:first-child {
     margin-left: 68.376068376068%;
     *margin-left: 68.269685397345%;
   }
@@ -299,7 +302,7 @@
     margin-left: 62.393162393162%;
     *margin-left: 62.286779414439%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset7:first-child {
     margin-left: 59.82905982906%;
     *margin-left: 59.722676850336%;
   }
@@ -307,7 +310,7 @@
     margin-left: 53.846153846154%;
     *margin-left: 53.73977086743%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset6:first-child {
     margin-left: 51.282051282051%;
     *margin-left: 51.175668303328%;
   }
@@ -315,7 +318,7 @@
     margin-left: 45.299145299145%;
     *margin-left: 45.192762320422%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset5:first-child {
     margin-left: 42.735042735043%;
     *margin-left: 42.628659756319%;
   }
@@ -323,7 +326,7 @@
     margin-left: 36.752136752137%;
     *margin-left: 36.645753773413%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset4:first-child {
     margin-left: 34.188034188034%;
     *margin-left: 34.081651209311%;
   }
@@ -331,7 +334,7 @@
     margin-left: 28.205128205128%;
     *margin-left: 28.098745226405%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset3:first-child {
     margin-left: 25.641025641026%;
     *margin-left: 25.534642662302%;
   }
@@ -339,7 +342,7 @@
     margin-left: 19.65811965812%;
     *margin-left: 19.551736679396%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset2:first-child {
     margin-left: 17.094017094017%;
     *margin-left: 16.987634115294%;
   }
@@ -347,7 +350,7 @@
     margin-left: 11.111111111111%;
     *margin-left: 11.004728132388%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset1:first-child {
     margin-left: 8.5470085470085%;
     *margin-left: 8.4406255682851%;
   }
@@ -584,7 +587,7 @@
     margin-left: 105.52486187845%;
     *margin-left: 105.41847889973%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset12:first-child {
     margin-left: 102.76243093923%;
     *margin-left: 102.6560479605%;
   }
@@ -592,7 +595,7 @@
     margin-left: 96.581196581197%;
     *margin-left: 96.474813602473%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset11:first-child {
     margin-left: 94.017094017094%;
     *margin-left: 93.910711038371%;
   }
@@ -600,7 +603,7 @@
     margin-left: 88.034188034188%;
     *margin-left: 87.927805055465%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset10:first-child {
     margin-left: 85.470085470085%;
     *margin-left: 85.363702491362%;
   }
@@ -608,7 +611,7 @@
     margin-left: 79.487179487179%;
     *margin-left: 79.380796508456%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset9:first-child {
     margin-left: 76.923076923077%;
     *margin-left: 76.816693944354%;
   }
@@ -616,7 +619,7 @@
     margin-left: 70.940170940171%;
     *margin-left: 70.833787961448%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset8:first-child {
     margin-left: 68.376068376068%;
     *margin-left: 68.269685397345%;
   }
@@ -624,7 +627,7 @@
     margin-left: 62.393162393162%;
     *margin-left: 62.286779414439%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset7:first-child {
     margin-left: 59.82905982906%;
     *margin-left: 59.722676850336%;
   }
@@ -632,7 +635,7 @@
     margin-left: 53.846153846154%;
     *margin-left: 53.73977086743%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset6:first-child {
     margin-left: 51.282051282051%;
     *margin-left: 51.175668303328%;
   }
@@ -640,7 +643,7 @@
     margin-left: 45.299145299145%;
     *margin-left: 45.192762320422%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset5:first-child {
     margin-left: 42.735042735043%;
     *margin-left: 42.628659756319%;
   }
@@ -648,7 +651,7 @@
     margin-left: 36.752136752137%;
     *margin-left: 36.645753773413%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset4:first-child {
     margin-left: 34.188034188034%;
     *margin-left: 34.081651209311%;
   }
@@ -656,7 +659,7 @@
     margin-left: 28.205128205128%;
     *margin-left: 28.098745226405%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset3:first-child {
     margin-left: 25.641025641026%;
     *margin-left: 25.534642662302%;
   }
@@ -664,7 +667,7 @@
     margin-left: 19.65811965812%;
     *margin-left: 19.551736679396%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset2:first-child {
     margin-left: 17.094017094017%;
     *margin-left: 16.987634115294%;
   }
@@ -672,7 +675,7 @@
     margin-left: 11.111111111111%;
     *margin-left: 11.004728132388%;
   }
-  .row-fluid :first-child {
+  .row-fluid .offset1:first-child {
     margin-left: 8.5470085470085%;
     *margin-left: 8.4406255682851%;
   }
