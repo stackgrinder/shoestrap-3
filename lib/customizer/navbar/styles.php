@@ -81,7 +81,8 @@ function shoestrap_navbar_css(){
   // Navbar Padding
   if ( $navbar_logo_padding != '' && $navbar_logo_padding >= 1 ) {
     $styles .= '.navbar .nav > li > a {padding:' . ( $navbar_logo_padding + 15 ) . 'px 15px;}';
-    $styles .= '.navbar a.brand, .navbar .toggle-nav {padding-top:' . ( $navbar_logo_padding + 10 ) . 'px;}';
+    $styles .= '.navbar a.brand{padding-top:' . ( $navbar_logo_padding + 10 ) . 'px;}';
+    $styles .= '.navbar .toggle-nav {padding-top:' . ( 2 * $navbar_logo_padding + 10 ) . 'px;}';
     $styles .= '.navbar li.social-networks, .navbar .navbar-search{padding-top:' . $navbar_logo_padding . 'px;}';
     $styles .= 'body.top-navbar{padding-top:' . ( 2 * $navbar_logo_padding + 60 ) . 'px;}';
   }
