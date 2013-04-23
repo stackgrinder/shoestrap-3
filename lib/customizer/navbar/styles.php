@@ -12,6 +12,7 @@ function shoestrap_navbar_css(){
   $navbar_no_gradient   = get_theme_mod( 'shoestrap_navbar_no_gradient' );
   $no_gradients         = get_theme_mod( 'shoestrap_general_no_gradients' );
   $no_borders           = get_theme_mod( 'shoestrap_navbar_no_border' );
+  $alt_menu_style       = get_theme_mod( 'shoestrap_navbar_alt_menu' );
   
   // Make sure colors are properly formatted
   $header_bg_color  = '#' . str_replace( '#', '', $header_bg_color );
@@ -132,12 +133,13 @@ function shoestrap_navbar_css(){
   }
   $styles .= 'text-shadow: 0 1px 0 ' . shoestrap_adjust_brightness( $navbar_color, -15 ) . ';}';
   
-  // Destroy active menu item background when user has added padding
-  // if ( $navbar_logo_padding >= 1 ) {
-  //   $styles .= '.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{';
-  //   $styles .= 'background-color:none; background-color:transparent;';
-  //   $styles .= '-webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;}';
-  // }
+  // Alternative menu styling
+  if ( $navbar_logo_padding >= 1 ) {
+    $styles .= '.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{';
+    $styles .= 'background-color:none; background-color:transparent;';
+    $styles .= 'border-bottom: 3px solid ' . $navbar_textcolor . ';';
+    $styles .= '-webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;}';
+  }
 
   $styles .= '</style>';
   
