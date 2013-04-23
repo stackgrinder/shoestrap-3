@@ -50,9 +50,7 @@ function shoestrap_navbar_css(){
       $styles .= 'border: 1px solid ' . shoestrap_adjust_brightness( $navbar_color, -20 ) . ';';
     }
   }
-
-  // Navbar Padding
-  $styles .= 'padding:' . $navbar_logo_padding . 'px;}';
+  $styles .= '}';
   
   // Navbar Dropdown colors
   $styles .= '.navbar-inner .dropdown-menu{padding: 0;}';
@@ -74,6 +72,12 @@ function shoestrap_navbar_css(){
   }
   $styles .= '}';
   
+  // Navbar Padding
+  if ( $navbar_logo_padding != '' && $navbar_logo_padding >= 1 ) {
+    $styles .= '.navbar .nav > li {padding:' . $navbar_logo_padding . 'px 0;}';
+    $styles .= '.navbar a.brand, .navbar .toggle-nav {padding-top:' . ( $navbar_logo_padding + 10 ) . 'px;}';
+  }
+
   // Navbar menu items text-color and active menu styling
   $styles .= '.navbar-inner a, .navbar-inner .brand, .navbar .nav > li > a{';
   if ( strlen( $navbar_textcolor ) < 6 ) {
