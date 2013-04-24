@@ -56,22 +56,22 @@ function shoestrap_custom_builder_rewrite_variables() {
   
   $flatbuttons          = get_theme_mod( 'shoestrap_flat_buttons' );
 
-  if ( !isset( $bodyBackground ) || strlen( $bodyBackground ) < 6 ) { $bodyBackground == '#ffffff'; }
-  if ( !isset( $textColor ) || strlen( $textColor ) < 6 ) { $bodyBackground == '#333333'; }
-  if ( !isset( $sansFontFamily ) || strlen( $sansFontFamily ) < 3 ) { $sansFontFamily == '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
-  if ( !isset( $serifFontFamily ) || strlen( $serifFontFamily ) < 3 ) { $serifFontFamily == 'Georgia, "Times New Roman", Times, serif'; }
-  if ( !isset( $monoFontFamily ) || strlen( $monoFontFamily ) < 3 ) { $monoFontFamily == 'Monaco, Menlo, Consolas, "Courier New", monospace'; }
-  if ( !isset( $baseFontSize ) || $baseFontSize == '' ) { $baseFontSize == '14'; }
-  if ( !isset( $baseLineHeight ) || $baseLineHeight == '' ) { $baseLineHeight == '20'; }
-  if ( !isset( $fontSizeLarge ) || $fontSizeLarge == '' ) { $fontSizeLarge == '1.25'; }
-  if ( !isset( $fontSizeSmall ) || $fontSizeSmall == '' ) { $fontSizeSmall == '0.85'; }
-  if ( !isset( $fontSizeMini ) || $fontSizeMini == '' ) { $fontSizeMini == '0.75'; }
-  if ( !isset( $baseBorderRadius ) || $baseBorderRadius == '' ) { $baseBorderRadius == '4'; }
-  if ( !isset( $gridWidthNormal ) || $gridWidthNormal == '' ) { $gridWidthNormal == '940'; }
-  if ( !isset( $gridWidthWide ) || $gridWidthWide == '' ) { $gridWidthWide == '1200'; }
-  if ( !isset( $gridWidthNarrow ) || $gridWidthNarrow == '' ) { $gridWidthNarrow == '768'; }
-  if ( !isset( $gridGutterNormal ) || $gridGutterNormal == '' ) { $gridGutterNormal == '20'; }
-  if ( !isset( $gridGutterWide ) || $gridGutterWide == '' ) { $gridGutterWide == '30'; }
+  if ( is_null( $bodyBackground ) || strlen( $bodyBackground ) < 6 ) { $bodyBackground == '#ffffff'; }
+  if ( is_null( $textColor ) || strlen( $textColor ) < 6 ) { $bodyBackground == '#333333'; }
+  if ( is_null( $sansFontFamily ) || strlen( $sansFontFamily ) < 3 ) { $sansFontFamily == '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
+  if ( is_null( $serifFontFamily ) || strlen( $serifFontFamily ) < 3 ) { $serifFontFamily == 'Georgia, "Times New Roman", Times, serif'; }
+  if ( is_null( $monoFontFamily ) || strlen( $monoFontFamily ) < 3 ) { $monoFontFamily == 'Monaco, Menlo, Consolas, "Courier New", monospace'; }
+  if ( is_null( $baseFontSize ) || $baseFontSize == '' ) { $baseFontSize == '14'; }
+  if ( is_null( $baseLineHeight ) || $baseLineHeight == '' ) { $baseLineHeight == '20'; }
+  if ( is_null( $fontSizeLarge ) || $fontSizeLarge == '' ) { $fontSizeLarge == '1.25'; }
+  if ( is_null( $fontSizeSmall ) || $fontSizeSmall == '' ) { $fontSizeSmall == '0.85'; }
+  if ( is_null( $fontSizeMini ) || $fontSizeMini == '' ) { $fontSizeMini == '0.75'; }
+  if ( is_null( $baseBorderRadius ) || $baseBorderRadius == '' ) { $baseBorderRadius == '4'; }
+  if ( is_null( $gridWidthNormal ) || $gridWidthNormal == '' ) { $gridWidthNormal == '940'; }
+  if ( is_null( $gridWidthWide ) || $gridWidthWide == '' ) { $gridWidthWide == '1200'; }
+  if ( is_null( $gridWidthNarrow ) || $gridWidthNarrow == '' ) { $gridWidthNarrow == '768'; }
+  if ( is_null( $gridGutterNormal ) || $gridGutterNormal == '' ) { $gridGutterNormal == '20'; }
+  if ( is_null( $gridGutterWide ) || $gridGutterWide == '' ) { $gridGutterWide == '30'; }
 
   $gridColumns          = 12;
   
