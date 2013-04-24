@@ -32,11 +32,8 @@ require_once locate_template( '/lib/customizer/custom-builder/components/customi
 function shoestrap_custom_builder_rewrite_variables() {
   // main body & text colors
   $bodyBackground       = get_theme_mod( 'shoestrap_background_color' );
-  $textColor            = get_theme_mod( 'strp_cb_textcolor' );
-  
-  // links
-  $linkColor            = get_theme_mod( 'strp_cb_linkcolor' );
-  
+  $textColor            = get_theme_mod( 'shoestrap_text_color' );
+
   // fonts
   $sansFontFamily       = get_theme_mod( 'strp_cb_sansfont' );
   $serifFontFamily      = get_theme_mod( 'strp_cb_serifont' );
@@ -50,13 +47,6 @@ function shoestrap_custom_builder_rewrite_variables() {
   // border
   $baseBorderRadius     = get_theme_mod( 'strp_cb_baseborderradius' );
   
-  // buttons
-  $btnPrimaryBackground = get_theme_mod( 'strp_cb_btn_primary' );
-  $btnInfoBackground    = get_theme_mod( 'strp_cb_btn_info' );
-  $btnSuccessBackground = get_theme_mod( 'strp_cb_btn_success' );
-  $btnWarningBackground = get_theme_mod( 'strp_cb_btn_warning' );
-  $btnDangerBackground  = get_theme_mod( 'strp_cb_btn_danger' );
-  
   // grids
   $gridWidthNormal      = get_theme_mod( 'strp_cb_gridwidth_normal' );
   $gridWidthWide        = get_theme_mod( 'strp_cb_gridwidth_wide' );
@@ -65,36 +55,25 @@ function shoestrap_custom_builder_rewrite_variables() {
   $gridGutterWide       = get_theme_mod( 'strp_cb_gridgutter_wide' );
   
   $flatbuttons          = get_theme_mod( 'shoestrap_flat_buttons' );
-  $navtextcolor         = get_theme_mod( 'shoestrap_navbar_textcolor' );
 
-  if ( !isset( $bodyBackground ) ) { $bodyBackground == '#FFFFFF'; }
-  if ( strlen( $bodyBackground ) < 6 ) { $bodyBackground == '#FFFFFF'; }
-  if ( strlen( $textColor ) < 6 ) { $textColor == '#333333'; }
-  if ( strlen( $linkColor ) < 6 ) { $linkColor == '#0088CC'; }
-  if ( strlen( $sansFontFamily ) < 3 ) { $sansFontFamily == '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
-  if ( strlen( $serifFontFamily ) < 3 ) { $serifFontFamily == 'Georgia, "Times New Roman", Times, serif'; }
-  if ( strlen( $monoFontFamily ) < 3 ) { $monoFontFamily == 'Monaco, Menlo, Consolas, "Courier New", monospace'; }
-  if ( $baseFontSize == '' ) { $baseFontSize == '14'; }
-  if ( $baseLineHeight == '' ) { $baseLineHeight == '20'; }
-  if ( $fontSizeLarge == '' ) { $fontSizeLarge == '1.25'; }
-  if ( $fontSizeSmall == '' ) { $fontSizeSmall == '0.85'; }
-  if ( $fontSizeMini == '' ) { $fontSizeMini == '0.75'; }
-  if ( $baseBorderRadius == '' ) { $baseBorderRadius == '4'; }
-  if ( strlen( $btnPrimaryBackground ) < 6 ) { $btnPrimaryBackground == '#0088CC'; }
-  if ( strlen( $btnInfoBackground ) < 6 ) { $btnInfoBackground == '#5BC0DE'; }
-  if ( strlen( $btnSuccessBackground ) < 6 ) { $btnSuccessBackground == '#62C462'; }
-  if ( strlen( $btnWarningBackground ) < 6 ) { $btnWarningBackground == '#F89406'; }
-  if ( strlen( $btnDangerBackground ) < 6 ) { $btnDangerBackground == '#EE5F5B'; }
-  if ( $gridWidthNormal == '' ) { $gridWidthNormal == '940'; }
-  if ( $gridWidthWide == '' ) { $gridWidthWide == '1200'; }
-  if ( $gridWidthNarrow == '' ) { $gridWidthNarrow == '768'; }
-  if ( $gridGutterNormal == '' ) { $gridGutterNormal == '20'; }
-  if ( $gridGutterWide == '' ) { $gridGutterWide == '30'; }
+  if ( !isset( $bodyBackground ) || strlen( $bodyBackground ) < 6 ) { $bodyBackground == '#ffffff'; }
+  if ( !isset( $textColor ) || strlen( $textColor ) < 6 ) { $bodyBackground == '#333333'; }
+  if ( !isset( $sansFontFamily ) || strlen( $sansFontFamily ) < 3 ) { $sansFontFamily == '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
+  if ( !isset( $serifFontFamily ) || strlen( $serifFontFamily ) < 3 ) { $serifFontFamily == 'Georgia, "Times New Roman", Times, serif'; }
+  if ( !isset( $monoFontFamily ) || strlen( $monoFontFamily ) < 3 ) { $monoFontFamily == 'Monaco, Menlo, Consolas, "Courier New", monospace'; }
+  if ( !isset( $baseFontSize ) || $baseFontSize == '' ) { $baseFontSize == '14'; }
+  if ( !isset( $baseLineHeight ) || $baseLineHeight == '' ) { $baseLineHeight == '20'; }
+  if ( !isset( $fontSizeLarge ) || $fontSizeLarge == '' ) { $fontSizeLarge == '1.25'; }
+  if ( !isset( $fontSizeSmall ) || $fontSizeSmall == '' ) { $fontSizeSmall == '0.85'; }
+  if ( !isset( $fontSizeMini ) || $fontSizeMini == '' ) { $fontSizeMini == '0.75'; }
+  if ( !isset( $baseBorderRadius ) || $baseBorderRadius == '' ) { $baseBorderRadius == '4'; }
+  if ( !isset( $gridWidthNormal ) || $gridWidthNormal == '' ) { $gridWidthNormal == '940'; }
+  if ( !isset( $gridWidthWide ) || $gridWidthWide == '' ) { $gridWidthWide == '1200'; }
+  if ( !isset( $gridWidthNarrow ) || $gridWidthNarrow == '' ) { $gridWidthNarrow == '768'; }
+  if ( !isset( $gridGutterNormal ) || $gridGutterNormal == '' ) { $gridGutterNormal == '20'; }
+  if ( !isset( $gridGutterWide ) || $gridGutterWide == '' ) { $gridGutterWide == '30'; }
 
   $gridColumns          = 12;
-  
-  // navbar
-  $navbarBackgroundHighlight = get_theme_mod( 'strp_cb_navbar_background' );
   
   // calculate shadows of gray, depending on background and textcolor
   if ( shoestrap_get_brightness( $bodyBackground ) >= 128 ) {
@@ -143,32 +122,6 @@ function shoestrap_custom_builder_rewrite_variables() {
   
   // NavBar width
   $navbarCollapseWidth = ( ( $gridWidthNormal + ( 2 * $gridGutterNormal ) ) - 1 );
-  
-  // Calculate the text color of navbars based on the navbar background color.
-  // Dark backgrounds call for light-colored text and vice-versa.
-  if ( shoestrap_get_brightness( $navbarBackgroundHighlight ) >= 150 ) {
-    if ( strlen( $navtextcolor ) < 6 ) {
-      $navbarText                 = shoestrap_adjust_brightness( $navbarBackgroundHighlight, -150 );
-      $navbarLinkColorHover       = shoestrap_adjust_brightness( $navbarBackgroundHighlight, -190 );
-      $navbarLinkColorActive      = shoestrap_adjust_brightness( $navbarBackgroundHighlight, -120 );
-    } else {
-      $navbarText                 = $navtextcolor;
-      $navbarLinkColorHover       = $navtextcolor;
-      $navbarLinkColorActive      = shoestrap_adjust_brightness( $navtextcolor, -10 );
-    }
-    $navbarLinkBackgroundActive = 'darken(@navbarBackground, 5%)';
-  } else {
-    if ( strlen( $navtextcolor ) < 6 ) {
-      $navbarText                 = shoestrap_adjust_brightness( $navbarBackgroundHighlight, 150 );
-      $navbarLinkColorHover       = shoestrap_adjust_brightness( $navbarBackgroundHighlight, 190 );
-      $navbarLinkColorActive      = shoestrap_adjust_brightness( $navbarBackgroundHighlight, 120 );
-    } else {
-      $navbarText                 = $navtextcolor;
-      $navbarLinkColorHover       = $navtextcolor;
-      $navbarLinkColorActive      = shoestrap_adjust_brightness( $navtextcolor, 10 );
-    }
-    $navbarLinkBackgroundActive = 'lighten(@navbarBackground, 5%)';
-  }
   
   if ( $flatbuttons == 1 ) {
     $btnBackgroundHighlight         = '@white';
@@ -233,7 +186,7 @@ function shoestrap_custom_builder_rewrite_variables() {
 
 // Links
 // -------------------------
-@linkColor:             ' . $linkColor . ';
+@linkColor:             #08c;
 @linkColorHover:        ' . $linkColorHover . ';
 
 
@@ -279,27 +232,27 @@ function shoestrap_custom_builder_rewrite_variables() {
 
 // Buttons
 // -------------------------
-@btnBackground:                     ' . $bodyBackground . ';
-@btnBackgroundHighlight:            ' . $btnBackgroundHighlight . ';
-@btnBorder:                         rgba(0,0,0,.2);
+@btnBackground:                     @white;
+@btnBackgroundHighlight:            darken(@white, 10%);
+@btnBorder:                         #ccc;
 
-@btnPrimaryBackground:              ' . $btnPrimaryBackground . ';
-@btnPrimaryBackgroundHighlight:     ' . $btnPrimaryBackgroundHighlight . ';
+@btnPrimaryBackground:              @linkColor;
+@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
 
-@btnInfoBackground:                 ' . $btnInfoBackground . ';
-@btnInfoBackgroundHighlight:        ' . $btnInfoBackgroundHighlight . ';
+@btnInfoBackground:                 #5bc0de;
+@btnInfoBackgroundHighlight:        #2f96b4;
 
-@btnSuccessBackground:              ' . $btnSuccessBackground . ';
-@btnSuccessBackgroundHighlight:     ' . $btnSuccessBackgroundHighlight . ';
+@btnSuccessBackground:              #62c462;
+@btnSuccessBackgroundHighlight:     #51a351;
 
-@btnWarningBackground:              ' . $btnWarningBackground . ';
-@btnWarningBackgroundHighlight:     ' . $btnWarningBackgroundHighlight . ';
+@btnWarningBackground:              lighten(@orange, 15%);
+@btnWarningBackgroundHighlight:     @orange;
 
-@btnDangerBackground:               ' . $btnDangerBackground . ';
-@btnDangerBackgroundHighlight:      ' . $btnDangerBackgroundHighlight . ';
+@btnDangerBackground:               #ee5f5b;
+@btnDangerBackgroundHighlight:      #bd362f;
 
-@btnInverseBackground:              @grayDark;
-@btnInverseBackgroundHighlight:     ' . $btnInverseBackgroundHighlight . ';
+@btnInverseBackground:              #444;
+@btnInverseBackgroundHighlight:     @grayDarker;
 
 
 // Forms
@@ -376,16 +329,16 @@ function shoestrap_custom_builder_rewrite_variables() {
 @navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
 
 @navbarHeight:                    40px;
-@navbarBackgroundHighlight:       ' . $navbarBackgroundHighlight . ';
+@navbarBackgroundHighlight:       #ffffff;
 @navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
-@navbarText:                      ' . $navbarText . ';
+@navbarText:                      #777;
 @navbarLinkColor:                 @navbarText;
-@navbarLinkColorHover:            ' . $navbarLinkColorHover . ';
-@navbarLinkColorActive:           ' . $navbarLinkColorActive . ';
+@navbarLinkColorHover:            @grayDark;
+@navbarLinkColorActive:           @gray;
 @navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      ' . $navbarLinkBackgroundActive . ';
+@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
 
 @navbarBrandColor:                @navbarLinkColor;
 
