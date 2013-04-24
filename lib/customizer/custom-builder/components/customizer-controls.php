@@ -5,18 +5,7 @@ function shoestrap_register_builder_controls( $wp_customize ){
   $advanced_builder = get_option('shoestrap_advanced_compiler');
   if ( is_multisite() && !is_super_admin() ) { $advanced_builder == ''; }
 
-  $color_controls   = array();
   $text_controls    = array();
-  
-  // Only add the following settings when advanced builder is ON
-  $color_controls[] = array( 'setting' => 'strp_cb_textcolor',          'label' => 'Text Color',                    'section' => 'colors',      'priority' => 22 );
-  $color_controls[] = array( 'setting' => 'strp_cb_linkcolor',          'label' => 'Links Color',                   'section' => 'colors',      'priority' => 31 );
-  $color_controls[] = array( 'setting' => 'strp_cb_btn_primary',        'label' => 'Primary Buttons Color',         'section' => 'colors',      'priority' => 32 );
-  $color_controls[] = array( 'setting' => 'strp_cb_btn_info',           'label' => 'Info Buttons Color',            'section' => 'colors',      'priority' => 33 );
-  $color_controls[] = array( 'setting' => 'strp_cb_btn_success',        'label' => 'Success Buttons Color',         'section' => 'colors',      'priority' => 34 );
-  $color_controls[] = array( 'setting' => 'strp_cb_btn_warning',        'label' => 'Warning Buttons Color',         'section' => 'colors',      'priority' => 35 );
-  $color_controls[] = array( 'setting' => 'strp_cb_btn_danger',         'label' => 'Danger Buttons Color',          'section' => 'colors',      'priority' => 36 );
-  $color_controls[] = array( 'setting' => 'strp_cb_navbar_background',  'label' => 'Navbar Background',             'section' => 'colors',      'priority' => 37 );
   
   $text_controls[]  = array( 'setting' => 'strp_cb_sansfont',           'label' => 'Sans Font Family',              'section' => 'shoestrap_typography',  'priority' => 21 );
   $text_controls[]  = array( 'setting' => 'strp_cb_serifont',           'label' => 'Serif Font Family',             'section' => 'shoestrap_typography',  'priority' => 22 );
@@ -33,18 +22,6 @@ function shoestrap_register_builder_controls( $wp_customize ){
   $text_controls[]  = array( 'setting' => 'strp_cb_gridgutter_normal',  'label' => 'Grid Gutter - Normal & Narrow', 'section' => 'shoestrap_layout',      'priority' => 33 );
   $text_controls[]  = array( 'setting' => 'strp_cb_gridgutter_wide',    'label' => 'Grid Gutter - Wide',            'section' => 'shoestrap_layout',      'priority' => 34 );
 
-  foreach( $color_controls as $control ){
-    $wp_customize->add_control( new WP_Customize_Color_Control(
-      $wp_customize,
-      $control['setting'],
-      array(
-        'label'     => $control['label'],
-        'section'   => $control['section'],
-        'settings'  => $control['setting'],
-        'priority'  => $control['priority'],
-      )
-    ));
-  }
   foreach ( $text_controls as $control) {
     $wp_customize->add_control( $control['setting'], array(
       'label'       => __( $control['label'], 'shoestrap' ),
