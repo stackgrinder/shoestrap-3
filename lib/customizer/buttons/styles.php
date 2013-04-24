@@ -34,7 +34,7 @@ function shoestrap_buttons_css() {
   $styles .= '.btn-primary, a.btn-primary{';
   $styles .= 'color: ' . $textColor . ';';
   if ( $no_gradients == 1 ) {
-    $styles .= 'background-color: ' . $btn_color . ';';
+    $styles .= 'background-color: ' . $btn_color . ' !important;';
   } else {
     $styles .= 'background-color: ' . shoestrap_mix_colors( $startColor, $endColor, 60 ) . ';';
     $styles .= 'background-image: -moz-linear-gradient(top, ' . $startColor . ', ' . $endColor . ');';
