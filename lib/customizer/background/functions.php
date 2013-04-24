@@ -21,13 +21,6 @@ function shoestrap_background_customizer( $wp_customize ){
   // Remove the default "background" control
   $wp_customize->remove_control( 'background_color' );
   
-  // Determine if the user is using the advanced builder or not
-  $advanced_builder = get_option('shoestrap_advanced_compiler');
-  // Turn off the advanced builder on multisite
-  if ( is_multisite() && !is_super_admin() ) {
-    $advanced_builder == '';
-  }
-  
   /*
    * Color Controls
    */
