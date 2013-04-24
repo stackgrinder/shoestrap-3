@@ -20,23 +20,9 @@ function shoestrap_buttons_customizer( $wp_customize ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
   }
 
-  // Determine if the user is using the advanced builder or not
-  $advanced_builder = get_option('shoestrap_advanced_compiler');
-  // Turn off the advanced builder on multisite
-  if ( is_multisite() && !is_super_admin() ) {
-    $advanced_builder == '';
-  }
-  
-  /*
-   * Color Controls
-   */
+  // Buttons Color
   $color_controls   = array();
-  
-  // Display the following controls only when user is NOT using the advanced controls
-  if ( $advanced_builder != 1 ) {
-    // Buttons Color
-    $color_controls[] = array( 'setting' => 'shoestrap_buttons_color', 'label' => 'Buttons Color', 'section' => 'shoestrap_buttons', 'priority' => 4 );
-  }
+  $color_controls[] = array( 'setting' => 'shoestrap_buttons_color', 'label' => 'Buttons Color', 'section' => 'shoestrap_buttons', 'priority' => 4 );
   
   /*
    * Checkbox Controls
