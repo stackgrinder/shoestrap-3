@@ -152,13 +152,8 @@ function shoestrap_navbar_css(){
  */
 function shoestrap_navbar_dropdown_css(){
   $no_gradients     = get_theme_mod( 'shoestrap_general_no_gradients' );
-  $advanced_builder = get_option('shoestrap_advanced_compiler');
   $header_bg_color  = get_theme_mod( 'shoestrap_header_backgroundcolor' );
-  if ( $advanced_builder != 1 ) {
-    $navbar_color   = get_theme_mod( 'shoestrap_navbar_color' );
-  } else {
-    $navbar_color   = get_theme_mod( 'strp_cb_navbar_background' );
-  }
+  $navbar_color     = get_theme_mod( 'shoestrap_navbar_color' );
   $navbar_textcolor = get_theme_mod( 'shoestrap_navbar_textcolor' );
   
   
