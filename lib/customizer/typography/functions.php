@@ -15,7 +15,7 @@ function shoestrap_typography_customizer( $wp_customize ){
   $settings   = array();
   
   // Color Settings
-  $settings[] = array( 'slug' => 'shoestrap_text_color',                'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_text_color',                'default' => '#333333' );
   $settings[] = array( 'slug' => 'shoestrap_link_color',                'default' => '#0088cc' );
   $settings[] = array( 'slug' => 'shoestrap_google_webfonts',           'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_webfonts_weight',           'default' => '400' );
@@ -26,20 +26,10 @@ function shoestrap_typography_customizer( $wp_customize ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
   }
 
-  // Determine if the user is using the advanced builder or not
-  $advanced_builder = get_option('shoestrap_advanced_compiler');
-  // Turn off the advanced builder on multisite
-  if ( is_multisite() && !is_super_admin() ) {
-    $advanced_builder == '';
-  }
-  
   // Color Controls
   $color_controls   = array();
-  // Display the following controls only when user is NOT using the advanced controls
-  if ( $advanced_builder != 1 ) {
-    $color_controls[] = array( 'setting' => 'shoestrap_text_color',             'label' => 'Text Color',              'section' => 'shoestrap_typography',  'priority' => 1 );
-    $color_controls[] = array( 'setting' => 'shoestrap_link_color',             'label' => 'Links Color',             'section' => 'shoestrap_typography',  'priority' => 2 );
-  }
+  $color_controls[] = array( 'setting' => 'shoestrap_text_color',             'label' => 'Text Color',              'section' => 'shoestrap_typography',  'priority' => 1 );
+  $color_controls[] = array( 'setting' => 'shoestrap_link_color',             'label' => 'Links Color',             'section' => 'shoestrap_typography',  'priority' => 2 );
   
   // Dropdown (Select) Controls
   $select_controls = array();
