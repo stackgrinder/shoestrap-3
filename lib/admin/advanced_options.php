@@ -117,7 +117,6 @@ function shoestrap_dev_mode_toggle() {
           <p>
             <?php _e( 'In Production sites this option should be turned OFF.', 'shoestrap' ); ?>
             <?php _e( 'However, in some cases you might want to enable this.', 'shoestrap' ); ?>
-            <?php _e( 'For example if you write inline jquery scripts in your posts, this must be turned ON.', 'shoestrap' ); ?>)
           </p>
         </div>
 
@@ -156,13 +155,12 @@ function shoestrap_dev_mode_toggle() {
           <p>
           <?php _e( 'The advanced customizer allows you to change aspects of your theme that are not otherwise customizable.', 'shoestrap' ); ?>
           </p>
-          <?php _e( 'Before enabling this option, please make sure that you webserver can write to the', 'shoestrap' ); ?>
-          <code>assets/less/variables.less</code>
-          <?php _e( 'file', 'shoestrap' ); ?>
+          <span style="color: #c00;"><?php _e( 'CAUTION:', 'shoestrap' ); ?></span>
+          <?php _e( 'Before enabling this option, please make sure that you have selected a color for your page background and the textcolor.', 'shoestrap' ); ?>
           <p>
             <?php _e( 'After you enable the advanced customizer, you\'ll be able to visit the', 'shoestrap' ); ?>
             <a href="<?php  echo $customizeurl ?>"> <?php _e( 'Customizer', 'shoestrap' ); ?> </a>
-            <?php _e( 'to change bootstrap\'s default options', 'shoestrap' ); ?>
+            <?php _e( 'to further customize your theme.', 'shoestrap' ); ?>
           </p>
         </div>
         
@@ -275,5 +273,6 @@ function shoestrap_files_permissions_error_message() {
  * If developer mode is enabled, add the admin notice
  */
 $shoestrap_dev_mode = get_option( 'shoestrap_dev_mode' );
-if ( $shoestrap_dev_mode == 1 )
+if ( $shoestrap_dev_mode == 1 ) {
   add_action( 'admin_notices', 'shoestrap_files_permissions_error_message' );
+}
