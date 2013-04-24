@@ -43,23 +43,12 @@ function shoestrap_navbar_customizer( $wp_customize ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
   }
 
-  // Determine if the user is using the advanced builder or not
-  $advanced_builder = get_option('shoestrap_advanced_compiler');
-  // Turn off the advanced builder on multisite
-  if ( is_multisite() && !is_super_admin() ) {
-    $advanced_builder == '';
-  }
-  
   /*
    * Color Controls
    */
   $color_controls   = array();
-  
-  // Display the following controls only when user is NOT using the advanced controls
-  if ( $advanced_builder != 1 ) {
-    // Navbar background color
-    $color_controls[] = array( 'setting' => 'shoestrap_navbar_color',         'label' => 'Navbar Color',                          'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
-  }
+  $color_controls[] = array( 'setting' => 'shoestrap_navbar_color',           'label' => 'Navbar Color',                          'section' => 'shoestrap_primary_navbar',  'priority' => 5 );
+
   // Navbar text color
   $color_controls[] = array( 'setting' => 'shoestrap_navbar_textcolor',       'label' => 'Navbar Text Color',                     'section' => 'shoestrap_primary_navbar',  'priority' => 40 );
   
