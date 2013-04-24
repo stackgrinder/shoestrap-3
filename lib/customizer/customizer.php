@@ -29,13 +29,10 @@ require_once locate_template( '/lib/customizer/advanced/functions.php' );       
 // Apply the selected styles:
 require_once locate_template( '/lib/customizer/header/styles.php' );                  // Branding (header) region, containing the logo etc.
 require_once locate_template( '/lib/customizer/background/styles.php' );              // Page and wrap background
-
-if ( $advanced_builder != 1 || ( $advanced_builder == 1 && ( shoestrap_check_files_permissions( true ) == true ) ) ) {
-  require_once locate_template( '/lib/customizer/buttons/functions.php' );            // Buttons Customizer
-  require_once locate_template( '/lib/customizer/navbar/styles.php' );                // NavBar styles
-  require_once locate_template( '/lib/customizer/typography/styles.php' );            // Typography styles
-  require_once locate_template( '/lib/customizer/buttons/styles.php' );               // Buttons styles
-}
+require_once locate_template( '/lib/customizer/navbar/styles.php' );                  // NavBar styles
+require_once locate_template( '/lib/customizer/buttons/functions.php' );            // Buttons Customizer
+require_once locate_template( '/lib/customizer/typography/styles.php' );            // Typography styles
+require_once locate_template( '/lib/customizer/buttons/styles.php' );               // Buttons styles
 require_once locate_template( '/lib/customizer/typography/webfonts-functions.php' );  // Webfont functions
 require_once locate_template( '/lib/customizer/hero/styles.php' );                    // Hero styles
 require_once locate_template( '/lib/customizer/social/styles.php' );                  // Social Sharing Styles
