@@ -6,22 +6,6 @@
 function shoestrap_custom_builder_register_settings( $wp_customize ){
   $settings   = array();
   
-  // Text Color
-  $settings[] = array( 'slug' => 'strp_cb_textcolor',         'default' => '#333333' );
-  
-  // Link Color
-  $settings[] = array( 'slug' => 'strp_cb_linkcolor',         'default' => '#0088CC' );
-  
-  // Buttons Color
-  $settings[] = array( 'slug' => 'strp_cb_btn_primary',       'default' => '#0088CC' );
-  $settings[] = array( 'slug' => 'strp_cb_btn_info',          'default' => '#5BC0DE' );
-  $settings[] = array( 'slug' => 'strp_cb_btn_success',       'default' => '#62C462' );
-  $settings[] = array( 'slug' => 'strp_cb_btn_warning',       'default' => '#F89406' );
-  $settings[] = array( 'slug' => 'strp_cb_btn_danger',        'default' => '#EE5F5B' );
-  
-  // Navbar Color
-  $settings[] = array( 'slug' => 'strp_cb_navbar_background', 'default' => '#FFFFFF' );
-  
   // Typography
   $settings[]  = array( 'slug' => 'strp_cb_sansfont',         'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif' );
   $settings[]  = array( 'slug' => 'strp_cb_serifont',         'default' => 'Georgia, "Times New Roman", Times, serif' );
