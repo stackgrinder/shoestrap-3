@@ -58,8 +58,3 @@ foreach( $files as $file ) {
     require_once locate_template( $file );
   }
 }
-
-// Include all files in the addons folder
-foreach ( glob( 'addons/*.php' ) as $filename ) {
-  include $filename;
-}
