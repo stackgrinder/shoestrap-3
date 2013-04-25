@@ -4,9 +4,11 @@
     <?php get_template_part('templates/entry-meta'); ?>
   </header>
   <div class="entry-summary">
-    <?php the_excerpt(); ?>
+    <?php do_action( 'shoestrap_entry_summary_begin' ); ?>
+    <?php do_action( 'shoestrap_the_excerpt' ); ?>
+    <?php do_action( 'shoestrap_entry_summary_end' ); ?>
   </div>
   <footer>
-    <?php the_tags( '<ul class="entry-tags"><li>','</li><li>','</li></ul>' ); ?>
+    <?do_action( 'shoestrap_post_footer' ); ?>
   </footer>
 </article>
