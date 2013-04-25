@@ -393,7 +393,8 @@ function shoestrap_excerpt_length($length) {
 }
 
 function shoestrap_excerpt_more($more) {
-  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'shoestrap') . '</a>';
+  $text = do_action( 'shoestrap_excerpt_more_text' );
+  return $text;
 }
 
 add_filter('excerpt_length', 'shoestrap_excerpt_length');
@@ -521,3 +522,13 @@ function shoestrap_get_search_form() {
   locate_template('/templates/searchform.php', true, true);
 }
 add_filter('get_search_form', 'shoestrap_get_search_form');
+
+function shoestrap_do_the_excerpt() {
+  the_excerpt();
+}
+add_action( 'shoestrap_the_excerpt', 'shoestrap_do_the_excerpt' );
+
+function shoestrap_excerpt_more_text_default() {
+  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'shoestrap') . '</a>';
+}
+add_action( 'shoestrap_excerpt_more_text', 'shoestrap_excerpt_more_text_default' );
