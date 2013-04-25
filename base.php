@@ -1,5 +1,7 @@
-<?php get_template_part('templates/head'); ?>
-<?php $layout = get_theme_mod( 'shoestrap_layout' ); ?>
+<?php
+get_template_part('templates/head');
+$layout = get_theme_mod( 'shoestrap_layout' );
+?>
 <body <?php body_class(); ?>>
 
   <!--[if lt IE 7]><div class="alert">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</div><![endif]-->
@@ -29,10 +31,13 @@
   
   <?php do_action('shoestrap_pre_wrap'); ?>
   <div id="wrap" class="<?php shoestrap_fluid_body_classes( 'container' ); ?>" role="document">
+
     <?php do_action('shoestrap_pre_content'); ?>
     <div id="content" class="<?php shoestrap_fluid_body_classes( 'row' ); ?>">
+
       <?php if ( in_array ( $layout, array ( 'mps', 'pms', 'smp', 'spm' ) ) && shoestrap_display_sidebar() && shoestrap_display_primary_sidebar() ) { ?>
         <div class="m_p_wrap <?php shoestrap_sidebar_class_calc( 'main-primary', '', true ); ?>">
+          <div class="row-fluid">
       <?php } ?>
 
       <?php do_action('shoestrap_pre_main'); ?>
@@ -49,7 +54,7 @@
           </aside>
         <?php } ?>
         <?php if ( in_array ( $layout, array ( 'mps', 'pms', 'smp', 'spm' ) ) && shoestrap_display_sidebar() && shoestrap_display_primary_sidebar() ) { ?>
-          </div>
+          </div></div>
         <?php } ?>
 
         <?php if ( !in_array ( $layout, array ( 'm', 'mp', 'pm' ) ) && shoestrap_display_sidebar() && shoestrap_display_secondary_sidebar() ) { ?>

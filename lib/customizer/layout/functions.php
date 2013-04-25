@@ -104,7 +104,7 @@ function shoestrap_sidebar_class_calc( $target, $offset = '', $echo = false ) {
     $secondary = 'span' . $second;
   }
 
-  if ( ( $layout == 'pms' && $fluid == 1 ) || ( $layout == 'mps' && $fluid == 1 ) || ( $layout == 'smp' && $fluid == 1 ) ) {
+  if ( ( $layout == 'pms' ) || ( $layout == 'mps' ) || ( $layout == 'smp' ) || ( $layout == 'spm' ) ) {
     $main = 'span' . ( 12 - $first );
   }
 
@@ -170,13 +170,17 @@ function shoestrap_sidebars_positioning_css() {
   $shoestrap_layout = get_theme_mod( 'shoestrap_layout' );
   $fluid  = get_theme_mod( 'shoestrap_fluid' );
 
+  $css = '';
+
   if ( $shoestrap_layout == 'pm' ) {
-    $css = '#main{float: right;}';
+    $css .= '#main{float: right;}';
     if ( $fluid == 1 ) {
       $css .= '#sidebar {margin-left: 0;}';
     }
+  } elseif ( $shoestrap_layout == 'mp' && $fluid != 1 ) {
+    $css .= '#main{padding-left: 0 !important;}';
   } elseif ( $shoestrap_layout == 'sm' ) {
-    $css = '#main{float: right;}';
+    $css .= '#main{float: right;}';
     if ( $fluid == 1 ) {
       $css .= '#secondary {margin-left: 0;}';
     }
