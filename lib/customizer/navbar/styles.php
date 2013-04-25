@@ -135,7 +135,7 @@ function shoestrap_navbar_css(){
   $styles .= 'text-shadow: 0 1px 0 ' . shoestrap_adjust_brightness( $navbar_color, -15 ) . ';}';
   
   // Alternative menu styling
-  if ( $navbar_logo_padding >= 1 ) {
+  if ( $alt_menu_style == 1 ) {
     $styles .= '.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{';
     $styles .= 'background-color:none; background-color:transparent;';
     $styles .= 'border-bottom: 3px solid ' . $navbar_textcolor . ';';
