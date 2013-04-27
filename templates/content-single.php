@@ -11,7 +11,7 @@
     </div>
     <footer>
       <?php wp_link_pages( array( 'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'shoestrap' ), 'after' => '</p></nav>' ) ); ?>
-      <?php the_tags( '<ul class="entry-tags"><li>','</li><li>','</li></ul>' ); ?>
+      <?php the_tags( '<i class="icon-tags"></i>',', ','' ); ?>
     </footer>
     <?php comments_template( '/templates/comments.php' ); ?>
   </article>
