@@ -65,18 +65,19 @@ add_action( 'customize_register', 'shoestrap_layout_customizer' );
  */
 function shoestrap_fluid_body_classes( $context ) {
   
-  if ( get_theme_mod( 'shoestrap_fluid' ) == 1 ) {
-    if ( $context == 'row' ) {
-      $class = 'row-fluid';
-    }
-    if ( $context == 'container' ) {
+  $layout = get_theme_mod( 'shoestrap_layout' );
+  $fluid  = get_theme_mod( 'shoestrap_fluid' );
+
+  // Use row-fluid for rows
+  if ( $context == 'row' ) {
+    $class = 'row-fluid';
+  }
+
+  // Choose between container and container-fluid, depending on the layout
+  if ( $context == 'container' ) {
+    if ( ( $fluid == 1 ) ) {
       $class = 'container-fluid';
-    }
-  } else {
-    if ( $context == 'row' ) {
-      $class = 'row';
-    }
-    if ( $context == 'container' ) {
+    } else {
       $class = 'container';
     }
   }
@@ -167,42 +168,37 @@ function shoestrap_sidebar_class_calc( $target, $offset = '', $echo = false ) {
  */
 function shoestrap_sidebars_positioning_css() {
   
-  $shoestrap_layout = get_theme_mod( 'shoestrap_layout' );
+  $layout = get_theme_mod( 'shoestrap_layout' );
   $fluid  = get_theme_mod( 'shoestrap_fluid' );
 
   $css = '';
 
-  if ( $shoestrap_layout == 'pm' ) {
-    $css .= '#main{float: right;}';
-    if ( $fluid == 1 ) {
-      $css .= '#sidebar {margin-left: 0;}';
-    }
-  } elseif ( $shoestrap_layout == 'mp' && $fluid != 1 ) {
-    $css .= '#main{padding-left: 0 !important;}';
-  } elseif ( $shoestrap_layout == 'sm' ) {
-    $css .= '#main{float: right;}';
-    if ( $fluid == 1 ) {
-      $css .= '#secondary {margin-left: 0;}';
-    }
-  } elseif ( $shoestrap_layout == 'mps' ) {
-    $css = '#secondary{float: right;} #main {margin-left: 0;}';
-  } elseif ( $shoestrap_layout == 'msp' ) {
-    $css = '#sidebar{float: right;}';
-  } elseif ( $shoestrap_layout == 'pms' ) {
-    $css = '#main, #secondary{float: right;} .m_p_wrap{float: left;} #sidebar {margin-left: 0}';
-  } elseif ( $shoestrap_layout == 'psm' ) {
-    $css = '#main{float: right;}';
-    if ( $fluid == 1 ) {
-      $css .= '#sidebar {margin-left: 0;}';
-    }
-  } elseif ( $shoestrap_layout == 'smp' ) {
-    $css = '#wrap .m_p_wrap{float: right;} #main {margin-left: 0;}';
-  } elseif ( $shoestrap_layout == 'spm' ) {
-    $css = '#wrap .m_p_wrap, #wrap #main{float: right;} #sidebar {margin-left: 0}';
-  } else {
-    $css = '';
-  } ?>
-  <style> <?php echo $css; ?> </style>
-  <?php
+  // When the primary sidebar is first, set its margin-left to 0 since it has to go to the *left*
+  if ( $layout == 'pm' || $layout == 'pms' || $layout == 'psm' ) {
+    $css .= '#wrap #content #sidebar { margin-left: 0; }';
+  }
+  // When the secondary sidebar is first, set its margin-left to 0 since it has to go to the *left*
+  if ( $layout == 'sm' || $layout == 'smp' || $layout == 'spm' || $layout == 'pms' ) {
+    $css .= '#content #secondary { margin-left: 0; }';
+  }
+
+  // Float the main region to the right when needed
+  if ( $layout == 'pm' || $layout == 'sm' || $layout == 'pms' || $layout == 'psm' || $layout == 'spm' ) {
+    $css .= '#main { float: right; }';
+  }
+
+  // Float the main sidebar to the right when needed
+  if ( $layout == 'msp' ) {
+    $css .= '#sidebar { float: right; }';
+  }
+
+  // Float the main + primary wrapper div to the right when needed
+  if ( $layout == 'smp' || $layout == 'spm' ) {
+    $css .= '#wrap .m_p_wrap { float: right; }';
+  }
+
+  echo '<style>';
+  echo $css;
+  echo '</style>';
 }
 add_action( 'wp_head', 'shoestrap_sidebars_positioning_css' );
