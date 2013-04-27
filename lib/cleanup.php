@@ -393,8 +393,7 @@ function shoestrap_excerpt_length($length) {
 }
 
 function shoestrap_excerpt_more($more) {
-  $text = do_action( 'shoestrap_excerpt_more_text' );
-  return $text;
+  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'shoestrap') . '</a>';
 }
 
 add_filter('excerpt_length', 'shoestrap_excerpt_length');
@@ -527,8 +526,3 @@ function shoestrap_do_the_excerpt() {
   the_excerpt();
 }
 add_action( 'shoestrap_the_excerpt', 'shoestrap_do_the_excerpt' );
-
-function shoestrap_excerpt_more_text_default() {
-  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'shoestrap') . '</a>';
-}
-add_action( 'shoestrap_excerpt_more_text', 'shoestrap_excerpt_more_text_default' );
