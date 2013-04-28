@@ -2,44 +2,85 @@
 
 add_theme_support( 'custom-background' );
 
+$files    = array();
+// Textarea Control
+$files[]  = array( 'filename' => '/lib/customizer/functions/textarea-control.php' );
+// Extra Functions for the customizer
+$files[]  = array( 'filename' =>  '/lib/customizer/functions/remove-controls.php' );
+// Login screen customizations
+$files[]  = array( 'filename' => '/lib/customizer/functions/login.php' );
+// Color functions
+$files[]  = array( 'filename' => '/lib/customizer/functions/color-functions.php' );
+// General Customizer
+$files[]  = array( 'filename' => '/lib/customizer/general/functions.php' );
+// NavBar Customizer
+$files[]  = array( 'filename' => '/lib/customizer/navbar/functions.php' );
+// Hero Customizer
+$files[]  = array( 'filename' => '/lib/customizer/hero/functions.php' );
+// Typography Customizer
+$files[]  = array( 'filename' => '/lib/customizer/typography/functions.php' );
+// Background Customizer
+$files[]  = array( 'filename' => '/lib/customizer/background/functions.php' );
+// Logo Customizer
+$files[]  = array( 'filename' => '/lib/customizer/logo/functions.php' );
+// Header Customizer
+$files[]  = array( 'filename' => '/lib/customizer/header/functions.php' );
+// Layout Customizer
+$files[]  = array( 'filename' => '/lib/customizer/layout/functions.php' );
+// Social Customizer
+$files[]  = array( 'filename' => '/lib/customizer/social/functions.php' );
+// Footer Customizer
+$files[]  = array( 'filename' => '/lib/customizer/footer/functions.php' );
+// Advanced Customizer
+$files[]  = array( 'filename' => '/lib/customizer/advanced/functions.php' );
+
+// The below files apply the selected styles
+// depending on our customizer selections
+
+// Branding (header) region, containing the logo etc.
+$files[]  = array( 'filename' => '/lib/customizer/header/styles.php' );
+// Page and wrap background
+$files[]  = array( 'filename' => '/lib/customizer/background/styles.php' );
+// NavBar styles
+$files[]  = array( 'filename' => '/lib/customizer/navbar/styles.php' );
+// Buttons Customizer
+$files[]  = array( 'filename' => '/lib/customizer/buttons/functions.php' );
+// Typography styles
+$files[]  = array( 'filename' => '/lib/customizer/typography/styles.php' );
+// Buttons styles
+$files[]  = array( 'filename' => '/lib/customizer/buttons/styles.php' );
+// Webfont functions
+$files[]  = array( 'filename' => '/lib/customizer/typography/webfonts-functions.php' );
+// Hero styles
+$files[]  = array( 'filename' => '/lib/customizer/hero/styles.php' );
+// Social Sharing Styles
+$files[]  = array( 'filename' => '/lib/customizer/social/styles.php' );
+// Footer Styles
+$files[]  = array( 'filename' => '/lib/customizer/footer/styles.php' );
+
+
+// Load the advanced customizer only if
+// * the user has enabled it
+// * it is not on a multisite installation, or is multisite and the user is superadmin
+// * the files that must be written are not read-only
+
 // Determine if the user is using the advanced builder or not
 $advanced_builder = get_option('shoestrap_advanced_compiler');
-// Turn off the advanced builder on multisite
+// Turn off the advanced builder on multisite if the user is not superadmin
 if ( is_multisite() && !is_super_admin() ) {
   $advanced_builder == '';
 }
-
-require_once locate_template( '/lib/customizer/functions/textarea-control.php' );     // Textarea Control
-require_once locate_template( '/lib/customizer/functions/remove-controls.php' );      // Extra Functions for the customizer
-require_once locate_template( '/lib/customizer/functions/login.php' );                // Login screen customizations
-require_once locate_template( '/lib/customizer/functions/color-functions.php' );      // Color functions
-
-require_once locate_template( '/lib/customizer/general/functions.php' );              // General Customizer
-require_once locate_template( '/lib/customizer/navbar/functions.php' );               // NavBar Customizer
-require_once locate_template( '/lib/customizer/hero/functions.php' );                 // Hero Customizer
-require_once locate_template( '/lib/customizer/typography/functions.php' );           // Typography Customizer
-require_once locate_template( '/lib/customizer/background/functions.php' );           // Background Customizer
-require_once locate_template( '/lib/customizer/logo/functions.php' );                 // Logo Customizer
-require_once locate_template( '/lib/customizer/header/functions.php' );               // Header Customizer
-require_once locate_template( '/lib/customizer/layout/functions.php' );               // Layout Customizer
-require_once locate_template( '/lib/customizer/social/functions.php' );               // Social Customizer
-require_once locate_template( '/lib/customizer/footer/functions.php' );               // Footer Customizer
-require_once locate_template( '/lib/customizer/advanced/functions.php' );             // Advanced Customizer
-
-// Apply the selected styles:
-require_once locate_template( '/lib/customizer/header/styles.php' );                  // Branding (header) region, containing the logo etc.
-require_once locate_template( '/lib/customizer/background/styles.php' );              // Page and wrap background
-require_once locate_template( '/lib/customizer/navbar/styles.php' );                  // NavBar styles
-require_once locate_template( '/lib/customizer/buttons/functions.php' );            // Buttons Customizer
-require_once locate_template( '/lib/customizer/typography/styles.php' );            // Typography styles
-require_once locate_template( '/lib/customizer/buttons/styles.php' );               // Buttons styles
-require_once locate_template( '/lib/customizer/typography/webfonts-functions.php' );  // Webfont functions
-require_once locate_template( '/lib/customizer/hero/styles.php' );                    // Hero styles
-require_once locate_template( '/lib/customizer/social/styles.php' );                  // Social Sharing Styles
-require_once locate_template( '/lib/customizer/footer/styles.php' );                  // Footer Styles
-
 if ( $advanced_builder == 1 && ( shoestrap_check_files_permissions( true ) != true ) ) {
-  require_once locate_template( '/lib/customizer/custom-builder/custom-builder.php'); // Custom Bootstrap Builder
+  // Custom Bootstrap Builder
+  $files[]  = array( 'filename' => '/lib/customizer/custom-builder/custom-builder.php');
 }
 
-require_once locate_template( '/lib/customizer/functions/caching.php' );              // Caching functions
+// Caching functions
+$files[]  = array( 'filename' => '/lib/customizer/functions/caching.php' );
+
+
+foreach( $files as $file ) {
+  if ( file_exists( locate_template( $file ) ) ) {
+    require_once locate_template( $file );
+  }
+}
