@@ -4,7 +4,7 @@ add_theme_support( 'custom-background' );
 
 $files    = array();
 // Textarea Control
-$files[]  = array( 'filename' => '/lib/customizer/functions/textarea-control.php' );
+$files[]  = array( 'filename' => '/lib/customizer/functions/custom-controls.php' );
 // Extra Functions for the customizer
 $files[]  = array( 'filename' =>  '/lib/customizer/functions/remove-controls.php' );
 // Login screen customizations
