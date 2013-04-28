@@ -29,8 +29,8 @@ function shoestrap_advanced_customizer( $wp_customize ){
     $wp_customize->add_section( $section['slug'], array( 'title' => $section['title'], 'priority' => $section['priority'] ) );
   }
 
-  $advanced_head_help = 'You can write code below that will be added in the head of every page. Please note that this outputs unfiltered HTML in your head so be extra careful.';
-  $advanced_footer_help = 'You can write code below that will be added at the end of your footer (after </body>) of every page. Please note that this outputs unfiltered HTML in your head so be extra careful.';
+  $advanced_head_help = __( 'You can write code below that will be added in the head of every page. Please note that this outputs unfiltered HTML in your head so be extra careful.', 'shoestrap' );
+  $advanced_footer_help = __( 'You can write code below that will be added at the end of your footer (after </body>) of every page. Please note that this outputs unfiltered HTML in your head so be extra careful.', 'shoestrap' ) ;
 
   $settings   = array();
   $settings[] = array( 'slug' => 'shoestrap_advanced_head',             'default' => '' );
