@@ -28,6 +28,8 @@ $files[]  = array( 'filename' => '/lib/htaccess.php' );
 $files[]  = array( 'filename' => '/lib/widgets.php' );
 // Scripts and stylesheets
 $files[]  = array( 'filename' => '/lib/scripts.php' );
+// Image resizing script
+$files[]  = array( 'filename' => '/lib/resize.php' );
 // Slide-down widget area functions
 $files[]  = array( 'filename' => '/lib/slide-down.php' );
 
