@@ -1,5 +1,6 @@
 <?php get_template_part( 'templates/page', 'header' ); ?>
 
+<?php do_action( 'shoestrap_index_begin' ); ?>
 <?php if ( !have_posts() ) : ?>
   <div class="alert">
     <?php _e( 'Sorry, no results were found.', 'shoestrap' ); ?>
@@ -19,3 +20,5 @@
     </ul>
   </nav>
 <?php endif; ?>
+
+<?php do_action( 'shoestrap_index_end' ); ?>
