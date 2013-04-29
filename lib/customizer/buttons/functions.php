@@ -12,8 +12,8 @@ function shoestrap_buttons_customizer( $wp_customize ){
     $wp_customize->add_section( $section['slug'], array( 'title' => $section['title'], 'priority' => $section['priority'] ) );
   }
 
-  $buttons_color_help = __( 'Choose the color for your buttons', 'shoestrap' );
-  $flat_buttons_help  = __( 'If you don\'t want to use gradients in your buttons, chech the option below', 'shoestrap' );
+  $buttons_color_help = __( 'Choose the color for your buttons above', 'shoestrap' );
+  $flat_buttons_help  = __( 'If you don\'t want to use gradients in your buttons, check the option above', 'shoestrap' );
 
   $settings   = array();
   $settings[] = array( 'slug' => 'shoestrap_buttons_color', 'default' => '#0066bb' );

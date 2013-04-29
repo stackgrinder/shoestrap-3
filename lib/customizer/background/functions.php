@@ -10,7 +10,7 @@ function shoestrap_background_customizer( $wp_customize ){
   $background_color = '#' . str_replace( '#', '', $background_color );
   set_theme_mod( 'background_color', get_theme_mod( 'shoestrap_background_color' ) );
   
-  $background_color_help = __( 'You can use the below color control to select a background color for your page', 'shoestrap' );
+  $background_color_help = __( 'You can use the above color control to select a background color for your page', 'shoestrap' );
 
   $settings   = array();
   // Color Settings

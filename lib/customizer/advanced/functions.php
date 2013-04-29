@@ -29,8 +29,8 @@ function shoestrap_advanced_customizer( $wp_customize ){
     $wp_customize->add_section( $section['slug'], array( 'title' => $section['title'], 'priority' => $section['priority'] ) );
   }
 
-  $advanced_head_help = __( 'You can write code below that will be added in the head of every page. Please note that this outputs unfiltered HTML in your head so be extra careful.', 'shoestrap' );
-  $advanced_footer_help = __( 'You can write code below that will be added at the end of your footer (after </body>) of every page. Please note that this outputs unfiltered HTML in your head so be extra careful.', 'shoestrap' ) ;
+  $advanced_head_help = __( 'The code you write above will be added in the head of every page. Please note that this outputs unfiltered HTML in your head so be extra careful.', 'shoestrap' );
+  $advanced_footer_help = __( 'The code you write above will be added at the end of your footer (after the closing </body> tag) of every page. Please note that this outputs unfiltered HTML in your footer so be extra careful.', 'shoestrap' ) ;
 
   $settings   = array();
   $settings[] = array( 'slug' => 'shoestrap_advanced_head',             'default' => '' );
@@ -47,7 +47,7 @@ function shoestrap_advanced_customizer( $wp_customize ){
     'label'       => $advanced_head_help,
     'section'     => 'shoestrap_advanced',
     'settings'    => 'shoestrap_advanced_head_help',
-    'priority'    => 1,
+    'priority'    => 2,
   )));
 
   // Header scripts (css/js)
@@ -55,7 +55,7 @@ function shoestrap_advanced_customizer( $wp_customize ){
     'label'       => 'Header Scripts (CSS/JS)',
     'section'     => 'shoestrap_advanced',
     'settings'    => 'shoestrap_advanced_head',
-    'priority'    => 2,
+    'priority'    => 1,
   )));
 
   // Header Scripts help text
@@ -63,7 +63,7 @@ function shoestrap_advanced_customizer( $wp_customize ){
     'label'       => $advanced_footer_help,
     'section'     => 'shoestrap_advanced',
     'settings'    => 'shoestrap_advanced_footer_help',
-    'priority'    => 3,
+    'priority'    => 4,
   )));
 
   // Footer scripts (css/js)
@@ -71,7 +71,7 @@ function shoestrap_advanced_customizer( $wp_customize ){
     'label'       => 'Footer Scripts (CSS/JS)',
     'section'     => 'shoestrap_advanced',
     'settings'    => 'shoestrap_advanced_footer',
-    'priority'    => 4,
+    'priority'    => 3,
   )));
 }
 add_action( 'customize_register', 'shoestrap_advanced_customizer' );
