@@ -20,6 +20,8 @@ $files[]  = array( 'filename' => '/lib/activation.php' );
 $files[]  = array( 'filename' => '/lib/cleanup.php' );
 // Custom nav modifications
 $files[]  = array( 'filename' => '/lib/nav.php' );
+// Custom template actions
+$files[]  = array( 'filename' => '/lib/template-actions.php' );
 // Custom comments modifications
 $files[]  = array( 'filename' => '/lib/comments.php' );
 // Rewrites for assets, H5BP .htaccess
