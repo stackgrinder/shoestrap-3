@@ -130,7 +130,7 @@ function shoestrap_dev_mode_toggle() {
           <?php } ?>
           <input id="shoestrap_use_default_js_version" name="shoestrap_use_default_js_version" <?php echo $disabled; ?> type="checkbox" value="1" <?php checked('1', get_option('shoestrap_use_default_js_version')); ?> />
           <label class="description" for="shoestrap_use_default_js_version">
-            <?php _e( 'Use latest version of jQuery', 'shoestrap' ); ?>
+            <?php _e( 'Use the default WordPress version of jQuery', 'shoestrap' ); ?>
           </label>
           <p>
             <?php _e( 'Use the WordPress default version of jQuery instead of the latest version.', 'shoestrap' ); ?>
