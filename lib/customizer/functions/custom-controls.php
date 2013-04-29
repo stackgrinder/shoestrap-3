@@ -26,7 +26,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
     public $type = 'label';
     
     public function render_content() { ?>
-      <span class="customize-control-helptext"><?php echo esc_html( $this->label ); ?></span><hr />
+      <span class="customize-control-helptext"><?php echo esc_html( $this->label ); ?></span><hr style="background: #666; height: 1px" />
     <?php }
   }
 }

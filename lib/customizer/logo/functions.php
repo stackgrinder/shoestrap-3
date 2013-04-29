@@ -5,8 +5,10 @@
  */
 function shoestrap_logo_customizer( $wp_customize ){
 
+  $shoestrap_logo_helptext  = __( 'You can upload an image to be used as your site\'s logo here', 'shoestrap' );
   $settings   = array();
-  $settings[] = array( 'slug' => 'shoestrap_logo',                      'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_logo',          'default' => '' );
+  $settings[] = array( 'slug' => 'shoestrap_logo_helptext', 'default' => $shoestrap_logo_helptext );
 
   foreach( $settings as $setting ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
@@ -19,8 +21,11 @@ function shoestrap_logo_customizer( $wp_customize ){
     $wp_customize->add_section( $section['slug'], array( 'title' => $section['title'], 'priority' => $section['priority'] ) );
   }
 
-  $image_controls = array();
-  $image_controls[] = array( 'setting' => 'shoestrap_logo',           'label' => 'Logo Image', 'section' => 'shoestrap_logo',  'priority' => 2 );
+  $image_controls   = array();
+  $image_controls[] = array( 'setting' => 'shoestrap_logo',           'label' => 'Logo Image',            'section' => 'shoestrap_logo',  'priority' => 2 );
+
+  $help_controls    = array();
+  $help_controls[]  = array( 'setting' => 'shoestrap_logo_helptext',  'label' => $shoestrap_logo_helptext,'section' => 'shoestrap_logo',  'priority' => 3 );
 
   foreach ( $image_controls as $control ) {
     $wp_customize->add_control( new WP_Customize_Image_Control(
@@ -33,6 +38,15 @@ function shoestrap_logo_customizer( $wp_customize ){
         'priority'  => $control['priority']
       )
     ));
+  }
+
+  foreach ( $help_controls as $control ) {
+    $wp_customize->add_control( new Shoestrap_Customize_Label_Control( $wp_customize, $control['setting'], array(
+      'label'       => $control['label'],
+      'section'     => $control['section'],
+      'settings'    => $control['setting'],
+      'priority'    => $control['priority'],
+    )));
   }
 }
 add_action( 'customize_register', 'shoestrap_logo_customizer' );

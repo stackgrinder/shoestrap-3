@@ -30,7 +30,7 @@ function shoestrap_background_customizer( $wp_customize ){
   $color_controls   = array();
   
   // Background Color
-  $color_controls[] = array( 'setting' => 'shoestrap_background_color', 'label' => 'Background Color', 'section' => 'colors', 'priority' => 2 );
+  $color_controls[] = array( 'setting' => 'shoestrap_background_color', 'label' => 'Background Color', 'section' => 'colors', 'priority' => 1 );
   
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(
@@ -50,7 +50,7 @@ function shoestrap_background_customizer( $wp_customize ){
     'label'       => $background_color_help,
     'section'     => 'colors',
     'settings'    => 'shoestrap_background_color_help',
-    'priority'    => 1,
+    'priority'    => 2,
   )));
 }
 add_action( 'customize_register', 'shoestrap_background_customizer' );
