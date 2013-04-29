@@ -9,6 +9,7 @@
 <?php endif; ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
+  <?php do_action( 'shoestrap_in_loop_start_action' ); ?>
   <?php get_template_part( 'templates/content', get_post_format() ); ?>
 <?php endwhile; ?>
 
