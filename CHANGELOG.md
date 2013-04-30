@@ -1,5 +1,39 @@
 # Shoestrap Theme Changelog
 
+## 1.50
+* Fix: Updated the Elusive-Icons Webfont
+* New: Added the ability for Customizer help-texts
+* New: Added image resizing script from https://github.com/matthewruddy/wordpress-timthumb-alternative/
+* New: Added actions and hooks to call some various parts pf the templates
+* Fix: Better loading of the customizer files
+* Fix: Fixed layout issues
+* New: Adding icon to tags and making them comma-separated instead of a list
+* New: More versatile functions
+* Fix: Fixing bug for the alternative navbar styling (wrong conditions)
+* New: The excerpt is now called via do_action
+* Fix: Better messages for admins
+* Fix: Minor improvements on the custom builder
+* Fix: Removed advanced customizer conditionals from navbar/functions.php
+* Fix: Removed advanced customizer conditionals from navbar/styles.php
+* Fix: Removed advanced customizer conditionals from social/styles.php
+* Fix: Removed advanced customizer conditionals from typography/functions.php
+* Fix: Removed advanced customizer conditionals from caching.php
+* Fix: Removed advanced customizer conditionals from buttons/functions.php
+* Fix: Removed advanced customizer conditionals from background/functions.php
+* Fix: Removed advanced customizer conditionals from customizer.php
+* Fix: Removing settings from the advanced customizer (will be using default customizer when needed)
+* Fix: Removing unnecessary controls and settings from the advanced customizer
+* Fix: Better CSS for some navbar parts
+* New: Added alternative menu styling on the main navbar
+* Fix: The main content of the page is now pushed down when adding padding to the bavbar
+* Fix: Rhe Navbar padding now applies to menu items instead. The result is better styling for the selected menu items.
+* Fix: Auto-Disable the advanced customizer if developer mode is off
+* Fix: Recompiling CSS with latest phpless.
+* Fix: Updating php-less compiler to 0.3.9
+* Fix: Use the latest version of jQuery by default instead of the default WordPress version
+* Fix: Load scripts in the head by default and not in the footer
+* New: Added LICENCE.md file
+
 ## 1.49
 * Fix:  template & syntax improvements
 * Fix: better functions.php
