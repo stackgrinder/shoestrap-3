@@ -31,6 +31,8 @@ $files[]  = array( 'filename' => '/lib/customizer/layout/functions.php' );
 $files[]  = array( 'filename' => '/lib/customizer/social/functions.php' );
 // Footer Customizer
 $files[]  = array( 'filename' => '/lib/customizer/footer/functions.php' );
+// Featured Image Customizer
+$files[]  = array( 'filename' => '/lib/customizer/featured-image/functions.php' );
 // Advanced Customizer
 $files[]  = array( 'filename' => '/lib/customizer/advanced/functions.php' );
 
