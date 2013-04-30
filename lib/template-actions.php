@@ -84,7 +84,7 @@ function shoestrap_single_content_template() { ?>
   <?php endwhile; ?>
   <?php
 }
-add_action( 'shoestrap_single_content_template', 'shoestrap_single_content', 10 );
+add_action( 'shoestrap_single_content', 'shoestrap_single_content_template', 10 );
 
 /*
  * The single-post content template
