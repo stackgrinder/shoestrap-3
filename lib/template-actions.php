@@ -59,3 +59,27 @@ function shoestrap_article_metadata() { ?>
   <?php
 }
 add_action( 'shoestrap_do_metadata', 'shoestrap_article_metadata', 10 );
+
+/*
+ * The single-post content template
+ */
+function shoestrap_single_content() { ?>
+  <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
+    <header>
+      <h1 class="entry-title"><?php the_title(); ?></h1>
+      <?php get_template_part( 'templates/entry-meta' ); ?>
+    </header>
+    <div class="entry-content">
+      <?php do_action( 'shoestrap_before_the_content' ); ?>
+      <?php the_content(); ?>
+      <?php do_action( 'shoestrap_after_the_content' ); ?>
+    </div>
+    <footer>
+      <?php wp_link_pages( array( 'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'shoestrap' ), 'after' => '</p></nav>' ) ); ?>
+      <?php the_tags( '<i class="icon-tags"></i>',', ','' ); ?>
+    </footer>
+    <?php comments_template( '/templates/comments.php' ); ?>
+  </article>
+  <?php
+}
+add_action( 'shoestrap_single_content', 'shoestrap_single_content', 10 );
