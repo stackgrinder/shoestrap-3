@@ -40,7 +40,7 @@ function shoestrap_hero_customizer( $wp_customize ){
 
   // Dropdown (Select) Controls
   $select_controls = array();
-  $select_controls[] = array( 'setting' => 'shoestrap_hero_visibility',  'class'=>'dovywashere',    'label' => 'Hero Region Visibility',        'section' => 'shoestrap_hero',  'priority' => 9, 'choises' => array( 'front' => __( 'Frontpage', 'shoestrap' ), 'site' => __( 'Site-Wide', 'shoestrap' ) ) );
+  $select_controls[] = array( 'setting' => 'shoestrap_hero_visibility',       'label' => 'Hero Region Visibility',        'section' => 'shoestrap_hero',  'priority' => 9, 'choises' => array( 'front' => __( 'Frontpage', 'shoestrap' ), 'site' => __( 'Site-Wide', 'shoestrap' ) ) );
 
   // Text Controls
   $text_controls = array();
