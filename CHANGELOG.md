@@ -1,5 +1,10 @@
 # Shoestrap Theme Changelog
 
+## 1.51
+* New: Added Featured images section on the customizer
+* New: Added timthumb alternative script
+* Better Implementation of the Google Webfonts API
+
 ## 1.50
 * Fix: Updated the Elusive-Icons Webfont
 * New: Added the ability for Customizer help-texts
