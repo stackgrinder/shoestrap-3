@@ -4,17 +4,17 @@
  * Creates the section, settings and the controls for the customizer
  */
 function shoestrap_background_customizer( $wp_customize ){
-  
+
   // Adds compatibility with wordpress's default background color control.
   $background_color = get_theme_mod( 'background_color' );
   $background_color = '#' . str_replace( '#', '', $background_color );
   set_theme_mod( 'background_color', get_theme_mod( 'shoestrap_background_color' ) );
-  
+
   $background_color_help = __( 'You can use the above color control to select a background color for your page', 'shoestrap' );
 
   $settings   = array();
   // Color Settings
-  $settings[] = array( 'slug' => 'shoestrap_background_color',          'default' => $background_color );
+  $settings[] = array( 'slug' => 'shoestrap_background_color',          'default' => '#ffffff' );
   $settings[] = array( 'slug' => 'shoestrap_background_color_help',     'default' => $background_color_help );
 
   foreach( $settings as $setting ){
@@ -23,15 +23,15 @@ function shoestrap_background_customizer( $wp_customize ){
 
   // Remove the default "background" control
   $wp_customize->remove_control( 'background_color' );
-  
+
   /*
    * Color Controls
    */
   $color_controls   = array();
-  
+
   // Background Color
   $color_controls[] = array( 'setting' => 'shoestrap_background_color', 'label' => 'Background Color', 'section' => 'colors', 'priority' => 1 );
-  
+
   foreach( $color_controls as $control ){
     $wp_customize->add_control( new WP_Customize_Color_Control(
       $wp_customize,

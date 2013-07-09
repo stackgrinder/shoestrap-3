@@ -55,8 +55,10 @@ $files[]  = array( 'filename' => '/lib/admin/licencing.php' );
 // Load the less compiling function only on single-site installations
 // OR on multisite when the user is super-admin.
 if ( ( is_multisite() && is_super_admin() ) || !is_multisite() ) {
-  if ( shoestrap_check_files_permissions( true ) != true ) {
-    $files[]  = array( 'filename' => '/lib/less.php' );
+  if ( function_exists( 'shoestrap_check_files_permissions' ) ) {
+    if ( shoestrap_check_files_permissions( true ) != true ) {
+      $files[]  = array( 'filename' => '/lib/less.php' );
+    }
   }
 }
 

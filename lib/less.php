@@ -4,16 +4,16 @@
  * This function can be used to compile a less file to css
  */
 function shoestrap_phpless( $inputFile, $outputFile ) {
-  
+
   if ( !class_exists( 'lessc' ) ) {
     require_once locate_template( '/lib/less_compiler/lessc.inc.php' );
   }
   $less = new lessc;
-  
+
   if ( get_option( 'shoestrap_minimize_css' ) == 1 ) {
-    $less->setFormatter( "compressed" ); 
+    $less->setFormatter( "compressed" );
   }
-  
+
   // create a new cache object, and compile
   $cache = $less -> cachedCompile( $inputFile );
 
@@ -48,7 +48,7 @@ function shoestrap_phpless_compile() {
   $responsive_less                  = locate_template( 'assets/less/responsive.less' );
   $responsive_css                   = locate_template( 'assets/css/responsive.css' );
 
-  if ( get_option( 'shoestrap_dev_mode' ) == 1 ) {
+  if ( get_option( 'shoestrap_dev_mode' ) == 1 && get_option( 'shoestrap_advanced_compiler' ) == 1 ) {
     shoestrap_phpless( $app_less, $app_css );                                               // compiling the default styles
     shoestrap_phpless( $app_no_radius_less, $app_no_radius_css );                           // compiling no-radius styles
     shoestrap_phpless( $app_no_gradients_less, $app_no_gradients_css );                     // compiling no-gradients styles

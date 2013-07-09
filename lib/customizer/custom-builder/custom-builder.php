@@ -6,24 +6,24 @@ require_once locate_template( '/lib/customizer/custom-builder/components/customi
 
 /*
  * The content below is a copy of bootstrap's variables.less file.
- * 
+ *
  * Some options are user-configurable and stored as theme mods.
  * We try to minimize the options and simplify the user environment.
- * In order to do that, we 'll have to provide a minimum amount of options 
+ * In order to do that, we 'll have to provide a minimum amount of options
  * and calculate the rest based on the user's selections.
- * 
+ *
  * based on the textcolor and bodybackground, we can calculate the following options:
  * @black, @grayDarker, @grayDark, @gray, @grayLight, @grayLighter, @white
- * 
+ *
  * based on the baseBorderRadius we can calculate the borderRadiusLarge and borderRadiusSmall.
- * 
+ *
  * Only one option per button color is necessary.
- * 
+ *
  * The forms and dropdowns can both be derived from the text and background colors.
  * baseLineHeight can also be calculated from the baseFontSize,
  * but it's preferable to have a separate setting for that,
  * since some fonts have weird line height (especially if using Google Webfonts.)
- * 
+ *
  * Responsive and layouts in general are a bit trickier.
  * We allow the user to choose the width for Wide, Normal and Narrow
  * as well as gutter widths for narrow/normal and wide.
@@ -43,21 +43,21 @@ function shoestrap_custom_builder_rewrite_variables() {
   $fontSizeLarge        = get_theme_mod( 'strp_cb_fontsizelarge' );
   $fontSizeSmall        = get_theme_mod( 'strp_cb_fontsizesmall' );
   $fontSizeMini         = get_theme_mod( 'strp_cb_fontsizemini' );
-  
+
   // border
   $baseBorderRadius     = get_theme_mod( 'strp_cb_baseborderradius' );
-  
+
   // grids
   $gridWidthNormal      = get_theme_mod( 'strp_cb_gridwidth_normal' );
   $gridWidthWide        = get_theme_mod( 'strp_cb_gridwidth_wide' );
   $gridWidthNarrow      = get_theme_mod( 'strp_cb_gridwidth_narrow' );
   $gridGutterNormal     = get_theme_mod( 'strp_cb_gridgutter_normal' );
   $gridGutterWide       = get_theme_mod( 'strp_cb_gridgutter_wide' );
-  
+
   $flatbuttons          = get_theme_mod( 'shoestrap_flat_buttons' );
 
   if ( is_null( $bodyBackground ) || strlen( $bodyBackground ) < 6 ) { $bodyBackground == '#ffffff'; }
-  if ( is_null( $textColor ) || strlen( $textColor ) < 6 ) { $bodyBackground == '#333333'; }
+  if ( is_null( $textColor ) || strlen( $textColor ) < 6 ) { $textColor == '#333333'; }
   if ( is_null( $sansFontFamily ) || strlen( $sansFontFamily ) < 3 ) { $sansFontFamily == '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
   if ( is_null( $serifFontFamily ) || strlen( $serifFontFamily ) < 3 ) { $serifFontFamily == 'Georgia, "Times New Roman", Times, serif'; }
   if ( is_null( $monoFontFamily ) || strlen( $monoFontFamily ) < 3 ) { $monoFontFamily == 'Monaco, Menlo, Consolas, "Courier New", monospace'; }
@@ -74,7 +74,7 @@ function shoestrap_custom_builder_rewrite_variables() {
   if ( is_null( $gridGutterWide ) || $gridGutterWide == '' ) { $gridGutterWide == '30'; }
 
   $gridColumns          = 12;
-  
+
   // calculate shadows of gray, depending on background and textcolor
   if ( shoestrap_get_brightness( $bodyBackground ) >= 128 ) {
     $black        = shoestrap_adjust_brightness( $textColor, -64 );
@@ -88,7 +88,7 @@ function shoestrap_custom_builder_rewrite_variables() {
   $grayLight    = shoestrap_mix_colors( $textColor, $bodyBackground, 50 );
   $grayLighter  = shoestrap_mix_colors( $textColor, $bodyBackground, 8 );
   $white        = shoestrap_adjust_brightness( $bodyBackground, 0 );
-  
+
   $borderRadiusLarge  = round( $baseBorderRadius * 1.5 );
   $borderRadiusSmall  = round( $baseBorderRadius * 3 / 4 );
 
@@ -98,7 +98,7 @@ function shoestrap_custom_builder_rewrite_variables() {
   } else {
     $linkColorHover = 'lighten(@linkColor, 15%)';
   }
-  
+
   // Table accents and border based on bodyBackground
   if ( shoestrap_get_brightness( $bodyBackground ) >= 50 ) {
     $tableBackgroundAccent  = shoestrap_adjust_brightness( $bodyBackground, -6 );
@@ -109,20 +109,20 @@ function shoestrap_custom_builder_rewrite_variables() {
     $tableBackgroundHover   = shoestrap_adjust_brightness( $bodyBackground, 10 );
     $tableBorder            = shoestrap_adjust_brightness( $bodyBackground, 34 );
   }
-  
+
   $inputBorder = shoestrap_mix_colors( $grayLight, $grayLighter, 50 );
 
   // Grid Columns
   $gridColumnNormal = number_format( ( $gridWidthNormal - ( $gridGutterNormal * ( $gridColumns - 1 ) ) ) / $gridColumns, 0 );
   $gridColumnWide   = number_format( ( $gridWidthWide - $gridGutterWide * $gridColumns ) / $gridColumns, 0 );
   $gridColumnNarrow = number_format( ( $gridWidthNarrow - $gridGutterNormal * ( $gridColumns + 1 ) ) / $gridColumns, 0 );
-  
+
   // width of input elements
   $horizontalComponentOffset = 3 * $gridColumnNormal;
-  
+
   // NavBar width
   $navbarCollapseWidth = ( ( $gridWidthNormal + ( 2 * $gridGutterNormal ) ) - 1 );
-  
+
   if ( $flatbuttons == 1 ) {
     $btnBackgroundHighlight         = '@white';
     $btnPrimaryBackgroundHighlight  = '@btnPrimaryBackground';
@@ -448,7 +448,7 @@ function shoestrap_custom_builder_rewrite_variables() {
 @fluidGridColumnWidth768:      percentage(' . number_format( ( $gridColumnNarrow / $gridWidthNarrow ), 4 ) . ');
 @fluidGridGutterWidth768:      percentage(' . number_format( ( $gridGutterNormal / $gridWidthNarrow), 4 ) . ');
 ';
-  
+
   // write the content to the variations file
   fwrite( $fh, $variables_content );
   // close the file
