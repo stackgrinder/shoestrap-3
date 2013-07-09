@@ -5,7 +5,7 @@
  */
 function shoestrap_admin_main_nav_item_licence() {
   global $pagenow;
-  if ( $pagenow == 'themes.php' && $_GET['page'] == 'shoestrap_options' && $_GET['tab'] == 'licence' ) { 
+  if ( $pagenow == 'themes.php' && $_GET['page'] == 'shoestrap_options' && $_GET['tab'] == 'licence' ) {
     echo '<a class="nav-tab nav-tab-active" href="?page=shoestrap_options&tab=licence">' . __( 'Licence', 'Shoestrap') . '</a>';
   } else {
     echo '<a class="nav-tab" href="?page=shoestrap_options&tab=licence">Licence</a>';
@@ -30,7 +30,7 @@ define( 'SHOESTRAP_THEME_NAME', 'Shoestrap' );
 define( 'SHOESTRAP_URL', 'http://shoestrap.org/downloads/shoestrap/' );
 // retrieve our license key from the DB
 $license_key = trim( get_option( 'shoestrap_license_key' ) );
- 
+
 if( !class_exists( 'EDD_SL_Theme_Updater' ) ) {
   // load our custom theme updater
   include( dirname( __FILE__ ) . '/EDD_SL_Theme_Updater.php' );
@@ -39,7 +39,7 @@ if( !class_exists( 'EDD_SL_Theme_Updater' ) ) {
 // setup the updater
 $edd_updater = new EDD_SL_Theme_Updater( array(
   'remote_api_url'  => SHOESTRAP_STORE_URL,       // our store URL that is running EDD
-  'version'         => '1.51',                    // current version number
+  'version'         => '1.52',                    // current version number
   'license'         => $license_key,              // license key (used get_option above to retrieve from DB)
   'item_name'       => SHOESTRAP_THEME_NAME,      // name of this theme
   'author'          => 'Aristeides Stathopoulos'  // author of this theme
@@ -60,15 +60,15 @@ function shoestrap_license_page() {
       <strong>This theme is an OpenSource project and is provided free of charge.</strong><br />
       If you wish to enable automatic updates, you can visit <a href="http://shoestrap.org/downloads/shoestrap/" target="_blank">this page</a>
       and get a free licence. By entering and <strong>activating</strong> it, whenever a new version is available you will be notified in your dashboard.
-      If you wish to help this project, you can do so by helping out on the <a href="https://github.com/aristath/shoestrap" target="_blank">github project page</a> 
+      If you wish to help this project, you can do so by helping out on the <a href="https://github.com/aristath/shoestrap" target="_blank">github project page</a>
       <br>
       <p>To configure the options for this theme, please visit the <a href="<?php  echo $customizeurl ?>">Customizer</a></p>
-      
+
       <form method="post" action="options.php">
         <?php settings_fields( 'shoestrap_license' ); ?>
-    
+
         <?php _e( 'License Key:', 'shoestrap' ); ?>
-    
+
         <input id="shoestrap_license_key" name="shoestrap_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
         <label class="description" for="shoestrap_license_key">
           <?php _e( 'Enter your license key', 'shoestrap' ); ?>
@@ -81,11 +81,11 @@ function shoestrap_license_page() {
             <?php } ?>
           <?php } ?>
           )
-          
+
         </label>
-    
+
         <?php submit_button( $submit_text ); ?>
-    
+
       </form>
     </div>
   </div>
@@ -118,12 +118,12 @@ function shoestrap_activate_license() {
   $license = trim( get_option( 'shoestrap_license_key' ) );
 
   // data to send in our API request
-  $api_params = array( 
-    'edd_action'=> 'activate_license', 
-    'license'   => $license, 
-    'item_name' => urlencode( SHOESTRAP_THEME_NAME ) 
+  $api_params = array(
+    'edd_action'=> 'activate_license',
+    'license'   => $license,
+    'item_name' => urlencode( SHOESTRAP_THEME_NAME )
   );
-  
+
   // Call the custom API.
   $response = wp_remote_get( add_query_arg( $api_params, SHOESTRAP_STORE_URL ) );
 
