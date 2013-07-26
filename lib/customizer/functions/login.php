@@ -48,18 +48,32 @@ function shoestrap_login_scripts() {
 ?>
   <style type="text/css">
     body.login {
-			background: <?php echo $background_color ?>;
+      background: <?php echo $background_color ?>;
       background-size: contain;
       font-family: <?php echo $google_webfonts ?>;
-		}
-		body.login div#login h1 a {
-      background-image: url(<?php echo $login_logo ?>);
-      background: <?php echo $header_bg_color ?>;
-      padding-bottom: 30px;
-			margin: 0 auto;
     }
-		.login form {
-			background: <?php echo $background_color ?>;
+    body.login div#login h1 a {
+<?php 
+  if ( isset($login_logo) ) {
+?>
+      background-image: url(<?php echo $login_logo ?>);
+      padding-bottom: 30px;
+<?php 
+  } else {
+?>
+      background: <?php echo $header_bg_color ?>;
+      text-indent: 0px;
+      text-align: center;
+      padding: 10px 0 10px 0;
+      height: auto;
+<?php 
+  }
+?>
+      
+      margin: 0 auto;
+    }
+    .login form {
+      background: <?php echo $background_color ?>;
       border: 0px;
       border-width: 0px;
       border-style: none;
@@ -73,7 +87,7 @@ function shoestrap_login_scripts() {
       -o-border-radius: 0px;
       -moz-border-radius: 0px;
       border-radius: 0px;
-		}
+    }
     #nav, #backtoblog {
       position: relative;
       left: 0px;
