@@ -31,6 +31,7 @@ if ( !class_exists( 'ShoestrapBranding' ) ) {
 				'id'          => 'logo',
 				'default'     => '',
 				'type'        => 'media',
+				'customizer'  => true,
 			);
 
 			$fields[] = array( 
@@ -67,6 +68,7 @@ if ( !class_exists( 'ShoestrapBranding' ) ) {
 				'desc'        => __( 'Enable gradients for buttons and the navbar. Default: Off.', 'shoestrap' ),
 				'id'          => 'gradients_toggle',
 				'default'     => 0,
+				'customizer'  => true,
 				'compiler'    => true,
 				'type'        => 'switch',
 			);
@@ -77,6 +79,7 @@ if ( !class_exists( 'ShoestrapBranding' ) ) {
 				'id'          => 'color_brand_primary',
 				'default'     => '#428bca',
 				'compiler'    => true,
+				'customizer'  => true,
 				'transparent' => false,    
 				'type'        => 'color'
 			);
@@ -87,6 +90,7 @@ if ( !class_exists( 'ShoestrapBranding' ) ) {
 				'id'          => 'color_brand_success',
 				'default'     => '#5cb85c',
 				'compiler'    => true,
+				'customizer'  => true,
 				'transparent' => false,    
 				'type'        => 'color',
 			);
@@ -97,6 +101,7 @@ if ( !class_exists( 'ShoestrapBranding' ) ) {
 				'id'          => 'color_brand_warning',
 				'default'     => '#f0ad4e',
 				'compiler'    => true,
+				'customizer'  => true,
 				'type'        => 'color',
 				'transparent' => false,    
 			);
@@ -107,6 +112,7 @@ if ( !class_exists( 'ShoestrapBranding' ) ) {
 				'id'          => 'color_brand_danger',
 				'default'     => '#d9534f',
 				'compiler'    => true,
+				'customizer'  => true,
 				'type'        => 'color',
 				'transparent' => false,    
 			);
@@ -117,6 +123,7 @@ if ( !class_exists( 'ShoestrapBranding' ) ) {
 				'id'          => 'color_brand_info',
 				'default'     => '#5bc0de',
 				'compiler'    => true,
+				'customizer'  => true,
 				'type'        => 'color',
 				'transparent' => false,    
 			);
@@ -162,9 +169,15 @@ if ( !class_exists( 'ShoestrapBranding' ) ) {
 		 */
 		public static function logo() {
 			$logo  = shoestrap_getVariable( 'logo' );
+      if  ( is_array( $logo ) ) {
+        $logo_content = $logo['url'];
+      }
+      else {
+        $logo_content = $logo;
+      }
 
-			if ( !empty( $logo['url'] ) )
-				$branding = '<img id="site-logo" src="' . $logo['url'] . '" alt="' . get_bloginfo( 'name' ) . '">';
+			if ( !empty( $logo['url']) || (!is_array($logo) && !empty($logo)) ) 
+				$branding = '<img id="site-logo" src="' . $logo_content . '" alt="' . get_bloginfo( 'name' ) . '">';
 			else
 				$branding = '<span class="sitename">' . get_bloginfo( 'name' ) . '</span>';
 

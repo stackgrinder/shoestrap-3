@@ -38,8 +38,8 @@ function shoestrap_required_plugins() {
 		array(
 			'name'               => 'lessphp',
 			'slug'               => 'lessphp',
-			'required'           => false,
-			'force_activation'   => false,
+			'required'           => true,
+			'force_activation'   => true,
 		),
 	);
 

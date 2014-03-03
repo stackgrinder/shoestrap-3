@@ -76,6 +76,7 @@ if ( !class_exists( 'ShoestrapBlog' ) ) {
 				'id'        => 'feat_img_archive',
 				'default'   => 0,
 				'type'      => 'switch',
+				'customizer'=> true,
 			);
 
 
@@ -88,6 +89,7 @@ if ( !class_exists( 'ShoestrapBlog' ) ) {
 				'off'       => __( 'Full Width', 'shoestrap' ),
 				'on'        => __( 'Custom Dimensions', 'shoestrap' ),
 				'type'      => 'switch',
+				'customizer'=> true,
 			);
 
 			$fields[] = array( 
@@ -122,6 +124,7 @@ if ( !class_exists( 'ShoestrapBlog' ) ) {
 				'id'        => 'feat_img_post',
 				'default'   => 0,
 				'type'      => 'switch',
+				'customizer'=> true,
 			);
 
 			$fields[] = array( 
@@ -133,6 +136,7 @@ if ( !class_exists( 'ShoestrapBlog' ) ) {
 				'on'        => __( 'Custom Dimensions', 'shoestrap' ),
 				'type'      => 'switch',
 				'required'  => array('feat_img_post','=',array('1')),
+				'customizer'=> true,
 			);
 
 			$fields[] = array( 
@@ -208,6 +212,7 @@ if ( !class_exists( 'ShoestrapBlog' ) ) {
 					'pagination'  => 'Default Pagination'
 				),
 				'default'   => 'pager',
+				'customizer'=> 'true',
 			);
 
 			$fields[] = array( 
@@ -216,6 +221,7 @@ if ( !class_exists( 'ShoestrapBlog' ) ) {
 				'id'        => 'breadcrumbs',
 				'default'   => 0,
 				'type'      => 'switch',
+				'customizer'=> true,
 			);
 
 			$fields[] = array( 
@@ -224,6 +230,7 @@ if ( !class_exists( 'ShoestrapBlog' ) ) {
 				'id'        => 'single_meta',
 				'default'   => 1,
 				'type'      => 'switch',
+				'customizer'=> true,
 			);
 
 			$section['fields'] = $fields;

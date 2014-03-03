@@ -40,6 +40,7 @@ if ( !class_exists( 'ShoestrapHeaders' ) ) {
 				'title'       => __( 'Display the Header.', 'shoestrap' ),
 				'desc'        => __( 'Turn this ON to display the header. Default: OFF', 'shoestrap' ),
 				'id'          => 'header_toggle',
+				'customizer'  => true,
 				'default'     => 0,
 				'type'        => 'switch',
 			);
@@ -48,6 +49,7 @@ if ( !class_exists( 'ShoestrapHeaders' ) ) {
 				'title'       => __( 'Display branding on your Header.', 'shoestrap' ),
 				'desc'        => __( 'Turn this ON to display branding ( Sitename or Logo )on your Header. Default: ON', 'shoestrap' ),
 				'id'          => 'header_branding',
+				'customizer'  => true,
 				'default'     => 1,
 				'type'        => 'switch',
 				'required'    => array('header_toggle','=',array('1')),
@@ -60,6 +62,7 @@ if ( !class_exists( 'ShoestrapHeaders' ) ) {
 				'default'     => array(
 					'background-color' => '#ffffff'
 				),
+				'customizer'  => true,
 				'output'      => '.header-wrapper',
 				'type'        => 'background',
 				'required'    => array( 'header_toggle','=',array( '1' ) ),
@@ -83,6 +86,7 @@ if ( !class_exists( 'ShoestrapHeaders' ) ) {
 				'desc'        => __( 'Select the text color for your header. Default: #333333.', 'shoestrap' ),
 				'id'          => 'header_color',
 				'default'     => '#333333',
+				'customizer'  => true,
 				'transparent' => false,    
 				'type'        => 'color',
 				'required'    => array('header_toggle','=',array('1')),
@@ -147,6 +151,7 @@ if ( !class_exists( 'ShoestrapHeaders' ) ) {
 				'title'     => __('Display Jumbotron only on the Frontpage.', 'shoestrap'),
 				'desc'      => __('When Turned OFF, the Jumbotron area is displayed in all your pages. If you wish to completely disable the Jumbotron, then please remove the widgets assigned to its area and it will no longer be displayed. Default: ON', 'shoestrap'),
 				'id'        => 'jumbotron_visibility',
+				'customizer'=> true,
 				'default'   => 1,
 				'type'      => 'switch'
 			);
@@ -155,6 +160,7 @@ if ( !class_exists( 'ShoestrapHeaders' ) ) {
 				'title'     => __('Full-Width', 'shoestrap'),
 				'desc'      => __('When Turned ON, the Jumbotron is no longer restricted by the width of your page, taking over the full width of your screen. This option is useful when you have assigned a slider widget on the Jumbotron area and you want its width to be the maximum width of the screen. Default: OFF.', 'shoestrap'),
 				'id'        => 'jumbotron_nocontainer',
+				'customizer'=> true,
 				'default'   => 1,
 				'type'      => 'switch'
 			);
@@ -163,6 +169,7 @@ if ( !class_exists( 'ShoestrapHeaders' ) ) {
 				'title'     => __('Use fittext script for the title.', 'shoestrap'),
 				'desc'      => __('Use the fittext script to enlarge or scale-down the font-size of the widget title to fit the Jumbotron area. Default: OFF', 'shoestrap'),
 				'id'        => 'jumbotron_title_fit',
+				'customizer'=> true,
 				'default'   => 0,
 				'type'      => 'switch',
 			);
@@ -171,6 +178,7 @@ if ( !class_exists( 'ShoestrapHeaders' ) ) {
 				'title'     => __('Center-align the content.', 'shoestrap'),
 				'desc'      => __('Turn this on to center-align the contents of the Jumbotron area. Default: OFF', 'shoestrap'),
 				'id'        => 'jumbotron_center',
+				'customizer'=> true,
 				'default'   => 0,
 				'type'      => 'switch',
 			);
@@ -201,6 +209,7 @@ if ( !class_exists( 'ShoestrapHeaders' ) ) {
 				'default'   => 0,
 				'compiler'  => true,
 				'type'      => 'switch',
+				'customizer'=> true,
 			);
 
 			$fields[] = array(
