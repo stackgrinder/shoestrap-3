@@ -58,7 +58,7 @@ if ( class_exists( 'ReduxFramework' ) ) :
 
 	$sections = array();
 	$sections = apply_filters( 'shoestrap_add_sections', $sections );
-
+  global $ReduxFramework;
 	$ReduxFramework = new ReduxFramework( $sections, $args );
 
 	if ( !empty( $redux['dev_mode'] ) && $redux['dev_mode'] == 1 ) :
@@ -69,6 +69,71 @@ if ( class_exists( 'ReduxFramework' ) ) :
 add_action('init', 'shoestrap_redux_init');
 endif;
 
+// make sure we only have one instance
+if ( !class_exists( 'ShoestrapCustomize' ) ) :
+
+class ShoestrapCustomize extends ReduxFramework {
+  private $parent;
+
+  public function __construct($parent) {
+    $this->parent = $parent;
+  }
+
+  public function map_options_2_less() {
+    
+    $shoestrap_options = [];
+    $i=0;
+
+    foreach( $this->parent->sections as $key => $section ) {
+
+      foreach ( $section['fields'] as $key => $option ) {
+
+        $parts = explode( "_", $option['id']);
+
+        if ( !isset($option['customizer']) || $option['customizer'] === false ) {
+          continue;
+        }
+        if ( count($parts) < 2 ) continue; //for right now skip a bunch of options like logo (single word options)
+        $re1 = '^(.*?)'; 
+        $re2 = '_';
+        if ( $c = preg_match( "/" . $re1 . $re2 . "/is", $option['id'], $matches ) ) {
+          $var_type = $matches[1];
+        }
+        switch( $var_type ) {
+          case 'color':
+            $shoestrap_options[$option['id']] = '@' . $parts[1] . '-' .  $parts[2];
+            break;
+          case 'navbar':
+           switch( end($parts) ) {
+            case 'bg':
+              $shoestrap_options[$option['id']] = '@' . $var_type . '-default-bg';
+              break;
+           }
+           break;
+          case 'footer':
+            switch( end($parts) ) {
+            case 'color':
+               $shoestrap_options[$option['id']] = 'footer.content-info{color';
+               break;
+            case 'background':
+              $shoestrap_options[$option['id']] =  'footer.content-info{background';
+              break;
+            }
+          break;
+          case 'header':
+            switch( end($parts) ) {
+            case 'color':
+              $shoestrap_options[$option['id']] = '@jumbotron-color';
+            break;
+            }
+          break;
+        }
+      }
+    }
+    return $shoestrap_options;
+  }
+}
+endif;
 /**
  * Adds tracking parameters for Redux settings. Outside of the main class as the class could also be in use in other plugins.
  *

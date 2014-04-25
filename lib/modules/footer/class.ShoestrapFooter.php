@@ -11,6 +11,7 @@ if( !class_exists( 'ShoestrapFooter' ) ) {
 			add_filter( 'redux/options/' . SHOESTRAP_OPT_NAME . '/sections', array( $this, 'options' ), 85 ); 
 			add_action( 'wp_enqueue_scripts',    array( $this, 'css'  ), 101 );
 			add_action( 'shoestrap_footer_html', array( $this, 'html' )      );
+      add_filter( 'shoestrap_compiler', array( $this, 'css' ) );
 		}
 
 		/*
@@ -29,6 +30,7 @@ if( !class_exists( 'ShoestrapFooter' ) ) {
 				'desc'        => __( 'Select the background color for your footer. Default: #282a2b.', 'shoestrap' ),
 				'id'          => 'footer_background',
 				'default'     => '#282a2b',
+				'customizer'  => true,
 				'transparent' => false,    
 				'type'        => 'color'
 			);
@@ -49,6 +51,7 @@ if( !class_exists( 'ShoestrapFooter' ) ) {
 				'desc'        => __( 'Select the text color for your footer. Default: #8C8989.', 'shoestrap' ),
 				'id'          => 'footer_color',
 				'default'     => '#8C8989',
+				'customizer'  => true,
 				'transparent' => false,    
 				'type'        => 'color'
 			);
@@ -58,6 +61,7 @@ if( !class_exists( 'ShoestrapFooter' ) ) {
 				'desc'        => __( 'The text that will be displayed in your footer. You can use [year] and [sitename] and they will be replaced appropriately. Default: &copy; [year] [sitename]', 'shoestrap' ),
 				'id'          => 'footer_text',
 				'default'     => '&copy; [year] [sitename]',
+				'customizer'  => true,
 				'type'        => 'textarea'
 			);
 
@@ -93,6 +97,7 @@ if( !class_exists( 'ShoestrapFooter' ) ) {
 				'desc'        => __( 'Show social icons in the footer. Default: On.', 'shoestrap' ),
 				'id'          => 'footer_social_toggle',
 				'default'     => 0,
+				'customizer'  => true,
 				'type'        => 'switch',
 			);
 
@@ -105,6 +110,7 @@ if( !class_exists( 'ShoestrapFooter' ) ) {
 				'min'         => 3,
 				'step'        => 1,
 				'max'         => 10,
+				'customizer'  => true,
 				'type'        => 'slider',
 			);    
 
@@ -114,6 +120,7 @@ if( !class_exists( 'ShoestrapFooter' ) ) {
 				'id'          => 'footer_social_new_window_toggle',
 				'required'    => array('footer_social_toggle','=',array('1')),
 				'default'     => 1,
+				'customizer'  => true,
 				'type'        => 'switch',
 			);
 
@@ -127,6 +134,7 @@ if( !class_exists( 'ShoestrapFooter' ) ) {
 
 		/**
 		 * If the options selected require the insertion of some custom CSS to the document head, generate that CSS here
+     * @TODO for some reason this function is getting called twice in the customizer.
 		 */
 
 		function css() {
@@ -156,6 +164,7 @@ if( !class_exists( 'ShoestrapFooter' ) ) {
 			$style .= '#footer_social_bar a:hover, #footer_social_bar a:active { color:' . $cl_brand . ' !important; text-decoration:none; }';
 
 			wp_add_inline_style( 'shoestrap_css', $style );
+      return $style;
 		}
 
 		function html() {

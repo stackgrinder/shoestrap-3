@@ -67,6 +67,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 					'full'      => __( 'Full-Width', 'shoestrap' ),
 					'left'      => __( 'Static-Left', 'shoestrap' ),
 				),
+				'customizer'  => true,
 				'type'        => 'button_set'
 			);
 
@@ -83,6 +84,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 				'id'          => 'navbar_bg',
 				'default'     => '#f8f8f8',
 				'compiler'    => true,
+				'customizer'  => true,
 				'transparent' => false,    
 				'type'        => 'color'
 			);
@@ -104,6 +106,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 				'id'          => 'navbar_style',
 				'default'     => 'default',
 				'type'        => 'select',
+				'customizer'  => true,
 				'options'     => array( 
 					'default'   => __( 'Default', 'shoestrap' ),
 					'style1'    => __( 'Style', 'shoestrap' ) . ' 1',
@@ -121,6 +124,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 				'desc'        => __( 'Default: ON', 'shoestrap' ),
 				'id'          => 'navbar_brand',
 				'default'     => 1,
+				'customizer'  => true,
 				'type'        => 'switch'
 			);
 
@@ -129,6 +133,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 				'desc'        => __( 'If this option is OFF, or there is no logo available, then the sitename will be displayed instead. Default: ON', 'shoestrap' ),
 				'id'          => 'navbar_logo',
 				'default'     => 1,
+				'customizer'  => true,
 				'type'        => 'switch'
 			);
 
@@ -233,6 +238,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 				'title'       => __( 'Display social links in the NavBar.', 'shoestrap' ),
 				'desc'        => __( 'Display social links in the NavBar. These can be setup in the \'Social\' section on the left. Default: OFF', 'shoestrap' ),
 				'id'          => 'navbar_social',
+				'customizer'  => true,
 				'default'     => 0,
 				'type'        => 'switch'
 			);
@@ -241,6 +247,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 				'title'       => __( 'Display social links as a Dropdown list or an Inline list.', 'shoestrap' ),
 				'desc'        => __( 'How to display social links. Default: Dropdown list', 'shoestrap' ),
 				'id'          => 'navbar_social_style',
+				'customizer'  => true,
 				'default'     => 0,
 				'on'          => __( 'Inline', 'shoestrap' ),
 				'off'         => __( 'Dropdown', 'shoestrap' ),
@@ -252,6 +259,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 				'title'       => __( 'Search form on the NavBar', 'shoestrap' ),
 				'desc'        => __( 'Display a search form in the NavBar. Default: On', 'shoestrap' ),
 				'id'          => 'navbar_search',
+				'customizer'  => true,
 				'default'     => 1,
 				'type'        => 'switch'
 			);
@@ -261,6 +269,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 				'desc'        => __( 'Floats the primary navigation to the right. Default: On', 'shoestrap' ),
 				'id'          => 'navbar_nav_right',
 				'default'     => 1,
+				'customizer'  => true,
 				'type'        => 'switch'
 			);
 
@@ -275,6 +284,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 				'title'       => __( 'Enable the Secondary NavBar', 'shoestrap' ),
 				'desc'        => __( 'Display a Secondary NavBar on top of the Main NavBar. Default: ON', 'shoestrap' ),
 				'id'          => 'secondary_navbar_toggle',
+				'customizer'  => true,
 				'default'     => 0,
 				'type'        => 'switch',
 			);
@@ -491,7 +501,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 			// Make sure the branding module exists.
 			if ( class_exists( 'ShoestrapBranding' ) ) {
 				$logo           = shoestrap_getVariable( 'logo' );
-				$branding_class = !empty( $logo['url'] ) ? 'logo' : 'text';
+				$branding_class = ( !is_array($logo) || !empty( $logo['url'] ) ) ? 'logo' : 'text';
 
 				if ( shoestrap_getVariable( 'navbar_brand' ) != 0 ) {
 					$branding  = '<a class="navbar-brand ' . $branding_class . '" href="' . home_url('/') . '">';
@@ -514,7 +524,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 		function navbar_body_class( $classes ) {
 			// Add 'top-navbar' or 'bottom-navabr' class if using Bootstrap's Navbar
 			// Used to add styling to account for the WordPress admin bar
-			if ( shoestrap_getVariable( 'navbar_fixed' ) == 1 && shoestrap_getVariable( 'navbar_fixed_position' ) != 1 && shoestrap_getVariable( 'navbar_toggle' ) != 'left' )
+			if ( shoestrap_getVariable( 'navbar_fixed' ) == 1 && shoestrap_getVariable( 'navbar_fixed_position' ) != 1 )
 				$classes[] = 'top-navbar';
 			elseif ( shoestrap_getVariable( 'navbar_fixed' ) == 1 && shoestrap_getVariable( 'navbar_fixed_position' ) == 1 )
 				$classes[] = 'bottom-navbar';
@@ -739,6 +749,7 @@ if ( !class_exists( 'ShoestrapMenus' ) ) {
 			$navbar_bg         = '#' . str_replace( '#', '', ShoestrapColor::sanitize_hex( shoestrap_getVariable( 'navbar_bg', true ) ) );
 			$navbar_height     = filter_var( shoestrap_getVariable( 'navbar_height', true ), FILTER_SANITIZE_NUMBER_INT );
 			$navbar_text_color = '#' . str_replace( '#', '', $font_navbar['color'] );
+      //var_dump($navbar_text_color);die();
 			$brand_text_color  = '#' . str_replace( '#', '', $font_brand['color'] );
 			$navbar_border     = ( ShoestrapColor::get_brightness( $navbar_bg ) < 50 ) ? 'lighten(@navbar-default-bg, 6.5%)' : 'darken(@navbar-default-bg, 6.5%)';
 			$gfb = shoestrap_getVariable( 'grid_float_breakpoint' );
