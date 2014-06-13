@@ -93,7 +93,7 @@ if ( ! class_exists( 'Shoestrap_Social' ) ) {
 		function get_social_shares() {
 			global $ss_framework, $ss_settings;
 
-			$nets   = $ss_settings['share_networks'];
+			$nets = isset( $ss_settings['share_networks'] ) ? $ss_settings['share_networks'] : array();
 
 			$networks = null;
 
