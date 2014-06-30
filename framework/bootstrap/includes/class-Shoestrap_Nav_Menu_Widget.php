@@ -25,7 +25,7 @@ class Shoestrap_Nav_Menu_Widget extends WP_Widget {
 		$instance['title'] = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
 		if ( $ss_settings['widgets_mode'] == 1 ) {
-			echo '<section id="widget-menu-' . $instance["nav_menu"] . '" class="widget">';
+			echo '<section id="widget-menu-' . $instance["nav_menu"] . '" class="widget widget_menu">';
 		} else {
 			echo $args['before_widget'];
 		}
