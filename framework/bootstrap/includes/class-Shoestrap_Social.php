@@ -97,7 +97,7 @@ if ( ! class_exists( 'Shoestrap_Social' ) ) {
 
 			$networks = null;
 
-			if ( isset( $nets['fb'] ) ) {
+			if ( isset( $nets['fb'] ) &&  $nets['fb'] ) {
 				$networks['facebook'] = array(
 					'icon'      => 'facebook',
 					'fullname'  => 'Facebook',
@@ -105,7 +105,7 @@ if ( ! class_exists( 'Shoestrap_Social' ) ) {
 				);
 			}
 
-			if ( isset( $nets['tw'] ) ) {
+			if ( isset( $nets['tw'] ) && $nets['tw'] ) {
 				$networks['twitter'] = array(
 					'icon'      => 'twitter',
 					'fullname'  => 'Twitter',
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Shoestrap_Social' ) ) {
 				}
 			}
 
-			if ( isset( $nets['rd'] ) ) {
+			if ( isset( $nets['rd'] ) && $nets['rd'] ) {
 				$networks['reddit'] = array(
 					'icon'      => 'reddit',
 					'fullname'  => 'Reddit',
@@ -128,7 +128,7 @@ if ( ! class_exists( 'Shoestrap_Social' ) ) {
 				);
 			}
 
-			if ( isset( $nets['li'] ) ) {
+			if ( isset( $nets['li'] ) && $nets['li'] ) {
 				$networks['linkedin'] = array(
 					'icon'      => 'linkedin',
 					'fullname'  => 'LinkedIn',
@@ -136,7 +136,7 @@ if ( ! class_exists( 'Shoestrap_Social' ) ) {
 				);
 			}
 
-			if ( isset( $nets['gp'] ) ) {
+			if ( isset( $nets['gp'] ) && $nets['gp'] ) {
 				$networks['googleplus'] = array(
 					'icon'      => 'googleplus',
 					'fullname'  => 'Google+',
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Shoestrap_Social' ) ) {
 				);
 			}
 
-			if ( isset( $nets['tu'] ) ) {
+			if ( isset( $nets['tu'] ) && $nets['tu'] ) {
 				$networks['tumblr'] = array(
 					'icon'      => 'tumblr',
 					'fullname'  => 'Tumblr',
@@ -152,7 +152,7 @@ if ( ! class_exists( 'Shoestrap_Social' ) ) {
 				);
 			}
 
-			if ( isset( $nets['pi'] ) ) {
+			if ( isset( $nets['pi'] ) && $nets['pi'] ) {
 				$networks['pinterest'] = array(
 					'icon'      => 'pinterest',
 					'fullname'  => 'Pinterest',
@@ -160,7 +160,7 @@ if ( ! class_exists( 'Shoestrap_Social' ) ) {
 				);
 			}
 
-			if ( isset( $nets['em'] ) ) {
+			if ( isset( $nets['em'] ) && $nets['em'] ) {
 				$networks['email'] = array(
 					'icon'      => 'envelope',
 					'fullname'  => 'Email',
